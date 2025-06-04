@@ -1,83 +1,11 @@
-
 import { useState, useEffect, useCallback } from 'react';
 
-// --- START of Web Speech Synthesis API Type Definitions ---
-// These types are normally part of lib.dom.d.ts. Adding them here for robustness.
-
-interface SpeechSynthesisVoice {
-  readonly default: boolean;
-  readonly lang: string;
-  readonly localService: boolean;
-  readonly name: string;
-  readonly voiceURI: string;
-}
-
-interface SpeechSynthesisErrorEvent extends Event { // Note: This is SpeechSynthesisErrorEvent, different from SpeechRecognitionErrorEvent
-  readonly charIndex: number;
-  readonly elapsedTime: number;
-  readonly error: string; // e.g., "canceled", "interrupted", "audio-busy", "audio-hardware", "network", "synthesis-unavailable", "synthesis-failed", "language-unavailable", "voice-unavailable", "text-too-long", "invalid-argument"
-  readonly name: string; // utterance name if set
-}
-
-interface SpeechSynthesisUtteranceEventMap {
-  "boundary": Event; // SpeechSynthesisEvent in some specs
-  "end": Event; // SpeechSynthesisEvent
-  "error": SpeechSynthesisErrorEvent;
-  "mark": Event; // SpeechSynthesisEvent
-  "pause": Event; // SpeechSynthesisEvent
-  "resume": Event; // SpeechSynthesisEvent
-  "start": Event; // SpeechSynthesisEvent
-}
-
-interface SpeechSynthesisUtterance extends EventTarget {
-  lang: string;
-  pitch: number;
-  rate: number;
-  text: string;
-  voice: SpeechSynthesisVoice | null;
-  volume: number;
-
-  onboundary: ((this: SpeechSynthesisUtterance, ev: Event) => any) | null; // SpeechSynthesisEvent
-  onend: ((this: SpeechSynthesisUtterance, ev: Event) => any) | null; // SpeechSynthesisEvent
-  onerror: ((this: SpeechSynthesisUtterance, ev: SpeechSynthesisErrorEvent) => any) | null;
-  onmark: ((this: SpeechSynthesisUtterance, ev: Event) => any) | null; // SpeechSynthesisEvent
-  onpause: ((this: SpeechSynthesisUtterance, ev: Event) => any) | null; // SpeechSynthesisEvent
-  onresume: ((this: SpeechSynthesisUtterance, ev: Event) => any) | null; // SpeechSynthesisEvent
-  onstart: ((this: SpeechSynthesisUtterance, ev: Event) => any) | null; // SpeechSynthesisEvent
-
-  addEventListener<K extends keyof SpeechSynthesisUtteranceEventMap>(type: K, listener: (this: SpeechSynthesisUtterance, ev: SpeechSynthesisUtteranceEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-  addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-  removeEventListener<K extends keyof SpeechSynthesisUtteranceEventMap>(type: K, listener: (this: SpeechSynthesisUtterance, ev: SpeechSynthesisUtteranceEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-  removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-}
-
-interface SpeechSynthesis extends EventTarget {
-  readonly paused: boolean;
-  readonly pending: boolean;
-  readonly speaking: boolean;
-
-  cancel(): void;
-  getVoices(): SpeechSynthesisVoice[];
-  pause(): void;
-  resume(): void;
-  speak(utterance: SpeechSynthesisUtterance): void;
-
-  onvoiceschanged: ((this: SpeechSynthesis, ev: Event) => any) | null;
-}
-
-// Constructor for SpeechSynthesisUtterance
-interface SpeechSynthesisUtteranceStatic {
-    new(text?: string): SpeechSynthesisUtterance;
-    prototype: SpeechSynthesisUtterance;
-}
-
-// --- END of Web Speech Synthesis API Type Definitions ---
-
 // Make sure window.speechSynthesis and window.SpeechSynthesisUtterance are typed
+// This will now refer to global types from lib.dom.d.ts or similar.
 declare global {
     interface Window {
-        speechSynthesis: SpeechSynthesis;
-        SpeechSynthesisUtterance: SpeechSynthesisUtteranceStatic;
+        readonly speechSynthesis: SpeechSynthesis;
+        SpeechSynthesisUtterance: typeof SpeechSynthesisUtterance;
     }
 }
 
@@ -129,20 +57,28 @@ export const useSpeechSynthesis = (): SpeechSynthesisHook => {
         setError("Speech synthesis utterance not supported.");
         return;
     }
-    if (isSpeaking) { // If already speaking, cancel current and start new, or queue? For now, let's avoid overlapping.
-      window.speechSynthesis.cancel(); // Cancel current speech first
+    if (isSpeaking) { 
+      window.speechSynthesis.cancel(); 
     }
 
-    const utterance = new window.SpeechSynthesisUtterance(text);
+    // Clean text for speech: remove markdown like **bold** -> bold
+    // Also remove other potential artifacts if necessary.
+    // For now, focusing on asterisks used for bolding, as other complex symbols
+    // like VISUAL_HINT are already stripped by geminiService.
+    const cleanedText = text
+        .replace(/\*\*(.*?)\*\*/g, '$1') // **bold** to bold
+        .replace(/[*_#]/g, ''); // Remove loose asterisks, underscores, hashes
+
+    const utterance = new window.SpeechSynthesisUtterance(cleanedText);
     utterance.lang = lang;
     if (voice) {
       utterance.voice = voice;
     } else {
-      const defaultVoice = voices.find(v => v.lang.startsWith(lang.split('-')[0]) && v.default); // Try to match language prefix and default
+      const defaultVoice = voices.find(v => v.lang.startsWith(lang.split('-')[0]) && v.default); 
       if (defaultVoice) {
         utterance.voice = defaultVoice;
       } else {
-        const englishFallback = voices.find(v => v.lang.startsWith('en') && v.default); // Fallback to default English voice
+        const englishFallback = voices.find(v => v.lang.startsWith('en') && v.default); 
         if (englishFallback) utterance.voice = englishFallback;
       }
     }
@@ -154,7 +90,7 @@ export const useSpeechSynthesis = (): SpeechSynthesisHook => {
     utterance.onend = () => {
       setIsSpeaking(false);
     };
-    utterance.onerror = (event: SpeechSynthesisErrorEvent) => { // Use the defined SpeechSynthesisErrorEvent
+    utterance.onerror = (event: SpeechSynthesisErrorEvent) => { 
       console.error('Speech synthesis error:', event.error);
       setError(`Speech synthesis error: ${event.error}`);
       setIsSpeaking(false);
