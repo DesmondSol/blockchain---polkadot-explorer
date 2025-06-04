@@ -26,7 +26,7 @@ const App: React.FC = () => {
 
   const [learningPath, setLearningPath] = useState<LearningPath>(null);
   const [activeTab, setActiveTab] = useState<ActiveTab>('home');
-  
+
   const [userNickname, setUserNickname] = useState<string>('Crypto Explorer');
   const [achievements, setAchievements] = useState<string[]>([
     "Initiated Learner"
@@ -66,7 +66,7 @@ const App: React.FC = () => {
   useEffect(() => {
     localStorage.setItem('userAchievements', JSON.stringify(achievements));
   }, [achievements]);
-  
+
   useEffect(() => {
     localStorage.setItem('userNickname', userNickname);
   }, [userNickname]);
@@ -74,7 +74,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     if (!learningPath && activeTab === 'chat') {
-        setChatMessages([]); 
+      setChatMessages([]);
     }
   }, [learningPath, activeTab]);
 
@@ -90,7 +90,7 @@ const App: React.FC = () => {
     setShowOnboardingModal(false);
     localStorage.setItem('hasCompletedOnboarding', 'true');
     if (expertise.trim() && !achievements.includes("Personalized Learner")) {
-        setAchievements(prev => [...prev, "Personalized Learner"]);
+      setAchievements(prev => [...prev, "Personalized Learner"]);
     }
   };
 
@@ -101,18 +101,18 @@ const App: React.FC = () => {
 
 
   const handleSendMessage = useCallback(async (messageText: string, isAutomatedFirstMessage = false) => {
-    if (!messageText.trim() || !learningPath) return; 
+    if (!messageText.trim() || !learningPath) return;
 
     if (!isAutomatedFirstMessage) {
-        const newUserMessage: ChatMessage = {
-          id: Date.now().toString() + '-user',
-          text: messageText,
-          sender: Sender.User,
-          timestamp: Date.now(),
-        };
-        setChatMessages(prev => [...prev, newUserMessage]);
+      const newUserMessage: ChatMessage = {
+        id: Date.now().toString() + '-user',
+        text: messageText,
+        sender: Sender.User,
+        timestamp: Date.now(),
+      };
+      setChatMessages(prev => [...prev, newUserMessage]);
     }
-    
+
     setIsLoading(true);
     setError(null);
 
@@ -120,12 +120,12 @@ const App: React.FC = () => {
       const currentContextMessages = isAutomatedFirstMessage ? [] : chatMessages;
       // Pass userExpertise to the AI service
       const { text: aiResponseText, visualHint, suggestedTopics } = await sendMessageToGemini(
-        messageText, 
-        currentContextMessages, 
+        messageText,
+        currentContextMessages,
         learningPath,
         userExpertise // Pass the collected user expertise
       );
-      
+
       const newAiMessage: ChatMessage = {
         id: Date.now().toString() + '-ai',
         text: aiResponseText,
@@ -138,11 +138,11 @@ const App: React.FC = () => {
       if (visualHint) {
         setCurrentVisualKeyword(visualHint);
       }
-      
+
       if (isAutoSpeakEnabled && browserSupportsSpeechSynthesis) {
         speak(aiResponseText);
       }
-      
+
       if (chatMessages.length > 5 && !achievements.includes("Curious Chatterbox")) {
         setAchievements(prev => [...prev, "Curious Chatterbox"]);
       }
@@ -174,26 +174,26 @@ const App: React.FC = () => {
 
   const handleSelectPath = (path: 'blockchainBasics' | 'polkadotAdvanced') => {
     setLearningPath(path);
-    setChatMessages([]); 
-    
-    const firstUserQuery = path === 'blockchainBasics' 
-      ? Constants.INITIAL_PROMPT_BASICS 
+    setChatMessages([]);
+
+    const firstUserQuery = path === 'blockchainBasics'
+      ? Constants.INITIAL_PROMPT_BASICS
       : Constants.INITIAL_PROMPT_POLKADOT;
-    
+
     const initialUserMessage: ChatMessage = {
-        id: Date.now().toString() + '-init-user',
-        text: firstUserQuery,
-        sender: Sender.User,
-        timestamp: Date.now(),
+      id: Date.now().toString() + '-init-user',
+      text: firstUserQuery,
+      sender: Sender.User,
+      timestamp: Date.now(),
     };
-    setChatMessages([initialUserMessage]); 
-    handleSendMessage(firstUserQuery, true); 
-    setActiveTab('chat'); 
+    setChatMessages([initialUserMessage]);
+    handleSendMessage(firstUserQuery, true);
+    setActiveTab('chat');
 
     if (path === 'blockchainBasics' && !achievements.includes("Blockchain Basics Started")) {
-        setAchievements(prev => [...prev, "Blockchain Basics Started"]);
+      setAchievements(prev => [...prev, "Blockchain Basics Started"]);
     } else if (path === 'polkadotAdvanced' && !achievements.includes("Polkadot Advanced Started")) {
-        setAchievements(prev => [...prev, "Polkadot Advanced Started"]);
+      setAchievements(prev => [...prev, "Polkadot Advanced Started"]);
     }
   };
 
@@ -226,15 +226,15 @@ const App: React.FC = () => {
                   Explore More Resources
                 </h3>
                 <div className="space-y-4 max-w-md mx-auto">
-                  <button 
-                    onClick={() => window.open('#blockchain-resources-placeholder', '_blank')} 
+                  <button
+                    onClick={() => window.location.href = 'https://docs.polkadot.com/'}
                     className={`${pathwayButtonClasses} w-full`}
                   >
                     <i className="fas fa-book-open mr-2"></i>
                     <span>Blockchain Deep Dive</span>
                   </button>
-                  <button 
-                    onClick={() => window.open('#polkadot-resources-placeholder', '_blank')} 
+                  <button
+                    onClick={() => window.location.href = 'https://docs.polkadot.com/'}
                     className={`${pathwayButtonClasses} w-full`}
                   >
                     <i className="fas fa-link mr-2"></i>
@@ -243,7 +243,7 @@ const App: React.FC = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div >
         );
       case 'chat':
         if (!learningPath) {
@@ -255,8 +255,8 @@ const App: React.FC = () => {
                 <p className="text-gray-300 mb-6">
                   Please go to the <i className="fas fa-home mx-1"></i><strong>Home</strong> tab to choose a learning path to begin your chat session.
                 </p>
-                <button 
-                  onClick={() => setActiveTab('home')} 
+                <button
+                  onClick={() => setActiveTab('home')}
                   className="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors"
                 >
                   Go to Home
@@ -281,19 +281,19 @@ const App: React.FC = () => {
         );
       case 'profile':
         return (
-          <ProfileScreen 
+          <ProfileScreen
             nickname={userNickname}
             onNicknameChange={setUserNickname}
             achievements={achievements}
             expertise={userExpertise}
             onExpertiseChange={(newExpertise) => {
-                setUserExpertise(newExpertise);
-                localStorage.setItem('userExpertise', newExpertise);
-                 if (newExpertise.trim() && !achievements.includes("Personalized Learner")) {
-                    setAchievements(prev => [...prev, "Personalized Learner"]);
-                } else if (!newExpertise.trim() && achievements.includes("Personalized Learner")) {
-                    setAchievements(prev => prev.filter(ach => ach !== "Personalized Learner"));
-                }
+              setUserExpertise(newExpertise);
+              localStorage.setItem('userExpertise', newExpertise);
+              if (newExpertise.trim() && !achievements.includes("Personalized Learner")) {
+                setAchievements(prev => [...prev, "Personalized Learner"]);
+              } else if (!newExpertise.trim() && achievements.includes("Personalized Learner")) {
+                setAchievements(prev => prev.filter(ach => ach !== "Personalized Learner"));
+              }
             }}
           />
         );
@@ -305,9 +305,9 @@ const App: React.FC = () => {
   return (
     <div className="relative min-h-screen font-sans text-white bg-gray-900 flex flex-col">
       <VisualBackground keyword={currentVisualKeyword} />
-      
+
       {showOnboardingModal && (
-        <OnboardingModal 
+        <OnboardingModal
           onSubmit={handleOnboardingSubmit}
           onSkip={handleOnboardingSkip}
         />
@@ -321,14 +321,14 @@ const App: React.FC = () => {
             </h1>
             <div className="flex items-center space-x-1 md:space-x-2">
               {browserSupportsSpeechSynthesis && (
-                 <IconButton
+                <IconButton
                   iconClass={isAutoSpeakEnabled ? "fas fa-volume-up" : "fas fa-volume-mute"}
                   onClick={toggleAutoSpeak}
                   tooltip={isAutoSpeakEnabled ? "Disable AI Speech" : "Enable AI Speech"}
                   className={`p-2 rounded-full transition-colors text-sm md:text-base ${isAutoSpeakEnabled ? 'bg-purple-500 hover:bg-purple-600' : 'bg-gray-600 hover:bg-gray-500'} text-white`}
                 />
               )}
-              {browserSupportsSpeechRecognition && activeTab === 'chat' && learningPath && ( 
+              {browserSupportsSpeechRecognition && activeTab === 'chat' && learningPath && (
                 <IconButton
                   iconClass={isListening ? "fas fa-microphone-slash" : "fas fa-microphone"}
                   onClick={isListening ? stopListening : startListening}
@@ -338,8 +338,8 @@ const App: React.FC = () => {
               )}
             </div>
           </header>
-          
-          <main className="flex-grow overflow-y-auto pt-16 md:pt-20 pb-16 md:pb-20 z-10"> 
+
+          <main className="flex-grow overflow-y-auto pt-16 md:pt-20 pb-16 md:pb-20 z-10">
             {renderContent()}
           </main>
 

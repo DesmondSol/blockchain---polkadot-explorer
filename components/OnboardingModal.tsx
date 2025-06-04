@@ -18,7 +18,7 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({ onSubmit, onSk
       <div className="bg-gray-800 p-6 md:p-8 rounded-lg shadow-2xl w-full max-w-lg modal-content transform transition-all duration-300 ease-out scale-95 opacity-0 animate-modalFadeInScale">
         <h2 className="text-2xl font-bold text-purple-300 mb-4">Let's Personalize Your Learning!</h2>
         <p className="text-gray-300 mb-1">
-          Tell us a bit about your background, current role, or area of expertise (e.g., "Software Developer", "Student in Finance", "Marketing Manager", "Curious about Web3").
+          Tell us a bit about your background, current role, or area of expertise (e.g., "Software Developer", "Student in Finance", "Marketing Manager").
         </p>
         <p className="text-gray-400 text-sm mb-6">
           This will help us tailor examples and explanations to what you already know, making complex topics easier to grasp.
