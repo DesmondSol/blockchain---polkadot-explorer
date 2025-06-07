@@ -1,0 +1,138 @@
+{
+  "appTitle": "Explorador de Blockchain y Polkadot",
+  "common": {
+    "save": "Guardar",
+    "edit": "Editar",
+    "cancel": "Cancelar",
+    "submit": "Enviar",
+    "skip": "Omitir"
+  },
+  "tooltips": {
+    "changeLanguage": "Cambiar Idioma",
+    "enableAiSpeech": "Habilitar Voz IA",
+    "disableAiSpeech": "Deshabilitar Voz IA",
+    "startListening": "Comenzar a Escuchar",
+    "stopListening": "Dejar de Escuchar",
+    "openTopics": "Abrir Panel de Temas",
+    "closeTopics": "Cerrar Panel de Temas",
+    "closeTopicsPanel": "Cerrar Panel de Temas",
+    "sendMessage": "Enviar Mensaje"
+  },
+  "home": {
+    "title": "Elige Tu Ruta de Aprendizaje",
+    "blockchainBasicsButton": "Conceptos Básicos de Blockchain",
+    "polkadotAdvancedButton": "Polkadot Avanzado",
+    "resourcesTitle": "Explora Más Recursos",
+    "blockchainDeepDiveButton": "Profundización en Blockchain",
+    "polkadotEcosystemButton": "Enlaces del Ecosistema Polkadot"
+  },
+  "chat": {
+    "pathTitleBasics": "Ruta de Conceptos Básicos de Blockchain",
+    "pathTitlePolkadot": "Ruta de Polkadot Avanzado",
+    "noPathSelectedTitle": "No Hay Ruta de Aprendizaje Seleccionada",
+    "noPathSelectedMessage": "Por favor, ve a la pestaña <i class=\"fas fa-home mx-1\"></i><strong>Inicio</strong> para elegir una ruta de aprendizaje y comenzar tu sesión de chat.",
+    "goToHomeButton": "Ir a Inicio",
+    "inputPlaceholderListening": "Escuchando...",
+    "inputPlaceholderTypeMessage": "Escribe tu mensaje...",
+    "inputPlaceholderSelectPath": "Selecciona primero una ruta de aprendizaje",
+    "inputPlaceholderTypeOrMic": "Escribe o usa el micrófono...",
+    "inputAriaLabel": "Entrada de chat",
+    "micNotSupported": "Tu navegador no soporta reconocimiento de voz.",
+    "selectPathPrompt": "Por favor, selecciona una ruta de aprendizaje desde Inicio para comenzar a chatear."
+  },
+  "chatMessage": {
+    "sourcesTitle": "Fuentes:",
+    "sourceAriaLabelPrefix": "Fuente:",
+    "suggestedTopicsTitle": "A continuación, podrías explorar:",
+    "exploreTopicAriaLabelPrefix": "Explorar tema:"
+  },
+  "sidePanel": {
+    "titleBlockchainBasics": "Temas de Blockchain Básico",
+    "titlePolkadotAdvanced": "Temas de Polkadot Avanzado",
+    "noTopics": "No hay temas disponibles para la selección actual.",
+    "footerHint": "¡Selecciona un tema para aprender más!",
+    "completedAriaPrefix": "Completado: ",
+    "clickToLearnMoreAriaSuffix": "Haz clic para aprender más."
+  },
+  "profile": {
+    "title": "Tu Perfil",
+    "defaultNickname": "Explorador Cripto",
+    "nicknameTitle": "Apodo",
+    "editNicknameAriaLabel": "Editar apodo",
+    "saveNicknameButtonAriaLabel": "Guardar apodo",
+    "cancelEditingNicknameAriaLabel": "Cancelar edición de apodo",
+    "editNicknameButtonAriaLabel": "Editar apodo",
+    "expertiseTitle": "Tu Experiencia/Conocimientos",
+    "editExpertiseAriaLabel": "Edita tu experiencia",
+    "expertisePlaceholder": "Ej: 'Desarrollador frontend', 'Profesional de marketing'",
+    "saveExpertiseButton": "Guardar Experiencia",
+    "saveExpertiseButtonAriaLabel": "Guardar experiencia",
+    "cancelEditingExpertiseAriaLabel": "Cancelar edición de experiencia",
+    "expertiseNotSpecified": "Aún no especificado. ¡Añade tu experiencia para personalizar los ejemplos!",
+    "editExpertiseButtonAriaLabel": "Editar experiencia",
+    "achievementsTitle": "Logros",
+    "noAchievements": "Aún no has desbloqueado logros. ¡Sigue aprendiendo y explorando!"
+  },
+  "onboarding": {
+    "title": "¡Personalicemos Tu Aprendizaje!",
+    "description1": "Cuéntanos un poco sobre tu experiencia, rol actual o área de especialización (ej: \"Desarrollador de Software\", \"Estudiante de Finanzas\", \"Gerente de Marketing\", \"Curioso sobre Web3\").",
+    "description2": "Esto nos ayudará a adaptar ejemplos y explicaciones a lo que ya sabes, facilitando la comprensión de temas complejos.",
+    "textAreaPlaceholder": "Ej: 'Desarrollador frontend con 3 años de experiencia', 'Profesional de marketing nuevo en tecnología', 'Estudiante de economía'",
+    "textAreaAriaLabel": "Describe tu experiencia o conocimientos",
+    "skipButton": "Omitir por Ahora",
+    "skipButtonAriaLabel": "Omitir proporcionar experiencia por ahora",
+    "submitButton": "Enviar y Comenzar a Aprender",
+    "submitButtonAriaLabel": "Enviar experiencia y comenzar a aprender"
+  },
+  "bottomNav": {
+    "home": "Inicio",
+    "chat": "Chat",
+    "profile": "Perfil"
+  },
+  "loadingSpinner": {
+    "aiThinking": "IA está pensando..."
+  },
+  "errors": {
+    "speechRecognitionError": "Error de reconocimiento de voz: {{message}}",
+    "unknownAiError": "Ocurrió un error desconocido con el servicio de IA.",
+    "aiErrorPrefix": "Error: {{message}}"
+  },
+  "initialPrompts": {
+    "basics": "Soy nuevo en blockchain. ¿Puedes darme una introducción simple a los Conceptos Básicos de Blockchain para empezar?",
+    "polkadot": "Tengo algunos conocimientos sobre blockchain. Por favor, proporciona una visión general de Polkadot, centrándote en sus características clave y arquitectura para usuarios avanzados. Intenta usar información de la Wiki de Polkadot."
+  },
+  "userExpertise": {
+    "noneProvided": "Ninguno proporcionado"
+  },
+  "achievements": {
+    "initiatedLearner": { "name": "Aprendiz Iniciado" },
+    "blockchainBasicsStarted": { "name": "Iniciado en Blockchain Básico" },
+    "polkadotAdvancedStarted": { "name": "Iniciado en Polkadot Avanzado" },
+    "curiousChatterbox": { "name": "Conversador Curioso" },
+    "explorerGuide": { "name": "Guía Explorador" },
+    "personalizedLearner": { "name": "Aprendiz Personalizado" },
+    "sourceSeeker": { "name": "Buscador de Fuentes" },
+    "firstTopicConquered": { "name": "Primer Tema Conquistado" },
+    "pathMaster": { "name": "Maestro de la Ruta" }
+  },
+  "mustLearn": {
+    "blockchainBasics": {
+      "whatIsBlockchain": { "title": "¿Qué es Blockchain?", "description": "Comprende el concepto fundamental de un libro mayor distribuido." },
+      "howBlockchainWorks": { "title": "¿Cómo Funciona Blockchain?", "description": "Aprende sobre bloques, cadenas y hash criptográfico." },
+      "decentralizationImmutability": { "title": "Descentralización e Inmutabilidad", "description": "Propiedades clave de la tecnología blockchain." },
+      "typesOfBlockchains": { "title": "Tipos de Blockchains", "description": "Explora blockchains Públicas, Privadas y de Consorcio." },
+      "whatAreCryptocurrencies": { "title": "¿Qué son las Criptomonedas?", "description": "Introducción a monedas digitales como Bitcoin y Ether." },
+      "smartContractsExplained": { "title": "Explicación de Contratos Inteligentes", "description": "Descubre contratos auto-ejecutables con reglas predefinidas." },
+      "useCasesBlockchain": { "title": "Casos de Uso de Blockchain", "description": "Aplicaciones del mundo real más allá de las criptomonedas." }
+    },
+    "polkadotAdvanced": {
+      "polkadotArchitecture": { "title": "Arquitectura de Polkadot", "description": "Relay Chain, Parachains, Parathreads y Puentes." },
+      "sharedSecurityModel": { "title": "Modelo de Seguridad Compartida", "description": "Cómo Polkadot asegura su red de parachains." },
+      "crossChainCommunication": { "title": "Comunicación entre Cadenas (XCMP)", "description": "Permitiendo la interoperabilidad entre diferentes blockchains." },
+      "polkadotGovernance": { "title": "Gobernanza de Polkadot", "description": "Tesorería en cadena, Consejo y Comité Técnico." },
+      "substrateFramework": { "title": "Framework Substrate", "description": "Un marco modular para construir blockchains personalizadas." },
+      "stakingNominationPolkadot": { "title": "Staking y Nominación (NPoS)", "description": "Participa en la seguridad de la red y gana recompensas." },
+      "kusamaCanaryNetwork": { "title": "Kusama: Red Canaria de Polkadot", "description": "La red experimental de Polkadot para implementaciones tempranas." }
+    }
+  }
+}

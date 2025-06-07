@@ -1,0 +1,139 @@
+
+{
+  "appTitle": "Blockchain & Polkadot Explorer (Amharic)",
+  "common": {
+    "save": "Save (Amharic)",
+    "edit": "Edit (Amharic)",
+    "cancel": "Cancel (Amharic)",
+    "submit": "Submit (Amharic)",
+    "skip": "Skip (Amharic)"
+  },
+  "tooltips": {
+    "changeLanguage": "Change Language (Amharic)",
+    "enableAiSpeech": "Enable AI Speech (Amharic)",
+    "disableAiSpeech": "Disable AI Speech (Amharic)",
+    "startListening": "Start Listening (Amharic)",
+    "stopListening": "Stop Listening (Amharic)",
+    "openTopics": "Open Topics Panel (Amharic)",
+    "closeTopics": "Close Topics Panel (Amharic)",
+    "closeTopicsPanel": "Close Topics Panel (Amharic)",
+    "sendMessage": "Send Message (Amharic)"
+  },
+  "home": {
+    "title": "Choose Your Learning Path (Amharic)",
+    "blockchainBasicsButton": "Blockchain Basics (Amharic)",
+    "polkadotAdvancedButton": "Polkadot Advanced (Amharic)",
+    "resourcesTitle": "Explore More Resources (Amharic)",
+    "blockchainDeepDiveButton": "Blockchain Deep Dive (Amharic)",
+    "polkadotEcosystemButton": "Polkadot Ecosystem Links (Amharic)"
+  },
+  "chat": {
+    "pathTitleBasics": "Blockchain Basics Path (Amharic)",
+    "pathTitlePolkadot": "Polkadot Advanced Path (Amharic)",
+    "noPathSelectedTitle": "No Learning Path Selected (Amharic)",
+    "noPathSelectedMessage": "Please go to the <i class=\"fas fa-home mx-1\"></i><strong>Home</strong> tab to choose a learning path to begin your chat session (Amharic).",
+    "goToHomeButton": "Go to Home (Amharic)",
+    "inputPlaceholderListening": "Listening... (Amharic)",
+    "inputPlaceholderTypeMessage": "Type your message... (Amharic)",
+    "inputPlaceholderSelectPath": "Select a learning path first (Amharic)",
+    "inputPlaceholderTypeOrMic": "Type or use mic... (Amharic)",
+    "inputAriaLabel": "Chat input (Amharic)",
+    "micNotSupported": "Your browser does not support speech recognition (Amharic).",
+    "selectPathPrompt": "Please select a learning path from Home to start chatting (Amharic)."
+  },
+  "chatMessage": {
+    "sourcesTitle": "Sources: (Amharic)",
+    "sourceAriaLabelPrefix": "Source: (Amharic)",
+    "suggestedTopicsTitle": "Next, you could explore: (Amharic)",
+    "exploreTopicAriaLabelPrefix": "Explore topic: (Amharic)"
+  },
+  "sidePanel": {
+    "titleBlockchainBasics": "Blockchain Basics Topics (Amharic)",
+    "titlePolkadotAdvanced": "Polkadot Advanced Topics (Amharic)",
+    "noTopics": "No topics available for the current selection (Amharic).",
+    "footerHint": "Select a topic to learn more! (Amharic)",
+    "completedAriaPrefix": "Completed: (Amharic)",
+    "clickToLearnMoreAriaSuffix": "Click to learn more (Amharic)."
+  },
+  "profile": {
+    "title": "Your Profile (Amharic)",
+    "defaultNickname": "Crypto Explorer (Amharic)",
+    "nicknameTitle": "Nickname (Amharic)",
+    "editNicknameAriaLabel": "Edit nickname (Amharic)",
+    "saveNicknameButtonAriaLabel": "Save nickname (Amharic)",
+    "cancelEditingNicknameAriaLabel": "Cancel editing nickname (Amharic)",
+    "editNicknameButtonAriaLabel": "Edit nickname (Amharic)",
+    "expertiseTitle": "Your Background/Expertise (Amharic)",
+    "editExpertiseAriaLabel": "Edit your expertise (Amharic)",
+    "expertisePlaceholder": "E.g., 'Frontend developer', 'Marketing professional' (Amharic)",
+    "saveExpertiseButton": "Save Expertise (Amharic)",
+    "saveExpertiseButtonAriaLabel": "Save expertise (Amharic)",
+    "cancelEditingExpertiseAriaLabel": "Cancel editing expertise (Amharic)",
+    "expertiseNotSpecified": "Not specified yet. Add your background to help personalize examples! (Amharic)",
+    "editExpertiseButtonAriaLabel": "Edit expertise (Amharic)",
+    "achievementsTitle": "Achievements (Amharic)",
+    "noAchievements": "No achievements unlocked yet. Keep learning and exploring! (Amharic)"
+  },
+  "onboarding": {
+    "title": "Let's Personalize Your Learning! (Amharic)",
+    "description1": "Tell us a bit about your background, current role, or area of expertise (e.g., \"Software Developer\", \"Student in Finance\", \"Marketing Manager\", \"Curious about Web3\") (Amharic).",
+    "description2": "This will help us tailor examples and explanations to what you already know, making complex topics easier to grasp (Amharic).",
+    "textAreaPlaceholder": "E.g., 'Frontend developer with 3 years experience', 'Marketing professional new to tech', 'Economics student' (Amharic)",
+    "textAreaAriaLabel": "Describe your experience or expertise (Amharic)",
+    "skipButton": "Skip for Now (Amharic)",
+    "skipButtonAriaLabel": "Skip providing expertise for now (Amharic)",
+    "submitButton": "Submit & Start Learning (Amharic)",
+    "submitButtonAriaLabel": "Submit expertise and start learning (Amharic)"
+  },
+  "bottomNav": {
+    "home": "Home (Amharic)",
+    "chat": "Chat (Amharic)",
+    "profile": "Profile (Amharic)"
+  },
+  "loadingSpinner": {
+    "aiThinking": "AI is thinking... (Amharic)"
+  },
+  "errors": {
+    "speechRecognitionError": "Speech recognition error: {{message}} (Amharic)",
+    "unknownAiError": "An unknown error occurred with the AI service (Amharic).",
+    "aiErrorPrefix": "Error: {{message}} (Amharic)"
+  },
+  "initialPrompts": {
+    "basics": "I'm new to blockchain. Can you give me a simple introduction to Blockchain Basics to get me started? (Amharic)",
+    "polkadot": "I have some blockchain knowledge. Please provide an overview of Polkadot, focusing on its key features and architecture for advanced users. Try to use information from the Polkadot Wiki (Amharic)."
+  },
+  "userExpertise": {
+    "noneProvided": "None provided (Amharic)"
+  },
+  "achievements": {
+    "initiatedLearner": { "name": "Initiated Learner (Amharic)" },
+    "blockchainBasicsStarted": { "name": "Blockchain Basics Started (Amharic)" },
+    "polkadotAdvancedStarted": { "name": "Polkadot Advanced Started (Amharic)" },
+    "curiousChatterbox": { "name": "Curious Chatterbox (Amharic)" },
+    "explorerGuide": { "name": "Explorer Guide (Amharic)" },
+    "personalizedLearner": { "name": "Personalized Learner (Amharic)" },
+    "sourceSeeker": { "name": "Source Seeker (Amharic)" },
+    "firstTopicConquered": { "name": "First Topic Conquered (Amharic)" },
+    "pathMaster": { "name": "Path Master (Amharic)" }
+  },
+  "mustLearn": {
+    "blockchainBasics": {
+      "whatIsBlockchain": { "title": "What is a Blockchain? (Amharic)", "description": "Understand the fundamental concept of a distributed ledger (Amharic)." },
+      "howBlockchainWorks": { "title": "How Does Blockchain Work? (Amharic)", "description": "Learn about blocks, chains, and cryptographic hashing (Amharic)." },
+      "decentralizationImmutability": { "title": "Decentralization and Immutability (Amharic)", "description": "Key properties of blockchain technology (Amharic)." },
+      "typesOfBlockchains": { "title": "Types of Blockchains (Amharic)", "description": "Explore Public, Private, and Consortium blockchains (Amharic)." },
+      "whatAreCryptocurrencies": { "title": "What are Cryptocurrencies? (Amharic)", "description": "Introduction to digital currencies like Bitcoin and Ether (Amharic)." },
+      "smartContractsExplained": { "title": "Smart Contracts Explained (Amharic)", "description": "Discover self-executing contracts with predefined rules (Amharic)." },
+      "useCasesBlockchain": { "title": "Use Cases of Blockchain (Amharic)", "description": "Real-world applications beyond cryptocurrencies (Amharic)." }
+    },
+    "polkadotAdvanced": {
+      "polkadotArchitecture": { "title": "Polkadot Architecture (Amharic)", "description": "Relay Chain, Parachains, Parathreads, and Bridges (Amharic)." },
+      "sharedSecurityModel": { "title": "Shared Security Model (Amharic)", "description": "How Polkadot secures its network of parachains (Amharic)." },
+      "crossChainCommunication": { "title": "Cross-Chain Communication (XCMP) (Amharic)", "description": "Enabling interoperability between different blockchains (Amharic)." },
+      "polkadotGovernance": { "title": "Polkadot Governance (Amharic)", "description": "On-chain Treasury, Council, and Technical Committee (Amharic)." },
+      "substrateFramework": { "title": "Substrate Framework (Amharic)", "description": "A modular framework for building custom blockchains (Amharic)." },
+      "stakingNominationPolkadot": { "title": "Staking and Nomination (NPoS) (Amharic)", "description": "Participate in network security and earn rewards (Amharic)." },
+      "kusamaCanaryNetwork": { "title": "Kusama: Polkadot's Canary Network (Amharic)", "description": "Polkadot's experimental network for early deployments (Amharic)." }
+    }
+  }
+}

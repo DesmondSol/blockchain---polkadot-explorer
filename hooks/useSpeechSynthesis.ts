@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useCallback } from 'react';
 
 // Make sure window.speechSynthesis and window.SpeechSynthesisUtterance are typed
@@ -74,12 +75,38 @@ export const useSpeechSynthesis = (): SpeechSynthesisHook => {
     if (voice) {
       utterance.voice = voice;
     } else {
-      const defaultVoice = voices.find(v => v.lang.startsWith(lang.split('-')[0]) && v.default); 
-      if (defaultVoice) {
-        utterance.voice = defaultVoice;
-      } else {
-        const englishFallback = voices.find(v => v.lang.startsWith('en') && v.default); 
-        if (englishFallback) utterance.voice = englishFallback;
+      // Try to find a voice that exactly matches the lang (e.g., 'en-US') and is default
+      let selectedVoice = voices.find(v => v.lang === lang && v.default);
+      
+      // If not found, try to find any voice for the lang (e.g., 'en-US')
+      if (!selectedVoice) {
+        selectedVoice = voices.find(v => v.lang === lang);
+      }
+
+      // If still not found, try to find a voice for the primary language (e.g., 'en') and is default
+      if (!selectedVoice) {
+        const primaryLang = lang.split('-')[0];
+        selectedVoice = voices.find(v => v.lang.startsWith(primaryLang) && v.default);
+      }
+
+      // If still not found, try any voice for the primary language
+      if (!selectedVoice) {
+        const primaryLang = lang.split('-')[0];
+        selectedVoice = voices.find(v => v.lang.startsWith(primaryLang));
+      }
+      
+      // Fallback to any English default voice if the target language voice is not found
+      if (!selectedVoice) {
+        selectedVoice = voices.find(v => v.lang.startsWith('en') && v.default);
+      }
+
+      // Finally, if still no voice, assign the first available voice as a last resort
+      if (!selectedVoice && voices.length > 0) {
+        selectedVoice = voices[0]; 
+      }
+        
+      if (selectedVoice) {
+        utterance.voice = selectedVoice;
       }
     }
     
@@ -91,8 +118,13 @@ export const useSpeechSynthesis = (): SpeechSynthesisHook => {
       setIsSpeaking(false);
     };
     utterance.onerror = (event: SpeechSynthesisErrorEvent) => { 
-      console.error('Speech synthesis error:', event.error);
-      setError(`Speech synthesis error: ${event.error}`);
+      console.error('Speech synthesis event error:', event.error);
+      // "interrupted" is often a result of cancelling speech, not a true error.
+      if (event.error === 'interrupted') {
+        console.warn('Speech synthesis was interrupted (likely intended).');
+      } else {
+        setError(`Speech synthesis error: ${event.error}`);
+      }
       setIsSpeaking(false);
     };
     

@@ -1,6 +1,7 @@
-import { GoogleGenAI, GenerateContentResponse, Part, Content } from "@google/genai";
-import { ChatMessage, GeminiResponse, Sender } from '../types';
-import { GEMINI_MODEL_TEXT, SYSTEM_INSTRUCTION as SYSTEM_INSTRUCTION_TEMPLATE, MAX_CHAT_HISTORY_FOR_CONTEXT } from '../constants';
+
+import { GoogleGenAI, GenerateContentResponse, Part, Content, Tool } from "@google/genai";
+import { ChatMessage, GeminiResponse, Sender, GroundingChunk } from '../types';
+import { GEMINI_MODEL_TEXT, SYSTEM_INSTRUCTION_TEMPLATE, MAX_CHAT_HISTORY_FOR_CONTEXT } from '../constants';
 
 const API_KEY = process.env.API_KEY;
 
@@ -10,12 +11,11 @@ if (!API_KEY) {
 
 const ai = new GoogleGenAI({ apiKey: API_KEY! }); 
 
-const parseAiResponsePayload = (responseText: string): GeminiResponse => {
+const parseAiResponsePayload = (responseText: string, groundingMetadata?: any): GeminiResponse => {
   let text = responseText;
   let visualHint: string | undefined = undefined;
   let suggestedTopics: string[] | undefined = undefined;
 
-  // Extract Visual Hint
   const hintRegex = /VISUAL_HINT:\s*\[?(.*?)\]?$/im;
   const hintMatch = text.match(hintRegex);
   if (hintMatch && hintMatch[1]) {
@@ -23,7 +23,6 @@ const parseAiResponsePayload = (responseText: string): GeminiResponse => {
     text = text.replace(hintRegex, '').trim();
   }
 
-  // Extract Next Topics
   const topicsRegex = /NEXT_TOPICS:\s*\[(.*?)\]$/im;
   const topicsMatch = text.match(topicsRegex);
   if (topicsMatch && topicsMatch[1]) {
@@ -31,7 +30,11 @@ const parseAiResponsePayload = (responseText: string): GeminiResponse => {
     text = text.replace(topicsRegex, '').trim();
   }
   
-  return { text, visualHint, suggestedTopics };
+  const chunks: GroundingChunk[] | undefined = groundingMetadata?.groundingChunks?.filter(
+    (chunk: any) => chunk.web && chunk.web.uri && chunk.web.title
+  );
+
+  return { text, visualHint, suggestedTopics, groundingChunks: chunks };
 };
 
 
@@ -39,12 +42,14 @@ export const sendMessageToGemini = async (
   userMessage: string,
   chatHistory: ChatMessage[],
   learningPath: 'blockchainBasics' | 'polkadotAdvanced',
-  userExpertise?: string // Added userExpertise parameter
+  userExpertise?: string,
+  userExpertiseNoneProvidedText: string = "None provided" // Default fallback text
 ): Promise<GeminiResponse> => {
   if (!API_KEY) {
     return { 
       text: "AI Service is not configured. Missing API Key.",
-      suggestedTopics: ["How to set up API Key?", "What are environment variables?"]
+      suggestedTopics: ["How to set up API Key?", "What are environment variables?"],
+      groundingChunks: []
     };
   }
   try {
@@ -62,17 +67,20 @@ export const sendMessageToGemini = async (
         { role: 'user', parts: [{ text: userMessage }] as Part[] } 
     ];
 
-    // Dynamically insert user expertise into the system instruction
-    const systemInstruction = SYSTEM_INSTRUCTION_TEMPLATE.replace(
-        "{USER_EXPERTISE_PLACEHOLDER}", 
-        userExpertise && userExpertise.trim() ? userExpertise.trim() : "None provided"
-    );
+    const expertiseToUse = userExpertise && userExpertise.trim() ? userExpertise.trim() : userExpertiseNoneProvidedText;
+    const systemInstruction = SYSTEM_INSTRUCTION_TEMPLATE
+        .replace("{USER_EXPERTISE_PLACEHOLDER}", expertiseToUse)
+        .replace("{USER_EXPERTISE_NO_EXPERTISE_FALLBACK}", userExpertiseNoneProvidedText);
+
+
+    const tools: Tool[] = [{ googleSearch: {} }];
 
     const response: GenerateContentResponse = await ai.models.generateContent({
       model: model,
       contents: contents,
       config: {
-        systemInstruction: systemInstruction, // Use the modified system instruction
+        systemInstruction: systemInstruction,
+        tools: tools,
       }
     });
     
@@ -80,8 +88,10 @@ export const sendMessageToGemini = async (
     if (responseText === undefined || responseText === null) { 
         throw new Error("Received no text response from AI.");
     }
+    
+    const groundingMetadata = response.candidates?.[0]?.groundingMetadata;
 
-    return parseAiResponsePayload(responseText);
+    return parseAiResponsePayload(responseText, groundingMetadata);
 
   } catch (error) {
     console.error('Gemini API error:', error);

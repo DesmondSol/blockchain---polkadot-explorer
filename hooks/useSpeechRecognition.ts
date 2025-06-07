@@ -2,44 +2,35 @@
 import { useState, useEffect, useCallback } from 'react';
 
 // --- START of Web Speech API Type Definitions ---
-// These types are normally part of lib.dom.d.ts. Adding them here for robustness
-// in environments where they might not be readily available or correctly configured.
-
 interface SpeechRecognitionErrorEvent extends Event {
-  readonly error: string; // More specific: 'no-speech', 'aborted', 'audio-capture', 'network', 'not-allowed', 'service-not-allowed', 'bad-grammar', 'language-not-supported'
+  readonly error: string;
   readonly message: string;
 }
-
 interface SpeechRecognitionAlternative {
   readonly transcript: string;
   readonly confidence: number;
 }
-
 interface SpeechRecognitionResult {
   readonly isFinal: boolean;
   readonly length: number;
   item(index: number): SpeechRecognitionAlternative;
   [index: number]: SpeechRecognitionAlternative;
 }
-
 interface SpeechRecognitionResultList {
   readonly length: number;
   item(index: number): SpeechRecognitionResult;
   [index: number]: SpeechRecognitionResult;
 }
-
 interface SpeechRecognitionEvent extends Event {
   readonly resultIndex: number;
   readonly results: SpeechRecognitionResultList;
-  readonly emma?: Document | null; // XML Emma document
+  readonly emma?: Document | null;
   readonly interpretation?: any;
 }
-
 interface SpeechGrammar {
   src: string;
   weight: number;
 }
-
 interface SpeechGrammarList {
   readonly length: number;
   item(index: number): SpeechGrammar;
@@ -47,19 +38,16 @@ interface SpeechGrammarList {
   addFromString(string: string, weight?: number): void;
   addFromURI(src: string, weight?: number): void;
 }
-
 interface SpeechRecognition extends EventTarget {
   grammars: SpeechGrammarList;
   lang: string;
   continuous: boolean;
   interimResults: boolean;
   maxAlternatives: number;
-  serviceURI?: string; // Optional, not in all specs
-
+  serviceURI?: string;
   start(): void;
   stop(): void;
   abort(): void;
-
   onaudiostart: ((this: SpeechRecognition, ev: Event) => any) | null;
   onsoundstart: ((this: SpeechRecognition, ev: Event) => any) | null;
   onspeechstart: ((this: SpeechRecognition, ev: Event) => any) | null;
@@ -67,22 +55,17 @@ interface SpeechRecognition extends EventTarget {
   onsoundend: ((this: SpeechRecognition, ev: Event) => any) | null;
   onaudioend: ((this: SpeechRecognition, ev: Event) => any) | null;
   onresult: ((this: SpeechRecognition, ev: SpeechRecognitionEvent) => any) | null;
-  onnomatch: ((this: SpeechRecognition, ev: SpeechRecognitionEvent) => any) | null; // Some specs use SpeechRecognitionNoMatchEvent
+  onnomatch: ((this: SpeechRecognition, ev: SpeechRecognitionEvent) => any) | null;
   onerror: ((this: SpeechRecognition, ev: SpeechRecognitionErrorEvent) => any) | null;
   onstart: ((this: SpeechRecognition, ev: Event) => any) | null;
   onend: ((this: SpeechRecognition, ev: Event) => any) | null;
 }
-
-// Constructor type for SpeechRecognition
 interface SpeechRecognitionStatic {
   new(): SpeechRecognition;
   prototype: SpeechRecognition;
 }
-
 // --- END of Web Speech API Type Definitions ---
 
-
-// Extend Window interface for webkitSpeechRecognition
 declare global {
   interface Window {
     SpeechRecognition: SpeechRecognitionStatic;
@@ -101,7 +84,7 @@ interface SpeechRecognitionHook {
 }
 
 
-export const useSpeechRecognition = (): SpeechRecognitionHook => {
+export const useSpeechRecognition = (lang: string = 'en-US'): SpeechRecognitionHook => {
   const [isListening, setIsListening] = useState(false);
   const [transcript, setTranscript] = useState('');
   const [interimTranscript, setInterimTranscript] = useState('');
@@ -117,11 +100,10 @@ export const useSpeechRecognition = (): SpeechRecognitionHook => {
     }
 
     const SpeechRecognitionAPI = window.SpeechRecognition || window.webkitSpeechRecognition;
-    // Cast to SpeechRecognitionStatic to satisfy 'new' call
     const recognition = new (SpeechRecognitionAPI as SpeechRecognitionStatic)(); 
     recognition.continuous = true; 
     recognition.interimResults = true; 
-    recognition.lang = 'en-US'; 
+    recognition.lang = lang; // Use the passed language
 
     recognition.onresult = (event: SpeechRecognitionEvent) => {
       let finalTranscriptSegment = '';
@@ -133,7 +115,6 @@ export const useSpeechRecognition = (): SpeechRecognitionHook => {
           currentInterim += event.results[i][0].transcript;
         }
       }
-      // Append only the new final segment to the overall transcript
       if (finalTranscriptSegment) {
         setTranscript(prev => prev + finalTranscriptSegment);
       }
@@ -143,18 +124,11 @@ export const useSpeechRecognition = (): SpeechRecognitionHook => {
     recognition.onerror = (event: SpeechRecognitionErrorEvent) => {
       console.error('Speech recognition error:', event.error, event.message);
       setError(`Speech recognition error: ${event.error} - ${event.message}`);
-      setIsListening(false); // Stop listening on error
+      setIsListening(false);
     };
     
     recognition.onend = () => {
-      // This onend can be triggered by stop() or by the service itself.
-      // We only set isListening to false if it was not a deliberate stopListening() call
-      // or if it's an unexpected end.
-      // However, managing this state precisely here is complex.
-      // The stopListening function will set isListening to false.
-      // If recognition ends unexpectedly (e.g. no speech), we might want to reflect that.
-      // For now, let stopListening explicitly manage this.
-      // setIsListening(false); // This could cause issues if stopListening is called.
+      // Handled by explicit stopListening or error
     };
     
     setRecognitionInstance(recognition);
@@ -167,8 +141,7 @@ export const useSpeechRecognition = (): SpeechRecognitionHook => {
         recognition.stop();
       }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [browserSupportsSpeechRecognition]); 
+  }, [browserSupportsSpeechRecognition, lang]); // Add lang to dependencies
 
 
   const startListening = useCallback(() => {
@@ -176,6 +149,7 @@ export const useSpeechRecognition = (): SpeechRecognitionHook => {
       setTranscript(''); 
       setInterimTranscript(''); 
       try {
+        recognitionInstance.lang = lang; // Ensure lang is current on start
         recognitionInstance.start();
         setIsListening(true);
         setError(null);
@@ -185,14 +159,12 @@ export const useSpeechRecognition = (): SpeechRecognitionHook => {
         setIsListening(false);
       }
     }
-  }, [recognitionInstance, isListening]);
+  }, [recognitionInstance, isListening, lang]);
 
   const stopListening = useCallback(() => {
     if (recognitionInstance && isListening) {
       recognitionInstance.stop();
       setIsListening(false);
-      // Final transcript processing should happen in onresult.
-      // Interim transcript will clear on next start or naturally.
     }
   }, [recognitionInstance, isListening]);
 

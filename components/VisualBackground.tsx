@@ -6,7 +6,10 @@ interface VisualBackgroundProps {
 }
 
 export const VisualBackground: React.FC<VisualBackgroundProps> = ({ keyword }) => {
-  const imageUrl = `https://picsum.photos/seed/${encodeURIComponent(keyword)}/1920/1080`;
+  // Using Unsplash to get more theme-relevant images.
+  // Fetches a random 1920x1080 image related to the keyword.
+  const encodedKeyword = encodeURIComponent(keyword);
+  const imageUrl = `https://source.unsplash.com/1920x1080/?${encodedKeyword},technology,abstract`;
 
   return (
     <div 
@@ -17,7 +20,7 @@ export const VisualBackground: React.FC<VisualBackgroundProps> = ({ keyword }) =
         backgroundPosition: 'center',
       }}
     >
-      <div className="absolute inset-0 w-full h-full bg-black opacity-50"></div> {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 w-full h-full bg-black opacity-60"></div> {/* Dark overlay for text readability, increased opacity slightly */}
     </div>
   );
 };

@@ -1,6 +1,4 @@
-# Run and deploy the polkadot explorer ai
-
-this is a program targeted at polkadot and blockchain to make entry to the blockchain space easily for the newbies by using an ai teacher to help them out in every step of the way while educating them witha manner that can connect with every thing they are used to doing and experties 
+# Run and deploy your AI Studio app
 
 This contains everything you need to run your app locally.
 

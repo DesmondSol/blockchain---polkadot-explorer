@@ -1,0 +1,138 @@
+{
+  "appTitle": "Blockchain & Polkadot Explorer",
+  "common": {
+    "save": "Save",
+    "edit": "Edit",
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "skip": "Skip"
+  },
+  "tooltips": {
+    "changeLanguage": "Change Language",
+    "enableAiSpeech": "Enable AI Speech",
+    "disableAiSpeech": "Disable AI Speech",
+    "startListening": "Start Listening",
+    "stopListening": "Stop Listening",
+    "openTopics": "Open Topics Panel",
+    "closeTopics": "Close Topics Panel",
+    "closeTopicsPanel": "Close Topics Panel",
+    "sendMessage": "Send Message"
+  },
+  "home": {
+    "title": "Choose Your Learning Path",
+    "blockchainBasicsButton": "Blockchain Basics",
+    "polkadotAdvancedButton": "Polkadot Advanced",
+    "resourcesTitle": "Explore More Resources",
+    "blockchainDeepDiveButton": "Blockchain Deep Dive",
+    "polkadotEcosystemButton": "Polkadot Ecosystem Links"
+  },
+  "chat": {
+    "pathTitleBasics": "Blockchain Basics Path",
+    "pathTitlePolkadot": "Polkadot Advanced Path",
+    "noPathSelectedTitle": "No Learning Path Selected",
+    "noPathSelectedMessage": "Please go to the <i class=\"fas fa-home mx-1\"></i><strong>Home</strong> tab to choose a learning path to begin your chat session.",
+    "goToHomeButton": "Go to Home",
+    "inputPlaceholderListening": "Listening...",
+    "inputPlaceholderTypeMessage": "Type your message...",
+    "inputPlaceholderSelectPath": "Select a learning path first",
+    "inputPlaceholderTypeOrMic": "Type or use mic...",
+    "inputAriaLabel": "Chat input",
+    "micNotSupported": "Your browser does not support speech recognition.",
+    "selectPathPrompt": "Please select a learning path from Home to start chatting."
+  },
+  "chatMessage": {
+    "sourcesTitle": "Sources:",
+    "sourceAriaLabelPrefix": "Source:",
+    "suggestedTopicsTitle": "Next, you could explore:",
+    "exploreTopicAriaLabelPrefix": "Explore topic:"
+  },
+  "sidePanel": {
+    "titleBlockchainBasics": "Blockchain Basics Topics",
+    "titlePolkadotAdvanced": "Polkadot Advanced Topics",
+    "noTopics": "No topics available for the current selection.",
+    "footerHint": "Select a topic to learn more!",
+    "completedAriaPrefix": "Completed: ",
+    "clickToLearnMoreAriaSuffix": "Click to learn more."
+  },
+  "profile": {
+    "title": "Your Profile",
+    "defaultNickname": "Crypto Explorer",
+    "nicknameTitle": "Nickname",
+    "editNicknameAriaLabel": "Edit nickname",
+    "saveNicknameButtonAriaLabel": "Save nickname",
+    "cancelEditingNicknameAriaLabel": "Cancel editing nickname",
+    "editNicknameButtonAriaLabel": "Edit nickname",
+    "expertiseTitle": "Your Background/Expertise",
+    "editExpertiseAriaLabel": "Edit your expertise",
+    "expertisePlaceholder": "E.g., 'Frontend developer', 'Marketing professional'",
+    "saveExpertiseButton": "Save Expertise",
+    "saveExpertiseButtonAriaLabel": "Save expertise",
+    "cancelEditingExpertiseAriaLabel": "Cancel editing expertise",
+    "expertiseNotSpecified": "Not specified yet. Add your background to help personalize examples!",
+    "editExpertiseButtonAriaLabel": "Edit expertise",
+    "achievementsTitle": "Achievements",
+    "noAchievements": "No achievements unlocked yet. Keep learning and exploring!"
+  },
+  "onboarding": {
+    "title": "Let's Personalize Your Learning!",
+    "description1": "Tell us a bit about your background, current role, or area of expertise (e.g., \"Software Developer\", \"Student in Finance\", \"Marketing Manager\", \"Curious about Web3\").",
+    "description2": "This will help us tailor examples and explanations to what you already know, making complex topics easier to grasp.",
+    "textAreaPlaceholder": "E.g., 'Frontend developer with 3 years experience', 'Marketing professional new to tech', 'Economics student'",
+    "textAreaAriaLabel": "Describe your experience or expertise",
+    "skipButton": "Skip for Now",
+    "skipButtonAriaLabel": "Skip providing expertise for now",
+    "submitButton": "Submit & Start Learning",
+    "submitButtonAriaLabel": "Submit expertise and start learning"
+  },
+  "bottomNav": {
+    "home": "Home",
+    "chat": "Chat",
+    "profile": "Profile"
+  },
+  "loadingSpinner": {
+    "aiThinking": "AI is thinking..."
+  },
+  "errors": {
+    "speechRecognitionError": "Speech recognition error: {{message}}",
+    "unknownAiError": "An unknown error occurred with the AI service.",
+    "aiErrorPrefix": "Error: {{message}}"
+  },
+  "initialPrompts": {
+    "basics": "I'm new to blockchain. Can you give me a simple introduction to Blockchain Basics to get me started?",
+    "polkadot": "I have some blockchain knowledge. Please provide an overview of Polkadot, focusing on its key features and architecture for advanced users. Try to use information from the Polkadot Wiki."
+  },
+  "userExpertise": {
+    "noneProvided": "None provided"
+  },
+  "achievements": {
+    "initiatedLearner": { "name": "Initiated Learner" },
+    "blockchainBasicsStarted": { "name": "Blockchain Basics Started" },
+    "polkadotAdvancedStarted": { "name": "Polkadot Advanced Started" },
+    "curiousChatterbox": { "name": "Curious Chatterbox" },
+    "explorerGuide": { "name": "Explorer Guide" },
+    "personalizedLearner": { "name": "Personalized Learner" },
+    "sourceSeeker": { "name": "Source Seeker" },
+    "firstTopicConquered": { "name": "First Topic Conquered" },
+    "pathMaster": { "name": "Path Master" }
+  },
+  "mustLearn": {
+    "blockchainBasics": {
+      "whatIsBlockchain": { "title": "What is a Blockchain?", "description": "Understand the fundamental concept of a distributed ledger." },
+      "howBlockchainWorks": { "title": "How Does Blockchain Work?", "description": "Learn about blocks, chains, and cryptographic hashing." },
+      "decentralizationImmutability": { "title": "Decentralization and Immutability", "description": "Key properties of blockchain technology." },
+      "typesOfBlockchains": { "title": "Types of Blockchains", "description": "Explore Public, Private, and Consortium blockchains." },
+      "whatAreCryptocurrencies": { "title": "What are Cryptocurrencies?", "description": "Introduction to digital currencies like Bitcoin and Ether." },
+      "smartContractsExplained": { "title": "Smart Contracts Explained", "description": "Discover self-executing contracts with predefined rules." },
+      "useCasesBlockchain": { "title": "Use Cases of Blockchain", "description": "Real-world applications beyond cryptocurrencies." }
+    },
+    "polkadotAdvanced": {
+      "polkadotArchitecture": { "title": "Polkadot Architecture", "description": "Relay Chain, Parachains, Parathreads, and Bridges." },
+      "sharedSecurityModel": { "title": "Shared Security Model", "description": "How Polkadot secures its network of parachains." },
+      "crossChainCommunication": { "title": "Cross-Chain Communication (XCMP)", "description": "Enabling interoperability between different blockchains." },
+      "polkadotGovernance": { "title": "Polkadot Governance", "description": "On-chain Treasury, Council, and Technical Committee." },
+      "substrateFramework": { "title": "Substrate Framework", "description": "A modular framework for building custom blockchains." },
+      "stakingNominationPolkadot": { "title": "Staking and Nomination (NPoS)", "description": "Participate in network security and earn rewards." },
+      "kusamaCanaryNetwork": { "title": "Kusama: Polkadot's Canary Network", "description": "Polkadot's experimental network for early deployments." }
+    }
+  }
+}
