@@ -9,10 +9,10 @@ export const VisualBackground: React.FC<VisualBackgroundProps> = ({ keyword }) =
   // Using Unsplash to get more theme-relevant images.
   // Fetches a random 1920x1080 image related to the keyword.
   const encodedKeyword = encodeURIComponent(keyword);
-  const imageUrl = `https://techstory.in/wp-content/uploads/2021/09/ee705c26cee74f3b962238e36ef563be.png`;
+  const imageUrl = `https://img.decrypt.co/insecure/rs:fit:1920:0:0:0/plain/https://cdn.decrypt.co/wp-content/uploads/2024/05/polkadot-coins-gID_7.jpg@webp`;
 
   return (
-    <div 
+    <div
       className="absolute inset-0 w-full h-full transition-all duration-1000 ease-in-out z-0"
       style={{
         backgroundImage: `url(${imageUrl})`,
