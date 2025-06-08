@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ChatMessage, Sender, MustLearnTopic, PolkadotAccount } from './types';
+import { ChatMessage, Sender, MustLearnTopic, PolkadotAccount, ClaimedBadgeDetail } from './types';
 import { ChatInterface } from './components/ChatInterface';
 import { VisualBackground } from './components/VisualBackground';
 import { sendMessageToGemini } from './services/geminiService';
@@ -14,6 +14,8 @@ import { OnboardingFlow } from './components/OnboardingFlow';
 import { SidePanel } from './components/SidePanel';
 import { LanguageSwitcher } from './components/LanguageSwitcher';
 import { PolkadotAccountSelectorModal } from './components/PolkadotAccountSelectorModal';
+import { NftBadgesScreen } from './components/NftBadgesScreen'; // New
+import { ClaimBadgeModal } from './components/ClaimBadgeModal'; // New
 import * as Constants from './constants';
 import { web3Accounts, web3Enable } from '@polkadot/extension-dapp'; 
 import { encodeAddress } from '@polkadot/util-crypto';
@@ -60,6 +62,10 @@ const App: React.FC = () => {
   const [showAccountSelector, setShowAccountSelector] = useState<boolean>(false);
   const [walletError, setWalletError] = useState<string | null>(null);
 
+  const [claimedBadges, setClaimedBadges] = useState<{ [achievementKey: string]: ClaimedBadgeDetail }>({});
+  const [showClaimBadgeModal, setShowClaimBadgeModal] = useState<boolean>(false);
+  const [selectedBadgeToClaim, setSelectedBadgeToClaim] = useState<string | null>(null);
+
 
   const {
     isListening,
@@ -99,6 +105,9 @@ const App: React.FC = () => {
 
     const storedPolkadotAccount = localStorage.getItem('polkadotAccount');
     if (storedPolkadotAccount) setPolkadotAccount(JSON.parse(storedPolkadotAccount));
+    
+    const storedClaimedBadges = localStorage.getItem('claimedBadges');
+    if (storedClaimedBadges) setClaimedBadges(JSON.parse(storedClaimedBadges));
 
   }, [t]);
 
@@ -128,6 +137,10 @@ const App: React.FC = () => {
       localStorage.removeItem('polkadotAccount');
     }
   }, [polkadotAccount, achievements]);
+
+  useEffect(() => {
+    localStorage.setItem('claimedBadges', JSON.stringify(claimedBadges));
+  }, [claimedBadges]);
 
 
   useEffect(() => {
@@ -263,6 +276,7 @@ const App: React.FC = () => {
 
     try {
       const currentContextMessages = isAutomatedFirstMessage ? [] : chatMessages;
+      // Note: Assuming geminiService.ts provided does not have currentLanguage param
       const { text: aiResponseText, visualHint, suggestedTopics, groundingChunks } = await sendMessageToGemini(
         messageText, 
         currentContextMessages, 
@@ -403,7 +417,6 @@ const App: React.FC = () => {
       } else if (formattedAccounts.length > 1) {
         setShowAccountSelector(true);
       } else {
-        // This case should ideally not be reached if allAccounts.length > 0
         setWalletError(t('profile.noAccountsFound'));
       }
 
@@ -431,11 +444,46 @@ const App: React.FC = () => {
   const handleDisconnectWallet = () => {
     setPolkadotAccount(null);
     setWalletError(null);
+    // Optionally, clear claimed badges associated with the disconnected wallet
+    // For simplicity, this is not implemented here. User needs to be aware.
   };
 
   const handleClearWalletError = () => {
     setWalletError(null);
   };
+
+  const handleOpenClaimBadgeModal = (achievementKey: string) => {
+    setSelectedBadgeToClaim(achievementKey);
+    setShowClaimBadgeModal(true);
+  };
+
+  const handleCloseClaimBadgeModal = () => {
+    setShowClaimBadgeModal(false);
+    setSelectedBadgeToClaim(null);
+  };
+
+  const handleConfirmClaimBadge = (achievementKey: string) => {
+    if (polkadotAccount) {
+      setClaimedBadges(prev => ({
+        ...prev,
+        [achievementKey]: {
+          achievementKey,
+          address: polkadotAccount.address,
+          source: polkadotAccount.source,
+          claimedAt: Date.now(),
+        }
+      }));
+      if (!achievements.includes(Constants.ACHIEVEMENT_KEYS.BADGE_PIONEER) && Object.keys(claimedBadges).length === 0) { // Check before this claim
+        setAchievements(prevAch => [...prevAch, Constants.ACHIEVEMENT_KEYS.BADGE_PIONEER]);
+      }
+      handleCloseClaimBadgeModal();
+    } else {
+      // This should ideally not happen if claim button is disabled when no wallet
+      console.error("Attempted to claim badge without a connected wallet.");
+      // Optionally show an error to the user
+    }
+  };
+
 
   const renderContent = () => {
     if (onboardingStep > 0 && onboardingStep <= 5) {
@@ -538,6 +586,14 @@ const App: React.FC = () => {
             </div>
           </div>
         );
+      case 'badges': // New case for badges screen
+        return <NftBadgesScreen
+                  achievements={achievements}
+                  claimedBadges={claimedBadges}
+                  polkadotAccount={polkadotAccount}
+                  onClaimBadgeClick={handleOpenClaimBadgeModal}
+                  onConnectWalletClick={() => setActiveTab('profile')}
+                />;
       case 'profile':
         return <ProfileScreen 
                   nickname={userNickname} 
@@ -595,6 +651,17 @@ const App: React.FC = () => {
         onSelectAccount={handleSelectPolkadotAccount}
         onClose={handleCloseAccountSelector}
       />
+      
+      {showClaimBadgeModal && selectedBadgeToClaim && (
+        <ClaimBadgeModal
+          isOpen={showClaimBadgeModal}
+          achievementKey={selectedBadgeToClaim}
+          polkadotAccount={polkadotAccount}
+          claimedBadgeDetail={claimedBadges[selectedBadgeToClaim]}
+          onClose={handleCloseClaimBadgeModal}
+          onConfirmClaim={handleConfirmClaimBadge}
+        />
+      )}
 
       {activeTab === 'chat' && learningPath && (
         <SidePanel 

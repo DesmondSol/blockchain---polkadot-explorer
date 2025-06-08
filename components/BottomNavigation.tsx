@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 // Removed IconButton import as it's not used
 // import { IconButton } from './IconButton'; 
 
-export type ActiveTab = 'home' | 'chat' | 'profile';
+export type ActiveTab = 'home' | 'chat' | 'profile' | 'badges'; // Added 'badges'
 
 interface BottomNavigationProps {
   activeTab: ActiveTab;
@@ -20,6 +20,7 @@ interface NavItem {
 const navItems: NavItem[] = [
   { id: 'home', translationKey: 'bottomNav.home', icon: 'fas fa-home' },
   { id: 'chat', translationKey: 'bottomNav.chat', icon: 'fas fa-comments' },
+  { id: 'badges', translationKey: 'bottomNav.badges', icon: 'fas fa-id-badge' }, // New Badges Tab
   { id: 'profile', translationKey: 'bottomNav.profile', icon: 'fas fa-user-astronaut' },
 ];
 

@@ -6,7 +6,9 @@
     "edit": "Edit",
     "cancel": "Cancel",
     "submit": "Submit",
-    "skip": "Skip"
+    "skip": "Skip",
+    "close": "Close",
+    "confirm": "Confirm"
   },
   "tooltips": {
     "changeLanguage": "Change Language",
@@ -132,7 +134,31 @@
   "bottomNav": {
     "home": "Home",
     "chat": "Chat",
+    "badges": "Badges",
     "profile": "Profile"
+  },
+  "badgesScreen": {
+    "title": "Your Digital Badges",
+    "connectWalletPrompt": "Connect your Polkadot wallet on the Profile tab to claim your achievement badges!",
+    "goToProfileButton": "Go to Profile",
+    "noAchievements": "You haven't earned any achievements yet. Start learning to collect badges!",
+    "claimButton": "Claim Digital Badge",
+    "viewClaimButton": "View Claim Details",
+    "claimedStatus": "Claimed"
+  },
+  "claimModal": {
+    "titleClaim": "Claim Your Digital Badge",
+    "titleView": "Digital Badge Details",
+    "badgeNameLabel": "Badge:",
+    "achievementLabel": "Achievement:",
+    "associatedWallet": "To be associated with wallet:",
+    "claimedWithWallet": "Claimed with wallet:",
+    "walletAddressLabel": "Address:",
+    "walletSourceLabel": "Source:",
+    "claimDate": "Claimed on:",
+    "disclaimer": "This is a digital collectible within the app representing your achievement. It is not an on-chain NFT... yet! Future updates may enable minting.",
+    "confirmButton": "Confirm Claim",
+    "closeButton": "Close"
   },
   "loadingSpinner": {
     "aiThinking": "AI is thinking..."
@@ -150,17 +176,18 @@
     "noneProvided": "None provided"
   },
   "achievements": {
-    "initiatedLearner": { "name": "Initiated Learner" },
-    "blockchainBasicsStarted": { "name": "Blockchain Basics Started" },
-    "polkadotAdvancedStarted": { "name": "Polkadot Advanced Started" },
-    "curiousChatterbox": { "name": "Curious Chatterbox" },
-    "explorerGuide": { "name": "Explorer Guide" },
-    "personalizedLearner": { "name": "Personalized Learner" },
-    "sourceSeeker": { "name": "Source Seeker" },
-    "firstTopicConquered": { "name": "First Topic Conquered" },
-    "pathMaster": { "name": "Path Master" },
-    "walletConnector": { "name": "Wallet Connector" },
-    "photoFanatic": { "name": "Photo Fanatic" }
+    "initiatedLearner": { "name": "Initiated Learner", "description": "Welcome! You've started your learning journey." },
+    "blockchainBasicsStarted": { "name": "Blockchain Basics Started", "description": "Embarked on the path to understanding blockchain fundamentals." },
+    "polkadotAdvancedStarted": { "name": "Polkadot Advanced Started", "description": "Diving deep into the Polkadot ecosystem." },
+    "curiousChatterbox": { "name": "Curious Chatterbox", "description": "Engaged in multiple conversations with the AI." },
+    "explorerGuide": { "name": "Explorer Guide", "description": "Followed AI-suggested topics to deepen knowledge." },
+    "personalizedLearner": { "name": "Personalized Learner", "description": "Shared expertise to tailor the learning experience." },
+    "sourceSeeker": { "name": "Source Seeker", "description": "Explored external sources provided by the AI." },
+    "firstTopicConquered": { "name": "First Topic Conquered", "description": "Successfully learned about one of the core topics." },
+    "pathMaster": { "name": "Path Master", "description": "Completed all core topics in a learning path." },
+    "walletConnector": { "name": "Wallet Connector", "description": "Connected a Polkadot wallet to the app." },
+    "photoFanatic": { "name": "Photo Fanatic", "description": "Uploaded a profile picture." },
+    "badgePioneer": { "name": "Badge Pioneer", "description": "Claimed your very first digital badge!" }
   },
   "mustLearn": {
     "blockchainBasics": {

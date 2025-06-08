@@ -9,7 +9,7 @@ The user might have told us what they already know or what they do (their expert
 If they shared this (meaning it's not "{USER_EXPERTISE_NO_EXPERTISE_FALLBACK}"):
 1.  Try to make your examples and stories connect to what they know. For example, if they are a 'baker', you could compare a blockchain to a recipe book everyone shares and checks.
 2.  This will make learning super easy and fun for them!
-If they didn't share any expertise, or it doesn't fit the topic, just give simple general examples a 5-year-old would get.
+If they didn't share any expertise, or it doesn't fit the topic, just give very simple, general examples that are easy for anyone to understand.
 
 Your main job is to give correct and new information. For Polkadot, try to use information from the Polkadot Wiki (wiki.polkadot.network) – think of it as your special Polkadot storybook. If you need to, use your search tool to find the newest stories, especially from the Polkadot Wiki.
 
@@ -20,7 +20,7 @@ When the user asks something:
 
 Always be very friendly, patient, and happy to help. If their question is a bit muddled, ask nicely what they mean.
 If you don't know something, it's okay! Just say "Hmm, I need to check my storybook for that!" and try to find the answer using search.
-Don't use big, grown-up words unless you explain them right away with easy words.
+Don't use big, complicated words unless you explain them right away with easy words.
 If it's a long story, tell it in little parts or with star points (like * this).
 Remember which learning path they chose: 'Blockchain Basics' for brand new explorers, 'Polkadot Advanced' if they already know some blockchain stories.
 If you use information from other storybooks (websites), we'll show them where you found it.`;
@@ -42,8 +42,9 @@ export const ACHIEVEMENT_KEYS = {
   SOURCE_SEEKER: "achievements.sourceSeeker.name",
   FIRST_TOPIC_CONQUERED: "achievements.firstTopicConquered.name",
   PATH_MASTER: "achievements.pathMaster.name",
-  WALLET_CONNECTOR: "achievements.walletConnector.name", // New
-  PHOTO_FANATIC: "achievements.photoFanatic.name" // New
+  WALLET_CONNECTOR: "achievements.walletConnector.name",
+  PHOTO_FANATIC: "achievements.photoFanatic.name",
+  BADGE_PIONEER: "achievements.badgePioneer.name" // New achievement for claiming first badge
 };
 
 
@@ -66,3 +67,23 @@ export const MUST_LEARN_POLKADOT_ADVANCED = [
   { id: 'staking_nomination_polkadot', titleKey: 'mustLearn.polkadotAdvanced.stakingNominationPolkadot.title', canonicalTitle: 'Staking and Nomination on Polkadot (NPoS)', descriptionKey: 'mustLearn.polkadotAdvanced.stakingNominationPolkadot.description' },
   { id: 'kusama_canary_network', titleKey: 'mustLearn.polkadotAdvanced.kusamaCanaryNetwork.title', canonicalTitle: "Kusama: Polkadot's Canary Network", descriptionKey: 'mustLearn.polkadotAdvanced.kusamaCanaryNetwork.description' },
 ];
+
+// Translation keys for Badges feature (will be defined in locale files)
+export const BADGES_TAB_TITLE_KEY = "bottomNav.badges";
+export const BADGES_SCREEN_TITLE_KEY = "badgesScreen.title";
+export const BADGES_CONNECT_WALLET_PROMPT_KEY = "badgesScreen.connectWalletPrompt";
+export const BADGES_NO_ACHIEVEMENTS_KEY = "badgesScreen.noAchievements";
+export const BADGE_CLAIM_BUTTON_KEY = "badgesScreen.claimButton";
+export const BADGE_VIEW_CLAIM_BUTTON_KEY = "badgesScreen.viewClaimButton";
+export const BADGE_CLAIMED_STATUS_KEY = "badgesScreen.claimedStatus";
+
+export const CLAIM_MODAL_TITLE_CLAIM_KEY = "claimModal.titleClaim";
+export const CLAIM_MODAL_TITLE_VIEW_KEY = "claimModal.titleView";
+export const CLAIM_MODAL_ASSOCIATED_WALLET_KEY = "claimModal.associatedWallet";
+export const CLAIM_MODAL_CLAIM_DATE_KEY = "claimModal.claimDate";
+export const CLAIM_MODAL_DISCLAIMER_KEY = "claimModal.disclaimer";
+export const CLAIM_MODAL_CONFIRM_BUTTON_KEY = "claimModal.confirmButton";
+export const CLAIM_MODAL_CLOSE_BUTTON_KEY = "claimModal.closeButton";
+export const CLAIM_MODAL_CLAIMED_WITH_WALLET_KEY = "claimModal.claimedWithWallet";
+export const CLAIM_MODAL_WALLET_ADDRESS_KEY = "claimModal.walletAddress";
+export const CLAIM_MODAL_WALLET_SOURCE_KEY = "claimModal.walletSource";

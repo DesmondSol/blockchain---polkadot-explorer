@@ -41,3 +41,10 @@ export interface PolkadotAccount {
   source: string; // Extension's source/name e.g., 'polkadot-js', 'talisman'
   // We can add type (e.g. sr25519, ed25519) if needed later
 }
+
+export interface ClaimedBadgeDetail {
+  achievementKey: string; // The key of the achievement this badge represents
+  address: string;        // Wallet address it was claimed with
+  source: string;         // Wallet source (e.g., 'polkadot-js')
+  claimedAt: number;      // Timestamp of claim
+}

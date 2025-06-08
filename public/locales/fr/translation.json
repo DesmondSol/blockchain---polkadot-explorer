@@ -6,7 +6,9 @@
     "edit": "Modifier",
     "cancel": "Annuler",
     "submit": "Soumettre",
-    "skip": "Passer"
+    "skip": "Passer",
+    "close": "Fermer",
+    "confirm": "Confirmer"
   },
   "tooltips": {
     "changeLanguage": "Changer de Langue",
@@ -132,7 +134,31 @@
   "bottomNav": {
     "home": "Accueil",
     "chat": "Chat",
+    "badges": "Badges (FR)",
     "profile": "Profil"
+  },
+  "badgesScreen": {
+    "title": "Vos Badges Numériques (FR)",
+    "connectWalletPrompt": "Connectez votre portefeuille Polkadot dans l'onglet Profil pour réclamer vos badges de réussite ! (FR)",
+    "goToProfileButton": "Aller au Profil (FR)",
+    "noAchievements": "Vous n'avez pas encore obtenu de réussites. Commencez à apprendre pour collectionner des badges ! (FR)",
+    "claimButton": "Réclamer le Badge Numérique (FR)",
+    "viewClaimButton": "Voir les Détails de la Réclamation (FR)",
+    "claimedStatus": "Réclamé (FR)"
+  },
+  "claimModal": {
+    "titleClaim": "Réclamez Votre Badge Numérique (FR)",
+    "titleView": "Détails du Badge Numérique (FR)",
+    "badgeNameLabel": "Badge : (FR)",
+    "achievementLabel": "Réussite : (FR)",
+    "associatedWallet": "Sera associé au portefeuille : (FR)",
+    "claimedWithWallet": "Réclamé avec le portefeuille : (FR)",
+    "walletAddressLabel": "Adresse : (FR)",
+    "walletSourceLabel": "Source : (FR)",
+    "claimDate": "Réclamé le : (FR)",
+    "disclaimer": "Ceci est un collectible numérique au sein de l'application représentant votre réussite. Ce n'est pas encore un NFT sur la chaîne ! De futures mises à jour pourraient permettre le minting. (FR)",
+    "confirmButton": "Confirmer la Réclamation (FR)",
+    "closeButton": "Fermer (FR)"
   },
   "loadingSpinner": {
     "aiThinking": "L'IA réfléchit..."
@@ -150,17 +176,18 @@
     "noneProvided": "Non fourni"
   },
   "achievements": {
-    "initiatedLearner": { "name": "Apprenant Initié" },
-    "blockchainBasicsStarted": { "name": "Bases de la Blockchain Commencées" },
-    "polkadotAdvancedStarted": { "name": "Polkadot Avancé Commencé" },
-    "curiousChatterbox": { "name": "Bavard Curieux" },
-    "explorerGuide": { "name": "Guide Explorateur" },
-    "personalizedLearner": { "name": "Apprenant Personnalisé" },
-    "sourceSeeker": { "name": "Chercheur de Sources" },
-    "firstTopicConquered": { "name": "Premier Sujet Conquis" },
-    "pathMaster": { "name": "Maître du Parcours" },
-    "walletConnector": { "name": "Connecteur de Portefeuille (FR)" },
-    "photoFanatic": { "name": "Fan de Photos (FR)" }
+    "initiatedLearner": { "name": "Apprenant Initié", "description": "Bienvenue ! Vous avez commencé votre parcours d'apprentissage. (FR)" },
+    "blockchainBasicsStarted": { "name": "Bases de la Blockchain Commencées", "description": "Vous vous êtes engagé sur la voie de la compréhension des fondamentaux de la blockchain. (FR)" },
+    "polkadotAdvancedStarted": { "name": "Polkadot Avancé Commencé", "description": "Plongée profonde dans l'écosystème Polkadot. (FR)" },
+    "curiousChatterbox": { "name": "Bavard Curieux", "description": "Engagé dans de multiples conversations avec l'IA. (FR)" },
+    "explorerGuide": { "name": "Guide Explorateur", "description": "A suivi les sujets suggérés par l'IA pour approfondir ses connaissances. (FR)" },
+    "personalizedLearner": { "name": "Apprenant Personnalisé", "description": "A partagé son expertise pour adapter l'expérience d'apprentissage. (FR)" },
+    "sourceSeeker": { "name": "Chercheur de Sources", "description": "A exploré des sources externes fournies par l'IA. (FR)" },
+    "firstTopicConquered": { "name": "Premier Sujet Conquis", "description": "A appris avec succès l'un des sujets principaux. (FR)" },
+    "pathMaster": { "name": "Maître du Parcours", "description": "A complété tous les sujets principaux d'un parcours d'apprentissage. (FR)" },
+    "walletConnector": { "name": "Connecteur de Portefeuille (FR)", "description": "A connecté un portefeuille Polkadot à l'application. (FR)" },
+    "photoFanatic": { "name": "Fan de Photos (FR)", "description": "A téléchargé une photo de profil. (FR)" },
+    "badgePioneer": { "name": "Pionnier des Badges (FR)", "description": "Vous avez réclamé votre tout premier badge numérique ! (FR)" }
   },
   "mustLearn": {
     "blockchainBasics": {

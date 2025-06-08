@@ -6,7 +6,9 @@
     "edit": "Editar",
     "cancel": "Cancelar",
     "submit": "Enviar",
-    "skip": "Omitir"
+    "skip": "Omitir",
+    "close": "Cerrar",
+    "confirm": "Confirmar"
   },
   "tooltips": {
     "changeLanguage": "Cambiar Idioma",
@@ -132,7 +134,31 @@
   "bottomNav": {
     "home": "Inicio",
     "chat": "Chat",
+    "badges": "Insignias (ES)",
     "profile": "Perfil"
+  },
+  "badgesScreen": {
+    "title": "Tus Insignias Digitales (ES)",
+    "connectWalletPrompt": "¡Conecta tu billetera Polkadot en la pestaña Perfil para reclamar tus insignias de logros! (ES)",
+    "goToProfileButton": "Ir a Perfil (ES)",
+    "noAchievements": "Aún no has ganado ningún logro. ¡Empieza a aprender para coleccionar insignias! (ES)",
+    "claimButton": "Reclamar Insignia Digital (ES)",
+    "viewClaimButton": "Ver Detalles de Reclamación (ES)",
+    "claimedStatus": "Reclamada (ES)"
+  },
+  "claimModal": {
+    "titleClaim": "Reclama Tu Insignia Digital (ES)",
+    "titleView": "Detalles de la Insignia Digital (ES)",
+    "badgeNameLabel": "Insignia: (ES)",
+    "achievementLabel": "Logro: (ES)",
+    "associatedWallet": "Se asociará con la billetera: (ES)",
+    "claimedWithWallet": "Reclamada con la billetera: (ES)",
+    "walletAddressLabel": "Dirección: (ES)",
+    "walletSourceLabel": "Fuente: (ES)",
+    "claimDate": "Reclamada el: (ES)",
+    "disclaimer": "Este es un coleccionable digital dentro de la aplicación que representa tu logro. No es un NFT en cadena... ¡todavía! Futuras actualizaciones podrían habilitar el minteo. (ES)",
+    "confirmButton": "Confirmar Reclamación (ES)",
+    "closeButton": "Cerrar (ES)"
   },
   "loadingSpinner": {
     "aiThinking": "IA está pensando..."
@@ -150,17 +176,18 @@
     "noneProvided": "Ninguno proporcionado"
   },
   "achievements": {
-    "initiatedLearner": { "name": "Aprendiz Iniciado" },
-    "blockchainBasicsStarted": { "name": "Iniciado en Blockchain Básico" },
-    "polkadotAdvancedStarted": { "name": "Iniciado en Polkadot Avanzado" },
-    "curiousChatterbox": { "name": "Conversador Curioso" },
-    "explorerGuide": { "name": "Guía Explorador" },
-    "personalizedLearner": { "name": "Aprendiz Personalizado" },
-    "sourceSeeker": { "name": "Buscador de Fuentes" },
-    "firstTopicConquered": { "name": "Primer Tema Conquistado" },
-    "pathMaster": { "name": "Maestro de la Ruta" },
-    "walletConnector": { "name": "Conector de Billetera (ES)" },
-    "photoFanatic": { "name": "Fanático de las Fotos (ES)" }
+    "initiatedLearner": { "name": "Aprendiz Iniciado", "description": "¡Bienvenido! Has comenzado tu viaje de aprendizaje. (ES)" },
+    "blockchainBasicsStarted": { "name": "Iniciado en Blockchain Básico", "description": "Emprendiste el camino para entender los fundamentos de blockchain. (ES)" },
+    "polkadotAdvancedStarted": { "name": "Iniciado en Polkadot Avanzado", "description": "Sumergiéndote en el ecosistema Polkadot. (ES)" },
+    "curiousChatterbox": { "name": "Conversador Curioso", "description": "Participaste en múltiples conversaciones con la IA. (ES)" },
+    "explorerGuide": { "name": "Guía Explorador", "description": "Seguiste temas sugeridos por la IA para profundizar conocimientos. (ES)" },
+    "personalizedLearner": { "name": "Aprendiz Personalizado", "description": "Compartiste tu experiencia para adaptar la experiencia de aprendizaje. (ES)" },
+    "sourceSeeker": { "name": "Buscador de Fuentes", "description": "Exploraste fuentes externas proporcionadas por la IA. (ES)" },
+    "firstTopicConquered": { "name": "Primer Tema Conquistado", "description": "Aprendiste exitosamente sobre uno de los temas centrales. (ES)" },
+    "pathMaster": { "name": "Maestro de la Ruta", "description": "Completaste todos los temas centrales en una ruta de aprendizaje. (ES)" },
+    "walletConnector": { "name": "Conector de Billetera (ES)", "description": "Conectaste una billetera Polkadot a la aplicación. (ES)" },
+    "photoFanatic": { "name": "Fanático de las Fotos (ES)", "description": "Subiste una foto de perfil. (ES)" },
+    "badgePioneer": { "name": "Pionero de Insignias (ES)", "description": "¡Reclamaste tu primera insignia digital! (ES)" }
   },
   "mustLearn": {
     "blockchainBasics": {

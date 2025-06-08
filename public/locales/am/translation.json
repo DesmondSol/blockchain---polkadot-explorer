@@ -6,7 +6,9 @@
     "edit": "Edit (Amharic)",
     "cancel": "Cancel (Amharic)",
     "submit": "Submit (Amharic)",
-    "skip": "Skip (Amharic)"
+    "skip": "Skip (Amharic)",
+    "close": "Close (Amharic)",
+    "confirm": "Confirm (Amharic)"
   },
   "tooltips": {
     "changeLanguage": "Change Language (Amharic)",
@@ -132,7 +134,31 @@
   "bottomNav": {
     "home": "Home (Amharic)",
     "chat": "Chat (Amharic)",
+    "badges": "Badges (Amharic)",
     "profile": "Profile (Amharic)"
+  },
+  "badgesScreen": {
+    "title": "Your Digital Badges (AM)",
+    "connectWalletPrompt": "Connect your Polkadot wallet on the Profile tab to claim your achievement badges! (AM)",
+    "goToProfileButton": "Go to Profile (AM)",
+    "noAchievements": "You haven't earned any achievements yet. Start learning to collect badges! (AM)",
+    "claimButton": "Claim Digital Badge (AM)",
+    "viewClaimButton": "View Claim Details (AM)",
+    "claimedStatus": "Claimed (AM)"
+  },
+  "claimModal": {
+    "titleClaim": "Claim Your Digital Badge (AM)",
+    "titleView": "Digital Badge Details (AM)",
+    "badgeNameLabel": "Badge: (AM)",
+    "achievementLabel": "Achievement: (AM)",
+    "associatedWallet": "To be associated with wallet: (AM)",
+    "claimedWithWallet": "Claimed with wallet: (AM)",
+    "walletAddressLabel": "Address: (AM)",
+    "walletSourceLabel": "Source: (AM)",
+    "claimDate": "Claimed on: (AM)",
+    "disclaimer": "This is a digital collectible within the app representing your achievement. It is not an on-chain NFT... yet! Future updates may enable minting. (AM)",
+    "confirmButton": "Confirm Claim (AM)",
+    "closeButton": "Close (AM)"
   },
   "loadingSpinner": {
     "aiThinking": "AI is thinking... (Amharic)"
@@ -150,17 +176,18 @@
     "noneProvided": "None provided (Amharic)"
   },
   "achievements": {
-    "initiatedLearner": { "name": "Initiated Learner (Amharic)" },
-    "blockchainBasicsStarted": { "name": "Blockchain Basics Started (Amharic)" },
-    "polkadotAdvancedStarted": { "name": "Polkadot Advanced Started (Amharic)" },
-    "curiousChatterbox": { "name": "Curious Chatterbox (Amharic)" },
-    "explorerGuide": { "name": "Explorer Guide (Amharic)" },
-    "personalizedLearner": { "name": "Personalized Learner (Amharic)" },
-    "sourceSeeker": { "name": "Source Seeker (Amharic)" },
-    "firstTopicConquered": { "name": "First Topic Conquered (Amharic)" },
-    "pathMaster": { "name": "Path Master (Amharic)" },
-    "walletConnector": { "name": "Wallet Connector (AM)" },
-    "photoFanatic": { "name": "Photo Fanatic (AM)" }
+    "initiatedLearner": { "name": "Initiated Learner (Amharic)", "description": "Welcome! You've started your learning journey. (AM)" },
+    "blockchainBasicsStarted": { "name": "Blockchain Basics Started (Amharic)", "description": "Embarked on the path to understanding blockchain fundamentals. (AM)" },
+    "polkadotAdvancedStarted": { "name": "Polkadot Advanced Started (Amharic)", "description": "Diving deep into the Polkadot ecosystem. (AM)" },
+    "curiousChatterbox": { "name": "Curious Chatterbox (Amharic)", "description": "Engaged in multiple conversations with the AI. (AM)" },
+    "explorerGuide": { "name": "Explorer Guide (Amharic)", "description": "Followed AI-suggested topics to deepen knowledge. (AM)" },
+    "personalizedLearner": { "name": "Personalized Learner (Amharic)", "description": "Shared expertise to tailor the learning experience. (AM)" },
+    "sourceSeeker": { "name": "Source Seeker (Amharic)", "description": "Explored external sources provided by the AI. (AM)" },
+    "firstTopicConquered": { "name": "First Topic Conquered (Amharic)", "description": "Successfully learned about one of the core topics. (AM)" },
+    "pathMaster": { "name": "Path Master (Amharic)", "description": "Completed all core topics in a learning path. (AM)" },
+    "walletConnector": { "name": "Wallet Connector (AM)", "description": "Connected a Polkadot wallet to the app. (AM)" },
+    "photoFanatic": { "name": "Photo Fanatic (AM)", "description": "Uploaded a profile picture. (AM)" },
+    "badgePioneer": { "name": "Badge Pioneer (AM)", "description": "Claimed your very first digital badge! (AM)" }
   },
   "mustLearn": {
     "blockchainBasics": {
