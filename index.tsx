@@ -12,7 +12,7 @@ if (!rootElement) {
 const root = ReactDOM.createRoot(rootElement);
 root.render(
   <React.StrictMode>
-    <React.Suspense fallback={<div className="flex justify-center items-center h-screen text-white bg-gray-900">Loading translations...</div>}>
+    <React.Suspense fallback={<div className="flex justify-center items-center h-screen text-white bg-gray-900 text-xl">Loading application and translations...</div>}>
       <App />
     </React.Suspense>
   </React.StrictMode>

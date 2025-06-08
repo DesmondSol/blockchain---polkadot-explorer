@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ChatMessage, Sender, MustLearnTopic } from './types';
+import { ChatMessage, Sender, MustLearnTopic, PolkadotAccount } from './types';
 import { ChatInterface } from './components/ChatInterface';
 import { VisualBackground } from './components/VisualBackground';
 import { sendMessageToGemini } from './services/geminiService';
@@ -10,12 +10,26 @@ import { useSpeechSynthesis } from './hooks/useSpeechSynthesis';
 import { IconButton } from './components/IconButton';
 import { BottomNavigation, ActiveTab } from './components/BottomNavigation';
 import { ProfileScreen } from './components/ProfileScreen';
-import { OnboardingModal } from './components/OnboardingModal';
+import { OnboardingFlow } from './components/OnboardingFlow';
 import { SidePanel } from './components/SidePanel';
-import { LanguageSwitcher } from './components/LanguageSwitcher'; // New component
+import { LanguageSwitcher } from './components/LanguageSwitcher';
+import { PolkadotAccountSelectorModal } from './components/PolkadotAccountSelectorModal';
 import * as Constants from './constants';
+import { web3Accounts, web3Enable } from '@polkadot/extension-dapp'; 
+import { encodeAddress } from '@polkadot/util-crypto';
+
 
 type LearningPath = 'blockchainBasics' | 'polkadotAdvanced' | null;
+type OnboardingStatus = 'pending_intro' | 'intro_skipped' | 'completed';
+
+// Local interface to replace InjectedAccountWithMeta if import fails
+interface LocalInjectedAccountWithMeta {
+  address: string;
+  meta: {
+    name?: string;
+    source: string;
+  };
+}
 
 const App: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -33,12 +47,18 @@ const App: React.FC = () => {
     Constants.ACHIEVEMENT_KEYS.INITIATED_LEARNER
   ]);
 
-  const [showOnboardingModal, setShowOnboardingModal] = useState<boolean>(false);
   const [userExpertise, setUserExpertise] = useState<string>('');
+  const [onboardingStep, setOnboardingStep] = useState<number>(0); 
 
   const [isSidePanelOpen, setIsSidePanelOpen] = useState<boolean>(false);
   const [currentMustLearnTopics, setCurrentMustLearnTopics] = useState<MustLearnTopic[]>([]);
   const [completedMustLearnTopics, setCompletedMustLearnTopics] = useState<{ [topicId: string]: boolean }>({});
+
+  const [profilePictureUrl, setProfilePictureUrl] = useState<string | null>(null);
+  const [polkadotAccount, setPolkadotAccount] = useState<PolkadotAccount | null>(null);
+  const [availablePolkadotAccounts, setAvailablePolkadotAccounts] = useState<PolkadotAccount[]>([]);
+  const [showAccountSelector, setShowAccountSelector] = useState<boolean>(false);
+  const [walletError, setWalletError] = useState<string | null>(null);
 
 
   const {
@@ -49,19 +69,24 @@ const App: React.FC = () => {
     stopListening,
     error: speechError,
     browserSupportsSpeechRecognition
-  } = useSpeechRecognition(i18n.language); // Pass language to speech recognition
+  } = useSpeechRecognition(i18n.language);
 
   const { speak, cancelSpeaking, isSpeaking, browserSupportsSpeechSynthesis } = useSpeechSynthesis();
 
   useEffect(() => {
-    const hasCompletedOnboarding = localStorage.getItem('hasCompletedOnboarding');
-    if (hasCompletedOnboarding !== 'true') {
-      setShowOnboardingModal(true);
+    const storedOnboardingStatus = localStorage.getItem('onboardingStatus') as OnboardingStatus | null;
+    
+    if (storedOnboardingStatus === 'completed') {
+      setOnboardingStep(0);
+    } else if (storedOnboardingStatus === 'intro_skipped') {
+      setOnboardingStep(5); 
+    } else { 
+      setOnboardingStep(1); 
     }
+
     const storedNickname = localStorage.getItem('userNickname');
     if (storedNickname) setUserNickname(storedNickname);
     else setUserNickname(t('profile.defaultNickname'));
-
 
     const storedAchievements = localStorage.getItem('userAchievements');
     if (storedAchievements) setAchievements(JSON.parse(storedAchievements));
@@ -69,7 +94,13 @@ const App: React.FC = () => {
     const storedExpertise = localStorage.getItem('userExpertise');
     if (storedExpertise) setUserExpertise(storedExpertise);
 
-  }, [t]); // Add t to dependencies if defaultNickname relies on it
+    const storedProfilePicture = localStorage.getItem('userProfilePicture');
+    if (storedProfilePicture) setProfilePictureUrl(storedProfilePicture);
+
+    const storedPolkadotAccount = localStorage.getItem('polkadotAccount');
+    if (storedPolkadotAccount) setPolkadotAccount(JSON.parse(storedPolkadotAccount));
+
+  }, [t]);
 
   useEffect(() => {
     localStorage.setItem('userAchievements', JSON.stringify(achievements));
@@ -78,6 +109,25 @@ const App: React.FC = () => {
   useEffect(() => {
     localStorage.setItem('userNickname', userNickname);
   }, [userNickname]);
+
+  useEffect(() => {
+    if (profilePictureUrl) {
+      localStorage.setItem('userProfilePicture', profilePictureUrl);
+    } else {
+      localStorage.removeItem('userProfilePicture');
+    }
+  }, [profilePictureUrl]);
+
+  useEffect(() => {
+    if (polkadotAccount) {
+      localStorage.setItem('polkadotAccount', JSON.stringify(polkadotAccount));
+       if (!achievements.includes(Constants.ACHIEVEMENT_KEYS.WALLET_CONNECTOR)) {
+        setAchievements(prev => [...prev, Constants.ACHIEVEMENT_KEYS.WALLET_CONNECTOR]);
+      }
+    } else {
+      localStorage.removeItem('polkadotAccount');
+    }
+  }, [polkadotAccount, achievements]);
 
 
   useEffect(() => {
@@ -90,7 +140,7 @@ const App: React.FC = () => {
         const topics = learningPath === 'blockchainBasics' 
             ? Constants.MUST_LEARN_BLOCKCHAIN_BASICS 
             : Constants.MUST_LEARN_POLKADOT_ADVANCED;
-        setCurrentMustLearnTopics(topics as MustLearnTopic[]); // Cast as MustLearnTopic
+        setCurrentMustLearnTopics(topics as MustLearnTopic[]);
 
         const storedCompletions = localStorage.getItem(`completedTopics_${learningPath}`);
         if (storedCompletions) {
@@ -114,20 +164,45 @@ const App: React.FC = () => {
     }
   }, [speechError, t]);
 
-  const handleOnboardingSubmit = (expertise: string) => {
+  const handleNextOnboardingStep = () => {
+    if (onboardingStep === 4) { 
+      localStorage.setItem('onboardingStatus', 'intro_skipped');
+      setOnboardingStep(5); 
+    } else if (onboardingStep < 5 && onboardingStep > 0) {
+      setOnboardingStep(prev => prev + 1);
+    }
+  };
+  
+  const handleSkipIntroToPersonalization = () => {
+    localStorage.setItem('onboardingStatus', 'intro_skipped');
+    setOnboardingStep(5); 
+  };
+  
+  const handlePersonalizationSubmit = (expertise: string) => {
     setUserExpertise(expertise);
     localStorage.setItem('userExpertise', expertise);
-    setShowOnboardingModal(false);
-    localStorage.setItem('hasCompletedOnboarding', 'true');
+    localStorage.setItem('onboardingStatus', 'completed');
+    localStorage.setItem('hasCompletedOnboarding', 'true'); 
+    setOnboardingStep(0);
     if (expertise.trim() && !achievements.includes(Constants.ACHIEVEMENT_KEYS.PERSONALIZED_LEARNER)) {
         setAchievements(prev => [...prev, Constants.ACHIEVEMENT_KEYS.PERSONALIZED_LEARNER]);
     }
   };
-
-  const handleOnboardingSkip = () => {
-    setShowOnboardingModal(false);
+  
+  const handlePersonalizationSkip = () => {
+    localStorage.setItem('onboardingStatus', 'completed');
     localStorage.setItem('hasCompletedOnboarding', 'true');
+    setOnboardingStep(0);
   };
+
+  const handleUserExpertiseChange = (newExpertise: string) => {
+    setUserExpertise(newExpertise);
+    localStorage.setItem('userExpertise', newExpertise);
+    if (newExpertise.trim() && !achievements.includes(Constants.ACHIEVEMENT_KEYS.PERSONALIZED_LEARNER)) {
+      setAchievements(prev => [...prev, Constants.ACHIEVEMENT_KEYS.PERSONALIZED_LEARNER]);
+    }
+  };
+
 
   const markTopicAsCompletedByQuery = useCallback((queryText: string) => {
     if (!learningPath) return;
@@ -193,7 +268,7 @@ const App: React.FC = () => {
         currentContextMessages, 
         activeLearningPath,
         userExpertise,
-        t(Constants.USER_EXPERTISE_NO_EXPERTISE_FALLBACK_KEY) // Pass translated "None provided"
+        t(Constants.USER_EXPERTISE_NO_EXPERTISE_FALLBACK_KEY)
       );
       
       const newAiMessage: ChatMessage = {
@@ -211,7 +286,7 @@ const App: React.FC = () => {
       }
       
       if (isAutoSpeakEnabled && browserSupportsSpeechSynthesis) {
-        speak(aiResponseText, i18n.language); // Pass current language to speech synthesis
+        speak(aiResponseText, i18n.language);
       }
       
       markTopicAsCompletedByQuery(userMessageQueryText);
@@ -294,178 +369,242 @@ const App: React.FC = () => {
     handleSendMessage(topic.canonicalTitle, false); 
   };
 
+  const handleProfilePictureChange = (dataUrl: string) => {
+    setProfilePictureUrl(dataUrl);
+    if (!achievements.includes(Constants.ACHIEVEMENT_KEYS.PHOTO_FANATIC)) {
+        setAchievements(prev => [...prev, Constants.ACHIEVEMENT_KEYS.PHOTO_FANATIC]);
+    }
+  };
 
-  const pathwayButtonClasses = "bg-purple-600 hover:bg-purple-700 text-white py-3 px-6 md:px-8 rounded-lg text-base md:text-lg font-semibold transition-colors duration-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-opacity-75 flex items-center justify-center";
+  const handleConnectWallet = async () => {
+    setWalletError(null);
+    try {
+      const extensions = await web3Enable(t('appTitle'));
+      if (extensions.length === 0) {
+        setWalletError(t('profile.noWalletsDetected'));
+        return;
+      }
+      const allAccounts = await web3Accounts();
+      if (allAccounts.length === 0) {
+        setWalletError(t('profile.noAccountsFound'));
+        return;
+      }
+
+      const formattedAccounts: PolkadotAccount[] = allAccounts.map((acc: LocalInjectedAccountWithMeta) => ({
+        address: encodeAddress(acc.address, 0), // Polkadot mainnet format (SS58 prefix 0)
+        name: acc.meta.name,
+        source: acc.meta.source,
+      }));
+      
+      setAvailablePolkadotAccounts(formattedAccounts);
+      if (formattedAccounts.length === 1) {
+        setPolkadotAccount(formattedAccounts[0]);
+        setShowAccountSelector(false);
+      } else if (formattedAccounts.length > 1) {
+        setShowAccountSelector(true);
+      } else {
+        // This case should ideally not be reached if allAccounts.length > 0
+        setWalletError(t('profile.noAccountsFound'));
+      }
+
+    } catch (err: any) {
+      console.error('Error connecting to wallet:', err);
+      if (err.message && (err.message.toLowerCase().includes('cancelled') || err.message.toLowerCase().includes('user rejected'))) {
+        setWalletError(t('profile.walletsPermissionDenied'));
+      } else {
+        setWalletError(t('profile.walletsGenericError') + (err.message ? `: ${err.message}` : ''));
+      }
+    }
+  };
+
+  const handleSelectPolkadotAccount = (account: PolkadotAccount) => {
+    setPolkadotAccount(account);
+    setShowAccountSelector(false);
+    setAvailablePolkadotAccounts([]); 
+  };
+
+  const handleCloseAccountSelector = () => {
+    setShowAccountSelector(false);
+    setAvailablePolkadotAccounts([]); 
+  };
+
+  const handleDisconnectWallet = () => {
+    setPolkadotAccount(null);
+    setWalletError(null);
+  };
+
+  const handleClearWalletError = () => {
+    setWalletError(null);
+  };
 
   const renderContent = () => {
-    if (showOnboardingModal) return null; 
+    if (onboardingStep > 0 && onboardingStep <= 5) {
+      return (
+        <OnboardingFlow
+          currentStep={onboardingStep}
+          onNextStep={handleNextOnboardingStep}
+          onSkipIntro={handleSkipIntroToPersonalization}
+          onPersonalizationSubmit={handlePersonalizationSubmit}
+          onPersonalizationSkip={handlePersonalizationSkip}
+          initialUserExpertise={userExpertise}
+          browserSupportsSpeechRecognition={browserSupportsSpeechRecognition}
+        />
+      );
+    }
 
     switch (activeTab) {
       case 'home':
         return (
-          <div className="flex flex-col items-center justify-center h-full text-center p-4">
-            <div className="bg-black bg-opacity-60 backdrop-blur-md p-6 md:p-10 rounded-xl shadow-2xl w-full max-w-xl lg:max-w-2xl">
-              <div>
-                <h2 className="text-2xl md:text-4xl font-bold mb-6 md:mb-10 text-purple-200 drop-shadow-lg">{t('home.title')}</h2>
-                <div className="space-y-4 md:space-y-0 md:space-x-6 flex flex-col md:flex-row justify-center mb-10 md:mb-16">
-                  <button onClick={() => handleSelectPath('blockchainBasics')} className={pathwayButtonClasses}>
-                    <i className="fas fa-cubes mr-2"></i><span>{t('home.blockchainBasicsButton')}</span>
-                  </button>
-                  <button onClick={() => handleSelectPath('polkadotAdvanced')} className={pathwayButtonClasses}>
-                    <i className="fas fa-project-diagram mr-2"></i><span>{t('home.polkadotAdvancedButton')}</span>
-                  </button>
-                </div>
-              </div>
-              <div className="border-t border-gray-700 pt-6 md:pt-8">
-                <h3 className="text-xl md:text-2xl font-semibold mb-4 md:mb-6 text-purple-300 drop-shadow-lg">
-                  {t('home.resourcesTitle')}
-                </h3>
-                <div className="space-y-4 max-w-md mx-auto">
-                  <button 
-                    onClick={() => window.open('https://ethereum.org/developers/docs/', '_blank')} 
-                    className={`${pathwayButtonClasses} w-full`}
-                  >
-                    <i className="fas fa-book-open mr-2"></i>
-                    <span>{t('home.blockchainDeepDiveButton')}</span>
-                  </button>
-                  <button 
-                    onClick={() => window.open('https://polkadot.network/ecosystem/projects/', '_blank')} 
-                    className={`${pathwayButtonClasses} w-full`}
-                  >
-                    <i className="fas fa-link mr-2"></i>
-                    <span>{t('home.polkadotEcosystemButton')}</span>
-                  </button>
-                </div>
-              </div>
+          <div className="flex flex-col items-center justify-center h-full p-4 md:p-8 text-white text-center">
+            <i className="fas fa-project-diagram text-5xl md:text-6xl text-purple-400 mb-6"></i>
+            <h1 className="text-2xl md:text-4xl font-bold mb-4">{t('home.title')}</h1>
+            <p className="mb-8 text-gray-300 max-w-md">{t('onboarding.welcome.subtitle', { appName: t('appTitle') })}</p>
+            <div className="space-y-4 md:space-y-0 md:space-x-4 flex flex-col md:flex-row">
+              <button
+                onClick={() => handleSelectPath('blockchainBasics')}
+                className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg transition-transform transform hover:scale-105 text-lg"
+              >
+                <i className="fas fa-cubes mr-2"></i>{t('home.blockchainBasicsButton')}
+              </button>
+              <button
+                onClick={() => handleSelectPath('polkadotAdvanced')}
+                className="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg transition-transform transform hover:scale-105 text-lg"
+              >
+                <i className="fas fa-atom mr-2"></i>{t('home.polkadotAdvancedButton')}
+              </button>
             </div>
           </div>
         );
       case 'chat':
         if (!learningPath) {
           return (
-            <div className="flex flex-col items-center justify-center h-full text-center p-4">
-              <div className="bg-black bg-opacity-60 backdrop-blur-md p-8 rounded-xl shadow-2xl max-w-md">
-                <i className="fas fa-info-circle text-purple-400 text-4xl mb-4"></i>
-                <h2 className="text-2xl font-semibold mb-3 text-purple-200">{t('chat.noPathSelectedTitle')}</h2>
-                <p className="text-gray-300 mb-6" dangerouslySetInnerHTML={{ __html: t('chat.noPathSelectedMessage') }}></p>
-                <button 
-                  onClick={() => setActiveTab('home')} 
-                  className="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors"
-                >
-                  {t('chat.goToHomeButton')}
-                </button>
-              </div>
+            <div className="flex flex-col items-center justify-center h-full p-4 text-white text-center">
+              <i className="fas fa-comments text-5xl text-purple-400 mb-4"></i>
+              <h2 className="text-2xl font-semibold mb-2">{t('chat.noPathSelectedTitle')}</h2>
+              <p className="mb-4 text-gray-300" dangerouslySetInnerHTML={{ __html: t('chat.noPathSelectedMessage') }}></p>
+              <button
+                onClick={() => setActiveTab('home')}
+                className="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-6 rounded-lg transition-colors"
+              >
+                {t('chat.goToHomeButton')}
+              </button>
             </div>
           );
         }
         return (
-          <ChatInterface
-            messages={chatMessages}
-            onSendMessage={(msg) => handleSendMessage(msg, false)}
-            isLoading={isLoading}
-            error={error}
-            onClearError={() => setError(null)}
-            transcript={transcript}
-            interimTranscript={interimTranscript}
-            isListening={isListening}
-            micNotSupported={!browserSupportsSpeechRecognition}
-            currentPath={learningPath}
-            onSuggestedTopicClick={(topicText) => {
-                handleSendMessage(topicText, false);
-            }}
-          />
+          <div className="h-full flex flex-col relative"> {/* Added relative for side panel absolute positioning context */}
+            <ChatInterface
+              messages={chatMessages}
+              onSendMessage={(msg) => handleSendMessage(msg, false)}
+              isLoading={isLoading}
+              error={error}
+              onClearError={() => setError(null)}
+              transcript={transcript}
+              interimTranscript={interimTranscript}
+              isListening={isListening}
+              micNotSupported={!browserSupportsSpeechRecognition}
+              currentPath={learningPath}
+              onSuggestedTopicClick={(topic) => handleSendMessage(topic, false)}
+            />
+            <div className="absolute top-2 right-2 md:top-4 md:right-4 z-20 flex space-x-2">
+                {browserSupportsSpeechRecognition && (
+                   <IconButton
+                      iconClass={isListening ? "fas fa-microphone-slash" : "fas fa-microphone"}
+                      onClick={isListening ? stopListening : startListening}
+                      tooltip={isListening ? t('tooltips.stopListening') : t('tooltips.startListening')}
+                      className={`p-2 w-10 h-10 md:w-12 md:h-12 rounded-full text-white transition-colors duration-200 shadow-md ${
+                        isListening ? 'bg-red-500 hover:bg-red-600' : 'bg-blue-500 hover:bg-blue-600'
+                      }`}
+                      aria-pressed={isListening}
+                    />
+                )}
+                {browserSupportsSpeechSynthesis && (
+                   <IconButton
+                      iconClass={isAutoSpeakEnabled ? "fas fa-volume-up" : "fas fa-volume-mute"}
+                      onClick={toggleAutoSpeak}
+                      tooltip={isAutoSpeakEnabled ? t('tooltips.disableAiSpeech') : t('tooltips.enableAiSpeech')}
+                      className={`p-2 w-10 h-10 md:w-12 md:h-12 rounded-full text-white transition-colors duration-200 shadow-md ${
+                        isAutoSpeakEnabled ? 'bg-green-500 hover:bg-green-600' : 'bg-yellow-500 hover:bg-yellow-600'
+                      }`}
+                      aria-pressed={isAutoSpeakEnabled}
+                    />
+                )}
+                <IconButton
+                    iconClass="fas fa-list-alt"
+                    onClick={toggleSidePanel}
+                    tooltip={t('tooltips.openTopics')}
+                    className="p-2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-purple-500 hover:bg-purple-600 text-white transition-colors duration-200 shadow-md"
+                 />
+            </div>
+          </div>
         );
       case 'profile':
-        return (
-          <ProfileScreen 
-            nickname={userNickname}
-            onNicknameChange={setUserNickname}
-            achievements={achievements}
-            expertise={userExpertise}
-            onExpertiseChange={(newExpertise) => {
-                setUserExpertise(newExpertise);
-                localStorage.setItem('userExpertise', newExpertise);
-                 if (newExpertise.trim() && !achievements.includes(Constants.ACHIEVEMENT_KEYS.PERSONALIZED_LEARNER)) {
-                    setAchievements(prev => [...prev, Constants.ACHIEVEMENT_KEYS.PERSONALIZED_LEARNER]);
-                } else if (!newExpertise.trim() && achievements.includes(Constants.ACHIEVEMENT_KEYS.PERSONALIZED_LEARNER)) {
-                    setAchievements(prev => prev.filter(ach => ach !== Constants.ACHIEVEMENT_KEYS.PERSONALIZED_LEARNER));
-                }
-            }}
-          />
-        );
+        return <ProfileScreen 
+                  nickname={userNickname} 
+                  onNicknameChange={setUserNickname} 
+                  achievements={achievements}
+                  expertise={userExpertise}
+                  onExpertiseChange={handleUserExpertiseChange}
+                  profilePictureUrl={profilePictureUrl}
+                  onProfilePictureChange={handleProfilePictureChange}
+                  polkadotAccount={polkadotAccount}
+                  onConnectWallet={handleConnectWallet}
+                  onDisconnectWallet={handleDisconnectWallet}
+                  walletError={walletError}
+                  onClearWalletError={handleClearWalletError}
+               />;
       default:
         return null;
     }
   };
 
   return (
-    <div className="relative min-h-screen font-sans text-white bg-gray-900 flex flex-col">
-      <VisualBackground keyword={currentVisualKeyword} />
+    <div className="h-screen w-screen flex flex-col bg-gray-900 text-white overflow-hidden">
+       <VisualBackground keyword={currentVisualKeyword} />
+      <header className="absolute top-0 left-0 right-0 p-3 md:p-4 bg-gray-900 bg-opacity-30 backdrop-blur-sm z-20 flex justify-between items-center">
+        <div className="flex items-center">
+            {profilePictureUrl && polkadotAccount && (
+                 <img 
+                    src={profilePictureUrl} 
+                    alt={t('profile.userProfilePictureAlt')} 
+                    className="w-8 h-8 md:w-10 md:h-10 rounded-full mr-2 border-2 border-purple-400 object-cover"
+                    onError={(e) => (e.currentTarget.style.display = 'none')} 
+                 />
+            )}
+            {polkadotAccount && (
+                <span className="text-xs md:text-sm text-gray-300 mr-2 hidden sm:block">
+                    {polkadotAccount.name || `${polkadotAccount.address.substring(0,6)}...`}
+                </span>
+            )}
+            <h1 className="text-lg md:text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">
+               {t('appTitle')}
+            </h1>
+        </div>
+        <LanguageSwitcher />
+      </header>
+
+      <main className={`flex-grow overflow-y-auto custom-scrollbar pt-16 pb-16 md:pt-20 md:pb-20 relative z-10`}> {/* Added relative for correct z-index stacking */}
+        {renderContent()}
+      </main>
+
+      {onboardingStep === 0 && <BottomNavigation activeTab={activeTab} onTabChange={setActiveTab} />}
       
-      {showOnboardingModal && (
-        <OnboardingModal 
-          onSubmit={handleOnboardingSubmit}
-          onSkip={handleOnboardingSkip}
+      <PolkadotAccountSelectorModal
+        isOpen={showAccountSelector}
+        accounts={availablePolkadotAccounts}
+        onSelectAccount={handleSelectPolkadotAccount}
+        onClose={handleCloseAccountSelector}
+      />
+
+      {activeTab === 'chat' && learningPath && (
+        <SidePanel 
+          isOpen={isSidePanelOpen} 
+          topics={currentMustLearnTopics}
+          completedTopics={completedMustLearnTopics}
+          onSelectTopic={handleSelectMustLearnTopic}
+          onClose={toggleSidePanel}
+          learningPath={learningPath}
         />
-      )}
-
-      {!showOnboardingModal && (
-        <>
-          {learningPath && activeTab === 'chat' && (
-            <SidePanel
-              isOpen={isSidePanelOpen}
-              topics={currentMustLearnTopics}
-              completedTopics={completedMustLearnTopics}
-              onSelectTopic={handleSelectMustLearnTopic}
-              onClose={toggleSidePanel}
-              learningPath={learningPath}
-            />
-          )}
-
-          <header className="fixed top-0 left-0 right-0 z-30 p-3 md:p-4 bg-gray-900 bg-opacity-80 backdrop-blur-lg flex justify-between items-center shadow-md h-16 md:h-20">
-            <div className="flex items-center">
-              <h1 className="text-lg md:text-xl font-bold text-purple-300 drop-shadow-md">
-                {t('appTitle')}
-              </h1>
-            </div>
-            <div className="flex items-center space-x-1 md:space-x-2">
-              <LanguageSwitcher />
-              {browserSupportsSpeechSynthesis && (
-                 <IconButton
-                  iconClass={isAutoSpeakEnabled ? "fas fa-volume-up" : "fas fa-volume-mute"}
-                  onClick={toggleAutoSpeak}
-                  tooltip={t(isAutoSpeakEnabled ? "tooltips.disableAiSpeech" : "tooltips.enableAiSpeech")}
-                  className={`p-2 rounded-full transition-colors text-sm md:text-base ${isAutoSpeakEnabled ? 'bg-purple-500 hover:bg-purple-600' : 'bg-gray-600 hover:bg-gray-500'} text-white`}
-                />
-              )}
-              {browserSupportsSpeechRecognition && activeTab === 'chat' && learningPath && ( 
-                <IconButton
-                  iconClass={isListening ? "fas fa-microphone-slash" : "fas fa-microphone"}
-                  onClick={isListening ? stopListening : startListening}
-                  tooltip={t(isListening ? "tooltips.stopListening" : "tooltips.startListening")}
-                  className={`p-2 rounded-full transition-colors text-sm md:text-base ${isListening ? 'bg-red-500 hover:bg-red-600 animate-pulse' : 'bg-blue-500 hover:bg-blue-600'} text-white`}
-                />
-              )}
-              {activeTab === 'chat' && learningPath && (
-                  <IconButton
-                    iconClass="fas fa-bars" 
-                    onClick={toggleSidePanel}
-                    tooltip={t(isSidePanelOpen ? "tooltips.closeTopics" : "tooltips.openTopics")}
-                    className="p-2 rounded-full transition-colors text-white hover:bg-gray-700 text-sm md:text-base"
-                  />
-              )}
-            </div>
-          </header>
-          
-          <main className={`flex-grow overflow-y-auto pt-16 md:pt-20 pb-16 md:pb-20 z-10 transition-all duration-300 ease-in-out ${isSidePanelOpen && activeTab === 'chat' ? 'pr-64 md:pr-72' : 'pr-0'}`}> 
-            {renderContent()}
-          </main>
-
-          <BottomNavigation activeTab={activeTab} onTabChange={(newTab) => {
-            setActiveTab(newTab);
-            if (newTab !== 'chat') setIsSidePanelOpen(false); 
-          }} />
-        </>
       )}
     </div>
   );

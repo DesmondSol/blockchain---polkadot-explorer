@@ -1,5 +1,5 @@
 {
-  "name": "Blockchain & Polkadot Explorer",
+  "name": "next version with pk login Blockchain & Polkadot Explorer",
   "description": "An interactive learning app for blockchain and Polkadot beginners, featuring voice chat, AI assistance, and dynamic visual aids to help explore and learn complex concepts.",
   "requestFramePermissions": [
     "microphone"

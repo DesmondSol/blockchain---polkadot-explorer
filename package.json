@@ -1,5 +1,5 @@
 {
-  "name": "blockchain-&-polkadot-explorer",
+  "name": "next-version-with-pk-login-blockchain-&-polkadot-explorer",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -15,7 +15,11 @@
     "i18next": "^23.10.0",
     "react-i18next": "^14.1.0",
     "i18next-http-backend": "^2.5.0",
-    "i18next-browser-languagedetector": "^7.2.0"
+    "i18next-browser-languagedetector": "^7.2.0",
+    "@polkadot/extension-dapp": "^0.46.9",
+    "@polkadot/util": "^12.6.2",
+    "@polkadot/keyring": "^12.6.2",
+    "@polkadot/util-crypto": "^12.6.2"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",

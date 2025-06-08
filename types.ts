@@ -34,3 +34,10 @@ export interface MustLearnTopic {
   canonicalTitle: string; // English title for AI and internal logic
   descriptionKey?: string; // Key for localized description
 }
+
+export interface PolkadotAccount {
+  address: string;
+  name?: string; // User-defined name in the extension
+  source: string; // Extension's source/name e.g., 'polkadot-js', 'talisman'
+  // We can add type (e.g. sr25519, ed25519) if needed later
+}

@@ -1,3 +1,4 @@
+
 {
   "appTitle": "Explorador de Blockchain y Polkadot",
   "common": {
@@ -62,6 +63,26 @@
     "saveNicknameButtonAriaLabel": "Guardar apodo",
     "cancelEditingNicknameAriaLabel": "Cancelar edición de apodo",
     "editNicknameButtonAriaLabel": "Editar apodo",
+    "userProfilePictureAlt": "Foto de perfil del usuario (ES)",
+    "changePictureAriaLabel": "Cambiar foto de perfil (ES)",
+    "changePictureTooltip": "Cambiar Foto (ES)",
+    "polkadotWalletTitle": "Billetera Polkadot (ES)",
+    "connectWalletButton": "Conectar Billetera Polkadot (ES)",
+    "connectWalletButtonAriaLabel": "Conectar tu billetera Polkadot (ES)",
+    "connectWalletDescription": "Conecta tu billetera Polkadot (ej. Nova, Talisman, Polkadot.js) para mostrar tu cuenta. (ES)",
+    "disconnectWalletButton": "Desconectar Billetera (ES)",
+    "disconnectWalletButtonAriaLabel": "Desconectar tu billetera Polkadot (ES)",
+    "walletName": "Nombre de Cuenta (ES)",
+    "walletNameUnnamed": "Cuenta sin Nombre (ES)",
+    "walletAddress": "Dirección (ES)",
+    "walletSource": "Extensión de Billetera (ES)",
+    "walletSourceLabel": "Fuente (ES)",
+    "selectAccountTitle": "Seleccionar Cuenta Polkadot (ES)",
+    "noWalletsDetected": "No se detectaron extensiones de billetera Polkadot. Instala una (ej. Nova Wallet, Talisman, Polkadot.js) e inténtalo de nuevo. (ES)",
+    "walletsPermissionDenied": "Se denegó el permiso para acceder a las extensiones de Polkadot. Habilita los permisos en la configuración de tu extensión. (ES)",
+    "walletsGenericError": "No se pudo conectar a las billeteras Polkadot. Asegúrate de que tu extensión esté desbloqueada e inténtalo de nuevo. (ES)",
+    "noAccountsFound": "No se encontraron cuentas en tu extensión de billetera Polkadot. Crea o importa una cuenta. (ES)",
+    "noAccountsFoundInExtension": "No se encontraron cuentas en la extensión seleccionada. (ES)",
     "expertiseTitle": "Tu Experiencia/Conocimientos",
     "editExpertiseAriaLabel": "Edita tu experiencia",
     "expertisePlaceholder": "Ej: 'Desarrollador frontend', 'Profesional de marketing'",
@@ -74,15 +95,39 @@
     "noAchievements": "Aún no has desbloqueado logros. ¡Sigue aprendiendo y explorando!"
   },
   "onboarding": {
-    "title": "¡Personalicemos Tu Aprendizaje!",
-    "description1": "Cuéntanos un poco sobre tu experiencia, rol actual o área de especialización (ej: \"Desarrollador de Software\", \"Estudiante de Finanzas\", \"Gerente de Marketing\", \"Curioso sobre Web3\").",
-    "description2": "Esto nos ayudará a adaptar ejemplos y explicaciones a lo que ya sabes, facilitando la comprensión de temas complejos.",
-    "textAreaPlaceholder": "Ej: 'Desarrollador frontend con 3 años de experiencia', 'Profesional de marketing nuevo en tecnología', 'Estudiante de economía'",
-    "textAreaAriaLabel": "Describe tu experiencia o conocimientos",
-    "skipButton": "Omitir por Ahora",
-    "skipButtonAriaLabel": "Omitir proporcionar experiencia por ahora",
-    "submitButton": "Enviar y Comenzar a Aprender",
-    "submitButtonAriaLabel": "Enviar experiencia y comenzar a aprender"
+    "welcome": {
+      "title": "¡Bienvenido! (ES)",
+      "subtitle": "Tu guía amigable para entender Blockchain & Polkadot, por {{appName}} (ES)."
+    },
+    "interactive": {
+      "title": "Aprende Interactivamente (ES)",
+      "line1": "Participa en conversaciones para explorar temas complejos. (ES)",
+      "line2": "Los elementos visuales dinámicos ayudan a dar vida a conceptos abstractos. (ES)"
+    },
+    "aiFeatures": {
+      "title": "Inteligente y Accesible (ES)",
+      "line1": "Obtén asistencia impulsada por IA adaptada a tus preguntas. (ES)",
+      "line2": "Usa comandos de voz para una experiencia de aprendizaje manos libres. (ES)",
+      "voiceNoteNoSupport": "Tu navegador no es compatible con los comandos de voz, ¡pero el chat de IA está aquí para ti! (ES)",
+      "note": "La IA está aprendiendo constantemente, pero siempre verifica la información crítica. (ES)"
+    },
+    "language": {
+      "title": "Elige Tu Idioma (ES)"
+    },
+    "personalize": {
+      "title": "¡Personalicemos Tu Aprendizaje! (ES)",
+      "description1": "Cuéntanos un poco sobre tu experiencia, rol actual o área de especialización (ej: \"Desarrollador de Software\", \"Estudiante de Finanzas\", \"Gerente de Marketing\", \"Curioso sobre Web3\"). (ES)",
+      "description2": "Esto nos ayudará a adaptar ejemplos y explicaciones a lo que ya sabes, facilitando la comprensión de temas complejos. (ES)",
+      "textAreaPlaceholder": "Ej: 'Desarrollador frontend con 3 años de experiencia', 'Profesional de marketing nuevo en tecnología', 'Estudiante de economía' (ES)",
+      "textAreaAriaLabel": "Describe tu experiencia o conocimientos (ES)",
+      "skipButton": "Omitir por Ahora (ES)",
+      "skipButtonAriaLabel": "Omitir proporcionar experiencia por ahora (ES)",
+      "submitButton": "Enviar y Comenzar a Aprender (ES)",
+      "submitButtonAriaLabel": "Enviar experiencia y comenzar a aprender (ES)"
+    },
+    "nextButton": "Siguiente (ES)",
+    "skipIntroButton": "Omitir Introducción (ES)",
+    "getStartedButton": "Comenzar (ES)"
   },
   "bottomNav": {
     "home": "Inicio",
@@ -113,7 +158,9 @@
     "personalizedLearner": { "name": "Aprendiz Personalizado" },
     "sourceSeeker": { "name": "Buscador de Fuentes" },
     "firstTopicConquered": { "name": "Primer Tema Conquistado" },
-    "pathMaster": { "name": "Maestro de la Ruta" }
+    "pathMaster": { "name": "Maestro de la Ruta" },
+    "walletConnector": { "name": "Conector de Billetera (ES)" },
+    "photoFanatic": { "name": "Fanático de las Fotos (ES)" }
   },
   "mustLearn": {
     "blockchainBasics": {

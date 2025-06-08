@@ -13,7 +13,7 @@ i18n
     interpolation: {
       escapeValue: false, // React already safes from xss
     },
-    supportedLngs: ['en', 'es', 'am'], // Add more languages as needed
+    supportedLngs: ['en', 'es', 'am', 'fr'], // Add more languages as needed
     backend: {
       loadPath: '/locales/{{lng}}/translation.json', // Path to translation files
     },

@@ -1,3 +1,4 @@
+
 {
   "appTitle": "Blockchain & Polkadot Explorer",
   "common": {
@@ -62,6 +63,26 @@
     "saveNicknameButtonAriaLabel": "Save nickname",
     "cancelEditingNicknameAriaLabel": "Cancel editing nickname",
     "editNicknameButtonAriaLabel": "Edit nickname",
+    "userProfilePictureAlt": "User's profile picture",
+    "changePictureAriaLabel": "Change profile picture",
+    "changePictureTooltip": "Change Picture",
+    "polkadotWalletTitle": "Polkadot Wallet",
+    "connectWalletButton": "Connect Polkadot Wallet",
+    "connectWalletButtonAriaLabel": "Connect your Polkadot wallet",
+    "connectWalletDescription": "Connect your Polkadot wallet (e.g., Nova, Talisman, Polkadot.js) to display your account.",
+    "disconnectWalletButton": "Disconnect Wallet",
+    "disconnectWalletButtonAriaLabel": "Disconnect your Polkadot wallet",
+    "walletName": "Account Name",
+    "walletNameUnnamed": "Unnamed Account",
+    "walletAddress": "Address",
+    "walletSource": "Wallet Extension",
+    "walletSourceLabel": "Source",
+    "selectAccountTitle": "Select Polkadot Account",
+    "noWalletsDetected": "No Polkadot wallet extensions detected. Please install one (e.g., Nova Wallet, Talisman, Polkadot.js) and try again.",
+    "walletsPermissionDenied": "Permission to access Polkadot extensions was denied. Please enable permissions in your browser extension settings.",
+    "walletsGenericError": "Could not connect to Polkadot wallets. Please ensure your extension is unlocked and try again.",
+    "noAccountsFound": "No accounts found in your Polkadot wallet extension. Please create or import an account.",
+    "noAccountsFoundInExtension": "No accounts found in the selected extension.",
     "expertiseTitle": "Your Background/Expertise",
     "editExpertiseAriaLabel": "Edit your expertise",
     "expertisePlaceholder": "E.g., 'Frontend developer', 'Marketing professional'",
@@ -74,15 +95,39 @@
     "noAchievements": "No achievements unlocked yet. Keep learning and exploring!"
   },
   "onboarding": {
-    "title": "Let's Personalize Your Learning!",
-    "description1": "Tell us a bit about your background, current role, or area of expertise (e.g., \"Software Developer\", \"Student in Finance\", \"Marketing Manager\", \"Curious about Web3\").",
-    "description2": "This will help us tailor examples and explanations to what you already know, making complex topics easier to grasp.",
-    "textAreaPlaceholder": "E.g., 'Frontend developer with 3 years experience', 'Marketing professional new to tech', 'Economics student'",
-    "textAreaAriaLabel": "Describe your experience or expertise",
-    "skipButton": "Skip for Now",
-    "skipButtonAriaLabel": "Skip providing expertise for now",
-    "submitButton": "Submit & Start Learning",
-    "submitButtonAriaLabel": "Submit expertise and start learning"
+    "welcome": {
+      "title": "Welcome!",
+      "subtitle": "Your friendly guide to understanding Blockchain & Polkadot, powered by {{appName}}."
+    },
+    "interactive": {
+      "title": "Learn Interactively",
+      "line1": "Engage in conversations to explore complex topics.",
+      "line2": "Dynamic visuals help bring abstract concepts to life."
+    },
+    "aiFeatures": {
+      "title": "Smart & Accessible",
+      "line1": "Get AI-powered assistance tailored to your questions.",
+      "line2": "Use voice commands for a hands-free learning experience.",
+      "voiceNoteNoSupport": "Your browser doesn't fully support voice commands, but AI chat is here for you!",
+      "note": "AI is constantly learning, but always verify critical information."
+    },
+    "language": {
+      "title": "Choose Your Language"
+    },
+    "personalize": {
+      "title": "Let's Personalize Your Learning!",
+      "description1": "Tell us a bit about your background, current role, or area of expertise (e.g., \"Software Developer\", \"Student in Finance\", \"Marketing Manager\", \"Curious about Web3\").",
+      "description2": "This will help us tailor examples and explanations to what you already know, making complex topics easier to grasp.",
+      "textAreaPlaceholder": "E.g., 'Frontend developer with 3 years experience', 'Marketing professional new to tech', 'Economics student'",
+      "textAreaAriaLabel": "Describe your experience or expertise",
+      "skipButton": "Skip for Now",
+      "skipButtonAriaLabel": "Skip providing expertise for now",
+      "submitButton": "Submit & Start Learning",
+      "submitButtonAriaLabel": "Submit expertise and start learning"
+    },
+    "nextButton": "Next",
+    "skipIntroButton": "Skip Intro",
+    "getStartedButton": "Get Started"
   },
   "bottomNav": {
     "home": "Home",
@@ -113,7 +158,9 @@
     "personalizedLearner": { "name": "Personalized Learner" },
     "sourceSeeker": { "name": "Source Seeker" },
     "firstTopicConquered": { "name": "First Topic Conquered" },
-    "pathMaster": { "name": "Path Master" }
+    "pathMaster": { "name": "Path Master" },
+    "walletConnector": { "name": "Wallet Connector" },
+    "photoFanatic": { "name": "Photo Fanatic" }
   },
   "mustLearn": {
     "blockchainBasics": {

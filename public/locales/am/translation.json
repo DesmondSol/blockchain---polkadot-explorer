@@ -63,6 +63,26 @@
     "saveNicknameButtonAriaLabel": "Save nickname (Amharic)",
     "cancelEditingNicknameAriaLabel": "Cancel editing nickname (Amharic)",
     "editNicknameButtonAriaLabel": "Edit nickname (Amharic)",
+    "userProfilePictureAlt": "User's profile picture (AM)",
+    "changePictureAriaLabel": "Change profile picture (AM)",
+    "changePictureTooltip": "Change Picture (AM)",
+    "polkadotWalletTitle": "Polkadot Wallet (AM)",
+    "connectWalletButton": "Connect Polkadot Wallet (AM)",
+    "connectWalletButtonAriaLabel": "Connect your Polkadot wallet (AM)",
+    "connectWalletDescription": "Connect your Polkadot wallet (e.g., Nova, Talisman, Polkadot.js) to display your account. (AM)",
+    "disconnectWalletButton": "Disconnect Wallet (AM)",
+    "disconnectWalletButtonAriaLabel": "Disconnect your Polkadot wallet (AM)",
+    "walletName": "Account Name (AM)",
+    "walletNameUnnamed": "Unnamed Account (AM)",
+    "walletAddress": "Address (AM)",
+    "walletSource": "Wallet Extension (AM)",
+    "walletSourceLabel": "Source (AM)",
+    "selectAccountTitle": "Select Polkadot Account (AM)",
+    "noWalletsDetected": "No Polkadot wallet extensions detected. Please install one and try again. (AM)",
+    "walletsPermissionDenied": "Permission to access Polkadot extensions was denied. (AM)",
+    "walletsGenericError": "Could not connect to Polkadot wallets. (AM)",
+    "noAccountsFound": "No accounts found in your Polkadot wallet extension. (AM)",
+    "noAccountsFoundInExtension": "No accounts found in the selected extension. (AM)",
     "expertiseTitle": "Your Background/Expertise (Amharic)",
     "editExpertiseAriaLabel": "Edit your expertise (Amharic)",
     "expertisePlaceholder": "E.g., 'Frontend developer', 'Marketing professional' (Amharic)",
@@ -75,15 +95,39 @@
     "noAchievements": "No achievements unlocked yet. Keep learning and exploring! (Amharic)"
   },
   "onboarding": {
-    "title": "Let's Personalize Your Learning! (Amharic)",
-    "description1": "Tell us a bit about your background, current role, or area of expertise (e.g., \"Software Developer\", \"Student in Finance\", \"Marketing Manager\", \"Curious about Web3\") (Amharic).",
-    "description2": "This will help us tailor examples and explanations to what you already know, making complex topics easier to grasp (Amharic).",
-    "textAreaPlaceholder": "E.g., 'Frontend developer with 3 years experience', 'Marketing professional new to tech', 'Economics student' (Amharic)",
-    "textAreaAriaLabel": "Describe your experience or expertise (Amharic)",
-    "skipButton": "Skip for Now (Amharic)",
-    "skipButtonAriaLabel": "Skip providing expertise for now (Amharic)",
-    "submitButton": "Submit & Start Learning (Amharic)",
-    "submitButtonAriaLabel": "Submit expertise and start learning (Amharic)"
+    "welcome": {
+      "title": "Welcome! (AM)",
+      "subtitle": "Your friendly guide to understanding Blockchain & Polkadot, powered by {{appName}} (AM)."
+    },
+    "interactive": {
+      "title": "Learn Interactively (AM)",
+      "line1": "Engage in conversations to explore complex topics. (AM)",
+      "line2": "Dynamic visuals help bring abstract concepts to life. (AM)"
+    },
+    "aiFeatures": {
+      "title": "Smart & Accessible (AM)",
+      "line1": "Get AI-powered assistance tailored to your questions. (AM)",
+      "line2": "Use voice commands for a hands-free learning experience. (AM)",
+      "voiceNoteNoSupport": "Your browser doesn't fully support voice commands, but AI chat is here for you! (AM)",
+      "note": "AI is constantly learning, but always verify critical information. (AM)"
+    },
+    "language": {
+      "title": "Choose Your Language (AM)"
+    },
+    "personalize": {
+      "title": "Let's Personalize Your Learning! (AM)",
+      "description1": "Tell us a bit about your background, current role, or area of expertise (e.g., \"Software Developer\", \"Student in Finance\", \"Marketing Manager\", \"Curious about Web3\") (AM).",
+      "description2": "This will help us tailor examples and explanations to what you already know, making complex topics easier to grasp (AM).",
+      "textAreaPlaceholder": "E.g., 'Frontend developer with 3 years experience', 'Marketing professional new to tech', 'Economics student' (AM)",
+      "textAreaAriaLabel": "Describe your experience or expertise (AM)",
+      "skipButton": "Skip for Now (AM)",
+      "skipButtonAriaLabel": "Skip providing expertise for now (AM)",
+      "submitButton": "Submit & Start Learning (AM)",
+      "submitButtonAriaLabel": "Submit expertise and start learning (AM)"
+    },
+    "nextButton": "Next (AM)",
+    "skipIntroButton": "Skip Intro (AM)",
+    "getStartedButton": "Get Started (AM)"
   },
   "bottomNav": {
     "home": "Home (Amharic)",
@@ -114,7 +158,9 @@
     "personalizedLearner": { "name": "Personalized Learner (Amharic)" },
     "sourceSeeker": { "name": "Source Seeker (Amharic)" },
     "firstTopicConquered": { "name": "First Topic Conquered (Amharic)" },
-    "pathMaster": { "name": "Path Master (Amharic)" }
+    "pathMaster": { "name": "Path Master (Amharic)" },
+    "walletConnector": { "name": "Wallet Connector (AM)" },
+    "photoFanatic": { "name": "Photo Fanatic (AM)" }
   },
   "mustLearn": {
     "blockchainBasics": {

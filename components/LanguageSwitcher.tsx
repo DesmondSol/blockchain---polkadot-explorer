@@ -11,8 +11,9 @@ interface Language {
 
 const supportedLanguages: Language[] = [
   { code: 'en', name: 'English', flag: '🇬🇧' },
+  { code: 'fr', name: 'Français', flag: '🇫🇷' },
   { code: 'es', name: 'Español', flag: '🇪🇸' },
-  { code: 'am', name: 'አማርኛ', flag: '🇪🇹' }, // Added Amharic
+  { code: 'am', name: 'አማርኛ', flag: '🇪🇹' },
   // Add more languages here
 ];
 
