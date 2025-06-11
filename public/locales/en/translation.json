@@ -14,12 +14,11 @@
     "changeLanguage": "Change Language",
     "enableAiSpeech": "Enable AI Speech",
     "disableAiSpeech": "Disable AI Speech",
-    "startListening": "Start Listening",
-    "stopListening": "Stop Listening",
     "openTopics": "Open Topics Panel",
     "closeTopics": "Close Topics Panel",
     "closeTopicsPanel": "Close Topics Panel",
-    "sendMessage": "Send Message"
+    "sendMessage": "Send Message",
+    "holdToTalk": "Hold to Talk & Send"
   },
   "home": {
     "title": "Choose Your Learning Path",

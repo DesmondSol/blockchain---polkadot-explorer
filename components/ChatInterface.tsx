@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ChatMessage, Sender } from '../types';
 import { ChatMessageItem } from './ChatMessageItem';
@@ -14,10 +15,14 @@ interface ChatInterfaceProps {
   onClearError: () => void;
   transcript: string;
   interimTranscript: string;
-  isListening: boolean;
-  micNotSupported: boolean;
+  isListening: boolean; 
+  micNotSupported: boolean; 
+  browserSupportsSpeechRecognition: boolean;
   currentPath: 'blockchainBasics' | 'polkadotAdvanced' | null;
   onSuggestedTopicClick: (topicText: string) => void;
+  startListening: () => void;
+  stopListening: () => void;
+  cancelSpeaking: () => void;
 }
 
 export const ChatInterface: React.FC<ChatInterfaceProps> = ({
@@ -30,24 +35,27 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
   interimTranscript,
   isListening,
   micNotSupported,
+  browserSupportsSpeechRecognition,
   currentPath,
-  onSuggestedTopicClick
+  onSuggestedTopicClick,
+  startListening,
+  stopListening,
+  cancelSpeaking,
 }) => {
   const { t } = useTranslation();
   const [inputValue, setInputValue] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (isListening) {
-      const displayText = transcript + (interimTranscript ? (transcript ? ' ' : '') + interimTranscript : '');
-      setInputValue(displayText);
-    } else {
-       if (transcript) {
-           setInputValue(transcript);
-       }
-    }
-  }, [isListening, transcript, interimTranscript]);
+  const [isHoldingToTalk, setIsHoldingToTalk] = useState(false);
+  const [sendTranscriptOnStop, setSendTranscriptOnStop] = useState(false);
+  const componentIsMounted = useRef(true);
 
+  useEffect(() => {
+    componentIsMounted.current = true;
+    return () => {
+      componentIsMounted.current = false;
+    };
+  }, []);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -75,8 +83,38 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
   const pathTitleKey = currentPath === 'blockchainBasics' ? "chat.pathTitleBasics" : "chat.pathTitlePolkadot";
   const inputDisabled = isLoading || !currentPath;
 
+
+  const handleHoldToTalkMouseDown = useCallback(() => {
+    if (!browserSupportsSpeechRecognition || isLoading || !currentPath) return;
+
+    cancelSpeaking();
+    startListening(); 
+    if (componentIsMounted.current) setIsHoldingToTalk(true);
+  }, [browserSupportsSpeechRecognition, isLoading, currentPath, cancelSpeaking, startListening]);
+
+  const handleHoldToTalkMouseUp = useCallback(() => {
+    if (!isHoldingToTalk || !componentIsMounted.current) return;
+
+    stopListening();
+    setIsHoldingToTalk(false);
+    setSendTranscriptOnStop(true); 
+  }, [isHoldingToTalk, stopListening]);
+
+
+  useEffect(() => {
+    if (sendTranscriptOnStop && !isListening && transcript.trim() && componentIsMounted.current) {
+      onSendMessage(transcript);
+      setInputValue(''); 
+      setSendTranscriptOnStop(false);
+    } else if (sendTranscriptOnStop && !isListening && !transcript.trim() && componentIsMounted.current) {
+      setSendTranscriptOnStop(false); 
+    }
+  }, [isListening, transcript, sendTranscriptOnStop, onSendMessage]);
+
+
   const getPlaceholderText = () => {
-    if (isListening) return t('chat.inputPlaceholderListening');
+    if (isHoldingToTalk) return t('chat.inputPlaceholderListening');
+    if (isListening) return t('chat.inputPlaceholderListening'); // Reflects SR active state from hook
     if (micNotSupported) return t('chat.inputPlaceholderTypeMessage');
     if (!currentPath) return t('chat.inputPlaceholderSelectPath');
     return t('chat.inputPlaceholderTypeOrMic');
@@ -97,7 +135,9 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
             onSuggestedTopicClick={msg.sender === Sender.AI ? handleDirectSuggestedTopicClick : undefined}
           />
         ))}
-        {isListening && interimTranscript && !transcript && messages.every(m => m.id !== "interim-live") && (
+        {isListening && interimTranscript && !transcript && messages.every(m => m.id !== "interim-live") && !isHoldingToTalk && (
+           // Only show live interim results if NOT holding to talk, to avoid UI clutter during hold.
+           // This case is less likely now continuous listening is removed.
            <ChatMessageItem key="interim-live" message={{id: "interim-live", text: interimTranscript, sender: Sender.User, timestamp: Date.now(), isInterim: true }} />
         )}
         <div ref={messagesEndRef} />
@@ -124,6 +164,27 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
           disabled={inputDisabled}
           aria-label={t('chat.inputAriaLabel')}
         />
+        {browserSupportsSpeechRecognition && (
+            <IconButton
+                iconClass="fas fa-microphone"
+                onMouseDown={handleHoldToTalkMouseDown}
+                onMouseUp={handleHoldToTalkMouseUp}
+                onTouchStart={handleHoldToTalkMouseDown}
+                onTouchEnd={handleHoldToTalkMouseUp}
+                onMouseLeave={isHoldingToTalk ? handleHoldToTalkMouseUp : undefined} // Stop if mouse leaves while holding
+                disabled={inputDisabled || !browserSupportsSpeechRecognition}
+                tooltip={t('tooltips.holdToTalk')}
+                className={`p-3 rounded-lg text-white transition-all duration-150 transform focus:outline-none ${
+                    isHoldingToTalk 
+                        ? 'bg-red-500 hover:bg-red-600 scale-110' 
+                        : (inputDisabled || !browserSupportsSpeechRecognition 
+                            ? 'bg-gray-600 cursor-not-allowed opacity-50' 
+                            : 'bg-blue-500 hover:bg-blue-600 active:bg-red-500 active:scale-110')
+                }`}
+                aria-label={t('tooltips.holdToTalk')}
+                type="button" 
+            />
+        )}
         <IconButton
             iconClass="fas fa-paper-plane"
             type="submit"
@@ -133,7 +194,7 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
             aria-label={t('tooltips.sendMessage')}
         />
       </form>
-      {micNotSupported && !isListening && <p className="text-xs text-yellow-400 mt-1 text-center">{t('chat.micNotSupported')}</p>}
+      {micNotSupported && <p className="text-xs text-yellow-400 mt-1 text-center">{t('chat.micNotSupported')}</p>}
       {!currentPath && <p className="text-xs text-yellow-500 mt-1 text-center">{t('chat.selectPathPrompt')}</p>}
     </div>
   );

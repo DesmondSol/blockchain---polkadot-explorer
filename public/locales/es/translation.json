@@ -14,12 +14,11 @@
     "changeLanguage": "Cambiar Idioma",
     "enableAiSpeech": "Habilitar Voz IA",
     "disableAiSpeech": "Deshabilitar Voz IA",
-    "startListening": "Comenzar a Escuchar",
-    "stopListening": "Dejar de Escuchar",
     "openTopics": "Abrir Panel de Temas",
     "closeTopics": "Cerrar Panel de Temas",
     "closeTopicsPanel": "Cerrar Panel de Temas",
-    "sendMessage": "Enviar Mensaje"
+    "sendMessage": "Enviar Mensaje",
+    "holdToTalk": "Mantén Presionado para Hablar y Enviar"
   },
   "home": {
     "title": "Elige Tu Ruta de Aprendizaje",

@@ -14,12 +14,11 @@
     "changeLanguage": "Changer de Langue",
     "enableAiSpeech": "Activer la Parole IA",
     "disableAiSpeech": "Désactiver la Parole IA",
-    "startListening": "Commencer l'Écoute",
-    "stopListening": "Arrêter l'Écoute",
     "openTopics": "Ouvrir le Panneau des Sujets",
     "closeTopics": "Fermer le Panneau des Sujets",
     "closeTopicsPanel": "Fermer le Panneau des Sujets",
-    "sendMessage": "Envoyer le Message"
+    "sendMessage": "Envoyer le Message",
+    "holdToTalk": "Maintenir pour Parler & Envoyer"
   },
   "home": {
     "title": "Choisissez Votre Parcours d'Apprentissage",

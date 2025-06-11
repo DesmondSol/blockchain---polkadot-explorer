@@ -550,22 +550,15 @@ const App: React.FC = () => {
               transcript={transcript}
               interimTranscript={interimTranscript}
               isListening={isListening}
-              micNotSupported={!browserSupportsSpeechRecognition}
+              micNotSupported={!browserSupportsSpeechRecognition} 
+              browserSupportsSpeechRecognition={browserSupportsSpeechRecognition}
               currentPath={learningPath}
               onSuggestedTopicClick={(topic) => handleSendMessage(topic, false)}
+              startListening={startListening}
+              stopListening={stopListening}
+              cancelSpeaking={cancelSpeaking}
             />
             <div className="absolute top-2 right-2 md:top-4 md:right-4 z-20 flex space-x-2">
-                {browserSupportsSpeechRecognition && (
-                   <IconButton
-                      iconClass={isListening ? "fas fa-microphone-slash" : "fas fa-microphone"}
-                      onClick={isListening ? stopListening : startListening}
-                      tooltip={isListening ? t('tooltips.stopListening') : t('tooltips.startListening')}
-                      className={`p-2 w-10 h-10 md:w-12 md:h-12 rounded-full text-white transition-colors duration-200 shadow-md ${
-                        isListening ? 'bg-red-500 hover:bg-red-600' : 'bg-blue-500 hover:bg-blue-600'
-                      }`}
-                      aria-pressed={isListening}
-                    />
-                )}
                 {browserSupportsSpeechSynthesis && (
                    <IconButton
                       iconClass={isAutoSpeakEnabled ? "fas fa-volume-up" : "fas fa-volume-mute"}
@@ -586,7 +579,7 @@ const App: React.FC = () => {
             </div>
           </div>
         );
-      case 'badges': // New case for badges screen
+      case 'badges': 
         return <NftBadgesScreen
                   achievements={achievements}
                   claimedBadges={claimedBadges}

@@ -1,212 +1,211 @@
-
 {
-  "appTitle": "Blockchain & Polkadot Explorer (Amharic)",
+  "appTitle": "Blockchain & Polkadot Explorer (ብሎክቼይን እና ፖልካዶት ኤክስፕሎረር)",
   "common": {
-    "save": "Save (Amharic)",
-    "edit": "Edit (Amharic)",
-    "cancel": "Cancel (Amharic)",
-    "submit": "Submit (Amharic)",
-    "skip": "Skip (Amharic)",
-    "close": "Close (Amharic)",
-    "confirm": "Confirm (Amharic)"
+    "save": "አስቀምጥ",
+    "edit": "አስተካክል",
+    "cancel": "ይቅር",
+    "submit": "አስገባ",
+    "skip": "ዝለል",
+    "close": "ዝጋ",
+    "confirm": "አረጋግጥ"
   },
   "tooltips": {
-    "changeLanguage": "Change Language (Amharic)",
-    "enableAiSpeech": "Enable AI Speech (Amharic)",
-    "disableAiSpeech": "Disable AI Speech (Amharic)",
-    "startListening": "Start Listening (Amharic)",
-    "stopListening": "Stop Listening (Amharic)",
-    "openTopics": "Open Topics Panel (Amharic)",
-    "closeTopics": "Close Topics Panel (Amharic)",
-    "closeTopicsPanel": "Close Topics Panel (Amharic)",
-    "sendMessage": "Send Message (Amharic)"
+    "changeLanguage": "ቋንቋ ቀይር",
+    "enableAiSpeech": "AI ንግግር አንቃ",
+    "disableAiSpeech": "AI ንግግር አሰናክል",
+    "openTopics": "ርዕሶችን ክፈት",
+    "closeTopics": "ርዕሶችን ዝጋ",
+    "closeTopicsPanel": "የርዕሶች ፓነል ዝጋ",
+    "sendMessage": "መልእክት ላክ",
+    "holdToTalk": "ለማውራት እና ለመላክ ተጭነው ይያዙ"
   },
   "home": {
-    "title": "Choose Your Learning Path (Amharic)",
-    "blockchainBasicsButton": "Blockchain Basics (Amharic)",
-    "polkadotAdvancedButton": "Polkadot Advanced (Amharic)",
-    "resourcesTitle": "Explore More Resources (Amharic)",
-    "blockchainDeepDiveButton": "Blockchain Deep Dive (Amharic)",
-    "polkadotEcosystemButton": "Polkadot Ecosystem Links (Amharic)"
+    "title": "የመማሪያ መንገድዎን ይምረጡ",
+    "blockchainBasicsButton": "የብሎክቼይን መሰረታዊ ነገሮች",
+    "polkadotAdvancedButton": "የፖልካዶት ትምህርት",
+    "resourcesTitle": "ተጨማሪ ምንጮችን ያስሱ",
+    "blockchainDeepDiveButton": "ብሎክቼይን በጥልቀት",
+    "polkadotEcosystemButton": "የፖልካዶት ኢኮሲስተም ማያያዣዎች"
   },
   "chat": {
-    "pathTitleBasics": "Blockchain Basics Path (Amharic)",
-    "pathTitlePolkadot": "Polkadot Advanced Path (Amharic)",
-    "noPathSelectedTitle": "No Learning Path Selected (Amharic)",
-    "noPathSelectedMessage": "Please go to the <i class=\"fas fa-home mx-1\"></i><strong>Home</strong> tab to choose a learning path to begin your chat session (Amharic).",
-    "goToHomeButton": "Go to Home (Amharic)",
-    "inputPlaceholderListening": "Listening... (Amharic)",
-    "inputPlaceholderTypeMessage": "Type your message... (Amharic)",
-    "inputPlaceholderSelectPath": "Select a learning path first (Amharic)",
-    "inputPlaceholderTypeOrMic": "Type or use mic... (Amharic)",
-    "inputAriaLabel": "Chat input (Amharic)",
-    "micNotSupported": "Your browser does not support speech recognition (Amharic).",
-    "selectPathPrompt": "Please select a learning path from Home to start chatting (Amharic)."
+    "pathTitleBasics": "የብሎክቼይን መሰረታዊ ትምህርት",
+    "pathTitlePolkadot": "ፖልካዶት ትምህርት",
+    "noPathSelectedTitle": "የመማሪያ መንገድ አልተመረጠም",
+    "noPathSelectedMessage": "የውይይት ክፍለ ጊዜዎን ለመጀመር እባክዎ ወደ <i class=\"fas fa-home mx-1\"></i><strong>መነሻ</strong> ትር ይሂዱ እና የመማሪያ መንገድ ይምረጡ።",
+    "goToHomeButton": "ወደ መነሻ ሂድ",
+    "inputPlaceholderListening": "እየሰማሁ ነው...",
+    "inputPlaceholderTypeMessage": "መልእክትዎን ይጻፉ...",
+    "inputPlaceholderSelectPath": "በመጀመሪያ የመማሪያ መንገድ ይምረጡ",
+    "inputPlaceholderTypeOrMic": "ይጻፉ ወይም ማይክ ይጠቀሙ...",
+    "inputAriaLabel": "የውይይት ግብዓት",
+    "micNotSupported": "አሳሽዎ የንግግር ማወቂያን አይደግፍም",
+    "selectPathPrompt": "ውይይት ለመጀመር እባክዎ ከመነሻ የመማሪያ መንገድ ይምረጡ።"
   },
   "chatMessage": {
-    "sourcesTitle": "Sources: (Amharic)",
-    "sourceAriaLabelPrefix": "Source: (Amharic)",
-    "suggestedTopicsTitle": "Next, you could explore: (Amharic)",
-    "exploreTopicAriaLabelPrefix": "Explore topic: (Amharic)"
+    "sourcesTitle": "ምንጮች:",
+    "sourceAriaLabelPrefix": "ምንጭ:",
+    "suggestedTopicsTitle": "በመቀጠል ማሰስ ይችላሉ:",
+    "exploreTopicAriaLabelPrefix": "ርዕስን ያስሱ:"
   },
   "sidePanel": {
-    "titleBlockchainBasics": "Blockchain Basics Topics (Amharic)",
-    "titlePolkadotAdvanced": "Polkadot Advanced Topics (Amharic)",
-    "noTopics": "No topics available for the current selection (Amharic).",
-    "footerHint": "Select a topic to learn more! (Amharic)",
-    "completedAriaPrefix": "Completed: (Amharic)",
-    "clickToLearnMoreAriaSuffix": "Click to learn more (Amharic)."
+    "titleBlockchainBasics": "የብሎክቼይን መሰረታዊ ርዕሶች",
+    "titlePolkadotAdvanced": "ፖልካዶት የላቀ ርዕሶች",
+    "noTopics": "ለአሁኑ ምርጫ ምንም ርዕሶች የሉም።",
+    "footerHint": "ተጨማሪ ለማወቅ ርዕስ ይምረጡ!",
+    "completedAriaPrefix": "ተጠናቋል:",
+    "clickToLearnMoreAriaSuffix": "ተጨማሪ ለማወቅ ይጫኑ።"
   },
   "profile": {
-    "title": "Your Profile (Amharic)",
-    "defaultNickname": "Crypto Explorer (Amharic)",
-    "nicknameTitle": "Nickname (Amharic)",
-    "editNicknameAriaLabel": "Edit nickname (Amharic)",
-    "saveNicknameButtonAriaLabel": "Save nickname (Amharic)",
-    "cancelEditingNicknameAriaLabel": "Cancel editing nickname (Amharic)",
-    "editNicknameButtonAriaLabel": "Edit nickname (Amharic)",
-    "userProfilePictureAlt": "User's profile picture (AM)",
-    "changePictureAriaLabel": "Change profile picture (AM)",
-    "changePictureTooltip": "Change Picture (AM)",
-    "polkadotWalletTitle": "Polkadot Wallet (AM)",
-    "connectWalletButton": "Connect Polkadot Wallet (AM)",
-    "connectWalletButtonAriaLabel": "Connect your Polkadot wallet (AM)",
-    "connectWalletDescription": "Connect your Polkadot wallet (e.g., Nova, Talisman, Polkadot.js) to display your account. (AM)",
-    "disconnectWalletButton": "Disconnect Wallet (AM)",
-    "disconnectWalletButtonAriaLabel": "Disconnect your Polkadot wallet (AM)",
-    "walletName": "Account Name (AM)",
-    "walletNameUnnamed": "Unnamed Account (AM)",
-    "walletAddress": "Address (AM)",
-    "walletSource": "Wallet Extension (AM)",
-    "walletSourceLabel": "Source (AM)",
-    "selectAccountTitle": "Select Polkadot Account (AM)",
-    "noWalletsDetected": "No Polkadot wallet extensions detected. Please install one and try again. (AM)",
-    "walletsPermissionDenied": "Permission to access Polkadot extensions was denied. (AM)",
-    "walletsGenericError": "Could not connect to Polkadot wallets. (AM)",
-    "noAccountsFound": "No accounts found in your Polkadot wallet extension. (AM)",
-    "noAccountsFoundInExtension": "No accounts found in the selected extension. (AM)",
-    "expertiseTitle": "Your Background/Expertise (Amharic)",
-    "editExpertiseAriaLabel": "Edit your expertise (Amharic)",
-    "expertisePlaceholder": "E.g., 'Frontend developer', 'Marketing professional' (Amharic)",
-    "saveExpertiseButton": "Save Expertise (Amharic)",
-    "saveExpertiseButtonAriaLabel": "Save expertise (Amharic)",
-    "cancelEditingExpertiseAriaLabel": "Cancel editing expertise (Amharic)",
-    "expertiseNotSpecified": "Not specified yet. Add your background to help personalize examples! (Amharic)",
-    "editExpertiseButtonAriaLabel": "Edit expertise (Amharic)",
-    "achievementsTitle": "Achievements (Amharic)",
-    "noAchievements": "No achievements unlocked yet. Keep learning and exploring! (Amharic)"
+    "title": "የእርስዎ መገለጫ",
+    "defaultNickname": "የ crypto አሳሽ",
+    "nicknameTitle": "ቅጽል ስም",
+    "editNicknameAriaLabel": "ቅጽል ስም አስተካክል",
+    "saveNicknameButtonAriaLabel": "ቅጽል ስም አስቀምጥ",
+    "cancelEditingNicknameAriaLabel": "የቅጽል ስም ማስተካከያ ሰርዝ",
+    "editNicknameButtonAriaLabel": "ቅጽል ስም አስተካክል",
+    "userProfilePictureAlt": "የተጠቃሚ መገለጫ ሥዕል",
+    "changePictureAriaLabel": "የመገለጫ ሥዕል ቀይር",
+    "changePictureTooltip": "ሥዕል ቀይር",
+    "polkadotWalletTitle": "ፖልካዶት የኪስ ቦርሳ",
+    "connectWalletButton": "የፖልካዶት የኪስ ቦርሳ ያገናኙ",
+    "connectWalletButtonAriaLabel": "የእርስዎን ፖልካዶት የዲጂታል ኪስ ቦርሳ ያገናኙ",
+    "connectWalletDescription": "የእርስዎን ፖልካዶት የዲጂታል ኪስ ቦርሳ (ለምሳሌ ኖቫ፣ ታሊስማን፣ ፖልካዶት.js) ያገናኙ።",
+    "disconnectWalletButton": "የዲጂታል ኪስ ቦርሳ ያላቅቁ",
+    "disconnectWalletButtonAriaLabel": "የእርስዎን ፖልካዶት የዲጂታል ኪስ ቦርሳ ያላቅቁ",
+    "walletName": "የመለያ ስም",
+    "walletNameUnnamed": "ስም የለሽ መለያ",
+    "walletAddress": "አድራሻ",
+    "walletSource": "የዲጂታል ኪስ ቦርሳ ስም",
+    "walletSourceLabel": "ምንጭ",
+    "selectAccountTitle": "የፖልካዶት መለያ ይምረጡ",
+    "noWalletsDetected": "ምንም የፖልካዶት የኪስ ቦርሳ ማራዘሚያዎች አልተገኙም። እባክዎ አንዱን ይጫኑ እና እንደገና ይሞክሩ።",
+    "walletsPermissionDenied": "የፖልካዶት ማራዘሚያዎችን ለመድረስ ፈቃድ ተከልክሏል።",
+    "walletsGenericError": "ከፖልካዶት የኪስ ቦርሳዎች ጋር መገናኘት አልተቻለም።",
+    "noAccountsFound": "በፖልካዶት የኪስ ቦርሳ ማራዘሚያዎ ውስጥ ምንም መለያዎች አልተገኙም።",
+    "noAccountsFoundInExtension": "በተመረጠው ማራዘሚያ ውስጥ ምንም መለያዎች አልተገኙም።",
+    "expertiseTitle": "የእርስዎ ስራ ልምድ/እውቀት",
+    "editExpertiseAriaLabel": "የእርስዎን ልምድ ያርትዑ",
+    "expertisePlaceholder": "ለምሳሌ፣ 'የፊት-ፍጻሜ ገንቢ'፣ 'የግብይት ባለሙያ'",
+    "saveExpertiseButton": "ስራ ልምድ አስቀምጥ",
+    "saveExpertiseButtonAriaLabel": "ልምድ አስቀምጥ",
+    "cancelEditingExpertiseAriaLabel": "የእውቀት ማስተካከያ ሰርዝ",
+    "editExpertiseButtonAriaLabel": "እውቀትን አስተካክል",
+    "expertiseNotSpecified": "ገና አልተገለጸም። ምሳሌዎችን ግላዊ ለማድረግ የእርስዎን ስራ ልምድ / እውቀት ያክሉ!",
+    "editExpertiseButtonAriaLabel": "እውቀትን አስተካክል",
+    "achievementsTitle": "ስኬቶች",
+    "noAchievements": "ገና ምንም ስኬቶች አልተከፈቱም። መማርዎን እና ማሰስዎን ይቀጥሉ!"
   },
   "onboarding": {
     "welcome": {
-      "title": "Welcome! (AM)",
-      "subtitle": "Your friendly guide to understanding Blockchain & Polkadot, powered by {{appName}} (AM)."
+      "title": "እንኳን ደህና መጡ!",
+      "subtitle": "ብሎክቼይን እና ፖልካዶትን ለመረዳት የሚያግዝዎት ወዳጃዊ መመሪያዎ፣ በ{{appName}} የተጎላበተ።"
     },
     "interactive": {
-      "title": "Learn Interactively (AM)",
-      "line1": "Engage in conversations to explore complex topics. (AM)",
-      "line2": "Dynamic visuals help bring abstract concepts to life. (AM)"
+      "title": "በይነተገናኝ ይማሩ",
+      "line1": "ውስብስብ ርዕሶችን ለማሰስ በውይይቶች ይሳተፉ።",
+      "line2": "ተለዋዋጭ ምስሎች ረቂቅ ጽንሰ-ሐሳቦችን ወደ ሕይወት ያመጣሉ።"
     },
     "aiFeatures": {
-      "title": "Smart & Accessible (AM)",
-      "line1": "Get AI-powered assistance tailored to your questions. (AM)",
-      "line2": "Use voice commands for a hands-free learning experience. (AM)",
-      "voiceNoteNoSupport": "Your browser doesn't fully support voice commands, but AI chat is here for you! (AM)",
-      "note": "AI is constantly learning, but always verify critical information. (AM)"
+      "title": "ብልህ እና ተደራሽ",
+      "line1": "ለጥያቄዎችዎ የተበጀ በAI የተጎላበተ እገዛ ያግኙ።",
+      "line2": "እጅ-ነጻ የመማር ልምድ ለማግኘት የድምፅ ትዕዛዞችን ይጠቀሙ።",
+      "voiceNoteNoSupport": "አሳሽዎ የድምፅ ትዕዛዞችን ሙሉ በሙሉ አይደግፍም፣ ነገር ግን AI ቻት ለእርስዎ አለ!",
+      "note": "AI ያለማቋረጥ እየተማረ ነው፣ ነገር ግን ወሳኝ መረጃዎችን ሁልጊዜ ያረጋግጡ።"
     },
     "language": {
-      "title": "Choose Your Language (AM)"
+      "title": "ቋንቋዎን ይምረጡ"
     },
     "personalize": {
-      "title": "Let's Personalize Your Learning! (AM)",
-      "description1": "Tell us a bit about your background, current role, or area of expertise (e.g., \"Software Developer\", \"Student in Finance\", \"Marketing Manager\", \"Curious about Web3\") (AM).",
-      "description2": "This will help us tailor examples and explanations to what you already know, making complex topics easier to grasp (AM).",
-      "textAreaPlaceholder": "E.g., 'Frontend developer with 3 years experience', 'Marketing professional new to tech', 'Economics student' (AM)",
-      "textAreaAriaLabel": "Describe your experience or expertise (AM)",
-      "skipButton": "Skip for Now (AM)",
-      "skipButtonAriaLabel": "Skip providing expertise for now (AM)",
-      "submitButton": "Submit & Start Learning (AM)",
-      "submitButtonAriaLabel": "Submit expertise and start learning (AM)"
+      "title": "ትምህርትዎን ግላዊ እናድርግ!",
+      "description1": "ስለ ዳራዎ፣ ስለአሁኑ ሚናዎ ወይም ስለ እውቀትዎ መስክ ትንሽ ይንገሩን (ለምሳሌ፣ \"የሶፍትዌር ገንቢ\"፣ \"የፋይናንስ ተማሪ\"፣ \"የግብይት ስራ አስኪያጅ\"፣ \"ስለ Web3 የማወቅ ጉጉት ያለው\")።",
+      "description2": "ይህ ምሳሌዎችን እና ማብራሪያዎችን አስቀድመው ለሚያውቁት ነገር እንድንለውጥ ይረዳናል፣ ይህም ውስብስብ ርዕሶችን ለመረዳት ቀላል ያደርገዋል።",
+      "textAreaPlaceholder": "ለምሳሌ፣ 'የ3 ዓመት ልምድ ያለው የፊት-ፍጻሜ ገንቢ'፣ 'በቴክኖሎጂ አዲስ የግብይት ባለሙያ'፣ 'የኢኮኖሚክስ ተማሪ'",
+      "textAreaAriaLabel": "ልምድዎን ወይም እውቀትዎን ይግለጹ",
+      "skipButton": "ለአሁን ዝለል",
+      "skipButtonAriaLabel": "ለአሁን የባለሙያ መረጃ መስጠትን ዝለል",
+      "submitButton": "አስገባ እና መማር ጀምር",
+      "submitButtonAriaLabel": "እውቀትን አስገባ እና መማር ጀምር"
     },
-    "nextButton": "Next (AM)",
-    "skipIntroButton": "Skip Intro (AM)",
-    "getStartedButton": "Get Started (AM)"
+    "nextButton": "ቀጣይ",
+    "skipIntroButton": "መግቢያ ዝለል",
+    "getStartedButton": "ጀምር"
   },
   "bottomNav": {
-    "home": "Home (Amharic)",
-    "chat": "Chat (Amharic)",
-    "badges": "Badges (Amharic)",
-    "profile": "Profile (Amharic)"
+    "home": "መነሻ",
+    "chat": "ውይይት",
+    "badges": "ምልክቶች",
+    "profile": "መገለጫ"
   },
   "badgesScreen": {
-    "title": "Your Digital Badges (AM)",
-    "connectWalletPrompt": "Connect your Polkadot wallet on the Profile tab to claim your achievement badges! (AM)",
-    "goToProfileButton": "Go to Profile (AM)",
-    "noAchievements": "You haven't earned any achievements yet. Start learning to collect badges! (AM)",
-    "claimButton": "Claim Digital Badge (AM)",
-    "viewClaimButton": "View Claim Details (AM)",
-    "claimedStatus": "Claimed (AM)"
+    "title": "የእርስዎ ዲጂታል ባጆች",
+    "connectWalletPrompt": "የስኬት ባጆችዎን ለመጠየቅ የፖልካዶት የኪስ ቦርሳዎን በመገለጫ ትር ላይ ያገናኙ!",
+    "goToProfileButton": "ወደ መገለጫ ሂድ",
+    "noAchievements": "ገና ምንም ስኬቶች አላገኙም። ባጆችን ለመሰብሰብ መማር ይጀምሩ!",
+    "claimButton": "ዲጂታል ባጅ ይጠይቁ",
+    "viewClaimButton": "የይገባኛል ጥያቄ ዝርዝሮችን ይመልከቱ",
+    "claimedStatus": "የተጠየቀ"
   },
   "claimModal": {
-    "titleClaim": "Claim Your Digital Badge (AM)",
-    "titleView": "Digital Badge Details (AM)",
-    "badgeNameLabel": "Badge: (AM)",
-    "achievementLabel": "Achievement: (AM)",
-    "associatedWallet": "To be associated with wallet: (AM)",
-    "claimedWithWallet": "Claimed with wallet: (AM)",
-    "walletAddressLabel": "Address: (AM)",
-    "walletSourceLabel": "Source: (AM)",
-    "claimDate": "Claimed on: (AM)",
-    "disclaimer": "This is a digital collectible within the app representing your achievement. It is not an on-chain NFT... yet! Future updates may enable minting. (AM)",
-    "confirmButton": "Confirm Claim (AM)",
-    "closeButton": "Close (AM)"
+    "titleClaim": "የእርስዎን ዲጂታል ባጅ ይጠይቁ",
+    "titleView": "የዲጂታል ባጅ ዝርዝሮች",
+    "badgeNameLabel": "ባጅ:",
+    "achievementLabel": "ስኬት:",
+    "associatedWallet": "ከኪስ ቦርሳ ጋር የሚገናኝ:",
+    "claimedWithWallet": "በኪስ ቦርሳ የተጠየቀ:",
+    "walletAddressLabel": "አድራሻ:",
+    "walletSourceLabel": "ምንጭ:",
+    "claimDate": "የተጠየቀበት ቀን:",
+    "disclaimer": "ይህ ስኬትዎን የሚወክል በመተግበሪያው ውስጥ ያለ ዲጂታል ስብስብ ነው። የሰንሰለት ኤንኤፍቲ አይደለም... ገና! የወደፊት ዝመናዎች ማተምን ሊያነቁ ይችላሉ።",
+    "confirmButton": "የይገባኛል ጥያቄን አረጋግጥ",
+    "closeButton": "ዝጋ"
   },
   "loadingSpinner": {
-    "aiThinking": "AI is thinking... (Amharic)"
+    "aiThinking": "AI እያሰበ ነው..."
   },
   "errors": {
-    "speechRecognitionError": "Speech recognition error: {{message}} (Amharic)",
-    "unknownAiError": "An unknown error occurred with the AI service (Amharic).",
-    "aiErrorPrefix": "Error: {{message}} (Amharic)"
+    "speechRecognitionError": "የንግግር ማወቂያ ስህተት: {{message}}",
+    "unknownAiError": "ከAI አገልግሎት ጋር ያልታወቀ ስህተት ተከስቷል",
+    "aiErrorPrefix": "ስህተት: {{message}}"
   },
   "initialPrompts": {
-    "basics": "I'm new to blockchain. Can you give me a simple introduction to Blockchain Basics to get me started? (Amharic)",
-    "polkadot": "I have some blockchain knowledge. Please provide an overview of Polkadot, focusing on its key features and architecture for advanced users. Try to use information from the Polkadot Wiki (Amharic)."
+    "basics": "እኔ ለብሎክቼይን አዲስ ነኝ። ለመጀመር የብሎክቼይን መሰረታዊ ነገሮች ቀላል መግቢያ ሊሰጡኝ ይችላሉ?",
+    "polkadot": "አንዳንድ የብሎክቼይን እውቀት አለኝ። እባክዎ የፖልካዶትን አጠቃላይ እይታ ይስጡኝ፣ ለላቁ ተጠቃሚዎች በዋና ዋና ባህሪያቱ እና አርክቴክቸሩ ላይ ያተኩሩ። ከፖልካዶት ዊኪ መረጃን ለመጠቀም ይሞክሩ።"
   },
   "userExpertise": {
-    "noneProvided": "None provided (Amharic)"
+    "noneProvided": "ምንም አልተሰጠም"
   },
   "achievements": {
-    "initiatedLearner": { "name": "Initiated Learner (Amharic)", "description": "Welcome! You've started your learning journey. (AM)" },
-    "blockchainBasicsStarted": { "name": "Blockchain Basics Started (Amharic)", "description": "Embarked on the path to understanding blockchain fundamentals. (AM)" },
-    "polkadotAdvancedStarted": { "name": "Polkadot Advanced Started (Amharic)", "description": "Diving deep into the Polkadot ecosystem. (AM)" },
-    "curiousChatterbox": { "name": "Curious Chatterbox (Amharic)", "description": "Engaged in multiple conversations with the AI. (AM)" },
-    "explorerGuide": { "name": "Explorer Guide (Amharic)", "description": "Followed AI-suggested topics to deepen knowledge. (AM)" },
-    "personalizedLearner": { "name": "Personalized Learner (Amharic)", "description": "Shared expertise to tailor the learning experience. (AM)" },
-    "sourceSeeker": { "name": "Source Seeker (Amharic)", "description": "Explored external sources provided by the AI. (AM)" },
-    "firstTopicConquered": { "name": "First Topic Conquered (Amharic)", "description": "Successfully learned about one of the core topics. (AM)" },
-    "pathMaster": { "name": "Path Master (Amharic)", "description": "Completed all core topics in a learning path. (AM)" },
-    "walletConnector": { "name": "Wallet Connector (AM)", "description": "Connected a Polkadot wallet to the app. (AM)" },
-    "photoFanatic": { "name": "Photo Fanatic (AM)", "description": "Uploaded a profile picture. (AM)" },
-    "badgePioneer": { "name": "Badge Pioneer (AM)", "description": "Claimed your very first digital badge! (AM)" }
+    "initiatedLearner": { "name": "የጀመረ ተማሪ", "description": "እንኳን ደህና መጡ! የመማር ጉዞዎን ጀምረዋል።" },
+    "blockchainBasicsStarted": { "name": "የብሎክቼይን መሰረታዊ ነገሮች ተጀምረዋል", "description": "የብሎክቼይን መሰረታዊ ነገሮችን ለመረዳት ጉዞ ጀምረዋል።" },
+    "polkadotAdvancedStarted": { "name": "ፖልካዶት የላቀ ተጀምሯል", "description": "ወደ ፖልካዶት ኢኮሲስተም በጥልቀት እየገቡ ነው።" },
+    "curiousChatterbox": { "name": "የማወቅ ጉጉት ያለው ተወያይ", "description": "ከAI ጋር በብዙ ውይይቶች ተሳትፈዋል።" },
+    "explorerGuide": { "name": "የአሳሽ መመሪያ", "description": "እውቀትን ለማጥለቅ በAI የቀረቡ ርዕሶችን ተከትለዋል።" },
+    "personalizedLearner": { "name": "ግላዊነት የተላበሰ ተማሪ", "description": "የመማር ልምዱን ለማበጀት እውቀት አካፍለዋል።" },
+    "sourceSeeker": { "name": "ምንጭ ፈላጊ", "description": "በAI የቀረቡ ውጫዊ ምንጮችን አስሰዋል።" },
+    "firstTopicConquered": { "name": "የመጀመሪያው ርዕስ ተሸንፏል", "description": "ስለ አንድ ዋና ርዕስ በተሳካ ሁኔታ ተምረዋል።" },
+    "pathMaster": { "name": "የመንገድ ማስተር", "description": "በመማሪያ መንገድ ውስጥ ያሉትን ሁሉንም ዋና ርዕሶች አጠናቀዋል።" },
+    "walletConnector": { "name": "የኪስ ቦርሳ አገናኝ", "description": "የፖልካዶት የኪስ ቦርሳ ከመተግበሪያው ጋር አገናኝተዋል።" },
+    "photoFanatic": { "name": "የፎቶ አድናቂ", "description": "የመገለጫ ሥዕል ሰቅለዋል።" },
+    "badgePioneer": { "name": "የባጅ አቅኚ", "description": "የመጀመሪያዎን ዲጂታል ባጅ ጠይቀዋል!" }
   },
   "mustLearn": {
     "blockchainBasics": {
-      "whatIsBlockchain": { "title": "What is a Blockchain? (Amharic)", "description": "Understand the fundamental concept of a distributed ledger (Amharic)." },
-      "howBlockchainWorks": { "title": "How Does Blockchain Work? (Amharic)", "description": "Learn about blocks, chains, and cryptographic hashing (Amharic)." },
-      "decentralizationImmutability": { "title": "Decentralization and Immutability (Amharic)", "description": "Key properties of blockchain technology (Amharic)." },
-      "typesOfBlockchains": { "title": "Types of Blockchains (Amharic)", "description": "Explore Public, Private, and Consortium blockchains (Amharic)." },
-      "whatAreCryptocurrencies": { "title": "What are Cryptocurrencies? (Amharic)", "description": "Introduction to digital currencies like Bitcoin and Ether (Amharic)." },
-      "smartContractsExplained": { "title": "Smart Contracts Explained (Amharic)", "description": "Discover self-executing contracts with predefined rules (Amharic)." },
-      "useCasesBlockchain": { "title": "Use Cases of Blockchain (Amharic)", "description": "Real-world applications beyond cryptocurrencies (Amharic)." }
+      "whatIsBlockchain": { "title": "ብሎክቼይን ምንድን ነው?", "description": "የተከፋፈለ የሂሳብ መዝገብ መሰረታዊ ጽንሰ-ሐሳብ ይረዱ።" },
+      "howBlockchainWorks": { "title": "ብሎክቼይን እንዴት ይሰራል?", "description": "ስለ ብሎኮች፣ ሰንሰለቶች እና ክሪፕቶግራፊክ ሃሺንግ ይማሩ።" },
+      "decentralizationImmutability": { "title": "ማዕከላዊ አለመሆን እና የማይለዋወጥነት", "description": "የብሎክቼይን ቴክኖሎጂ ቁልፍ ባህሪያት።" },
+      "typesOfBlockchains": { "title": "የብሎክቼይን ዓይነቶች", "description": "የህዝብ፣ የግል እና የኮንሰርቲየም ብሎክቼይኖችን ያስሱ።" },
+      "whatAreCryptocurrencies": { "title": "ክሪፕቶ ምንዛሬዎች ምንድን ናቸው?", "description": "እንደ ቢትኮይን እና ኢተር ያሉ ዲጂታል ምንዛሬዎች መግቢያ።" },
+      "smartContractsExplained": { "title": "ብልህ ኮንትራቶች ተብራርተዋል", "description": "ቅድመ-የተገለጹ ሕጎች ያላቸው እራሳቸውን የሚያስፈጽሙ ኮንትራቶችን ያግኙ።" },
+      "useCasesBlockchain": { "title": "የብሎክቼይን የአጠቃቀም ጉዳዮች", "description": "ከክሪፕቶ ምንዛሬዎች ባሻገር ያሉ እውነተኛ የዓለም መተግበሪያዎች።" }
     },
     "polkadotAdvanced": {
-      "polkadotArchitecture": { "title": "Polkadot Architecture (Amharic)", "description": "Relay Chain, Parachains, Parathreads, and Bridges (Amharic)." },
-      "sharedSecurityModel": { "title": "Shared Security Model (Amharic)", "description": "How Polkadot secures its network of parachains (Amharic)." },
-      "crossChainCommunication": { "title": "Cross-Chain Communication (XCMP) (Amharic)", "description": "Enabling interoperability between different blockchains (Amharic)." },
-      "polkadotGovernance": { "title": "Polkadot Governance (Amharic)", "description": "On-chain Treasury, Council, and Technical Committee (Amharic)." },
-      "substrateFramework": { "title": "Substrate Framework (Amharic)", "description": "A modular framework for building custom blockchains (Amharic)." },
-      "stakingNominationPolkadot": { "title": "Staking and Nomination (NPoS) (Amharic)", "description": "Participate in network security and earn rewards (Amharic)." },
-      "kusamaCanaryNetwork": { "title": "Kusama: Polkadot's Canary Network (Amharic)", "description": "Polkadot's experimental network for early deployments (Amharic)." }
+      "polkadotArchitecture": { "title": "የፖልካዶት አርክቴክቸር", "description": "ሪሌይ ቼይን፣ ፓራቼይንስ፣ ፓራተሬድስ እና ብሪጅስ።" },
+      "sharedSecurityModel": { "title": "የተጋራ የደህንነት ሞዴል", "description": "ፖልካዶት የፓራቼይኖቹን አውታረመረብ እንዴት እንደሚጠብቅ።" },
+      "crossChainCommunication": { "title": "ክሮስ-ቼይን ግንኙነት (XCMP)", "description": "በተለያዩ ብሎክቼይኖች መካከል መስተጋብርን ማንቃት።" },
+      "polkadotGovernance": { "title": "የፖልካዶት አስተዳደር", "description": "በሰንሰለት ላይ ያለ ግምጃ ቤት፣ ምክር ቤት እና የቴክኒክ ኮሚቴ።" },
+      "substrateFramework": { "title": "የስርአት ማዕቀፍ", "description": "ብጁ ብሎክቼይኖችን ለመገንባት ሞጁላር ማዕቀፍ።" },
+      "stakingNominationPolkadot": { "title": "ስቴኪንግ እና ኖሚኔሽን (NPoS)", "description": "በአውታረመረብ ደህንነት ውስጥ ይሳተፉ እና ሽልማቶችን ያግኙ።" },
+      "kusamaCanaryNetwork": { "title": "ኩሳማ: የፖልካዶት ካናሪ አውታረመረብ", "description": "ለቀድሞ ማሰማራቶች የፖልካዶት የሙከራ አውታረመረብ።" }
     }
   }
 }
