@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ChatMessage, Sender } from '../types';
@@ -8,11 +9,17 @@ interface ChatMessageItemProps {
 }
 
 export const ChatMessageItem: React.FC<ChatMessageItemProps> = ({ message, onSuggestedTopicClick }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const isUser = message.sender === Sender.User;
-  const bubbleClasses = isUser
-    ? 'bg-purple-600 text-white self-end rounded-l-lg rounded-br-lg'
-    : 'bg-gray-600 text-gray-100 self-start rounded-r-lg rounded-bl-lg';
+  const isRtl = i18n.language === 'ar';
+
+  let bubbleClasses = '';
+  if (isUser) {
+    bubbleClasses = `bg-purple-600 text-white self-end ${isRtl ? 'rounded-r-lg rounded-bl-lg' : 'rounded-l-lg rounded-br-lg'}`;
+  } else {
+    bubbleClasses = `bg-gray-600 text-gray-100 self-start ${isRtl ? 'rounded-l-lg rounded-br-lg' : 'rounded-r-lg rounded-bl-lg'}`;
+  }
+  
   const layoutClasses = isUser ? 'flex justify-end' : 'flex justify-start';
 
   const formatText = (text: string) => {
@@ -30,12 +37,12 @@ export const ChatMessageItem: React.FC<ChatMessageItemProps> = ({ message, onSug
   return (
     <div className={`${layoutClasses} ${message.isInterim ? 'opacity-70' : ''}`}>
       <div className={`max-w-xs md:max-w-md lg:max-w-lg xl:max-w-xl p-3 shadow-md ${bubbleClasses}`}>
-        <p className="text-sm" dangerouslySetInnerHTML={{ __html: formatText(message.text) }}></p>
+        <p className={`text-sm ${isRtl ? 'text-right' : 'text-left'}`} dangerouslySetInnerHTML={{ __html: formatText(message.text) }}></p>
         
         {!isUser && message.groundingChunks && message.groundingChunks.length > 0 && (
           <div className="mt-2 pt-2 border-t border-gray-500 border-opacity-50">
-            <p className="text-xs text-gray-300 mb-1 font-semibold">{t('chatMessage.sourcesTitle')}</p>
-            <ul className="space-y-1">
+            <p className={`text-xs text-gray-300 mb-1 font-semibold ${isRtl ? 'text-right' : 'text-left'}`}>{t('chatMessage.sourcesTitle')}</p>
+            <ul className={`space-y-1 ${isRtl ? 'text-right' : 'text-left'}`}>
               {message.groundingChunks.map((chunk, index) => (
                 <li key={index} className="text-xs">
                   <a
@@ -55,8 +62,8 @@ export const ChatMessageItem: React.FC<ChatMessageItemProps> = ({ message, onSug
         
         {!isUser && message.suggestedTopics && message.suggestedTopics.length > 0 && (
           <div className="mt-2 pt-2 border-t border-gray-500 border-opacity-50">
-            <p className="text-xs text-gray-300 mb-1">{t('chatMessage.suggestedTopicsTitle')}</p>
-            <div className="flex flex-wrap gap-2">
+            <p className={`text-xs text-gray-300 mb-1 ${isRtl ? 'text-right' : 'text-left'}`}>{t('chatMessage.suggestedTopicsTitle')}</p>
+            <div className={`flex flex-wrap gap-2 ${isRtl ? 'justify-end' : 'justify-start'}`}>
               {message.suggestedTopics.map((topic, index) => (
                 <button
                   key={index}
@@ -70,8 +77,8 @@ export const ChatMessageItem: React.FC<ChatMessageItemProps> = ({ message, onSug
             </div>
           </div>
         )}
-         <p className={`text-xs mt-2 ${isUser ? 'text-purple-200 text-right' : 'text-gray-400 text-left'}`}>
-          {new Date(message.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+         <p className={`text-xs mt-2 ${isUser ? (isRtl ? 'text-purple-200 text-left' : 'text-purple-200 text-right') : (isRtl ? 'text-gray-400 text-right' : 'text-gray-400 text-left')}`}>
+          {new Date(message.timestamp).toLocaleTimeString(i18n.language, { hour: '2-digit', minute: '2-digit' })}
         </p>
       </div>
     </div>

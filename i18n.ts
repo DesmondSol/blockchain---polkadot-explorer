@@ -14,7 +14,7 @@ i18n
     interpolation: {
       escapeValue: false, // React already safes from xss
     },
-    supportedLngs: ['en', 'es', 'am', 'fr', 'sw', 'pt'], // Added sw and pt
+    supportedLngs: ['en', 'es', 'am', 'fr', 'sw', 'pt', 'ar'], // Added ar
     backend: {
       loadPath: '/locales/{{lng}}/translation.json', // Path to translation files
     },

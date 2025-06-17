@@ -1,5 +1,4 @@
 
-
 import React, { useState, useEffect, useCallback } from 'react';
 import ReactDOM from 'react-dom'; // Added for portal
 import { useTranslation } from 'react-i18next';
@@ -91,6 +90,13 @@ const App: React.FC = () => {
 
   const [showComingSoonModal, setShowComingSoonModal] = useState<boolean>(false); // New
   const [comingSoonResourceTitle, setComingSoonResourceTitle] = useState<string>(''); // New
+
+  const isRtl = i18n.language === 'ar';
+
+  useEffect(() => {
+    document.documentElement.dir = isRtl ? 'rtl' : 'ltr';
+    document.documentElement.lang = i18n.language;
+  }, [isRtl, i18n.language]);
 
 
   const {
@@ -535,18 +541,18 @@ const App: React.FC = () => {
             <i className="fas fa-project-diagram pt-10 text-5xl md:text-6xl text-purple-400 mb-6"></i>
             <h1 className="text-2xl md:text-4xl font-bold mb-4">{t('home.title')}</h1>
             <p className="mb-8 text-gray-300 max-w-md">{t('onboarding.welcome.subtitle', { appName: t('appTitle') })}</p>
-            <div className="space-y-4 md:space-y-0 md:space-x-4 flex flex-col md:flex-row mb-10 md:mb-12">
+            <div className={`space-y-4 md:space-y-0 md:space-x-4 flex flex-col md:flex-row mb-10 md:mb-12 ${isRtl ? 'md:space-x-reverse' : ''}`}>
               <button
                 onClick={() => handleSelectPath('blockchainBasics')}
                 className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg transition-transform transform hover:scale-105 text-lg"
               >
-                <i className="fas fa-cubes mr-2"></i>{t('home.blockchainBasicsButton')}
+                <i className={`fas fa-cubes ${isRtl ? 'ml-2' : 'mr-2'}`}></i>{t('home.blockchainBasicsButton')}
               </button>
               <button
                 onClick={() => handleSelectPath('polkadotAdvanced')}
                 className="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg transition-transform transform hover:scale-105 text-lg"
               >
-                <i className="fas fa-atom mr-2"></i>{t('home.polkadotAdvancedButton')}
+                <i className={`fas fa-atom ${isRtl ? 'ml-2' : 'mr-2'}`}></i>{t('home.polkadotAdvancedButton')}
               </button>
             </div>
 
@@ -608,7 +614,7 @@ const App: React.FC = () => {
               stopListening={stopListening}
               cancelSpeaking={cancelSpeaking}
             />
-            <div className="absolute top-2 right-2 md:top-4 md:right-4 z-20 flex space-x-2">
+            <div className={`absolute top-2 md:top-4 z-20 flex space-x-2 ${isRtl ? 'left-2 md:left-4 space-x-reverse' : 'right-2 md:right-4'}`}>
                 {browserSupportsSpeechSynthesis && (
                    <IconButton
                       iconClass={isAutoSpeakEnabled ? "fas fa-volume-up" : "fas fa-volume-mute"}
@@ -660,26 +666,28 @@ const App: React.FC = () => {
   return (
     <div className="h-screen w-screen flex flex-col bg-gray-900 text-white overflow-hidden">
        <VisualBackground keyword={currentVisualKeyword} />
-      <header className="absolute top-0 left-0 right-0 p-3 md:p-4 bg-gray-900 bg-opacity-30 backdrop-blur-sm z-20 flex justify-between items-center">
-        <div className="flex items-center">
-            {profilePictureUrl && polkadotAccount && (
-                 <img 
-                    src={profilePictureUrl} 
-                    alt={t('profile.userProfilePictureAlt')} 
-                    className="w-8 h-8 md:w-10 md:h-10 rounded-full mr-2 border-2 border-purple-400 object-cover"
-                    onError={(e) => (e.currentTarget.style.display = 'none')} 
-                 />
-            )}
+      <header className={`absolute top-0 left-0 right-0 p-3 md:p-4 bg-gray-900 bg-opacity-30 backdrop-blur-sm z-20 flex items-center justify-between ${isRtl ? 'flex-row-reverse' : ''}`}>
+        <h1 className="text-lg md:text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">
+           {t('appTitle')}
+        </h1>
+        <div className={`flex items-center ${isRtl ? 'flex-row-reverse space-x-reverse space-x-3 md:space-x-4' : 'space-x-3 md:space-x-4'}`}>
+            <LanguageSwitcher />
             {polkadotAccount && (
-                <span className="text-xs md:text-sm text-gray-300 mr-2 hidden sm:block">
-                    {polkadotAccount.name || `${polkadotAccount.address.substring(0,6)}...`}
-                </span>
+                <div className={`flex items-center ${isRtl ? 'flex-row-reverse space-x-reverse space-x-2' : 'space-x-2'}`}>
+                    {profilePictureUrl && (
+                         <img 
+                            src={profilePictureUrl} 
+                            alt={t('profile.userProfilePictureAlt')} 
+                            className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-purple-400 object-cover"
+                            onError={(e) => (e.currentTarget.style.display = 'none')} 
+                         />
+                    )}
+                    <span className="text-xs md:text-sm text-gray-300 hidden sm:block">
+                        {polkadotAccount.name || `${polkadotAccount.address.substring(0,6)}...${polkadotAccount.address.substring(polkadotAccount.address.length - 4)}`}
+                    </span>
+                </div>
             )}
-            <h1 className="text-lg md:text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">
-               {t('appTitle')}
-            </h1>
         </div>
-        <LanguageSwitcher />
       </header>
 
       <main className={`flex-grow overflow-y-auto custom-scrollbar pt-16 pb-16 md:pt-20 md:pb-20 relative z-10`}>

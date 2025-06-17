@@ -42,13 +42,14 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
   stopListening,
   cancelSpeaking,
 }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [inputValue, setInputValue] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const [isHoldingToTalk, setIsHoldingToTalk] = useState(false);
   const [sendTranscriptOnStop, setSendTranscriptOnStop] = useState(false);
   const componentIsMounted = useRef(true);
+  const isRtl = i18n.language === 'ar';
 
   useEffect(() => {
     componentIsMounted.current = true;
@@ -127,7 +128,7 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
             {t(pathTitleKey)}
           </h2>
       </div>
-      <div className="flex-grow overflow-y-auto mb-3 pr-1 md:pr-2 space-y-4 custom-scrollbar bg-black bg-opacity-30 backdrop-blur-sm p-3 rounded-lg">
+      <div className={`flex-grow overflow-y-auto mb-3 space-y-4 custom-scrollbar bg-black bg-opacity-30 backdrop-blur-sm p-3 rounded-lg ${isRtl ? 'pr-1 md:pr-2' : 'pl-1 md:pl-2'}`}>
         {messages.map((msg) => (
           <ChatMessageItem 
             key={msg.id} 
@@ -154,13 +155,13 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="flex items-center space-x-2 pt-3 border-t border-gray-700 border-opacity-50">
+      <form onSubmit={handleSubmit} className={`flex items-center space-x-2 pt-3 border-t border-gray-700 border-opacity-50 ${isRtl ? 'flex-row-reverse space-x-reverse' : ''}`}>
         <input
           type="text"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           placeholder={getPlaceholderText()}
-          className="flex-grow p-3 bg-gray-700 bg-opacity-80 text-white rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none placeholder-gray-400 disabled:opacity-70"
+          className={`flex-grow p-3 bg-gray-700 bg-opacity-80 text-white rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none placeholder-gray-400 disabled:opacity-70 ${isRtl ? 'text-right' : 'text-left'}`}
           disabled={inputDisabled}
           aria-label={t('chat.inputAriaLabel')}
         />

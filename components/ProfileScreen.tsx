@@ -17,6 +17,7 @@ const achievementIcons: { [key: string]: string } = {
   [Constants.ACHIEVEMENT_KEYS.PATH_MASTER]: "fas fa-crown text-purple-500",
   [Constants.ACHIEVEMENT_KEYS.WALLET_CONNECTOR]: "fas fa-wallet text-blue-500",
   [Constants.ACHIEVEMENT_KEYS.PHOTO_FANATIC]: "fas fa-camera-retro text-red-400",
+  [Constants.ACHIEVEMENT_KEYS.BADGE_PIONEER]: "fas fa-rocket text-orange-500",
 };
 
 const defaultIcon = "fas fa-medal text-gray-400";
@@ -49,12 +50,13 @@ export const ProfileScreen: React.FC<ProfileScreenProps> = ({
   polkadotAccount, onConnectWallet, onDisconnectWallet,
   walletError, onClearWalletError
 }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [isEditingNickname, setIsEditingNickname] = useState(false);
   const [editableNickname, setEditableNickname] = useState(nickname);
   const [isEditingExpertise, setIsEditingExpertise] = useState(false);
   const [editableExpertise, setEditableExpertise] = useState(expertise);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const isRtl = i18n.language === 'ar';
 
   useEffect(() => {
     setEditableNickname(nickname);
@@ -97,7 +99,7 @@ export const ProfileScreen: React.FC<ProfileScreenProps> = ({
         <h2 className="text-2xl md:text-3xl font-bold text-purple-300 mb-6 text-center">{t('profile.title')}</h2>
 
         {/* Profile Picture and Nickname Section */}
-        <div className="mb-8 p-4 md:p-6 bg-gray-700 bg-opacity-50 rounded-lg shadow-lg flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6">
+        <div className={`mb-8 p-4 md:p-6 bg-gray-700 bg-opacity-50 rounded-lg shadow-lg flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 ${isRtl ? 'sm:space-x-reverse sm:space-x-6' : 'sm:space-x-6'}`}>
           <div className="relative group">
             <img
               src={profilePictureUrl || './assets/default-avatar.png'} // Provide a path to a default avatar
@@ -107,7 +109,7 @@ export const ProfileScreen: React.FC<ProfileScreenProps> = ({
             />
             <button
               onClick={handleProfilePictureIconClick}
-              className="absolute bottom-0 right-0 bg-purple-600 hover:bg-purple-700 text-white p-2 rounded-full shadow-md transition-opacity opacity-0 group-hover:opacity-100 focus:opacity-100"
+              className={`absolute bottom-0 bg-purple-600 hover:bg-purple-700 text-white p-2 rounded-full shadow-md transition-opacity opacity-0 group-hover:opacity-100 focus:opacity-100 ${isRtl ? 'left-0' : 'right-0'}`}
               aria-label={t('profile.changePictureAriaLabel')}
               title={t('profile.changePictureTooltip')}
             >
@@ -122,29 +124,29 @@ export const ProfileScreen: React.FC<ProfileScreenProps> = ({
               aria-hidden="true"
             />
           </div>
-          <div className="flex-grow text-center sm:text-left">
+          <div className={`flex-grow ${isRtl ? 'text-center sm:text-right' : 'text-center sm:text-left'}`}>
             <h3 className="text-xl font-semibold text-purple-200 mb-1">{t('profile.nicknameTitle')}</h3>
             {isEditingNickname ? (
-              <div className="flex items-center space-x-2">
+              <div className={`flex items-center space-x-2 ${isRtl ? 'space-x-reverse justify-end' : 'justify-start'}`}>
                 <input
                   type="text"
                   value={editableNickname}
                   onChange={(e) => setEditableNickname(e.target.value)}
-                  className="flex-grow p-2 bg-gray-800 text-white rounded-md focus:ring-2 focus:ring-purple-500 focus:outline-none"
+                  className={`flex-grow p-2 bg-gray-800 text-white rounded-md focus:ring-2 focus:ring-purple-500 focus:outline-none ${isRtl ? 'text-right' : 'text-left'}`}
                   aria-label={t('profile.editNicknameAriaLabel')}
                 />
-                <button onClick={handleNicknameSave} className="bg-green-500 hover:bg-green-600 text-white px-3 py-2 rounded-md text-sm" aria-label={t('profile.saveNicknameButtonAriaLabel')}>
-                  <i className="fas fa-save mr-1"></i> {t('common.save')}
+                <button onClick={handleNicknameSave} className="bg-green-500 hover:bg-green-600 text-white px-3 py-2 rounded-md text-sm flex items-center" aria-label={t('profile.saveNicknameButtonAriaLabel')}>
+                  <i className={`fas fa-save ${isRtl ? 'ml-1' : 'mr-1'}`}></i> {t('common.save')}
                 </button>
                 <button onClick={() => { setIsEditingNickname(false); setEditableNickname(nickname); }} className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-2 rounded-md text-sm" aria-label={t('profile.cancelEditingNicknameAriaLabel')}>
                   {t('common.cancel')}
                 </button>
               </div>
             ) : (
-              <div className="flex items-center justify-center sm:justify-start">
-                <p className="text-2xl text-gray-100 mr-3">{nickname}</p>
-                <button onClick={() => { setEditableNickname(nickname); setIsEditingNickname(true); }} className="bg-purple-500 hover:bg-purple-600 text-white px-3 py-1 rounded-md text-sm" aria-label={t('profile.editNicknameButtonAriaLabel')}>
-                  <i className="fas fa-edit mr-1"></i> {t('common.edit')}
+              <div className={`flex items-center ${isRtl ? 'justify-center sm:justify-end flex-row-reverse' : 'justify-center sm:justify-start'}`}>
+                <p className={`text-2xl text-gray-100 ${isRtl ? 'ml-3' : 'mr-3'}`}>{nickname}</p>
+                <button onClick={() => { setEditableNickname(nickname); setIsEditingNickname(true); }} className="bg-purple-500 hover:bg-purple-600 text-white px-3 py-1 rounded-md text-sm flex items-center" aria-label={t('profile.editNicknameButtonAriaLabel')}>
+                  <i className={`fas fa-edit ${isRtl ? 'ml-1' : 'mr-1'}`}></i> {t('common.edit')}
                 </button>
               </div>
             )}
@@ -172,10 +174,10 @@ export const ProfileScreen: React.FC<ProfileScreenProps> = ({
               </div>
               <button
                 onClick={onDisconnectWallet}
-                className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors"
+                className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors flex items-center justify-center"
                 aria-label={t('profile.disconnectWalletButtonAriaLabel')}
               >
-                <i className="fas fa-unlink mr-2"></i>{t('profile.disconnectWalletButton')}
+                <i className={`fas fa-unlink ${isRtl ? 'ml-2' : 'mr-2'}`}></i>{t('profile.disconnectWalletButton')}
               </button>
             </div>
           ) : (
@@ -186,7 +188,7 @@ export const ProfileScreen: React.FC<ProfileScreenProps> = ({
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors flex items-center justify-center"
                 aria-label={t('profile.connectWalletButtonAriaLabel')}
               >
-                <i className="fas fa-wallet mr-2"></i>{t('profile.connectWalletButton')}
+                <i className={`fas fa-wallet ${isRtl ? 'ml-2' : 'mr-2'}`}></i>{t('profile.connectWalletButton')}
               </button>
             </div>
           )}
@@ -201,13 +203,13 @@ export const ProfileScreen: React.FC<ProfileScreenProps> = ({
               <textarea
                 value={editableExpertise}
                 onChange={(e) => setEditableExpertise(e.target.value)}
-                className="w-full p-2 mb-3 bg-gray-800 text-white rounded-md focus:ring-2 focus:ring-purple-500 focus:outline-none h-24 custom-scrollbar"
+                className={`w-full p-2 mb-3 bg-gray-800 text-white rounded-md focus:ring-2 focus:ring-purple-500 focus:outline-none h-24 custom-scrollbar ${isRtl ? 'text-right' : 'text-left'}`}
                 aria-label={t('profile.editExpertiseAriaLabel')}
                 placeholder={t('profile.expertisePlaceholder')}
               />
-              <div className="flex items-center space-x-2">
-                 <button onClick={handleExpertiseSave} className="bg-green-500 hover:bg-green-600 text-white px-3 py-2 rounded-md text-sm" aria-label={t('profile.saveExpertiseButtonAriaLabel')}>
-                    <i className="fas fa-save mr-1"></i> {t('profile.saveExpertiseButton')}
+              <div className={`flex items-center space-x-2 ${isRtl ? 'space-x-reverse justify-start' : 'justify-end'}`}>
+                 <button onClick={handleExpertiseSave} className="bg-green-500 hover:bg-green-600 text-white px-3 py-2 rounded-md text-sm flex items-center" aria-label={t('profile.saveExpertiseButtonAriaLabel')}>
+                    <i className={`fas fa-save ${isRtl ? 'ml-1' : 'mr-1'}`}></i> {t('profile.saveExpertiseButton')}
                   </button>
                   <button onClick={() => { setIsEditingExpertise(false); setEditableExpertise(expertise); }} className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-2 rounded-md text-sm" aria-label={t('profile.cancelEditingExpertiseAriaLabel')}>
                     {t('common.cancel')}
@@ -215,12 +217,12 @@ export const ProfileScreen: React.FC<ProfileScreenProps> = ({
               </div>
             </div>
           ) : (
-            <div className="flex items-center justify-between">
-              <p className="text-gray-300 italic whitespace-pre-wrap break-words">
+            <div className={`flex items-center ${isRtl ? 'flex-row-reverse' : ''} justify-between`}>
+              <p className={`text-gray-300 italic whitespace-pre-wrap break-words ${isRtl ? 'text-right' : 'text-left'}`}>
                 {expertise || t('profile.expertiseNotSpecified')}
               </p>
-              <button onClick={() => { setEditableExpertise(expertise); setIsEditingExpertise(true); }} className="bg-purple-500 hover:bg-purple-600 text-white px-3 py-1 rounded-md text-sm ml-2 flex-shrink-0" aria-label={t('profile.editExpertiseButtonAriaLabel')}>
-                <i className="fas fa-edit mr-1"></i> {t('common.edit')}
+              <button onClick={() => { setEditableExpertise(expertise); setIsEditingExpertise(true); }} className={`bg-purple-500 hover:bg-purple-600 text-white px-3 py-1 rounded-md text-sm flex-shrink-0 flex items-center ${isRtl ? 'mr-2' : 'ml-2'}`} aria-label={t('profile.editExpertiseButtonAriaLabel')}>
+                <i className={`fas fa-edit ${isRtl ? 'ml-1' : 'mr-1'}`}></i> {t('common.edit')}
               </button>
             </div>
           )}
@@ -234,10 +236,10 @@ export const ProfileScreen: React.FC<ProfileScreenProps> = ({
               {achievements.map((achievementKey, index) => (
                 <li 
                   key={index} 
-                  className="flex items-center p-3 bg-gray-800 bg-opacity-70 rounded-md shadow hover:bg-gray-700 transition-colors"
+                  className={`flex items-center p-3 bg-gray-800 bg-opacity-70 rounded-md shadow hover:bg-gray-700 transition-colors ${isRtl ? 'flex-row-reverse' : ''}`}
                 >
-                  <i className={`${achievementIcons[achievementKey] || defaultIcon} text-2xl mr-3 w-8 text-center`}></i>
-                  <span className="text-gray-200">{t(achievementKey)}</span>
+                  <i className={`${achievementIcons[achievementKey] || defaultIcon} text-2xl w-8 text-center ${isRtl ? 'ml-3' : 'mr-3'}`}></i>
+                  <span className={`text-gray-200 ${isRtl ? 'text-right flex-grow' : ''}`}>{t(achievementKey)}</span>
                 </li>
               ))}
             </ul>

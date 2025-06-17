@@ -16,6 +16,7 @@ const supportedLanguagesForOnboarding: LanguageOption[] = [
   { code: 'es', name: 'Español', flag: '🇪🇸' },
   { code: 'sw', name: 'Kiswahili', flag: '🇰🇪' },
   { code: 'pt', name: 'Português', flag: '🇵🇹' },
+  { code: 'ar', name: 'العربية', flag: '🇸🇦' }, // Added Arabic
 ];
 
 interface OnboardingFlowProps {
@@ -55,6 +56,7 @@ export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
 }) => {
   const { t, i18n } = useTranslation();
   const [expertise, setExpertise] = useState(initialUserExpertise);
+  const isRtl = i18n.language === 'ar';
 
   const handlePersonalizationFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -73,7 +75,7 @@ export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
             <i className="fas fa-chalkboard-teacher text-6xl text-purple-400 mb-6"></i>
             <h2 className="text-3xl font-bold text-purple-300 mb-3">{t('onboarding.welcome.title')}</h2>
             <p className="text-lg text-gray-300 mb-8">{t('onboarding.welcome.subtitle', { appName: t('appTitle') })}</p>
-            <div className="flex justify-center space-x-4">
+            <div className={`flex justify-center space-x-4 ${isRtl ? 'space-x-reverse' : ''}`}>
               <button
                 onClick={onSkipIntro}
                 className="px-6 py-3 bg-gray-600 hover:bg-gray-500 text-white rounded-lg transition-colors text-lg"
@@ -82,9 +84,11 @@ export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
               </button>
               <button
                 onClick={onNextStep}
-                className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors text-lg"
+                className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors text-lg flex items-center"
               >
-                {t('onboarding.nextButton')} <i className="fas fa-arrow-right ml-2"></i>
+                {isRtl && <i className="fas fa-arrow-left mr-2"></i>}
+                {t('onboarding.nextButton')}
+                {!isRtl && <i className="fas fa-arrow-right ml-2"></i>}
               </button>
             </div>
           </div>
@@ -100,7 +104,7 @@ export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
             <h2 className="text-3xl font-bold text-purple-300 mb-3">{t('onboarding.interactive.title')}</h2>
             <p className="text-lg text-gray-300 mb-2">{t('onboarding.interactive.line1')}</p>
             <p className="text-lg text-gray-300 mb-8">{t('onboarding.interactive.line2')}</p>
-            <div className="flex justify-center space-x-4">
+            <div className={`flex justify-center space-x-4 ${isRtl ? 'space-x-reverse' : ''}`}>
               <button
                 onClick={onSkipIntro}
                 className="px-6 py-3 bg-gray-600 hover:bg-gray-500 text-white rounded-lg transition-colors text-lg"
@@ -109,9 +113,11 @@ export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
               </button>
               <button
                 onClick={onNextStep}
-                className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors text-lg"
+                className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors text-lg flex items-center"
               >
-                {t('onboarding.nextButton')} <i className="fas fa-arrow-right ml-2"></i>
+                {isRtl && <i className="fas fa-arrow-left mr-2"></i>}
+                {t('onboarding.nextButton')}
+                {!isRtl && <i className="fas fa-arrow-right ml-2"></i>}
               </button>
             </div>
           </div>
@@ -133,7 +139,7 @@ export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
             {browserSupportsSpeechRecognition && <p className="text-lg text-gray-300 mb-2">{t('onboarding.aiFeatures.line2')}</p>}
             {!browserSupportsSpeechRecognition && <p className="text-sm text-yellow-400 mb-2">{t('onboarding.aiFeatures.voiceNoteNoSupport')}</p>}
              <p className="text-gray-400 text-sm mb-8">{t('onboarding.aiFeatures.note')}</p>
-            <div className="flex justify-center space-x-4">
+            <div className={`flex justify-center space-x-4 ${isRtl ? 'space-x-reverse' : ''}`}>
               <button
                 onClick={onSkipIntro}
                 className="px-6 py-3 bg-gray-600 hover:bg-gray-500 text-white rounded-lg transition-colors text-lg"
@@ -142,9 +148,11 @@ export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
               </button>
               <button
                 onClick={onNextStep}
-                className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors text-lg"
+                className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors text-lg flex items-center"
               >
-                {t('onboarding.nextButton')} <i className="fas fa-arrow-right ml-2"></i>
+                {isRtl && <i className="fas fa-arrow-left mr-2"></i>}
+                {t('onboarding.nextButton')}
+                {!isRtl && <i className="fas fa-arrow-right ml-2"></i>}
               </button>
             </div>
           </div>
@@ -160,20 +168,22 @@ export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
                   <button
                     key={lang.code}
                     onClick={() => changeLanguage(lang.code)}
-                    className={`px-4 py-3 rounded-lg text-lg transition-colors flex items-center justify-center space-x-2
+                    className={`px-4 py-3 rounded-lg text-lg transition-colors flex items-center justify-center space-x-2 ${isRtl && lang.code === 'ar' ? 'flex-row-reverse' : ''} ${isRtl && lang.code !== 'ar' ? '' : ''}
                       ${i18n.language === lang.code ? 'bg-purple-600 text-white ring-2 ring-purple-300' : 'bg-gray-600 hover:bg-gray-500 text-gray-200'}`}
                   >
                     <span className="text-2xl">{lang.flag}</span>
-                    <span>{lang.name}</span>
+                    <span className={lang.code === 'ar' ? 'font-serif' : ''}>{lang.name}</span>
                   </button>
                 ))}
               </div>
             </div>
             <button
               onClick={onNextStep}
-              className="px-8 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors text-lg"
+              className="px-8 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors text-lg flex items-center"
             >
-              {t('onboarding.getStartedButton')} <i className="fas fa-check ml-2"></i>
+              {isRtl && <i className="fas fa-check mr-2"></i> }
+              {t('onboarding.getStartedButton')}
+              {!isRtl && <i className="fas fa-check ml-2"></i>}
             </button>
           </div>
         );
@@ -192,10 +202,10 @@ export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
                 value={expertise}
                 onChange={(e) => setExpertise(e.target.value)}
                 placeholder={t('onboarding.personalize.textAreaPlaceholder')}
-                className="w-full p-3 mb-6 bg-gray-700 text-white rounded-md focus:ring-2 focus:ring-purple-500 focus:outline-none h-28 custom-scrollbar"
+                className={`w-full p-3 mb-6 bg-gray-700 text-white rounded-md focus:ring-2 focus:ring-purple-500 focus:outline-none h-28 custom-scrollbar ${isRtl ? 'text-right' : 'text-left'}`}
                 aria-label={t('onboarding.personalize.textAreaAriaLabel')}
               />
-              <div className="flex flex-col sm:flex-row justify-end space-y-3 sm:space-y-0 sm:space-x-3">
+              <div className={`flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 ${isRtl ? 'justify-start sm:space-x-reverse' : 'justify-end'}`}>
                 <button
                   type="button"
                   onClick={onPersonalizationSkip}
