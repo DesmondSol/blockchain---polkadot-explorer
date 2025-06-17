@@ -196,7 +196,8 @@
       "typesOfBlockchains": { "title": "Types of Blockchains", "description": "Explore Public, Private, and Consortium blockchains." },
       "whatAreCryptocurrencies": { "title": "What are Cryptocurrencies?", "description": "Introduction to digital currencies like Bitcoin and Ether." },
       "smartContractsExplained": { "title": "Smart Contracts Explained", "description": "Discover self-executing contracts with predefined rules." },
-      "useCasesBlockchain": { "title": "Use Cases of Blockchain", "description": "Real-world applications beyond cryptocurrencies." }
+      "useCasesBlockchain": { "title": "Use Cases of Blockchain", "description": "Real-world applications beyond cryptocurrencies." },
+      "getInvolvedBlockchain": { "title": "How Can I Get Involved in Blockchain?", "description": "Explore ways to participate in the blockchain space, with examples tailored to you." }
     },
     "polkadotAdvanced": {
       "polkadotArchitecture": { "title": "Polkadot Architecture", "description": "Relay Chain, Parachains, Parathreads, and Bridges." },
@@ -205,7 +206,9 @@
       "polkadotGovernance": { "title": "Polkadot Governance", "description": "On-chain Treasury, Council, and Technical Committee." },
       "substrateFramework": { "title": "Substrate Framework", "description": "A modular framework for building custom blockchains." },
       "stakingNominationPolkadot": { "title": "Staking and Nomination (NPoS)", "description": "Participate in network security and earn rewards." },
-      "kusamaCanaryNetwork": { "title": "Kusama: Polkadot's Canary Network", "description": "Polkadot's experimental network for early deployments." }
+      "kusamaCanaryNetwork": { "title": "Kusama: Polkadot's Canary Network", "description": "Polkadot's experimental network for early deployments." },
+      "whatIsJam": { "title": "What is JAM (Join-Accumulate Machine)?", "description": "Understand Polkadot's JAM protocol proposal." },
+      "polkadotCareerFuture": { "title": "Polkadot Career & Future", "description": "Discover career paths, involvement opportunities, and benefits within the Polkadot ecosystem." }
     }
   }
 }

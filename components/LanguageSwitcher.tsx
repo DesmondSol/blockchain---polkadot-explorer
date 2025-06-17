@@ -11,9 +11,11 @@ interface Language {
 
 const supportedLanguages: Language[] = [
   { code: 'en', name: 'English', flag: '🇬🇧' },
+  { code: 'am', name: 'አማርኛ', flag: '🇪🇹' },
   { code: 'fr', name: 'Français', flag: '🇫🇷' },
   { code: 'es', name: 'Español', flag: '🇪🇸' },
-  { code: 'am', name: 'አማርኛ', flag: '🇪🇹' },
+  { code: 'sw', name: 'Kiswahili', flag: '🇰🇪' }, // Added Swahili
+  { code: 'pt', name: 'Português', flag: '🇵🇹' }, // Added Portuguese
   // Add more languages here
 ];
 
@@ -54,7 +56,7 @@ export const LanguageSwitcher: React.FC = () => {
         <i className={`fas fa-chevron-down text-xs ml-1 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}></i>
       </IconButton>
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-40 bg-gray-700 rounded-md shadow-lg py-1 z-50">
+        <div className="absolute right-0 mt-2 w-48 bg-gray-700 rounded-md shadow-lg py-1 z-50"> {/* Increased width slightly for longer names */}
           {supportedLanguages.map((lang) => (
             <button
               key={lang.code}

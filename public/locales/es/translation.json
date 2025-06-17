@@ -196,7 +196,8 @@
       "typesOfBlockchains": { "title": "Tipos de Blockchains", "description": "Explora blockchains Públicas, Privadas y de Consorcio." },
       "whatAreCryptocurrencies": { "title": "¿Qué son las Criptomonedas?", "description": "Introducción a monedas digitales como Bitcoin y Ether." },
       "smartContractsExplained": { "title": "Explicación de Contratos Inteligentes", "description": "Descubre contratos auto-ejecutables con reglas predefinidas." },
-      "useCasesBlockchain": { "title": "Casos de Uso de Blockchain", "description": "Aplicaciones del mundo real más allá de las criptomonedas." }
+      "useCasesBlockchain": { "title": "Casos de Uso de Blockchain", "description": "Aplicaciones del mundo real más allá de las criptomonedas." },
+      "getInvolvedBlockchain": { "title": "¿Cómo Puedo Involucrarme en Blockchain?", "description": "Explora formas de participar en el espacio blockchain, con ejemplos adaptados a ti." }
     },
     "polkadotAdvanced": {
       "polkadotArchitecture": { "title": "Arquitectura de Polkadot", "description": "Relay Chain, Parachains, Parathreads y Puentes." },
@@ -205,7 +206,9 @@
       "polkadotGovernance": { "title": "Gobernanza de Polkadot", "description": "Tesorería en cadena, Consejo y Comité Técnico." },
       "substrateFramework": { "title": "Framework Substrate", "description": "Un marco modular para construir blockchains personalizadas." },
       "stakingNominationPolkadot": { "title": "Staking y Nominación (NPoS)", "description": "Participa en la seguridad de la red y gana recompensas." },
-      "kusamaCanaryNetwork": { "title": "Kusama: Red Canaria de Polkadot", "description": "La red experimental de Polkadot para implementaciones tempranas." }
+      "kusamaCanaryNetwork": { "title": "Kusama: Red Canaria de Polkadot", "description": "La red experimental de Polkadot para implementaciones tempranas." },
+      "whatIsJam": { "title": "¿Qué es JAM (Join-Accumulate Machine)?", "description": "Comprenda la propuesta del protocolo JAM de Polkadot." },
+      "polkadotCareerFuture": { "title": "Carrera y Futuro en Polkadot", "description": "Descubra trayectorias profesionales, oportunidades de participación y beneficios dentro del ecosistema Polkadot." }
     }
   }
 }

@@ -1,0 +1,214 @@
+
+{
+  "appTitle": "Kichunguzi cha Blockchain na Polkadot (SW)",
+  "common": {
+    "save": "Hifadhi",
+    "edit": "Hariri",
+    "cancel": "Ghairi",
+    "submit": "Wasilisha",
+    "skip": "Ruka",
+    "close": "Funga",
+    "confirm": "Thibitisha"
+  },
+  "tooltips": {
+    "changeLanguage": "Badilisha Lugha",
+    "enableAiSpeech": "Washa Hotuba ya AI",
+    "disableAiSpeech": "Zima Hotuba ya AI",
+    "openTopics": "Fungua Paneli ya Mada",
+    "closeTopics": "Funga Paneli ya Mada",
+    "closeTopicsPanel": "Funga Paneli ya Mada",
+    "sendMessage": "Tuma Ujumbe",
+    "holdToTalk": "Shikilia ili Uzungumze na Kutuma"
+  },
+  "home": {
+    "title": "Chagua Njia Yako ya Kujifunza",
+    "blockchainBasicsButton": "Misingi ya Blockchain",
+    "polkadotAdvancedButton": "Polkadot ya Juu",
+    "resourcesTitle": "Gundua Rasilimali Zaidi",
+    "blockchainDeepDiveButton": "Uchimbaji wa Kina wa Blockchain",
+    "polkadotEcosystemButton": "Viungo vya Mfumo wa Polkadot"
+  },
+  "chat": {
+    "pathTitleBasics": "Njia ya Misingi ya Blockchain",
+    "pathTitlePolkadot": "Njia ya Polkadot ya Juu",
+    "noPathSelectedTitle": "Hakuna Njia ya Kujifunza Iliyochaguliwa",
+    "noPathSelectedMessage": "Tafadhali nenda kwenye kichupo cha <i class=\"fas fa-home mx-1\"></i><strong>Nyumbani</strong> ili kuchagua njia ya kujifunza ili kuanza kikao chako cha gumzo.",
+    "goToHomeButton": "Nenda Nyumbani",
+    "inputPlaceholderListening": "Inasikiliza...",
+    "inputPlaceholderTypeMessage": "Andika ujumbe wako...",
+    "inputPlaceholderSelectPath": "Chagua njia ya kujifunza kwanza",
+    "inputPlaceholderTypeOrMic": "Andika au tumia maikrofoni...",
+    "inputAriaLabel": "Eneo la kuingiza gumzo",
+    "micNotSupported": "Kivinjari chako hakiwezi kutambua sauti.",
+    "selectPathPrompt": "Tafadhali chagua njia ya kujifunza kutoka Nyumbani ili kuanza kuzungumza."
+  },
+  "chatMessage": {
+    "sourcesTitle": "Vyanzo:",
+    "sourceAriaLabelPrefix": "Chanzo:",
+    "suggestedTopicsTitle": "Ifuatayo, unaweza kuchunguza:",
+    "exploreTopicAriaLabelPrefix": "Gundua mada:"
+  },
+  "sidePanel": {
+    "titleBlockchainBasics": "Mada za Misingi ya Blockchain",
+    "titlePolkadotAdvanced": "Mada za Polkadot ya Juu",
+    "noTopics": "Hakuna mada zinazopatikana kwa uteuzi wa sasa.",
+    "footerHint": "Chagua mada ili ujifunze zaidi!",
+    "completedAriaPrefix": "Imekamilika: ",
+    "clickToLearnMoreAriaSuffix": "Bofya ili ujifunze zaidi."
+  },
+  "profile": {
+    "title": "Wasifu Wako",
+    "defaultNickname": "Mchunguzi wa Crypto",
+    "nicknameTitle": "Jina la Utani",
+    "editNicknameAriaLabel": "Hariri jina la utani",
+    "saveNicknameButtonAriaLabel": "Hifadhi jina la utani",
+    "cancelEditingNicknameAriaLabel": "Ghairi kuhariri jina la utani",
+    "editNicknameButtonAriaLabel": "Hariri jina la utani",
+    "userProfilePictureAlt": "Picha ya wasifu ya mtumiaji",
+    "changePictureAriaLabel": "Badilisha picha ya wasifu",
+    "changePictureTooltip": "Badilisha Picha",
+    "polkadotWalletTitle": "Mkoba wa Polkadot",
+    "connectWalletButton": "Unganisha Mkoba wa Polkadot",
+    "connectWalletButtonAriaLabel": "Unganisha mkoba wako wa Polkadot",
+    "connectWalletDescription": "Unganisha mkoba wako wa Polkadot (k.m., Nova, Talisman, Polkadot.js) ili kuonyesha akaunti yako.",
+    "disconnectWalletButton": "Tenganisha Mkoba",
+    "disconnectWalletButtonAriaLabel": "Tenganisha mkoba wako wa Polkadot",
+    "walletName": "Jina la Akaunti",
+    "walletNameUnnamed": "Akaunti Isiyo na Jina",
+    "walletAddress": "Anwani",
+    "walletSource": "Nyongeza ya Mkoba",
+    "walletSourceLabel": "Chanzo",
+    "selectAccountTitle": "Chagua Akaunti ya Polkadot",
+    "noWalletsDetected": "Hakuna viendelezi vya mkoba wa Polkadot vilivyogunduliwa. Tafadhali sakinisha kimoja (k.m., Nova Wallet, Talisman, Polkadot.js) na ujaribu tena.",
+    "walletsPermissionDenied": "Ruhusa ya kufikia viendelezi vya Polkadot ilikataliwa. Tafadhali washa ruhusa katika mipangilio ya nyongeza ya kivinjari chako.",
+    "walletsGenericError": "Imeshindwa kuunganisha kwenye pochi za Polkadot. Tafadhali hakikisha nyongeza yako imefunguliwa na ujaribu tena.",
+    "noAccountsFound": "Hakuna akaunti zilizopatikana katika nyongeza yako ya mkoba wa Polkadot. Tafadhali fungua au ingiza akaunti.",
+    "noAccountsFoundInExtension": "Hakuna akaunti zilizopatikana katika nyongeza iliyochaguliwa.",
+    "expertiseTitle": "Historia/Utaalamu Wako",
+    "editExpertiseAriaLabel": "Hariri utaalamu wako",
+    "expertisePlaceholder": "K.m., 'Msanidi programu wa Frontend', 'Mtaalamu wa Masoko'",
+    "saveExpertiseButton": "Hifadhi Utaalamu",
+    "saveExpertiseButtonAriaLabel": "Hifadhi utaalamu",
+    "cancelEditingExpertiseAriaLabel": "Ghairi kuhariri utaalamu",
+    "expertiseNotSpecified": "Bado haijabainishwa. Ongeza historia yako ili kusaidia kubinafsisha mifano!",
+    "editExpertiseButtonAriaLabel": "Hariri utaalamu",
+    "achievementsTitle": "Mafanikio",
+    "noAchievements": "Hakuna mafanikio yaliyofunguliwa bado. Endelea kujifunza na kuchunguza!"
+  },
+  "onboarding": {
+    "welcome": {
+      "title": "Karibu!",
+      "subtitle": "Mwongozo wako rafiki wa kuelewa Blockchain & Polkadot, unaoendeshwa na {{appName}}."
+    },
+    "interactive": {
+      "title": "Jifunze kwa Mwingiliano",
+      "line1": "Shiriki katika mazungumzo ili kuchunguza mada ngumu.",
+      "line2": "Vielelezo vya nguvu husaidia kufanya dhana zisizoonekana kuwa hai."
+    },
+    "aiFeatures": {
+      "title": "Nadhifu na Inafikiwa",
+      "line1": "Pata usaidizi unaoendeshwa na AI ulioundwa kulingana na maswali yako.",
+      "line2": "Tumia amri za sauti kwa uzoefu wa kujifunza bila kutumia mikono.",
+      "voiceNoteNoSupport": "Kivinjari chako hakiwezi kutumia amri za sauti kikamilifu, lakini gumzo la AI lipo kwa ajili yako!",
+      "note": "AI inajifunza kila mara, lakini thibitisha habari muhimu kila wakati."
+    },
+    "language": {
+      "title": "Chagua Lugha Yako"
+    },
+    "personalize": {
+      "title": "Tubinafsishe Masomo Yako!",
+      "description1": "Tuambie kidogo kuhusu historia yako, jukumu la sasa, au eneo la utaalamu (k.m., \"Msanidi Programu\", \"Mwanafunzi wa Fedha\", \"Meneja Masoko\", \"Mdau wa Web3\").",
+      "description2": "Hii itatusaidia kurekebisha mifano na maelezo kulingana na kile unachojua tayari, na kufanya mada ngumu kuwa rahisi kuelewa.",
+      "textAreaPlaceholder": "K.m., 'Msanidi programu wa Frontend mwenye uzoefu wa miaka 3', 'Mtaalamu wa masoko mpya katika teknolojia', 'Mwanafunzi wa uchumi'",
+      "textAreaAriaLabel": "Eleza uzoefu au utaalamu wako",
+      "skipButton": "Ruka kwa Sasa",
+      "skipButtonAriaLabel": "Ruka kutoa utaalamu kwa sasa",
+      "submitButton": "Wasilisha na Anza Kujifunza",
+      "submitButtonAriaLabel": "Wasilisha utaalamu na anza kujifunza"
+    },
+    "nextButton": "Inayofuata",
+    "skipIntroButton": "Ruka Utangulizi",
+    "getStartedButton": "Anza"
+  },
+  "bottomNav": {
+    "home": "Nyumbani",
+    "chat": "Gumzo",
+    "badges": "Beji",
+    "profile": "Wasifu"
+  },
+  "badgesScreen": {
+    "title": "Beji Zako za Kidijitali",
+    "connectWalletPrompt": "Unganisha mkoba wako wa Polkadot kwenye kichupo cha Wasifu ili kudai beji zako za mafanikio!",
+    "goToProfileButton": "Nenda Kwenye Wasifu",
+    "noAchievements": "Bado hujapata mafanikio yoyote. Anza kujifunza ili kukusanya beji!",
+    "claimButton": "Dai Beji ya Kidijitali",
+    "viewClaimButton": "Tazama Maelezo ya Dai",
+    "claimedStatus": "Imedaiwa"
+  },
+  "claimModal": {
+    "titleClaim": "Dai Beji Yako ya Kidijitali",
+    "titleView": "Maelezo ya Beji ya Kidijitali",
+    "badgeNameLabel": "Beji:",
+    "achievementLabel": "Mafanikio:",
+    "associatedWallet": "Itaunganishwa na mkoba:",
+    "claimedWithWallet": "Imedaiwa na mkoba:",
+    "walletAddressLabel": "Anwani:",
+    "walletSourceLabel": "Chanzo:",
+    "claimDate": "Imedaiwa mnamo:",
+    "disclaimer": "Hii ni mkusanyiko wa kidijitali ndani ya programu unaowakilisha mafanikio yako. Sio NFT kwenye mnyororo... bado! Sasisho za baadaye zinaweza kuwezesha uundaji.",
+    "confirmButton": "Thibitisha Dai",
+    "closeButton": "Funga"
+  },
+  "loadingSpinner": {
+    "aiThinking": "AI inafikiri..."
+  },
+  "errors": {
+    "speechRecognitionError": "Hitilafu ya utambuzi wa sauti: {{message}}",
+    "unknownAiError": "Hitilafu isiyojulikana imetokea na huduma ya AI.",
+    "aiErrorPrefix": "Hitilafu: {{message}}"
+  },
+  "initialPrompts": {
+    "basics": "Mimi ni mgeni kwenye blockchain. Je, unaweza kunipa utangulizi rahisi wa Misingi ya Blockchain ili nianze?",
+    "polkadot": "Nina ujuzi fulani wa blockchain. Tafadhali toa muhtasari wa Polkadot, ukizingatia vipengele vyake muhimu na usanifu kwa watumiaji wa hali ya juu. Jaribu kutumia habari kutoka Wiki ya Polkadot."
+  },
+  "userExpertise": {
+    "noneProvided": "Hakuna kilichotolewa"
+  },
+  "achievements": {
+    "initiatedLearner": { "name": "Mwanafunzi Aliyeanzishwa", "description": "Karibu! Umeanza safari yako ya kujifunza." },
+    "blockchainBasicsStarted": { "name": "Misingi ya Blockchain Imeanza", "description": "Umeanzisha njia ya kuelewa misingi ya blockchain." },
+    "polkadotAdvancedStarted": { "name": "Polkadot Advanced Imeanza", "description": "Kuzama ndani ya mfumo wa Polkadot." },
+    "curiousChatterbox": { "name": "Gumzo la Kutaka Kujua", "description": "Umehusika katika mazungumzo mengi na AI." },
+    "explorerGuide": { "name": "Mwongozo wa Mchunguzi", "description": "Ulifuata mada zilizopendekezwa na AI ili kuongeza maarifa." },
+    "personalizedLearner": { "name": "Mwanafunzi Aliyebinafsishwa", "description": "Ulishiriki utaalamu ili kurekebisha uzoefu wa kujifunza." },
+    "sourceSeeker": { "name": "Mtafutaji wa Chanzo", "description": "Umechunguzwa vyanzo vya nje vilivyotolewa na AI." },
+    "firstTopicConquered": { "name": "Mada ya Kwanza Imeshindwa", "description": "Umejifunza kwa mafanikio kuhusu moja ya mada kuu." },
+    "pathMaster": { "name": "Bwana wa Njia", "description": "Umekamilisha mada zote kuu katika njia ya kujifunza." },
+    "walletConnector": { "name": "Kiunganishi cha Mkoba", "description": "Umeunganisha mkoba wa Polkadot kwenye programu." },
+    "photoFanatic": { "name": "Mpenzi wa Picha", "description": "Ulipakia picha ya wasifu." },
+    "badgePioneer": { "name": "Mwanzo wa Beji", "description": "Umedai beji yako ya kwanza kabisa ya kidijitali!" }
+  },
+  "mustLearn": {
+    "blockchainBasics": {
+      "whatIsBlockchain": { "title": "Blockchain ni nini?", "description": "Elewa dhana ya msingi ya leja iliyosambazwa." },
+      "howBlockchainWorks": { "title": "Blockchain Inafanyaje Kazi?", "description": "Jifunze kuhusu vizuizi, minyororo, na heshi ya kriptografia." },
+      "decentralizationImmutability": { "title": "Ugawaji Mamlaka na Kutobadilika", "description": "Sifa muhimu za teknolojia ya blockchain." },
+      "typesOfBlockchains": { "title": "Aina za Blockchains", "description": "Chunguza blockchain za Umma, za Faragha, na za Jumuiya." },
+      "whatAreCryptocurrencies": { "title": "Pesa za Kielektroniki ni Nini?", "description": "Utangulizi wa sarafu za kidijitali kama Bitcoin na Ether." },
+      "smartContractsExplained": { "title": "Mikataba Mahiri Imeelezewa", "description": "Gundua mikataba inayojitekeleza yenye sheria zilizobainishwa mapema." },
+      "useCasesBlockchain": { "title": "Matumizi ya Blockchain", "description": "Matumizi ya ulimwengu halisi zaidi ya pesa za kielektroniki." },
+      "getInvolvedBlockchain": { "title": "Ninawezaje Kushiriki Katika Blockchain?", "description": "Gundua njia za kushiriki katika nafasi ya blockchain, na mifano iliyolengwa kwako." }
+    },
+    "polkadotAdvanced": {
+      "polkadotArchitecture": { "title": "Usanifu wa Polkadot", "description": "Mnyororo wa Relay, Parachains, Parathreads, na Madaraja." },
+      "sharedSecurityModel": { "title": "Mfumo wa Usalama Ulioshirikiwa", "description": "Jinsi Polkadot inavyolinda mtandao wake wa parachains." },
+      "crossChainCommunication": { "title": "Mawasiliano ya Minyororo Mbalimbali (XCMP)", "description": "Kuwezesha ushirikiano kati ya blockchain tofauti." },
+      "polkadotGovernance": { "title": "Utawala wa Polkadot", "description": "Hazina ya ndani ya mnyororo, Baraza, na Kamati ya Kiufundi." },
+      "substrateFramework": { "title": "Mfumo wa Substrate", "description": "Mfumo wa msimu wa kuunda blockchain maalum." },
+      "stakingNominationPolkadot": { "title": "Kuweka Rehani na Uteuzi (NPoS)", "description": "Shiriki katika usalama wa mtandao na upate zawadi." },
+      "kusamaCanaryNetwork": { "title": "Kusama: Mtandao wa Kanari wa Polkadot", "description": "Mtandao wa majaribio wa Polkadot kwa utumiaji wa mapema." },
+      "whatIsJam": { "title": "JAM (Join-Accumulate Machine) ni Nini?", "description": "Elewa pendekezo la itifaki ya JAM ya Polkadot." },
+      "polkadotCareerFuture": { "title": "Kazi na Mustakabali wa Polkadot", "description": "Gundua njia za kazi, fursa za ushiriki, na manufaa ndani ya mfumo wa Polkadot." }
+    }
+  }
+}

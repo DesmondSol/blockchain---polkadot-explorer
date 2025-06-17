@@ -1,3 +1,4 @@
+
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import HttpBackend from 'i18next-http-backend';
@@ -13,7 +14,7 @@ i18n
     interpolation: {
       escapeValue: false, // React already safes from xss
     },
-    supportedLngs: ['en', 'es', 'am', 'fr'], // Add more languages as needed
+    supportedLngs: ['en', 'es', 'am', 'fr', 'sw', 'pt'], // Added sw and pt
     backend: {
       loadPath: '/locales/{{lng}}/translation.json', // Path to translation files
     },

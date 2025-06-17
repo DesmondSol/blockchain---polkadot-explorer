@@ -1,3 +1,4 @@
+
 {
   "appTitle": "Blockchain & Polkadot Explorer (ብሎክቼይን እና ፖልካዶት ኤክስፕሎረር)",
   "common": {
@@ -117,9 +118,9 @@
     },
     "personalize": {
       "title": "ትምህርትዎን ግላዊ እናድርግ!",
-      "description1": "ስለ ዳራዎ፣ ስለአሁኑ ሚናዎ ወይም ስለ እውቀትዎ መስክ ትንሽ ይንገሩን (ለምሳሌ፣ \"የሶፍትዌር ገንቢ\"፣ \"የፋይናንስ ተማሪ\"፣ \"የግብይት ስራ አስኪያጅ\"፣ \"ስለ Web3 የማወቅ ጉጉት ያለው\")።",
-      "description2": "ይህ ምሳሌዎችን እና ማብራሪያዎችን አስቀድመው ለሚያውቁት ነገር እንድንለውጥ ይረዳናል፣ ይህም ውስብስብ ርዕሶችን ለመረዳት ቀላል ያደርገዋል።",
-      "textAreaPlaceholder": "ለምሳሌ፣ 'የ3 ዓመት ልምድ ያለው የፊት-ፍጻሜ ገንቢ'፣ 'በቴክኖሎጂ አዲስ የግብይት ባለሙያ'፣ 'የኢኮኖሚክስ ተማሪ'",
+      "description1": "ስለ ዳራዎ، ስለአሁኑ ሚናዎ ወይም ስለ እውቀትዎ መስክ ትንሽ ይንገሩን (ለምሳሌ، \"የሶፍትዌር ገንቢ\"، \"የፋይናንስ ተማሪ\"، \"የግብይት ስራ አስኪያጅ\"، \"ስለ Web3 የማወቅ ጉጉት ያለው\")።",
+      "description2": "ይህ ምሳሌዎችን እና ማብራሪያዎችን አስቀድመው ለሚያውቁት ነገር እንድንለውጥ ይረዳናል، ይህም ውስብስብ ርዕሶችን ለመረዳት ቀላል ያደርገዋል።",
+      "textAreaPlaceholder": "ለምሳሌ، 'የ3 ዓመት ልምድ ያለው የፊት-ፍጻሜ ገንቢ'، 'በቴክኖሎጂ አዲስ የግብይት ባለሙያ'، 'የኢኮኖሚክስ ተማሪ'",
       "textAreaAriaLabel": "ልምድዎን ወይም እውቀትዎን ይግለጹ",
       "skipButton": "ለአሁን ዝለል",
       "skipButtonAriaLabel": "ለአሁን የባለሙያ መረጃ መስጠትን ዝለል",
@@ -169,7 +170,7 @@
   },
   "initialPrompts": {
     "basics": "እኔ ለብሎክቼይን አዲስ ነኝ። ለመጀመር የብሎክቼይን መሰረታዊ ነገሮች ቀላል መግቢያ ሊሰጡኝ ይችላሉ?",
-    "polkadot": "አንዳንድ የብሎክቼይን እውቀት አለኝ። እባክዎ የፖልካዶትን አጠቃላይ እይታ ይስጡኝ፣ ለላቁ ተጠቃሚዎች በዋና ዋና ባህሪያቱ እና አርክቴክቸሩ ላይ ያተኩሩ። ከፖልካዶት ዊኪ መረጃን ለመጠቀም ይሞክሩ።"
+    "polkadot": "አንዳንድ የብሎክቼይን እውቀት አለኝ። እባክዎ የፖልካዶትን አጠቃላይ እይታ ይስጡኝ، ለላቁ ተጠቃሚዎች በዋና ዋና ባህሪያቱ እና አርክቴክቸሩ ላይ ያተኩሩ። ከፖልካዶት ዊኪ መረጃን ለመጠቀም ይሞክሩ።"
   },
   "userExpertise": {
     "noneProvided": "ምንም አልተሰጠም"
@@ -191,21 +192,24 @@
   "mustLearn": {
     "blockchainBasics": {
       "whatIsBlockchain": { "title": "ብሎክቼይን ምንድን ነው?", "description": "የተከፋፈለ የሂሳብ መዝገብ መሰረታዊ ጽንሰ-ሐሳብ ይረዱ።" },
-      "howBlockchainWorks": { "title": "ብሎክቼይን እንዴት ይሰራል?", "description": "ስለ ብሎኮች፣ ሰንሰለቶች እና ክሪፕቶግራፊክ ሃሺንግ ይማሩ።" },
+      "howBlockchainWorks": { "title": "ብሎክቼይን እንዴት ይሰራል?", "description": "ስለ ብሎኮች، ሰንሰለቶች እና ክሪፕቶግራፊክ ሃሺንግ ይማሩ።" },
       "decentralizationImmutability": { "title": "ማዕከላዊ አለመሆን እና የማይለዋወጥነት", "description": "የብሎክቼይን ቴክኖሎጂ ቁልፍ ባህሪያት።" },
-      "typesOfBlockchains": { "title": "የብሎክቼይን ዓይነቶች", "description": "የህዝብ፣ የግል እና የኮንሰርቲየም ብሎክቼይኖችን ያስሱ።" },
+      "typesOfBlockchains": { "title": "የብሎክቼይን ዓይነቶች", "description": "የህዝብ، የግል እና የኮንሰርቲየም ብሎክቼይኖችን ያስሱ።" },
       "whatAreCryptocurrencies": { "title": "ክሪፕቶ ምንዛሬዎች ምንድን ናቸው?", "description": "እንደ ቢትኮይን እና ኢተር ያሉ ዲጂታል ምንዛሬዎች መግቢያ።" },
       "smartContractsExplained": { "title": "ብልህ ኮንትራቶች ተብራርተዋል", "description": "ቅድመ-የተገለጹ ሕጎች ያላቸው እራሳቸውን የሚያስፈጽሙ ኮንትራቶችን ያግኙ።" },
-      "useCasesBlockchain": { "title": "የብሎክቼይን የአጠቃቀም ጉዳዮች", "description": "ከክሪፕቶ ምንዛሬዎች ባሻገር ያሉ እውነተኛ የዓለም መተግበሪያዎች።" }
+      "useCasesBlockchain": { "title": "የብሎክቼይን የአጠቃቀም ጉዳዮች", "description": "ከክሪፕቶ ምንዛሬዎች ባሻገር ያሉ እውነተኛ የዓለም መተግበሪያዎች።" },
+      "getInvolvedBlockchain": { "title": "በብሎክቼይን ውስጥ እንዴት መሳተፍ እችላለሁ?", "description": "በብሎክቼይን ቦታ ላይ ለመሳተፍ መንገዶችን ያስሱ፣ ለእርስዎ በተዘጋጁ ምሳሌዎች።" }
     },
     "polkadotAdvanced": {
-      "polkadotArchitecture": { "title": "የፖልካዶት አርክቴክቸር", "description": "ሪሌይ ቼይን፣ ፓራቼይንስ፣ ፓራተሬድስ እና ብሪጅስ።" },
+      "polkadotArchitecture": { "title": "የፖልካዶት አርክቴክቸር", "description": "ሪሌይ ቼይን، ፓራቼይንስ، ፓራተሬድስ እና ብሪጅስ።" },
       "sharedSecurityModel": { "title": "የተጋራ የደህንነት ሞዴል", "description": "ፖልካዶት የፓራቼይኖቹን አውታረመረብ እንዴት እንደሚጠብቅ።" },
       "crossChainCommunication": { "title": "ክሮስ-ቼይን ግንኙነት (XCMP)", "description": "በተለያዩ ብሎክቼይኖች መካከል መስተጋብርን ማንቃት።" },
-      "polkadotGovernance": { "title": "የፖልካዶት አስተዳደር", "description": "በሰንሰለት ላይ ያለ ግምጃ ቤት፣ ምክር ቤት እና የቴክኒክ ኮሚቴ።" },
+      "polkadotGovernance": { "title": "የፖልካዶት አስተዳደር", "description": "በሰንሰለት ላይ ያለ ግምጃ ቤት، ምክር ቤት እና የቴክኒክ ኮሚቴ።" },
       "substrateFramework": { "title": "የስርአት ማዕቀፍ", "description": "ብጁ ብሎክቼይኖችን ለመገንባት ሞጁላር ማዕቀፍ።" },
       "stakingNominationPolkadot": { "title": "ስቴኪንግ እና ኖሚኔሽን (NPoS)", "description": "በአውታረመረብ ደህንነት ውስጥ ይሳተፉ እና ሽልማቶችን ያግኙ።" },
-      "kusamaCanaryNetwork": { "title": "ኩሳማ: የፖልካዶት ካናሪ አውታረመረብ", "description": "ለቀድሞ ማሰማራቶች የፖልካዶት የሙከራ አውታረመረብ።" }
+      "kusamaCanaryNetwork": { "title": "ኩሳማ: የፖልካዶት ካናሪ አውታረመረብ", "description": "ለቀድሞ ማሰማራቶች የፖልካዶት የሙከራ አውታረመረብ።" },
+      "whatIsJam": { "title": "JAM (Join-Accumulate Machine) ምንድን ነው?", "description": "የፖልካዶት JAM ፕሮቶኮል ሀሳብን ይረዱ።" },
+      "polkadotCareerFuture": { "title": "የፖልካዶት የሥራ መስክ እና የወደፊት ዕድል", "description": "በፖልካዶት ሥነ-ምህዳር ውስጥ የሥራ መስመሮችን፣ የተሳትፎ ዕድሎችን እና ጥቅሞችን ያግኙ።" }
     }
   }
 }

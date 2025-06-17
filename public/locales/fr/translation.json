@@ -196,7 +196,8 @@
       "typesOfBlockchains": { "title": "Types de Blockchains", "description": "Explorer les blockchains Publiques, Privées et de Consortium." },
       "whatAreCryptocurrencies": { "title": "Que sont les Cryptomonnaies ?", "description": "Introduction aux monnaies numériques comme Bitcoin et Ether." },
       "smartContractsExplained": { "title": "Explication des Contrats Intelligents", "description": "Découvrir les contrats auto-exécutables avec des règles prédéfinies." },
-      "useCasesBlockchain": { "title": "Cas d'Usage de la Blockchain", "description": "Applications du monde réel au-delà des cryptomonnaies." }
+      "useCasesBlockchain": { "title": "Cas d'Usage de la Blockchain", "description": "Applications du monde réel au-delà des cryptomonnaies." },
+      "getInvolvedBlockchain": { "title": "Comment Puis-je M'impliquer dans la Blockchain ?", "description": "Explorez les façons de participer à l'espace blockchain, avec des exemples adaptés à vous." }
     },
     "polkadotAdvanced": {
       "polkadotArchitecture": { "title": "Architecture de Polkadot", "description": "Relay Chain, Parachains, Parathreads et Ponts." },
@@ -205,7 +206,9 @@
       "polkadotGovernance": { "title": "Gouvernance de Polkadot", "description": "Trésorerie en chaîne, Conseil et Comité Technique." },
       "substrateFramework": { "title": "Framework Substrate", "description": "Un cadre modulaire pour construire des blockchains personnalisées." },
       "stakingNominationPolkadot": { "title": "Staking et Nomination (NPoS)", "description": "Participer à la sécurité du réseau et gagner des récompenses." },
-      "kusamaCanaryNetwork": { "title": "Kusama : Réseau Canari de Polkadot", "description": "Le réseau expérimental de Polkadot pour les déploiements précoces." }
+      "kusamaCanaryNetwork": { "title": "Kusama : Réseau Canari de Polkadot", "description": "Le réseau expérimental de Polkadot pour les déploiements précoces." },
+      "whatIsJam": { "title": "Qu'est-ce que JAM (Join-Accumulate Machine) ?", "description": "Comprendre la proposition de protocole JAM de Polkadot." },
+      "polkadotCareerFuture": { "title": "Carrière et Avenir avec Polkadot", "description": "Découvrez les parcours professionnels, les opportunités d'implication et les avantages au sein de l'écosystème Polkadot." }
     }
   }
 }

@@ -56,6 +56,7 @@ export const MUST_LEARN_BLOCKCHAIN_BASICS = [
   { id: 'what_are_cryptocurrencies', titleKey: 'mustLearn.blockchainBasics.whatAreCryptocurrencies.title', canonicalTitle: 'What are Cryptocurrencies (e.g., Bitcoin, Ether)?', descriptionKey: 'mustLearn.blockchainBasics.whatAreCryptocurrencies.description' },
   { id: 'smart_contracts_explained', titleKey: 'mustLearn.blockchainBasics.smartContractsExplained.title', canonicalTitle: 'Smart Contracts Explained', descriptionKey: 'mustLearn.blockchainBasics.smartContractsExplained.description' },
   { id: 'use_cases_blockchain', titleKey: 'mustLearn.blockchainBasics.useCasesBlockchain.title', canonicalTitle: 'Use Cases of Blockchain', descriptionKey: 'mustLearn.blockchainBasics.useCasesBlockchain.description' },
+  { id: 'get_involved_blockchain', titleKey: 'mustLearn.blockchainBasics.getInvolvedBlockchain.title', canonicalTitle: 'How can I get involved in the blockchain space with examples?', descriptionKey: 'mustLearn.blockchainBasics.getInvolvedBlockchain.description' },
 ];
 
 export const MUST_LEARN_POLKADOT_ADVANCED = [
@@ -66,6 +67,8 @@ export const MUST_LEARN_POLKADOT_ADVANCED = [
   { id: 'substrate_framework', titleKey: 'mustLearn.polkadotAdvanced.substrateFramework.title', canonicalTitle: 'Substrate Framework for Building Blockchains', descriptionKey: 'mustLearn.polkadotAdvanced.substrateFramework.description' },
   { id: 'staking_nomination_polkadot', titleKey: 'mustLearn.polkadotAdvanced.stakingNominationPolkadot.title', canonicalTitle: 'Staking and Nomination on Polkadot (NPoS)', descriptionKey: 'mustLearn.polkadotAdvanced.stakingNominationPolkadot.description' },
   { id: 'kusama_canary_network', titleKey: 'mustLearn.polkadotAdvanced.kusamaCanaryNetwork.title', canonicalTitle: "Kusama: Polkadot's Canary Network", descriptionKey: 'mustLearn.polkadotAdvanced.kusamaCanaryNetwork.description' },
+  { id: 'what_is_jam', titleKey: 'mustLearn.polkadotAdvanced.whatIsJam.title', canonicalTitle: 'What is JAM (Join-Accumulate Machine) in Polkadot?', descriptionKey: 'mustLearn.polkadotAdvanced.whatIsJam.description' },
+  { id: 'polkadot_career_future', titleKey: 'mustLearn.polkadotAdvanced.polkadotCareerFuture.title', canonicalTitle: 'What are future career opportunities with Polkadot, how can I get involved, and what are the benefits?', descriptionKey: 'mustLearn.polkadotAdvanced.polkadotCareerFuture.description' },
 ];
 
 // Translation keys for Badges feature (will be defined in locale files)

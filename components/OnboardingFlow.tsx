@@ -11,9 +11,11 @@ interface LanguageOption {
 
 const supportedLanguagesForOnboarding: LanguageOption[] = [
   { code: 'en', name: 'English', flag: '🇬🇧' },
+  { code: 'am', name: 'አማርኛ', flag: '🇪🇹' },
   { code: 'fr', name: 'Français', flag: '🇫🇷' },
   { code: 'es', name: 'Español', flag: '🇪🇸' },
-  { code: 'am', name: 'አማርኛ', flag: '🇪🇹' },
+  { code: 'sw', name: 'Kiswahili', flag: '🇰🇪' },
+  { code: 'pt', name: 'Português', flag: '🇵🇹' },
 ];
 
 interface OnboardingFlowProps {
@@ -152,18 +154,20 @@ export const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
           <div className="text-center">
             <i className="fas fa-globe-americas text-6xl text-green-400 mb-6"></i>
             <h2 className="text-3xl font-bold text-purple-300 mb-6">{t('onboarding.language.title')}</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8 max-w-md mx-auto">
-              {supportedLanguagesForOnboarding.map((lang) => (
-                <button
-                  key={lang.code}
-                  onClick={() => changeLanguage(lang.code)}
-                  className={`px-4 py-3 rounded-lg text-lg transition-colors flex items-center justify-center space-x-2
-                    ${i18n.language === lang.code ? 'bg-purple-600 text-white ring-2 ring-purple-300' : 'bg-gray-600 hover:bg-gray-500 text-gray-200'}`}
-                >
-                  <span className="text-2xl">{lang.flag}</span>
-                  <span>{lang.name}</span>
-                </button>
-              ))}
+            <div className="max-h-60 overflow-y-auto custom-scrollbar pr-2 mb-8 max-w-md mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {supportedLanguagesForOnboarding.map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => changeLanguage(lang.code)}
+                    className={`px-4 py-3 rounded-lg text-lg transition-colors flex items-center justify-center space-x-2
+                      ${i18n.language === lang.code ? 'bg-purple-600 text-white ring-2 ring-purple-300' : 'bg-gray-600 hover:bg-gray-500 text-gray-200'}`}
+                  >
+                    <span className="text-2xl">{lang.flag}</span>
+                    <span>{lang.name}</span>
+                  </button>
+                ))}
+              </div>
             </div>
             <button
               onClick={onNextStep}

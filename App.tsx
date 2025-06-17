@@ -245,7 +245,8 @@ const App: React.FC = () => {
   const handleSendMessage = useCallback(async (
     messageText: string, 
     isAutomatedFirstMessage = false,
-    pathToUseOverride?: LearningPath
+    pathToUseOverride?: LearningPath,
+    canonicalQueryForCompletion?: string
   ) => {
     const activeLearningPath = pathToUseOverride || learningPath;
 
@@ -259,12 +260,12 @@ const App: React.FC = () => {
         return;
     }
 
-    const userMessageQueryText = messageText; 
+    const userMessageQueryTextForCompletion = canonicalQueryForCompletion || messageText; 
 
     if (!isAutomatedFirstMessage) {
         const newUserMessage: ChatMessage = {
           id: Date.now().toString() + '-user',
-          text: messageText,
+          text: messageText, // Use the (potentially translated) messageText for display
           sender: Sender.User,
           timestamp: Date.now(),
         };
@@ -276,9 +277,8 @@ const App: React.FC = () => {
 
     try {
       const currentContextMessages = isAutomatedFirstMessage ? [] : chatMessages;
-      // Note: Assuming geminiService.ts provided does not have currentLanguage param
       const { text: aiResponseText, visualHint, suggestedTopics, groundingChunks } = await sendMessageToGemini(
-        messageText, 
+        messageText, // Send the (potentially translated) messageText to AI
         currentContextMessages, 
         activeLearningPath,
         userExpertise,
@@ -303,7 +303,8 @@ const App: React.FC = () => {
         speak(aiResponseText, i18n.language);
       }
       
-      markTopicAsCompletedByQuery(userMessageQueryText);
+      // Use the canonical query (or original messageText) for completion tracking
+      markTopicAsCompletedByQuery(userMessageQueryTextForCompletion); 
       
       if (chatMessages.length > 5 && !achievements.includes(Constants.ACHIEVEMENT_KEYS.CURIOUS_CHATTERBOX)) {
         setAchievements(prev => [...prev, Constants.ACHIEVEMENT_KEYS.CURIOUS_CHATTERBOX]);
@@ -364,7 +365,8 @@ const App: React.FC = () => {
         timestamp: Date.now(),
     };
     setChatMessages([initialUserMessage]); 
-    handleSendMessage(firstUserQuery, true, path); 
+    // For initial prompts, the message itself is used for potential completion (though unlikely to match)
+    handleSendMessage(firstUserQuery, true, path, undefined); 
     setActiveTab('chat'); 
 
     const achievementKey = path === 'blockchainBasics' 
@@ -380,7 +382,9 @@ const App: React.FC = () => {
   };
 
   const handleSelectMustLearnTopic = (topic: MustLearnTopic) => {
-    handleSendMessage(topic.canonicalTitle, false); 
+    const translatedTopicTitle = t(topic.titleKey);
+    // Send translated title to AI, but use canonicalTitle for completion tracking
+    handleSendMessage(translatedTopicTitle, false, undefined, topic.canonicalTitle); 
   };
 
   const handleProfilePictureChange = (dataUrl: string) => {
@@ -543,7 +547,7 @@ const App: React.FC = () => {
           <div className="h-full flex flex-col relative"> {/* Added relative for side panel absolute positioning context */}
             <ChatInterface
               messages={chatMessages}
-              onSendMessage={(msg) => handleSendMessage(msg, false)}
+              onSendMessage={(msg) => handleSendMessage(msg, false, undefined, msg)} // Pass msg as canonicalQueryForCompletion
               isLoading={isLoading}
               error={error}
               onClearError={() => setError(null)}
@@ -553,7 +557,7 @@ const App: React.FC = () => {
               micNotSupported={!browserSupportsSpeechRecognition} 
               browserSupportsSpeechRecognition={browserSupportsSpeechRecognition}
               currentPath={learningPath}
-              onSuggestedTopicClick={(topic) => handleSendMessage(topic, false)}
+              onSuggestedTopicClick={(topic) => handleSendMessage(topic, false, undefined, topic)} // Pass topic as canonical
               startListening={startListening}
               stopListening={stopListening}
               cancelSpeaking={cancelSpeaking}

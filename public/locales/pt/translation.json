@@ -1,0 +1,214 @@
+
+{
+  "appTitle": "Explorador de Blockchain e Polkadot (PT)",
+  "common": {
+    "save": "Guardar",
+    "edit": "Editar",
+    "cancel": "Cancelar",
+    "submit": "Enviar",
+    "skip": "Saltar",
+    "close": "Fechar",
+    "confirm": "Confirmar"
+  },
+  "tooltips": {
+    "changeLanguage": "Mudar Idioma",
+    "enableAiSpeech": "Ativar Fala da IA",
+    "disableAiSpeech": "Desativar Fala da IA",
+    "openTopics": "Abrir Painel de Tópicos",
+    "closeTopics": "Fechar Painel de Tópicos",
+    "closeTopicsPanel": "Fechar Painel de Tópicos",
+    "sendMessage": "Enviar Mensagem",
+    "holdToTalk": "Segurar para Falar e Enviar"
+  },
+  "home": {
+    "title": "Escolha o Seu Percurso de Aprendizagem",
+    "blockchainBasicsButton": "Noções Básicas de Blockchain",
+    "polkadotAdvancedButton": "Polkadot Avançado",
+    "resourcesTitle": "Explorar Mais Recursos",
+    "blockchainDeepDiveButton": "Aprofundamento em Blockchain",
+    "polkadotEcosystemButton": "Links do Ecossistema Polkadot"
+  },
+  "chat": {
+    "pathTitleBasics": "Percurso de Noções Básicas de Blockchain",
+    "pathTitlePolkadot": "Percurso Polkadot Avançado",
+    "noPathSelectedTitle": "Nenhum Percurso de Aprendizagem Selecionado",
+    "noPathSelectedMessage": "Por favor, vá para o separador <i class=\"fas fa-home mx-1\"></i><strong>Início</strong> para escolher um percurso de aprendizagem para iniciar a sua sessão de chat.",
+    "goToHomeButton": "Ir para o Início",
+    "inputPlaceholderListening": "A ouvir...",
+    "inputPlaceholderTypeMessage": "Escreva a sua mensagem...",
+    "inputPlaceholderSelectPath": "Selecione primeiro um percurso de aprendizagem",
+    "inputPlaceholderTypeOrMic": "Escreva ou use o microfone...",
+    "inputAriaLabel": "Entrada do chat",
+    "micNotSupported": "O seu navegador não suporta reconhecimento de voz.",
+    "selectPathPrompt": "Por favor, selecione um percurso de aprendizagem em Início para começar a conversar."
+  },
+  "chatMessage": {
+    "sourcesTitle": "Fontes:",
+    "sourceAriaLabelPrefix": "Fonte:",
+    "suggestedTopicsTitle": "A seguir, pode explorar:",
+    "exploreTopicAriaLabelPrefix": "Explorar tópico:"
+  },
+  "sidePanel": {
+    "titleBlockchainBasics": "Tópicos de Noções Básicas de Blockchain",
+    "titlePolkadotAdvanced": "Tópicos Avançados de Polkadot",
+    "noTopics": "Nenhum tópico disponível para a seleção atual.",
+    "footerHint": "Selecione um tópico para saber mais!",
+    "completedAriaPrefix": "Concluído: ",
+    "clickToLearnMoreAriaSuffix": "Clique para saber mais."
+  },
+  "profile": {
+    "title": "O Seu Perfil",
+    "defaultNickname": "Explorador de Cripto",
+    "nicknameTitle": "Alcunha",
+    "editNicknameAriaLabel": "Editar alcunha",
+    "saveNicknameButtonAriaLabel": "Guardar alcunha",
+    "cancelEditingNicknameAriaLabel": "Cancelar edição da alcunha",
+    "editNicknameButtonAriaLabel": "Editar alcunha",
+    "userProfilePictureAlt": "Imagem de perfil do utilizador",
+    "changePictureAriaLabel": "Alterar imagem de perfil",
+    "changePictureTooltip": "Mudar Imagem",
+    "polkadotWalletTitle": "Carteira Polkadot",
+    "connectWalletButton": "Ligar Carteira Polkadot",
+    "connectWalletButtonAriaLabel": "Ligar a sua carteira Polkadot",
+    "connectWalletDescription": "Ligue a sua carteira Polkadot (por exemplo, Nova, Talisman, Polkadot.js) para exibir a sua conta.",
+    "disconnectWalletButton": "Desligar Carteira",
+    "disconnectWalletButtonAriaLabel": "Desligar a sua carteira Polkadot",
+    "walletName": "Nome da Conta",
+    "walletNameUnnamed": "Conta Sem Nome",
+    "walletAddress": "Endereço",
+    "walletSource": "Extensão da Carteira",
+    "walletSourceLabel": "Fonte",
+    "selectAccountTitle": "Selecionar Conta Polkadot",
+    "noWalletsDetected": "Nenhuma extensão de carteira Polkadot detetada. Por favor, instale uma (por exemplo, Nova Wallet, Talisman, Polkadot.js) e tente novamente.",
+    "walletsPermissionDenied": "A permissão para aceder às extensões Polkadot foi negada. Por favor, ative as permissões nas configurações da extensão do seu navegador.",
+    "walletsGenericError": "Não foi possível ligar às carteiras Polkadot. Por favor, certifique-se de que a sua extensão está desbloqueada e tente novamente.",
+    "noAccountsFound": "Nenhuma conta encontrada na sua extensão de carteira Polkadot. Por favor, crie ou importe uma conta.",
+    "noAccountsFoundInExtension": "Nenhuma conta encontrada na extensão selecionada.",
+    "expertiseTitle": "Sua Formação/Especialidade",
+    "editExpertiseAriaLabel": "Editar a sua especialidade",
+    "expertisePlaceholder": "Ex: 'Desenvolvedor frontend', 'Profissional de marketing'",
+    "saveExpertiseButton": "Guardar Especialidade",
+    "saveExpertiseButtonAriaLabel": "Guardar especialidade",
+    "cancelEditingExpertiseAriaLabel": "Cancelar edição da especialidade",
+    "expertiseNotSpecified": "Ainda não especificado. Adicione a sua formação para ajudar a personalizar os exemplos!",
+    "editExpertiseButtonAriaLabel": "Editar especialidade",
+    "achievementsTitle": "Conquistas",
+    "noAchievements": "Nenhuma conquista desbloqueada ainda. Continue a aprender e a explorar!"
+  },
+  "onboarding": {
+    "welcome": {
+      "title": "Bem-vindo(a)!",
+      "subtitle": "O seu guia amigável para compreender Blockchain & Polkadot, desenvolvido por {{appName}}."
+    },
+    "interactive": {
+      "title": "Aprenda de Forma Interativa",
+      "line1": "Participe em conversas para explorar tópicos complexos.",
+      "line2": "Visuais dinâmicos ajudam a dar vida a conceitos abstratos."
+    },
+    "aiFeatures": {
+      "title": "Inteligente e Acessível",
+      "line1": "Obtenha assistência alimentada por IA adaptada às suas perguntas.",
+      "line2": "Use comandos de voz para uma experiência de aprendizagem mãos-livres.",
+      "voiceNoteNoSupport": "O seu navegador não suporta totalmente comandos de voz, mas o chat de IA está aqui para si!",
+      "note": "A IA está em constante aprendizagem, mas verifique sempre a informação crítica."
+    },
+    "language": {
+      "title": "Escolha o Seu Idioma"
+    },
+    "personalize": {
+      "title": "Vamos Personalizar a Sua Aprendizagem!",
+      "description1": "Conte-nos um pouco sobre a sua formação, função atual ou área de especialidade (ex: \"Desenvolvedor de Software\", \"Estudante de Finanças\", \"Gerente de Marketing\", \"Curioso sobre Web3\").",
+      "description2": "Isto irá ajudar-nos a adaptar exemplos e explicações ao que já sabe, tornando tópicos complexos mais fáceis de compreender.",
+      "textAreaPlaceholder": "Ex: 'Desenvolvedor frontend com 3 anos de experiência', 'Profissional de marketing novo em tecnologia', 'Estudante de Economia'",
+      "textAreaAriaLabel": "Descreva a sua experiência ou especialidade",
+    "skipButton": "Saltar por Agora",
+    "skipButtonAriaLabel": "Saltar a descrição da experiência por agora",
+      "submitButton": "Enviar e Começar a Aprender",
+      "submitButtonAriaLabel": "Enviar experiência e começar a aprender"
+    },
+    "nextButton": "Próximo",
+    "skipIntroButton": "Saltar Introdução",
+    "getStartedButton": "Começar"
+  },
+  "bottomNav": {
+    "home": "Início",
+    "chat": "Chat",
+    "badges": "Distintivos",
+    "profile": "Perfil"
+  },
+  "badgesScreen": {
+    "title": "Os Seus Distintivos Digitais",
+    "connectWalletPrompt": "Ligue a sua carteira Polkadot no separador Perfil para reivindicar os seus distintivos de conquista!",
+    "goToProfileButton": "Ir para o Perfil",
+    "noAchievements": "Ainda não ganhou nenhuma conquista. Comece a aprender para colecionar distintivos!",
+    "claimButton": "Reivindicar Distintivo Digital",
+    "viewClaimButton": "Ver Detalhes da Reivindicação",
+    "claimedStatus": "Reivindicado"
+  },
+  "claimModal": {
+    "titleClaim": "Reivindique o Seu Distintivo Digital",
+    "titleView": "Detalhes do Distintivo Digital",
+    "badgeNameLabel": "Distintivo:",
+    "achievementLabel": "Conquista:",
+    "associatedWallet": "A ser associado à carteira:",
+    "claimedWithWallet": "Reivindicado com a carteira:",
+    "walletAddressLabel": "Endereço:",
+    "walletSourceLabel": "Fonte:",
+    "claimDate": "Reivindicado em:",
+    "disclaimer": "Este é um item colecionável digital dentro da aplicação que representa a sua conquista. Não é um NFT on-chain... ainda! Futuras atualizações podem permitir a cunhagem.",
+    "confirmButton": "Confirmar Reivindicação",
+    "closeButton": "Fechar"
+  },
+  "loadingSpinner": {
+    "aiThinking": "IA a pensar..."
+  },
+  "errors": {
+    "speechRecognitionError": "Erro de reconhecimento de voz: {{message}}",
+    "unknownAiError": "Ocorreu um erro desconhecido com o serviço de IA.",
+    "aiErrorPrefix": "Erro: {{message}}"
+  },
+  "initialPrompts": {
+    "basics": "Sou novo em blockchain. Pode dar-me uma introdução simples às Noções Básicas de Blockchain para começar?",
+    "polkadot": "Tenho algum conhecimento de blockchain. Por favor, forneça uma visão geral de Polkadot, focando nas suas principais características e arquitetura para utilizadores avançados. Tente usar informações da Wiki da Polkadot."
+  },
+  "userExpertise": {
+    "noneProvided": "Nenhum fornecido"
+  },
+  "achievements": {
+    "initiatedLearner": { "name": "Aprendiz Iniciado", "description": "Bem-vindo(a)! Começou a sua jornada de aprendizagem." },
+    "blockchainBasicsStarted": { "name": "Noções Básicas de Blockchain Iniciadas", "description": "Embarcou no caminho para compreender os fundamentos da blockchain." },
+    "polkadotAdvancedStarted": { "name": "Polkadot Avançado Iniciado", "description": "Aprofundando-se no ecossistema Polkadot." },
+    "curiousChatterbox": { "name": "Conversador Curioso", "description": "Engajou-se em múltiplas conversas com a IA." },
+    "explorerGuide": { "name": "Guia do Explorador", "description": "Seguiu tópicos sugeridos pela IA para aprofundar o conhecimento." },
+    "personalizedLearner": { "name": "Aprendiz Personalizado", "description": "Partilhou conhecimentos para personalizar a experiência de aprendizagem." },
+    "sourceSeeker": { "name": "Buscador de Fontes", "description": "Explorou fontes externas fornecidas pela IA." },
+    "firstTopicConquered": { "name": "Primeiro Tópico Conquistado", "description": "Aprendeu com sucesso sobre um dos tópicos centrais." },
+    "pathMaster": { "name": "Mestre do Percurso", "description": "Concluiu todos os tópicos centrais num percurso de aprendizagem." },
+    "walletConnector": { "name": "Conector de Carteira", "description": "Ligou uma carteira Polkadot à aplicação." },
+    "photoFanatic": { "name": "Fã de Fotos", "description": "Carregou uma imagem de perfil." },
+    "badgePioneer": { "name": "Pioneiro de Distintivos", "description": "Reivindicou o seu primeiro distintivo digital!" }
+  },
+  "mustLearn": {
+    "blockchainBasics": {
+      "whatIsBlockchain": { "title": "O que é uma Blockchain?", "description": "Compreenda o conceito fundamental de um livro-razão distribuído." },
+      "howBlockchainWorks": { "title": "Como Funciona a Blockchain?", "description": "Aprenda sobre blocos, cadeias e hashing criptográfico." },
+      "decentralizationImmutability": { "title": "Descentralização e Imutabilidade", "description": "Propriedades chave da tecnologia blockchain." },
+      "typesOfBlockchains": { "title": "Tipos de Blockchains", "description": "Explore blockchains Públicas, Privadas e de Consórcio." },
+      "whatAreCryptocurrencies": { "title": "O que são Criptomoedas?", "description": "Introdução a moedas digitais como Bitcoin e Ether." },
+      "smartContractsExplained": { "title": "Contratos Inteligentes Explicados", "description": "Descubra contratos autoexecutáveis com regras predefinidas." },
+      "useCasesBlockchain": { "title": "Casos de Uso da Blockchain", "description": "Aplicações do mundo real além das criptomoedas." },
+      "getInvolvedBlockchain": { "title": "Como Posso Envolver-me na Blockchain?", "description": "Explore formas de participar no espaço blockchain, com exemplos adaptados a si." }
+    },
+    "polkadotAdvanced": {
+      "polkadotArchitecture": { "title": "Arquitetura Polkadot", "description": "Relay Chain, Parachains, Parathreads e Pontes." },
+      "sharedSecurityModel": { "title": "Modelo de Segurança Partilhada", "description": "Como a Polkadot protege a sua rede de parachains." },
+      "crossChainCommunication": { "title": "Comunicação Entre Cadeias (XCMP)", "description": "Ativando a interoperabilidade entre diferentes blockchains." },
+      "polkadotGovernance": { "title": "Governança Polkadot", "description": "Tesouraria on-chain, Conselho e Comité Técnico." },
+      "substrateFramework": { "title": "Framework Substrate", "description": "Um framework modular para construir blockchains personalizadas." },
+      "stakingNominationPolkadot": { "title": "Staking e Nomeação (NPoS)", "description": "Participe na segurança da rede e ganhe recompensas." },
+      "kusamaCanaryNetwork": { "title": "Kusama: Rede Canário da Polkadot", "description": "A rede experimental da Polkadot para implantações iniciais." },
+      "whatIsJam": { "title": "O que é JAM (Join-Accumulate Machine)?", "description": "Compreenda a proposta de protocolo JAM da Polkadot." },
+      "polkadotCareerFuture": { "title": "Carreira e Futuro com Polkadot", "description": "Descubra percursos profissionais, oportunidades de envolvimento e benefícios dentro do ecossistema Polkadot." }
+    }
+  }
+}
