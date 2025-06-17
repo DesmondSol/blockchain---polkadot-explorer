@@ -8,7 +8,8 @@
     "submit": "አስገባ",
     "skip": "ዝለል",
     "close": "ዝጋ",
-    "confirm": "አረጋግጥ"
+    "confirm": "አረጋግጥ",
+    "okButton": "እሺ"
   },
   "tooltips": {
     "changeLanguage": "ቋንቋ ቀይር",
@@ -25,8 +26,20 @@
     "blockchainBasicsButton": "የብሎክቼይን መሰረታዊ ነገሮች",
     "polkadotAdvancedButton": "የፖልካዶት ትምህርት",
     "resourcesTitle": "ተጨማሪ ምንጮችን ያስሱ",
-    "blockchainDeepDiveButton": "ብሎክቼይን በጥልቀት",
-    "polkadotEcosystemButton": "የፖልካዶት ኢኮሲስተም ማያያዣዎች"
+    "resources": {
+      "games": "ጨዋታዎች",
+      "wallets": "የኪስ ቦርሳዎች",
+      "dapps": "ያልተማከለ መተግበሪያዎች",
+      "gov": "አስተዳደር",
+      "bounties": "ሽልማቶች",
+      "discord": "ዲስኮርድ",
+      "videos": "ቪዲዮዎች",
+      "socials": "ማህበራዊ ሚዲያ",
+      "news": "ዜናዎች",
+      "market": "ገበያ",
+      "others": "ሌሎች",
+      "comingSoonMessage": "በቅርቡ ይመጣል!"
+    }
   },
   "chat": {
     "pathTitleBasics": "የብሎክቼይን መሰረታዊ ትምህርት",
@@ -92,7 +105,6 @@
     "cancelEditingExpertiseAriaLabel": "የእውቀት ማስተካከያ ሰርዝ",
     "editExpertiseButtonAriaLabel": "እውቀትን አስተካክል",
     "expertiseNotSpecified": "ገና አልተገለጸም። ምሳሌዎችን ግላዊ ለማድረግ የእርስዎን ስራ ልምድ / እውቀት ያክሉ!",
-    "editExpertiseButtonAriaLabel": "እውቀትን አስተካክል",
     "achievementsTitle": "ስኬቶች",
     "noAchievements": "ገና ምንም ስኬቶች አልተከፈቱም። መማርዎን እና ማሰስዎን ይቀጥሉ!"
   },
@@ -198,7 +210,9 @@
       "whatAreCryptocurrencies": { "title": "ክሪፕቶ ምንዛሬዎች ምንድን ናቸው?", "description": "እንደ ቢትኮይን እና ኢተር ያሉ ዲጂታል ምንዛሬዎች መግቢያ።" },
       "smartContractsExplained": { "title": "ብልህ ኮንትራቶች ተብራርተዋል", "description": "ቅድመ-የተገለጹ ሕጎች ያላቸው እራሳቸውን የሚያስፈጽሙ ኮንትራቶችን ያግኙ።" },
       "useCasesBlockchain": { "title": "የብሎክቼይን የአጠቃቀም ጉዳዮች", "description": "ከክሪፕቶ ምንዛሬዎች ባሻገር ያሉ እውነተኛ የዓለም መተግበሪያዎች።" },
-      "getInvolvedBlockchain": { "title": "በብሎክቼይን ውስጥ እንዴት መሳተፍ እችላለሁ?", "description": "በብሎክቼይን ቦታ ላይ ለመሳተፍ መንገዶችን ያስሱ፣ ለእርስዎ በተዘጋጁ ምሳሌዎች።" }
+      "getInvolvedBlockchain": { "title": "በብሎክቼይን ውስጥ እንዴት መሳተፍ እችላለሁ?", "description": "በብሎክቼይን ቦታ ላይ ለመሳተፍ መንገዶችን ያስሱ፣ ለእርስዎ በተዘጋጁ ምሳሌዎች።" },
+      "whatIsTrading": { "title": "ግብይት ምንድን ነው እና እንዴት ነው የሚሰራው?", "description": "የግብይት አይነቶችን፣ ክሪፕቶ ከባህላዊ እና መሰረታዊ የአሰራር ዘዴዎችን ያስሱ።" },
+      "withdrawCryptoCash": { "title": "ክሪፕቶን ወደ ጥሬ ገንዘብ ማውጣት", "description": "P2P እና ሌሎች ዘዴዎችን ይማሩ፣ ከፕላትፎርም ምክሮች ጋር።" }
     },
     "polkadotAdvanced": {
       "polkadotArchitecture": { "title": "የፖልካዶት አርክቴክቸር", "description": "ሪሌይ ቼይን، ፓራቼይንስ، ፓራተሬድስ እና ብሪጅስ።" },

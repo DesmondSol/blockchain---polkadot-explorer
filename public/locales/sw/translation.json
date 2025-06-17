@@ -8,7 +8,8 @@
     "submit": "Wasilisha",
     "skip": "Ruka",
     "close": "Funga",
-    "confirm": "Thibitisha"
+    "confirm": "Thibitisha",
+    "okButton": "Sawa"
   },
   "tooltips": {
     "changeLanguage": "Badilisha Lugha",
@@ -25,8 +26,20 @@
     "blockchainBasicsButton": "Misingi ya Blockchain",
     "polkadotAdvancedButton": "Polkadot ya Juu",
     "resourcesTitle": "Gundua Rasilimali Zaidi",
-    "blockchainDeepDiveButton": "Uchimbaji wa Kina wa Blockchain",
-    "polkadotEcosystemButton": "Viungo vya Mfumo wa Polkadot"
+    "resources": {
+      "games": "Michezo",
+      "wallets": "Pochi",
+      "dapps": "DApps",
+      "gov": "Utawala",
+      "bounties": "Zawadi",
+      "discord": "Discord",
+      "videos": "Video",
+      "socials": "Mitandao ya Kijamii",
+      "news": "Habari",
+      "market": "Soko",
+      "others": "Nyingine",
+      "comingSoonMessage": "Inakuja hivi karibuni!"
+    }
   },
   "chat": {
     "pathTitleBasics": "Njia ya Misingi ya Blockchain",
@@ -197,7 +210,9 @@
       "whatAreCryptocurrencies": { "title": "Pesa za Kielektroniki ni Nini?", "description": "Utangulizi wa sarafu za kidijitali kama Bitcoin na Ether." },
       "smartContractsExplained": { "title": "Mikataba Mahiri Imeelezewa", "description": "Gundua mikataba inayojitekeleza yenye sheria zilizobainishwa mapema." },
       "useCasesBlockchain": { "title": "Matumizi ya Blockchain", "description": "Matumizi ya ulimwengu halisi zaidi ya pesa za kielektroniki." },
-      "getInvolvedBlockchain": { "title": "Ninawezaje Kushiriki Katika Blockchain?", "description": "Gundua njia za kushiriki katika nafasi ya blockchain, na mifano iliyolengwa kwako." }
+      "getInvolvedBlockchain": { "title": "Ninawezaje Kushiriki Katika Blockchain?", "description": "Gundua njia za kushiriki katika nafasi ya blockchain, na mifano iliyolengwa kwako." },
+      "whatIsTrading": { "title": "Biashara ni Nini na Inafanyaje Kazi?", "description": "Gundua aina za biashara, crypto dhidi ya jadi, na mifumo ya msingi." },
+      "withdrawCryptoCash": { "title": "Kutoa Crypto kwa Fedha Taslimu", "description": "Jifunze mbinu za P2P na zingine, pamoja na mapendekezo ya majukwaa." }
     },
     "polkadotAdvanced": {
       "polkadotArchitecture": { "title": "Usanifu wa Polkadot", "description": "Mnyororo wa Relay, Parachains, Parathreads, na Madaraja." },

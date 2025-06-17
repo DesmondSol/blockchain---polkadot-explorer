@@ -8,7 +8,8 @@
     "submit": "Enviar",
     "skip": "Saltar",
     "close": "Fechar",
-    "confirm": "Confirmar"
+    "confirm": "Confirmar",
+    "okButton": "OK"
   },
   "tooltips": {
     "changeLanguage": "Mudar Idioma",
@@ -25,8 +26,20 @@
     "blockchainBasicsButton": "Noções Básicas de Blockchain",
     "polkadotAdvancedButton": "Polkadot Avançado",
     "resourcesTitle": "Explorar Mais Recursos",
-    "blockchainDeepDiveButton": "Aprofundamento em Blockchain",
-    "polkadotEcosystemButton": "Links do Ecossistema Polkadot"
+    "resources": {
+      "games": "Jogos",
+      "wallets": "Carteiras",
+      "dapps": "DApps",
+      "gov": "Governança",
+      "bounties": "Recompensas",
+      "discord": "Discord",
+      "videos": "Vídeos",
+      "socials": "Redes Sociais",
+      "news": "Notícias",
+      "market": "Mercado",
+      "others": "Outros",
+      "comingSoonMessage": "Em breve!"
+    }
   },
   "chat": {
     "pathTitleBasics": "Percurso de Noções Básicas de Blockchain",
@@ -121,8 +134,8 @@
       "description2": "Isto irá ajudar-nos a adaptar exemplos e explicações ao que já sabe, tornando tópicos complexos mais fáceis de compreender.",
       "textAreaPlaceholder": "Ex: 'Desenvolvedor frontend com 3 anos de experiência', 'Profissional de marketing novo em tecnologia', 'Estudante de Economia'",
       "textAreaAriaLabel": "Descreva a sua experiência ou especialidade",
-    "skipButton": "Saltar por Agora",
-    "skipButtonAriaLabel": "Saltar a descrição da experiência por agora",
+      "skipButton": "Saltar por Agora",
+      "skipButtonAriaLabel": "Saltar a descrição da experiência por agora",
       "submitButton": "Enviar e Começar a Aprender",
       "submitButtonAriaLabel": "Enviar experiência e começar a aprender"
     },
@@ -197,7 +210,9 @@
       "whatAreCryptocurrencies": { "title": "O que são Criptomoedas?", "description": "Introdução a moedas digitais como Bitcoin e Ether." },
       "smartContractsExplained": { "title": "Contratos Inteligentes Explicados", "description": "Descubra contratos autoexecutáveis com regras predefinidas." },
       "useCasesBlockchain": { "title": "Casos de Uso da Blockchain", "description": "Aplicações do mundo real além das criptomoedas." },
-      "getInvolvedBlockchain": { "title": "Como Posso Envolver-me na Blockchain?", "description": "Explore formas de participar no espaço blockchain, com exemplos adaptados a si." }
+      "getInvolvedBlockchain": { "title": "Como Posso Envolver-me na Blockchain?", "description": "Explore formas de participar no espaço blockchain, com exemplos adaptados a si." },
+      "whatIsTrading": { "title": "O que é Trading e Como Funciona?", "description": "Explore tipos de trading, cripto vs. tradicional, e mecanismos básicos." },
+      "withdrawCryptoCash": { "title": "Levantar Cripto para Dinheiro", "description": "Aprenda métodos P2P e outros, com recomendações de plataformas." }
     },
     "polkadotAdvanced": {
       "polkadotArchitecture": { "title": "Arquitetura Polkadot", "description": "Relay Chain, Parachains, Parathreads e Pontes." },

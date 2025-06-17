@@ -1,5 +1,7 @@
 
+
 import React, { useState, useEffect, useCallback } from 'react';
+import ReactDOM from 'react-dom'; // Added for portal
 import { useTranslation } from 'react-i18next';
 import { ChatMessage, Sender, MustLearnTopic, PolkadotAccount, ClaimedBadgeDetail } from './types';
 import { ChatInterface } from './components/ChatInterface';
@@ -14,8 +16,9 @@ import { OnboardingFlow } from './components/OnboardingFlow';
 import { SidePanel } from './components/SidePanel';
 import { LanguageSwitcher } from './components/LanguageSwitcher';
 import { PolkadotAccountSelectorModal } from './components/PolkadotAccountSelectorModal';
-import { NftBadgesScreen } from './components/NftBadgesScreen'; // New
-import { ClaimBadgeModal } from './components/ClaimBadgeModal'; // New
+import { NftBadgesScreen } from './components/NftBadgesScreen'; 
+import { ClaimBadgeModal } from './components/ClaimBadgeModal'; 
+import { ComingSoonModal } from './components/ComingSoonModal'; // New
 import * as Constants from './constants';
 import { web3Accounts, web3Enable } from '@polkadot/extension-dapp'; 
 import { encodeAddress } from '@polkadot/util-crypto';
@@ -32,6 +35,26 @@ interface LocalInjectedAccountWithMeta {
     source: string;
   };
 }
+
+interface ResourceListItem {
+  id: string;
+  iconClass: string;
+  translationKey: string;
+}
+
+const resourceList: ResourceListItem[] = [
+  { id: 'games', iconClass: 'fas fa-gamepad', translationKey: 'home.resources.games' },
+  { id: 'wallets', iconClass: 'fas fa-wallet', translationKey: 'home.resources.wallets' },
+  { id: 'dapps', iconClass: 'fas fa-th-large', translationKey: 'home.resources.dapps' }, // Updated icon
+  { id: 'gov', iconClass: 'fas fa-landmark', translationKey: 'home.resources.gov' },
+  { id: 'bounties', iconClass: 'fas fa-trophy', translationKey: 'home.resources.bounties' },
+  { id: 'discord', iconClass: 'fab fa-discord', translationKey: 'home.resources.discord' },
+  { id: 'videos', iconClass: 'fas fa-video', translationKey: 'home.resources.videos' },
+  { id: 'socials', iconClass: 'fas fa-users', translationKey: 'home.resources.socials' },
+  { id: 'news', iconClass: 'fas fa-newspaper', translationKey: 'home.resources.news' },
+  { id: 'market', iconClass: 'fas fa-chart-line', translationKey: 'home.resources.market' },
+  { id: 'others', iconClass: 'fas fa-ellipsis-h', translationKey: 'home.resources.others' },
+];
 
 const App: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -65,6 +88,9 @@ const App: React.FC = () => {
   const [claimedBadges, setClaimedBadges] = useState<{ [achievementKey: string]: ClaimedBadgeDetail }>({});
   const [showClaimBadgeModal, setShowClaimBadgeModal] = useState<boolean>(false);
   const [selectedBadgeToClaim, setSelectedBadgeToClaim] = useState<string | null>(null);
+
+  const [showComingSoonModal, setShowComingSoonModal] = useState<boolean>(false); // New
+  const [comingSoonResourceTitle, setComingSoonResourceTitle] = useState<string>(''); // New
 
 
   const {
@@ -265,7 +291,7 @@ const App: React.FC = () => {
     if (!isAutomatedFirstMessage) {
         const newUserMessage: ChatMessage = {
           id: Date.now().toString() + '-user',
-          text: messageText, // Use the (potentially translated) messageText for display
+          text: messageText, 
           sender: Sender.User,
           timestamp: Date.now(),
         };
@@ -278,7 +304,7 @@ const App: React.FC = () => {
     try {
       const currentContextMessages = isAutomatedFirstMessage ? [] : chatMessages;
       const { text: aiResponseText, visualHint, suggestedTopics, groundingChunks } = await sendMessageToGemini(
-        messageText, // Send the (potentially translated) messageText to AI
+        messageText, 
         currentContextMessages, 
         activeLearningPath,
         userExpertise,
@@ -303,7 +329,6 @@ const App: React.FC = () => {
         speak(aiResponseText, i18n.language);
       }
       
-      // Use the canonical query (or original messageText) for completion tracking
       markTopicAsCompletedByQuery(userMessageQueryTextForCompletion); 
       
       if (chatMessages.length > 5 && !achievements.includes(Constants.ACHIEVEMENT_KEYS.CURIOUS_CHATTERBOX)) {
@@ -365,7 +390,6 @@ const App: React.FC = () => {
         timestamp: Date.now(),
     };
     setChatMessages([initialUserMessage]); 
-    // For initial prompts, the message itself is used for potential completion (though unlikely to match)
     handleSendMessage(firstUserQuery, true, path, undefined); 
     setActiveTab('chat'); 
 
@@ -383,7 +407,6 @@ const App: React.FC = () => {
 
   const handleSelectMustLearnTopic = (topic: MustLearnTopic) => {
     const translatedTopicTitle = t(topic.titleKey);
-    // Send translated title to AI, but use canonicalTitle for completion tracking
     handleSendMessage(translatedTopicTitle, false, undefined, topic.canonicalTitle); 
   };
 
@@ -409,7 +432,7 @@ const App: React.FC = () => {
       }
 
       const formattedAccounts: PolkadotAccount[] = allAccounts.map((acc: LocalInjectedAccountWithMeta) => ({
-        address: encodeAddress(acc.address, 0), // Polkadot mainnet format (SS58 prefix 0)
+        address: encodeAddress(acc.address, 0), 
         name: acc.meta.name,
         source: acc.meta.source,
       }));
@@ -448,8 +471,6 @@ const App: React.FC = () => {
   const handleDisconnectWallet = () => {
     setPolkadotAccount(null);
     setWalletError(null);
-    // Optionally, clear claimed badges associated with the disconnected wallet
-    // For simplicity, this is not implemented here. User needs to be aware.
   };
 
   const handleClearWalletError = () => {
@@ -477,17 +498,20 @@ const App: React.FC = () => {
           claimedAt: Date.now(),
         }
       }));
-      if (!achievements.includes(Constants.ACHIEVEMENT_KEYS.BADGE_PIONEER) && Object.keys(claimedBadges).length === 0) { // Check before this claim
+      if (!achievements.includes(Constants.ACHIEVEMENT_KEYS.BADGE_PIONEER) && Object.keys(claimedBadges).length === 0) { 
         setAchievements(prevAch => [...prevAch, Constants.ACHIEVEMENT_KEYS.BADGE_PIONEER]);
       }
       handleCloseClaimBadgeModal();
     } else {
-      // This should ideally not happen if claim button is disabled when no wallet
       console.error("Attempted to claim badge without a connected wallet.");
-      // Optionally show an error to the user
     }
   };
 
+  // New handler for resource clicks
+  const handleResourceClick = (resourceKey: string) => {
+    setComingSoonResourceTitle(t(resourceKey));
+    setShowComingSoonModal(true);
+  };
 
   const renderContent = () => {
     if (onboardingStep > 0 && onboardingStep <= 5) {
@@ -507,11 +531,11 @@ const App: React.FC = () => {
     switch (activeTab) {
       case 'home':
         return (
-          <div className="flex flex-col items-center justify-center h-full p-4 md:p-8 text-white text-center">
-            <i className="fas fa-project-diagram text-5xl md:text-6xl text-purple-400 mb-6"></i>
+          <div className="flex flex-col items-center px-4 md:px-8 py-6 md:py-10 text-white text-center">
+            <i className="fas fa-project-diagram pt-10 text-5xl md:text-6xl text-purple-400 mb-6"></i>
             <h1 className="text-2xl md:text-4xl font-bold mb-4">{t('home.title')}</h1>
             <p className="mb-8 text-gray-300 max-w-md">{t('onboarding.welcome.subtitle', { appName: t('appTitle') })}</p>
-            <div className="space-y-4 md:space-y-0 md:space-x-4 flex flex-col md:flex-row">
+            <div className="space-y-4 md:space-y-0 md:space-x-4 flex flex-col md:flex-row mb-10 md:mb-12">
               <button
                 onClick={() => handleSelectPath('blockchainBasics')}
                 className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg transition-transform transform hover:scale-105 text-lg"
@@ -524,6 +548,28 @@ const App: React.FC = () => {
               >
                 <i className="fas fa-atom mr-2"></i>{t('home.polkadotAdvancedButton')}
               </button>
+            </div>
+
+            {/* New Resources Section */}
+            <div className="w-full max-w-xl px-6 pb-4 lg:max-w-2xl mx-auto"> {/* Reduced bottom padding for this inner section */}
+              <h2 className="text-xl md:text-2xl font-semibold text-purple-300 mb-4 text-center">
+                {t('home.resourcesTitle')}
+              </h2>
+              <div className="bg-gray-800 bg-opacity-60 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-lg">
+                <div className="grid grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+                  {resourceList.map(resource => (
+                    <button
+                      key={resource.id}
+                      onClick={() => handleResourceClick(resource.translationKey)}
+                      className="flex flex-col items-center justify-center p-3 bg-gray-700 hover:bg-purple-600 rounded-lg transition-all duration-200 transform hover:scale-105 group focus:outline-none focus:ring-2 focus:ring-purple-400"
+                      aria-label={t(resource.translationKey)}
+                    >
+                      <i className={`${resource.iconClass} text-3xl md:text-4xl text-purple-400 group-hover:text-white mb-2 transition-colors`}></i>
+                      <span className="text-xs md:text-sm text-gray-200 group-hover:text-white text-center transition-colors">{t(resource.translationKey)}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         );
@@ -544,10 +590,10 @@ const App: React.FC = () => {
           );
         }
         return (
-          <div className="h-full flex flex-col relative"> {/* Added relative for side panel absolute positioning context */}
+          <div className="h-full flex flex-col relative"> 
             <ChatInterface
               messages={chatMessages}
-              onSendMessage={(msg) => handleSendMessage(msg, false, undefined, msg)} // Pass msg as canonicalQueryForCompletion
+              onSendMessage={(msg) => handleSendMessage(msg, false, undefined, msg)} 
               isLoading={isLoading}
               error={error}
               onClearError={() => setError(null)}
@@ -557,7 +603,7 @@ const App: React.FC = () => {
               micNotSupported={!browserSupportsSpeechRecognition} 
               browserSupportsSpeechRecognition={browserSupportsSpeechRecognition}
               currentPath={learningPath}
-              onSuggestedTopicClick={(topic) => handleSendMessage(topic, false, undefined, topic)} // Pass topic as canonical
+              onSuggestedTopicClick={(topic) => handleSendMessage(topic, false, undefined, topic)} 
               startListening={startListening}
               stopListening={stopListening}
               cancelSpeaking={cancelSpeaking}
@@ -636,7 +682,7 @@ const App: React.FC = () => {
         <LanguageSwitcher />
       </header>
 
-      <main className={`flex-grow overflow-y-auto custom-scrollbar pt-16 pb-16 md:pt-20 md:pb-20 relative z-10`}> {/* Added relative for correct z-index stacking */}
+      <main className={`flex-grow overflow-y-auto custom-scrollbar pt-16 pb-16 md:pt-20 md:pb-20 relative z-10`}>
         {renderContent()}
       </main>
 
@@ -659,6 +705,13 @@ const App: React.FC = () => {
           onConfirmClaim={handleConfirmClaimBadge}
         />
       )}
+
+      {/* New Coming Soon Modal */}
+      <ComingSoonModal
+        isOpen={showComingSoonModal}
+        resourceName={comingSoonResourceTitle}
+        onClose={() => setShowComingSoonModal(false)}
+      />
 
       {activeTab === 'chat' && learningPath && (
         <SidePanel 

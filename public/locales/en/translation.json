@@ -8,7 +8,8 @@
     "submit": "Submit",
     "skip": "Skip",
     "close": "Close",
-    "confirm": "Confirm"
+    "confirm": "Confirm",
+    "okButton": "OK"
   },
   "tooltips": {
     "changeLanguage": "Change Language",
@@ -25,8 +26,20 @@
     "blockchainBasicsButton": "Blockchain Basics",
     "polkadotAdvancedButton": "Polkadot Advanced",
     "resourcesTitle": "Explore More Resources",
-    "blockchainDeepDiveButton": "Blockchain Deep Dive",
-    "polkadotEcosystemButton": "Polkadot Ecosystem Links"
+    "resources": {
+      "games": "Games",
+      "wallets": "Wallets",
+      "dapps": "DApps",
+      "gov": "Governance",
+      "bounties": "Bounties",
+      "discord": "Discord",
+      "videos": "Videos",
+      "socials": "Socials",
+      "news": "News",
+      "market": "Market",
+      "others": "Others",
+      "comingSoonMessage": "Coming soon!"
+    }
   },
   "chat": {
     "pathTitleBasics": "Blockchain Basics Path",
@@ -197,7 +210,9 @@
       "whatAreCryptocurrencies": { "title": "What are Cryptocurrencies?", "description": "Introduction to digital currencies like Bitcoin and Ether." },
       "smartContractsExplained": { "title": "Smart Contracts Explained", "description": "Discover self-executing contracts with predefined rules." },
       "useCasesBlockchain": { "title": "Use Cases of Blockchain", "description": "Real-world applications beyond cryptocurrencies." },
-      "getInvolvedBlockchain": { "title": "How Can I Get Involved in Blockchain?", "description": "Explore ways to participate in the blockchain space, with examples tailored to you." }
+      "getInvolvedBlockchain": { "title": "How Can I Get Involved in Blockchain?", "description": "Explore ways to participate in the blockchain space, with examples tailored to you." },
+      "whatIsTrading": { "title": "What is Trading & How Does it Work?", "description": "Explore trading types, crypto vs. traditional, and basic mechanisms." },
+      "withdrawCryptoCash": { "title": "Withdrawing Crypto to Cash", "description": "Learn P2P and other methods, with platform recommendations." }
     },
     "polkadotAdvanced": {
       "polkadotArchitecture": { "title": "Polkadot Architecture", "description": "Relay Chain, Parachains, Parathreads, and Bridges." },

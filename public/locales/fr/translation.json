@@ -8,7 +8,8 @@
     "submit": "Soumettre",
     "skip": "Passer",
     "close": "Fermer",
-    "confirm": "Confirmer"
+    "confirm": "Confirmer",
+    "okButton": "OK"
   },
   "tooltips": {
     "changeLanguage": "Changer de Langue",
@@ -25,8 +26,20 @@
     "blockchainBasicsButton": "Bases de la Blockchain",
     "polkadotAdvancedButton": "Polkadot Avancé",
     "resourcesTitle": "Explorer Plus de Ressources",
-    "blockchainDeepDiveButton": "Plongée en Profondeur Blockchain",
-    "polkadotEcosystemButton": "Liens Écosystème Polkadot"
+    "resources": {
+      "games": "Jeux",
+      "wallets": "Portefeuilles",
+      "dapps": "DApps",
+      "gov": "Gouvernance",
+      "bounties": "Primes",
+      "discord": "Discord",
+      "videos": "Vidéos",
+      "socials": "Réseaux Sociaux",
+      "news": "Actualités",
+      "market": "Marché",
+      "others": "Autres",
+      "comingSoonMessage": "Prochainement !"
+    }
   },
   "chat": {
     "pathTitleBasics": "Parcours Bases de la Blockchain",
@@ -197,7 +210,9 @@
       "whatAreCryptocurrencies": { "title": "Que sont les Cryptomonnaies ?", "description": "Introduction aux monnaies numériques comme Bitcoin et Ether." },
       "smartContractsExplained": { "title": "Explication des Contrats Intelligents", "description": "Découvrir les contrats auto-exécutables avec des règles prédéfinies." },
       "useCasesBlockchain": { "title": "Cas d'Usage de la Blockchain", "description": "Applications du monde réel au-delà des cryptomonnaies." },
-      "getInvolvedBlockchain": { "title": "Comment Puis-je M'impliquer dans la Blockchain ?", "description": "Explorez les façons de participer à l'espace blockchain, avec des exemples adaptés à vous." }
+      "getInvolvedBlockchain": { "title": "Comment Puis-je M'impliquer dans la Blockchain ?", "description": "Explorez les façons de participer à l'espace blockchain, avec des exemples adaptés à vous." },
+      "whatIsTrading": { "title": "Qu'est-ce que le Trading et Comment Ça Marche ?", "description": "Explorez les types de trading, crypto vs traditionnel, et les mécanismes de base." },
+      "withdrawCryptoCash": { "title": "Retirer des Cryptos en Espèces", "description": "Apprenez les méthodes P2P et autres, avec des recommandations de plateformes." }
     },
     "polkadotAdvanced": {
       "polkadotArchitecture": { "title": "Architecture de Polkadot", "description": "Relay Chain, Parachains, Parathreads et Ponts." },

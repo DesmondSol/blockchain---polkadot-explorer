@@ -57,6 +57,18 @@ export const MUST_LEARN_BLOCKCHAIN_BASICS = [
   { id: 'smart_contracts_explained', titleKey: 'mustLearn.blockchainBasics.smartContractsExplained.title', canonicalTitle: 'Smart Contracts Explained', descriptionKey: 'mustLearn.blockchainBasics.smartContractsExplained.description' },
   { id: 'use_cases_blockchain', titleKey: 'mustLearn.blockchainBasics.useCasesBlockchain.title', canonicalTitle: 'Use Cases of Blockchain', descriptionKey: 'mustLearn.blockchainBasics.useCasesBlockchain.description' },
   { id: 'get_involved_blockchain', titleKey: 'mustLearn.blockchainBasics.getInvolvedBlockchain.title', canonicalTitle: 'How can I get involved in the blockchain space with examples?', descriptionKey: 'mustLearn.blockchainBasics.getInvolvedBlockchain.description' },
+  {
+    id: 'what_is_trading',
+    titleKey: 'mustLearn.blockchainBasics.whatIsTrading.title',
+    canonicalTitle: 'What is trading, types of trading, crypto trading vs other types, and how does it work?',
+    descriptionKey: 'mustLearn.blockchainBasics.whatIsTrading.description'
+  },
+  {
+    id: 'withdraw_crypto_cash',
+    titleKey: 'mustLearn.blockchainBasics.withdrawCryptoCash.title',
+    canonicalTitle: 'How to withdraw crypto to cash using P2P or other options, including recommendations on where and how to do it?',
+    descriptionKey: 'mustLearn.blockchainBasics.withdrawCryptoCash.description'
+  },
 ];
 
 export const MUST_LEARN_POLKADOT_ADVANCED = [
