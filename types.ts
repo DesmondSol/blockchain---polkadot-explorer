@@ -48,3 +48,63 @@ export interface ClaimedBadgeDetail {
   source: string;         // Wallet source (e.g., 'polkadot-js')
   claimedAt: number;      // Timestamp of claim
 }
+
+// Types for Diagnostic Quiz
+export interface QuizAnswerOption {
+  id: string; // e.g., 'a', 'b', 'c'
+  textKey: string; // Translation key for the answer text
+  isCorrect: boolean;
+}
+
+export interface QuizQuestion {
+  id: string; // e.g., 'q1_basics'
+  questionTextKey: string; // Translation key for the question
+  options: QuizAnswerOption[];
+  path: LearningPathName; // To associate question with a learning path
+}
+
+export type LearningPathName = 'blockchainBasics' | 'polkadotAdvanced';
+
+export interface QuizCompletionStatus {
+  blockchainBasics?: boolean;
+  polkadotAdvanced?: boolean;
+}
+
+// New Types for Learning Modes
+export type LearningMode = 'chat' | 'story' | 'quiz';
+
+export interface StorySlide {
+  id: string;
+  sentence: string;
+  illustrationIdea: string;
+  imageUrl?: string | null; // URL of the generated image or null if not yet loaded/failed
+  isLoadingImage: boolean;
+  errorImage?: string | null;
+}
+
+export interface QuizModeOption {
+  id: string; // e.g., 'A', 'B'
+  text: string;
+}
+export interface QuizItem {
+  id: string;
+  question: string;
+  options: QuizModeOption[];
+  correctAnswerId: string;
+  explanation: string;
+  userAnswerId?: string;
+  isCorrect?: boolean;
+}
+
+export interface ParsedStoryItem {
+  sentence: string;
+  illustrationIdea: string;
+}
+
+export interface GeminiStoryResponse extends GeminiResponse {
+    storySlides?: ParsedStoryItem[];
+}
+
+export interface GeminiQuizItemResponse extends GeminiResponse {
+    quizItem?: QuizItem;
+}

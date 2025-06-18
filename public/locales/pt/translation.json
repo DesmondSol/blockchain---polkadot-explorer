@@ -145,7 +145,7 @@
   },
   "bottomNav": {
     "home": "Início",
-    "chat": "Chat",
+    "chat": "Aprender",
     "badges": "Distintivos",
     "profile": "Perfil"
   },
@@ -171,6 +171,97 @@
     "disclaimer": "Este é um item colecionável digital dentro da aplicação que representa a sua conquista. Não é um NFT on-chain... ainda! Futuras atualizações podem permitir a cunhagem.",
     "confirmButton": "Confirmar Reivindicação",
     "closeButton": "Fechar"
+  },
+  "diagnosticQuiz": {
+    "introductionText": "Antes de começarmos, vamos avaliar o quanto sabe sobre blockchain para criar o modelo de aprendizagem perfeito para si.",
+    "title.blockchainBasics": "Quiz Rápido: Noções Básicas de Blockchain",
+    "title.polkadotAdvanced": "Quiz Rápido: Polkadot Avançado",
+    "nextQuestion": "Próxima Pergunta",
+    "finishQuiz": "Concluir Quiz",
+    "questionProgress": "Pergunta {{current}} de {{total}}",
+    "blockchainBasics": {
+      "q1": {
+        "question": "Qual é uma característica primária de uma blockchain?",
+        "optA": "Controlo centralizado por uma única entidade",
+        "optB": "Os dados são facilmente modificáveis por qualquer pessoa",
+        "optC": "Livro-razão distribuído e frequentemente imutável",
+        "optD": "Não requer ligação à Internet"
+      },
+      "q2": {
+        "question": "O que significa \"mineração\" no contexto da Bitcoin?",
+        "optA": "Extrair fisicamente minerais valiosos",
+        "optB": "Criar novas bitcoins e validar transações",
+        "optC": "Desenhar novo software de blockchain",
+        "optD": "Gastar bitcoins em lojas online"
+      },
+      "q3": {
+        "question": "O que é um \"contrato inteligente\"?",
+        "optA": "Um documento legal revisto por advogados",
+        "optB": "Um programa de computador que executa acordos automaticamente",
+        "optC": "Uma carteira de hardware segura para criptomoedas",
+        "optD": "Um acordo de marketing entre duas empresas"
+      }
+    },
+    "polkadotAdvanced": {
+      "q1": {
+        "question": "Qual é o papel principal da Relay Chain da Polkadot?",
+        "optA": "Armazenar todos os dados de utilizador das parachains",
+        "optB": "Fornecer segurança e coordenar as parachains",
+        "optC": "Executar diretamente contratos inteligentes para DApps",
+        "optD": "Minar novos tokens DOT"
+      },
+      "q2": {
+        "question": "O que é uma \"parachain\" no ecossistema Polkadot?",
+        "optA": "Um tipo de carteira de criptomoedas",
+        "optB": "Uma blockchain independente que se liga à Relay Chain",
+        "optC": "Uma proposta de governação",
+        "optD": "Um sistema de backup para a Relay Chain"
+      },
+      "q3": {
+        "question": "O que é o Substrate?",
+        "optA": "A criptomoeda nativa da Polkadot",
+        "optB": "Uma plataforma de marketing para projetos Polkadot",
+        "optC": "Um framework para construir blockchains personalizadas",
+        "optD": "Um protocolo de mensagens entre cadeias"
+      }
+    }
+  },
+  "learningModeModal": {
+    "title": "Como gostaria de aprender hoje?",
+    "chatButton": "Modo Chat",
+    "chatDescription": "Faça perguntas e obtenha explicações com IA.",
+    "storyButton": "Modo História",
+    "storyDescription": "Aprenda através de histórias e ilustrações envolventes.",
+    "quizButton": "Modo Quiz",
+    "quizDescription": "Teste os seus conhecimentos com quizzes interativos."
+  },
+  "storyMode": {
+    "defaultTitle": "Hora da História!",
+    "slideImageAlt": "Ilustração para: {{idea}}",
+    "previousButton": "Anterior",
+    "nextButton": "Próximo",
+    "loadingStory": "A preparar uma história miau-ravilhosa para si...",
+    "loadingImage": "A gerar magia felina...",
+    "imageError": "Ups! Não foi possível carregar esta imagem de gatinho.",
+    "endOfStory": "Chegou ao fim desta história felina-tástica!",
+    "startNewStory": "Selecione outro tópico para uma nova história.",
+    "noTopicSelectedTitle": "Nenhum Tópico de História Selecionado",
+    "selectTopicPrompt": "Por favor, selecione um tópico no painel lateral para iniciar uma história.",
+    "noStoryAvailable": "Ainda não há conteúdo de história disponível para este tópico.",
+    "generatingCatMagic": "A gerar magia felina..."
+  },
+  "quizMode": {
+    "title": "Modo Quiz",
+    "noTopicSelectedTitle": "Nenhum Tópico de Quiz Selecionado",
+    "selectTopicPrompt": "Por favor, selecione um tópico no painel lateral para iniciar um quiz.",
+    "submitAnswer": "Submeter Resposta",
+    "nextQuestion": "Próxima Pergunta",
+    "loadingQuiz": "A preparar as suas perguntas...",
+    "correct": "Correto!",
+    "wrong": "Não Exatamente!",
+    "selectAnswerPrompt": "Por favor, selecione uma resposta.",
+    "noQuizForTopic": "Ainda não há quiz disponível para este tópico.",
+    "startNewQuiz": "Selecione outro tópico para um novo quiz."
   },
   "loadingSpinner": {
     "aiThinking": "IA a pensar..."
@@ -199,7 +290,11 @@
     "pathMaster": { "name": "Mestre do Percurso", "description": "Concluiu todos os tópicos centrais num percurso de aprendizagem." },
     "walletConnector": { "name": "Conector de Carteira", "description": "Ligou uma carteira Polkadot à aplicação." },
     "photoFanatic": { "name": "Fã de Fotos", "description": "Carregou uma imagem de perfil." },
-    "badgePioneer": { "name": "Pioneiro de Distintivos", "description": "Reivindicou o seu primeiro distintivo digital!" }
+    "badgePioneer": { "name": "Pioneiro de Distintivos", "description": "Reivindicou o seu primeiro distintivo digital!" },
+    "quizCompleterBasics": { "name": "Questionador de Noções Básicas", "description": "Concluiu o quiz de diagnóstico de Noções Básicas de Blockchain." },
+    "quizCompleterAdvanced": { "name": "Questionador Avançado", "description": "Concluiu o quiz de diagnóstico de Polkadot Avançado." },
+    "storyExplorer": { "name": "Explorador de Histórias", "description": "Aventurou-se no mundo da aprendizagem baseada em histórias." },
+    "quizMaster": { "name": "Mestre de Quizzes", "description": "Desafiou os seus conhecimentos com quizzes interativos." }
   },
   "mustLearn": {
     "blockchainBasics": {

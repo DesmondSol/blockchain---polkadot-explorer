@@ -30,21 +30,21 @@
       "games": "ألعاب",
       "wallets": "محافظ",
       "dapps": "تطبيقات لامركزية",
-      "gov": "حوكمة",
+      "gov": "الحوكمة",
       "bounties": "مكافآت",
       "discord": "ديسكورد",
       "videos": "فيديوهات",
-      "socials": "اجتماعي",
+      "socials": "شبكات اجتماعية",
       "news": "أخبار",
       "market": "سوق",
       "others": "أخرى",
-      "comingSoonMessage": "قريباً!"
+      "comingSoonMessage": "قريبا!"
     }
   },
   "chat": {
     "pathTitleBasics": "مسار أساسيات البلوك تشين",
     "pathTitlePolkadot": "مسار بولkadot المتقدم",
-    "noPathSelectedTitle": "لم يتم اختيار مسار تعلم",
+    "noPathSelectedTitle": "لم يتم تحديد مسار تعلم",
     "noPathSelectedMessage": "يرجى الانتقال إلى علامة التبويب <i class=\"fas fa-home mx-1\"></i><strong>الرئيسية</strong> لاختيار مسار تعلم لبدء جلسة الدردشة الخاصة بك.",
     "goToHomeButton": "اذهب إلى الرئيسية",
     "inputPlaceholderListening": "يستمع...",
@@ -53,11 +53,11 @@
     "inputPlaceholderTypeOrMic": "اكتب أو استخدم الميكروفون...",
     "inputAriaLabel": "إدخال الدردشة",
     "micNotSupported": "متصفحك لا يدعم التعرف على الكلام.",
-    "selectPathPrompt": "يرجى اختيار مسار تعلم من الرئيسية لبدء الدردشة."
+    "selectPathPrompt": "يرجى تحديد مسار تعليمي من الصفحة الرئيسية لبدء الدردشة."
   },
   "chatMessage": {
-    "sourcesTitle": "المصادر:",
-    "sourceAriaLabelPrefix": "المصدر:",
+    "sourcesTitle": "مصادر:",
+    "sourceAriaLabelPrefix": "مصدر:",
     "suggestedTopicsTitle": "بعد ذلك، يمكنك استكشاف:",
     "exploreTopicAriaLabelPrefix": "استكشاف الموضوع:"
   },
@@ -82,148 +82,14 @@
     "changePictureTooltip": "تغيير الصورة",
     "polkadotWalletTitle": "محفظة بولkadot",
     "connectWalletButton": "ربط محفظة بولkadot",
-    "connectWalletButtonAriaLabel": "ربط محفظتك بولkadot",
-    "connectWalletDescription": "اربط محفظتك بولkadot (مثل Nova, Talisman, Polkadot.js) لعرض حسابك.",
+    "connectWalletButtonAriaLabel": "ربط محفظتك الرقمية لبولkadot",
+    "connectWalletDescription": "اربط محفظتك الرقمية لبولkadot (مثل نوفا، تاليسمان، Polkadot.js) لعرض حسابك.",
     "disconnectWalletButton": "فصل المحفظة",
-    "disconnectWalletButtonAriaLabel": "فصل محفظتك بولkadot",
+    "disconnectWalletButtonAriaLabel": "فصل محفظتك الرقمية لبولkadot",
     "walletName": "اسم الحساب",
     "walletNameUnnamed": "حساب بدون اسم",
     "walletAddress": "العنوان",
     "walletSource": "امتداد المحفظة",
     "walletSourceLabel": "المصدر",
-    "selectAccountTitle": "اختيار حساب بولkadot",
-    "noWalletsDetected": "لم يتم الكشف عن أي امتدادات لمحفظة بولkadot. يرجى تثبيت واحد (مثل Nova Wallet, Talisman, Polkadot.js) والمحاولة مرة أخرى.",
-    "walletsPermissionDenied": "تم رفض الإذن بالوصول إلى امتدادات بولkadot. يرجى تمكين الأذونات في إعدادات امتداد المتصفح الخاص بك.",
-    "walletsGenericError": "تعذر الاتصال بمحافظ بولkadot. يرجى التأكد من أن امتدادك غير مقفل وحاول مرة أخرى.",
-    "noAccountsFound": "لم يتم العثور على حسابات في امتداد محفظة بولkadot الخاص بك. يرجى إنشاء حساب أو استيراده.",
-    "noAccountsFoundInExtension": "لم يتم العثور على حسابات في الامتداد المحدد.",
-    "expertiseTitle": "خلفيتك/خبرتك",
-    "editExpertiseAriaLabel": "تعديل خبرتك",
-    "expertisePlaceholder": "مثال: 'مطور واجهة أمامية'، 'محترف تسويق'",
-    "saveExpertiseButton": "حفظ الخبرة",
-    "saveExpertiseButtonAriaLabel": "حفظ الخبرة",
-    "cancelEditingExpertiseAriaLabel": "إلغاء تعديل الخبرة",
-    "expertiseNotSpecified": "لم تحدد بعد. أضف خلفيتك للمساعدة في تخصيص الأمثلة!",
-    "editExpertiseButtonAriaLabel": "تعديل الخبرة",
-    "achievementsTitle": "الإنجازات",
-    "noAchievements": "لم يتم فتح أي إنجازات بعد. استمر في التعلم والاستكشاف!"
-  },
-  "onboarding": {
-    "welcome": {
-      "title": "أهلاً وسهلاً!",
-      "subtitle": "دليلك الودي لفهم البلوك تشين وبولkadot، بدعم من {{appName}}."
-    },
-    "interactive": {
-      "title": "تعلم بشكل تفاعلي",
-      "line1": "شارك في محادثات لاستكشاف مواضيع معقدة.",
-      "line2": "تساعد المرئيات الديناميكية في إضفاء الحيوية على المفاهيم المجردة."
-    },
-    "aiFeatures": {
-      "title": "ذكي وسهل الوصول",
-      "line1": "احصل على مساعدة مدعومة بالذكاء الاصطناعي مصممة خصيصًا لأسئلتك.",
-      "line2": "استخدم الأوامر الصوتية لتجربة تعلم بدون استخدام اليدين.",
-      "voiceNoteNoSupport": "متصفحك لا يدعم الأوامر الصوتية بشكل كامل، ولكن دردشة الذكاء الاصطناعي موجودة من أجلك!",
-      "note": "الذكاء الاصطناعي يتعلم باستمرار، ولكن تحقق دائمًا من المعلومات الهامة."
-    },
-    "language": {
-      "title": "اختر لغتك"
-    },
-    "personalize": {
-      "title": "دعنا نخصص تعلمك!",
-      "description1": "أخبرنا قليلاً عن خلفيتك، دورك الحالي، أو مجال خبرتك (مثال: \"مطور برامج\"، \"طالب في المالية\"، \"مدير تسويق\"، \"مهتم بـ Web3\").",
-      "description2": "سيساعدنا هذا في تكييف الأمثلة والشروحات مع ما تعرفه بالفعل، مما يجعل المواضيع المعقدة أسهل في الفهم.",
-      "textAreaPlaceholder": "مثال: 'مطور واجهة أمامية بخبرة 3 سنوات'، 'محترف تسويق جديد في مجال التكنولوجيا'، 'طالب اقتصاد'",
-      "textAreaAriaLabel": "صف خبرتك أو تخصصك",
-      "skipButton": "تخطى الآن",
-      "skipButtonAriaLabel": "تخطى تقديم الخبرة الآن",
-      "submitButton": "إرسال وبدء التعلم",
-      "submitButtonAriaLabel": "إرسال الخبرة وبدء التعلم"
-    },
-    "nextButton": "التالي",
-    "skipIntroButton": "تخطى المقدمة",
-    "getStartedButton": "ابدأ"
-  },
-  "bottomNav": {
-    "home": "الرئيسية",
-    "chat": "دردشة",
-    "badges": "الشارات",
-    "profile": "الملف الشخصي"
-  },
-  "badgesScreen": {
-    "title": "شاراتك الرقمية",
-    "connectWalletPrompt": "اربط محفظتك بولkadot في علامة تبويب الملف الشخصي للمطالبة بشارات إنجازك!",
-    "goToProfileButton": "اذهب إلى الملف الشخصي",
-    "noAchievements": "لم تحقق أي إنجازات بعد. ابدأ التعلم لجمع الشارات!",
-    "claimButton": "المطالبة بالشارة الرقمية",
-    "viewClaimButton": "عرض تفاصيل المطالبة",
-    "claimedStatus": "تمت المطالبة"
-  },
-  "claimModal": {
-    "titleClaim": "طالب بشارتك الرقمية",
-    "titleView": "تفاصيل الشارة الرقمية",
-    "badgeNameLabel": "الشارة:",
-    "achievementLabel": "الإنجاز:",
-    "associatedWallet": "سيتم ربطها بالمحفظة:",
-    "claimedWithWallet": "تمت المطالبة بها مع المحفظة:",
-    "walletAddressLabel": "العنوان:",
-    "walletSourceLabel": "المصدر:",
-    "claimDate": "تمت المطالبة في:",
-    "disclaimer": "هذا عنصر تجميعي رقمي داخل التطبيق يمثل إنجازك. إنه ليس NFT على السلسلة... بعد! قد تتيح التحديثات المستقبلية سك العملة.",
-    "confirmButton": "تأكيد المطالبة",
-    "closeButton": "إغلاق"
-  },
-  "loadingSpinner": {
-    "aiThinking": "الذكاء الاصطناعي يفكر..."
-  },
-  "errors": {
-    "speechRecognitionError": "خطأ في التعرف على الكلام: {{message}}",
-    "unknownAiError": "حدث خطأ غير معروف مع خدمة الذكاء الاصطناعي.",
-    "aiErrorPrefix": "خطأ: {{message}}"
-  },
-  "initialPrompts": {
-    "basics": "أنا جديد في مجال البلوك تشين. هل يمكنك أن تعطيني مقدمة بسيطة لأساسيات البلوك تشين لأبدأ؟",
-    "polkadot": "لدي بعض المعرفة بالبلوك تشين. يرجى تقديم نظرة عامة على بولkadot، مع التركيز على ميزاتها الرئيسية وهيكلها للمستخدمين المتقدمين. حاول استخدام المعلومات من ويكي بولkadot."
-  },
-  "userExpertise": {
-    "noneProvided": "لم يتم توفير أي منها"
-  },
-  "achievements": {
-    "initiatedLearner": { "name": "متعلم مبادر", "description": "أهلاً بك! لقد بدأت رحلة التعلم الخاصة بك." },
-    "blockchainBasicsStarted": { "name": "بدء أساسيات البلوك تشين", "description": "انطلقت في طريق فهم أساسيات البلوك تشين." },
-    "polkadotAdvancedStarted": { "name": "بدء بولkadot المتقدم", "description": "الغوص عميقًا في نظام بولkadot البيئي." },
-    "curiousChatterbox": { "name": "ثرثار فضولي", "description": "شاركت في محادثات متعددة مع الذكاء الاصطناعي." },
-    "explorerGuide": { "name": "دليل المستكشف", "description": "اتبعت المواضيع المقترحة من الذكاء الاصطناعي لتعميق المعرفة." },
-    "personalizedLearner": { "name": "متعلم مخصص", "description": "شاركت الخبرة لتكييف تجربة التعلم." },
-    "sourceSeeker": { "name": "باحث عن المصادر", "description": "استكشفت مصادر خارجية مقدمة من الذكاء الاصطناعي." },
-    "firstTopicConquered": { "name": "تم التغلب على الموضوع الأول", "description": "تعلمت بنجاح عن أحد المواضيع الأساسية." },
-    "pathMaster": { "name": "سيد المسار", "description": "أكملت جميع المواضيع الأساسية في مسار التعلم." },
-    "walletConnector": { "name": "رابط المحفظة", "description": "ربطت محفظة بولkadot بالتطبيق." },
-    "photoFanatic": { "name": "مهووس بالصور", "description": "قمت بتحميل صورة ملف شخصي." },
-    "badgePioneer": { "name": "رائد الشارات", "description": "طالبت بأول شارة رقمية لك!" }
-  },
-  "mustLearn": {
-    "blockchainBasics": {
-      "whatIsBlockchain": { "title": "ما هو البلوك تشين؟", "description": "افهم المفهوم الأساسي لسجل الأستاذ الموزع." },
-      "howBlockchainWorks": { "title": "كيف يعمل البلوك تشين؟", "description": "تعرف على الكتل والسلاسل والتجزئة المشفرة." },
-      "decentralizationImmutability": { "title": "اللامركزية وعدم القابلية للتغيير", "description": "الخصائص الرئيسية لتقنية البلوك تشين." },
-      "typesOfBlockchains": { "title": "أنواع البلوك تشين", "description": "استكشف البلوك تشين العامة والخاصة والاتحادية." },
-      "whatAreCryptocurrencies": { "title": "ما هي العملات المشفرة؟", "description": "مقدمة للعملات الرقمية مثل البيتكوين والإيثر." },
-      "smartContractsExplained": { "title": "شرح العقود الذكية", "description": "اكتشف العقود ذاتية التنفيذ بقواعد محددة مسبقًا." },
-      "useCasesBlockchain": { "title": "حالات استخدام البلوك تشين", "description": "تطبيقات العالم الحقيقي تتجاوز العملات المشفرة." },
-      "getInvolvedBlockchain": { "title": "كيف يمكنني المشاركة في مجال البلوك تشين؟", "description": "استكشف طرق المشاركة في فضاء البلوك تشين، مع أمثلة مصممة خصيصًا لك." },
-      "whatIsTrading": { "title": "ما هو التداول وكيف يعمل؟", "description": "استكشف أنواع التداول، والعملات المشفرة مقابل التقليدية، والآليات الأساسية." },
-      "withdrawCryptoCash": { "title": "سحب العملات المشفرة إلى نقد", "description": "تعلم طرق P2P وغيرها، مع توصيات للمنصات." }
-    },
-    "polkadotAdvanced": {
-      "polkadotArchitecture": { "title": "هيكل بولkadot", "description": "سلسلة الترحيل، الباراتشين، الباراثريد، والجسور." },
-      "sharedSecurityModel": { "title": "نموذج الأمان المشترك", "description": "كيف يؤمن بولkadot شبكته من الباراتشين." },
-      "crossChainCommunication": { "title": "الاتصال عبر السلاسل (XCMP)", "description": "تمكين التشغيل البيني بين سلاسل الكتل المختلفة." },
-      "polkadotGovernance": { "title": "حوكمة بولkadot", "description": "الخزانة على السلسلة، المجلس، واللجنة الفنية." },
-      "substrateFramework": { "title": "إطار عمل Substrate", "description": "إطار عمل معياري لبناء سلاسل كتل مخصصة." },
-      "stakingNominationPolkadot": { "title": "التخزين والترشيح (NPoS)", "description": "شارك في أمان الشبكة واكسب مكافآت." },
-      "kusamaCanaryNetwork": { "title": "كوساما: شبكة كناري لبولkadot", "description": "شبكة بولkadot التجريبية لعمليات النشر المبكرة." },
-      "whatIsJam": { "title": "ما هو JAM (Join-Accumulate Machine)؟", "description": "افهم اقتراح بروتوكول JAM الخاص ببولkadot." },
-      "polkadotCareerFuture": { "title": "المسار الوظيفي والمستقبل في بولkadot", "description": "اكتشف المسارات الوظيفية وفرص المشاركة والمزايا داخل نظام بولkadot البيئي." }
-    }
-  }
-}
+    "selectAccountTitle": "اختر حساب بولkadot",
+    "noWalletsDetected": "لم يتم الكشف عن أي امتدادات لمحفظة بولkadot. يرجى تثبيت

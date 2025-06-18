@@ -45,7 +45,7 @@
     "pathTitleBasics": "Blockchain Basics Path",
     "pathTitlePolkadot": "Polkadot Advanced Path",
     "noPathSelectedTitle": "No Learning Path Selected",
-    "noPathSelectedMessage": "Please go to the <i class=\"fas fa-home mx-1\"></i><strong>Home</strong> tab to choose a learning path to begin your chat session.",
+    "noPathSelectedMessage": "Please go to the <i class=\"fas fa-home mx-1\"></i><strong>Home</strong> tab to choose a learning path to begin your session.",
     "goToHomeButton": "Go to Home",
     "inputPlaceholderListening": "Listening...",
     "inputPlaceholderTypeMessage": "Type your message...",
@@ -145,7 +145,7 @@
   },
   "bottomNav": {
     "home": "Home",
-    "chat": "Chat",
+    "chat": "Learn",
     "badges": "Badges",
     "profile": "Profile"
   },
@@ -171,6 +171,97 @@
     "disclaimer": "This is a digital collectible within the app representing your achievement. It is not an on-chain NFT... yet! Future updates may enable minting.",
     "confirmButton": "Confirm Claim",
     "closeButton": "Close"
+  },
+  "diagnosticQuiz": {
+    "introductionText": "Before we start, let's assess how much you know on blockchain to make the perfect learning model for you.",
+    "title.blockchainBasics": "Quick Quiz: Blockchain Basics",
+    "title.polkadotAdvanced": "Quick Quiz: Polkadot Advanced",
+    "nextQuestion": "Next Question",
+    "finishQuiz": "Finish Quiz",
+    "questionProgress": "Question {{current}} of {{total}}",
+    "blockchainBasics": {
+      "q1": {
+        "question": "What is a primary characteristic of a blockchain?",
+        "optA": "Centralized control by a single entity",
+        "optB": "Data is easily modifiable by anyone",
+        "optC": "Distributed and often immutable ledger",
+        "optD": "Requires no internet connection"
+      },
+      "q2": {
+        "question": "What does \"mining\" in the context of Bitcoin refer to?",
+        "optA": "Physically extracting valuable minerals",
+        "optB": "Creating new bitcoins and validating transactions",
+        "optC": "Designing new blockchain software",
+        "optD": "Spending bitcoins at online stores"
+      },
+      "q3": {
+        "question": "What is a \"smart contract\"?",
+        "optA": "A legal document reviewed by lawyers",
+        "optB": "A computer program that automatically executes agreements",
+        "optC": "A secure hardware wallet for cryptocurrencies",
+        "optD": "A marketing agreement between two companies"
+      }
+    },
+    "polkadotAdvanced": {
+      "q1": {
+        "question": "What is the main role of Polkadot's Relay Chain?",
+        "optA": "To store all user data from parachains",
+        "optB": "To provide security and coordinate parachains",
+        "optC": "To directly execute smart contracts for DApps",
+        "optD": "To mine new DOT tokens"
+      },
+      "q2": {
+        "question": "What is a \"parachain\" in the Polkadot ecosystem?",
+        "optA": "A type of cryptocurrency wallet",
+        "optB": "An independent blockchain that connects to the Relay Chain",
+        "optC": "A governance proposal",
+        "optD": "A backup system for the Relay Chain"
+      },
+      "q3": {
+        "question": "What is Substrate?",
+        "optA": "Polkadot's native cryptocurrency",
+        "optB": "A marketing platform for Polkadot projects",
+        "optC": "A framework for building customized blockchains",
+        "optD": "A cross-chain messaging protocol"
+      }
+    }
+  },
+  "learningModeModal": {
+    "title": "How would you like to learn today?",
+    "chatButton": "Chat Mode",
+    "chatDescription": "Ask questions and get AI-powered explanations.",
+    "storyButton": "Story Mode",
+    "storyDescription": "Learn through engaging stories and illustrations.",
+    "quizButton": "Quiz Mode",
+    "quizDescription": "Test your knowledge with interactive quizzes."
+  },
+  "storyMode": {
+    "defaultTitle": "Story Time!",
+    "slideImageAlt": "Illustration for: {{idea}}",
+    "previousButton": "Previous",
+    "nextButton": "Next",
+    "loadingStory": "Brewing a purrfect story for you...",
+    "loadingImage": "Generating cat magic...",
+    "imageError": "Oops! Couldn't fetch this kitty picture.",
+    "endOfStory": "You've reached the end of this cat-tastic tale!",
+    "startNewStory": "Select another topic for a new story.",
+    "noTopicSelectedTitle": "No Story Topic Selected",
+    "selectTopicPrompt": "Please select a topic from the side panel to start a story.",
+    "noStoryAvailable": "No story content available for this topic yet.",
+    "generatingCatMagic": "Generating cat magic..."
+  },
+  "quizMode": {
+    "title": "Quiz Time",
+    "noTopicSelectedTitle": "No Quiz Topic Selected",
+    "selectTopicPrompt": "Please select a topic from the side panel to start a quiz.",
+    "submitAnswer": "Submit Answer",
+    "nextQuestion": "Next Question",
+    "loadingQuiz": "Preparing your questions...",
+    "correct": "Correct!",
+    "wrong": "Not Quite!",
+    "selectAnswerPrompt": "Please select an answer.",
+    "noQuizForTopic": "No quiz available for this topic yet.",
+    "startNewQuiz": "Select another topic for a new quiz."
   },
   "loadingSpinner": {
     "aiThinking": "AI is thinking..."
@@ -199,7 +290,11 @@
     "pathMaster": { "name": "Path Master", "description": "Completed all core topics in a learning path." },
     "walletConnector": { "name": "Wallet Connector", "description": "Connected a Polkadot wallet to the app." },
     "photoFanatic": { "name": "Photo Fanatic", "description": "Uploaded a profile picture." },
-    "badgePioneer": { "name": "Badge Pioneer", "description": "Claimed your very first digital badge!" }
+    "badgePioneer": { "name": "Badge Pioneer", "description": "Claimed your very first digital badge!" },
+    "quizCompleterBasics": { "name": "Basics Quizzer", "description": "Completed the Blockchain Basics diagnostic quiz." },
+    "quizCompleterAdvanced": { "name": "Advanced Quizzer", "description": "Completed the Polkadot Advanced diagnostic quiz." },
+    "storyExplorer": { "name": "Story Explorer", "description": "Ventured into the world of story-based learning." },
+    "quizMaster": { "name": "Quiz Master", "description": "Challenged your knowledge with interactive quizzes." }
   },
   "mustLearn": {
     "blockchainBasics": {

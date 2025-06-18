@@ -145,7 +145,7 @@
   },
   "bottomNav": {
     "home": "Nyumbani",
-    "chat": "Gumzo",
+    "chat": "Jifunze",
     "badges": "Beji",
     "profile": "Wasifu"
   },
@@ -171,6 +171,97 @@
     "disclaimer": "Hii ni mkusanyiko wa kidijitali ndani ya programu unaowakilisha mafanikio yako. Sio NFT kwenye mnyororo... bado! Sasisho za baadaye zinaweza kuwezesha uundaji.",
     "confirmButton": "Thibitisha Dai",
     "closeButton": "Funga"
+  },
+  "diagnosticQuiz": {
+    "introductionText": "Kabla hatujaanza, hebu tupime unajua kiasi gani kuhusu blockchain ili kukuandalia mfumo bora wa kujifunza.",
+    "title.blockchainBasics": "Jaribio Fupi: Misingi ya Blockchain",
+    "title.polkadotAdvanced": "Jaribio Fupi: Polkadot ya Juu",
+    "nextQuestion": "Swali Linalofuata",
+    "finishQuiz": "Maliza Jaribio",
+    "questionProgress": "Swali {{current}} kati ya {{total}}",
+    "blockchainBasics": {
+      "q1": {
+        "question": "Ni tabia gani kuu ya blockchain?",
+        "optA": "Udhibiti wa kati na chombo kimoja",
+        "optB": "Takwimu zinaweza kurekebishwa kwa urahisi na yeyote",
+        "optC": "Leja iliyosambazwa na mara nyingi isiyoweza kubadilishwa",
+        "optD": "Haihitaji muunganisho wa intaneti"
+      },
+      "q2": {
+        "question": "\"Uchimbaji madini\" katika muktadha wa Bitcoin unamaanisha nini?",
+        "optA": "Kuchimba madini ya thamani kimwili",
+        "optB": "Kuunda bitcoin mpya na kuthibitisha miamala",
+        "optC": "Kuunda programu mpya ya blockchain",
+        "optD": "Kutumia bitcoin kwenye maduka ya mtandaoni"
+      },
+      "q3": {
+        "question": "\"Mkataba mahiri\" ni nini?",
+        "optA": "Hati ya kisheria iliyopitiwa na mawakili",
+        "optB": "Programu ya kompyuta inayotekeleza makubaliano kiotomatiki",
+        "optC": "Pochi salama ya maunzi ya fedha za siri",
+        "optD": "Makubaliano ya masoko kati ya kampuni mbili"
+      }
+    },
+    "polkadotAdvanced": {
+      "q1": {
+        "question": "Jukumu kuu la Mnyororo wa Relay wa Polkadot ni lipi?",
+        "optA": "Kuhifadhi data yote ya mtumiaji kutoka kwa parachain",
+        "optB": "Kutoa usalama na kuratibu parachain",
+        "optC": "Kutekeleza mikataba mahiri moja kwa moja kwa DApps",
+        "optD": "Kuchimba tokeni mpya za DOT"
+      },
+      "q2": {
+        "question": "\"Parachain\" ni nini katika mfumo wa Polkadot?",
+        "optA": "Aina ya pochi ya fedha za siri",
+        "optB": "Blockchain huru inayounganishwa na Mnyororo wa Relay",
+        "optC": "Pendekezo la utawala",
+        "optD": "Mfumo wa nakala rudufu kwa Mnyororo wa Relay"
+      },
+      "q3": {
+        "question": "Substrate ni nini?",
+        "optA": "Fedha ya siri ya asili ya Polkadot",
+        "optB": "Jukwaa la masoko kwa miradi ya Polkadot",
+        "optC": "Mfumo wa kuunda blockchain zilizobinafsishwa",
+        "optD": "Itifaki ya ujumbe wa minyororo mbalimbali"
+      }
+    }
+  },
+  "learningModeModal": {
+    "title": "Ungependa kujifunza vipi leo?",
+    "chatButton": "Hali ya Gumzo",
+    "chatDescription": "Uliza maswali na upate maelezo yanayoendeshwa na AI.",
+    "storyButton": "Hali ya Hadithi",
+    "storyDescription": "Jifunze kupitia hadithi na vielelezo vinavyovutia.",
+    "quizButton": "Hali ya Maswali",
+    "quizDescription": "Pima ujuzi wako kwa maswali yanayoingiliana."
+  },
+  "storyMode": {
+    "defaultTitle": "Wakati wa Hadithi!",
+    "slideImageAlt": "Kielelezo cha: {{idea}}",
+    "previousButton": "Iliyopita",
+    "nextButton": "Inayofuata",
+    "loadingStory": "Inatayarisha hadithi nzuri kwako...",
+    "loadingImage": "Inazalisha uchawi wa paka...",
+    "imageError": "Lo! Imeshindwa kupata picha hii ya paka.",
+    "endOfStory": "Umefika mwisho wa hadithi hii ya kusisimua ya paka!",
+    "startNewStory": "Chagua mada nyingine kwa hadithi mpya.",
+    "noTopicSelectedTitle": "Hakuna Mada ya Hadithi Iliyochaguliwa",
+    "selectTopicPrompt": "Tafadhali chagua mada kutoka kwa paneli ya kando ili kuanza hadithi.",
+    "noStoryAvailable": "Hakuna maudhui ya hadithi yanayopatikana kwa mada hii bado.",
+    "generatingCatMagic": "Inazalisha uchawi wa paka..."
+  },
+  "quizMode": {
+    "title": "Hali ya Maswali",
+    "noTopicSelectedTitle": "Hakuna Mada ya Maswali Iliyochaguliwa",
+    "selectTopicPrompt": "Tafadhali chagua mada kutoka kwa paneli ya kando ili kuanza maswali.",
+    "submitAnswer": "Wasilisha Jibu",
+    "nextQuestion": "Swali Linalofuata",
+    "loadingQuiz": "Inaandaa maswali yako...",
+    "correct": "Sahihi!",
+    "wrong": "Si Sahihi Kabisa!",
+    "selectAnswerPrompt": "Tafadhali chagua jibu.",
+    "noQuizForTopic": "Hakuna maswali yanayopatikana kwa mada hii bado.",
+    "startNewQuiz": "Chagua mada nyingine kwa maswali mapya."
   },
   "loadingSpinner": {
     "aiThinking": "AI inafikiri..."
@@ -199,7 +290,11 @@
     "pathMaster": { "name": "Bwana wa Njia", "description": "Umekamilisha mada zote kuu katika njia ya kujifunza." },
     "walletConnector": { "name": "Kiunganishi cha Mkoba", "description": "Umeunganisha mkoba wa Polkadot kwenye programu." },
     "photoFanatic": { "name": "Mpenzi wa Picha", "description": "Ulipakia picha ya wasifu." },
-    "badgePioneer": { "name": "Mwanzo wa Beji", "description": "Umedai beji yako ya kwanza kabisa ya kidijitali!" }
+    "badgePioneer": { "name": "Mwanzo wa Beji", "description": "Umedai beji yako ya kwanza kabisa ya kidijitali!" },
+    "quizCompleterBasics": { "name": "Mpigaji Maswali wa Misingi", "description": "Umekamilisha jaribio la utambuzi la Misingi ya Blockchain." },
+    "quizCompleterAdvanced": { "name": "Mpigaji Maswali wa Hali ya Juu", "description": "Umekamilisha jaribio la utambuzi la Polkadot ya Juu." },
+    "storyExplorer": { "name": "Mvumbuzi wa Hadithi", "description": "Uliingia katika ulimwengu wa kujifunza kwa msingi wa hadithi." },
+    "quizMaster": { "name": "Bingwa wa Maswali", "description": "Ulipinga maarifa yako kwa maswali yanayoingiliana." }
   },
   "mustLearn": {
     "blockchainBasics": {

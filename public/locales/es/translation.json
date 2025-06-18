@@ -45,7 +45,7 @@
     "pathTitleBasics": "Ruta de Conceptos Básicos de Blockchain",
     "pathTitlePolkadot": "Ruta de Polkadot Avanzado",
     "noPathSelectedTitle": "No Hay Ruta de Aprendizaje Seleccionada",
-    "noPathSelectedMessage": "Por favor, ve a la pestaña <i class=\"fas fa-home mx-1\"></i><strong>Inicio</strong> para elegir una ruta de aprendizaje y comenzar tu sesión de chat.",
+    "noPathSelectedMessage": "Por favor, ve a la pestaña <i class=\"fas fa-home mx-1\"></i><strong>Inicio</strong> para elegir una ruta de aprendizaje y comenzar tu sesión.",
     "goToHomeButton": "Ir a Inicio",
     "inputPlaceholderListening": "Escuchando...",
     "inputPlaceholderTypeMessage": "Escribe tu mensaje...",
@@ -145,7 +145,7 @@
   },
   "bottomNav": {
     "home": "Inicio",
-    "chat": "Chat",
+    "chat": "Aprender",
     "badges": "Insignias (ES)",
     "profile": "Perfil"
   },
@@ -171,6 +171,97 @@
     "disclaimer": "Este es un coleccionable digital dentro de la aplicación que representa tu logro. No es un NFT en cadena... ¡todavía! Futuras actualizaciones podrían habilitar el minteo. (ES)",
     "confirmButton": "Confirmar Reclamación (ES)",
     "closeButton": "Cerrar (ES)"
+  },
+  "diagnosticQuiz": {
+    "introductionText": "Antes de comenzar, evaluemos cuánto sabes sobre blockchain para crear el modelo de aprendizaje perfecto para ti.",
+    "title.blockchainBasics": "Prueba Rápida: Conceptos Básicos de Blockchain",
+    "title.polkadotAdvanced": "Prueba Rápida: Polkadot Avanzado",
+    "nextQuestion": "Siguiente Pregunta",
+    "finishQuiz": "Finalizar Prueba",
+    "questionProgress": "Pregunta {{current}} de {{total}}",
+    "blockchainBasics": {
+      "q1": {
+        "question": "¿Cuál es una característica principal de una blockchain?",
+        "optA": "Control centralizado por una única entidad",
+        "optB": "Los datos son fácilmente modificables por cualquiera",
+        "optC": "Registro distribuido y a menudo inmutable",
+        "optD": "No requiere conexión a internet"
+      },
+      "q2": {
+        "question": "¿A qué se refiere \"minería\" en el contexto de Bitcoin?",
+        "optA": "Extraer físicamente minerales valiosos",
+        "optB": "Crear nuevos bitcoins y validar transacciones",
+        "optC": "Diseñar nuevo software de blockchain",
+        "optD": "Gastar bitcoins en tiendas en línea"
+      },
+      "q3": {
+        "question": "¿Qué es un \"contrato inteligente\"?",
+        "optA": "Un documento legal revisado por abogados",
+        "optB": "Un programa informático que ejecuta acuerdos automáticamente",
+        "optC": "Una billetera de hardware segura para criptomonedas",
+        "optD": "Un acuerdo de marketing entre dos empresas"
+      }
+    },
+    "polkadotAdvanced": {
+      "q1": {
+        "question": "¿Cuál es el rol principal de la Relay Chain de Polkadot?",
+        "optA": "Almacenar todos los datos de usuario de las parachains",
+        "optB": "Proporcionar seguridad y coordinar las parachains",
+        "optC": "Ejecutar directamente contratos inteligentes para DApps",
+        "optD": "Minar nuevos tokens DOT"
+      },
+      "q2": {
+        "question": "¿Qué es una \"parachain\" en el ecosistema Polkadot?",
+        "optA": "Un tipo de billetera de criptomonedas",
+        "optB": "Una blockchain independiente que se conecta a la Relay Chain",
+        "optC": "Una propuesta de gobernanza",
+        "optD": "Un sistema de respaldo para la Relay Chain"
+      },
+      "q3": {
+        "question": "¿Qué es Substrate?",
+        "optA": "La criptomoneda nativa de Polkadot",
+        "optB": "Una plataforma de marketing para proyectos Polkadot",
+        "optC": "Un framework para construir blockchains personalizadas",
+        "optD": "Un protocolo de mensajería entre cadenas"
+      }
+    }
+  },
+  "learningModeModal": {
+    "title": "¿Cómo te gustaría aprender hoy?",
+    "chatButton": "Modo Chat",
+    "chatDescription": "Haz preguntas y obtén explicaciones impulsadas por IA.",
+    "storyButton": "Modo Historia",
+    "storyDescription": "Aprende a través de historias e ilustraciones atractivas.",
+    "quizButton": "Modo Prueba",
+    "quizDescription": "Pon a prueba tus conocimientos con pruebas interactivas."
+  },
+  "storyMode": {
+    "defaultTitle": "¡Hora del Cuento!",
+    "slideImageAlt": "Ilustración para: {{idea}}",
+    "previousButton": "Anterior",
+    "nextButton": "Siguiente",
+    "loadingStory": "Preparando una historia miau-ravillosa para ti...",
+    "loadingImage": "Generando magia gatuna...",
+    "imageError": "¡Ups! No se pudo cargar esta imagen de gatito.",
+    "endOfStory": "¡Has llegado al final de este cuento gatuno!",
+    "startNewStory": "Selecciona otro tema para una nueva historia.",
+    "noTopicSelectedTitle": "Ningún Tema de Historia Seleccionado",
+    "selectTopicPrompt": "Por favor, selecciona un tema del panel lateral para iniciar una historia.",
+    "noStoryAvailable": "Aún no hay contenido de historia disponible para este tema.",
+    "generatingCatMagic": "Generando magia gatuna..."
+  },
+  "quizMode": {
+    "title": "Modo Prueba",
+    "noTopicSelectedTitle": "Ningún Tema de Prueba Seleccionado",
+    "selectTopicPrompt": "Por favor, selecciona un tema del panel lateral para iniciar una prueba.",
+    "submitAnswer": "Enviar Respuesta",
+    "nextQuestion": "Siguiente Pregunta",
+    "loadingQuiz": "Preparando tus preguntas...",
+    "correct": "¡Correcto!",
+    "wrong": "¡No del todo!",
+    "selectAnswerPrompt": "Por favor, selecciona una respuesta.",
+    "noQuizForTopic": "Aún no hay prueba disponible para este tema.",
+    "startNewQuiz": "Selecciona otro tema para una nueva prueba."
   },
   "loadingSpinner": {
     "aiThinking": "IA está pensando..."
@@ -199,7 +290,11 @@
     "pathMaster": { "name": "Maestro de la Ruta", "description": "Completaste todos los temas centrales en una ruta de aprendizaje. (ES)" },
     "walletConnector": { "name": "Conector de Billetera (ES)", "description": "Conectaste una billetera Polkadot a la aplicación. (ES)" },
     "photoFanatic": { "name": "Fanático de las Fotos (ES)", "description": "Subiste una foto de perfil. (ES)" },
-    "badgePioneer": { "name": "Pionero de Insignias (ES)", "description": "¡Reclamaste tu primera insignia digital! (ES)" }
+    "badgePioneer": { "name": "Pionero de Insignias (ES)", "description": "¡Reclamaste tu primera insignia digital! (ES)" },
+    "quizCompleterBasics": { "name": "Evaluador de Conceptos Básicos", "description": "Completaste la prueba de diagnóstico de Conceptos Básicos de Blockchain." },
+    "quizCompleterAdvanced": { "name": "Evaluador Avanzado", "description": "Completaste la prueba de diagnóstico de Polkadot Avanzado." },
+    "storyExplorer": { "name": "Explorador de Historias", "description": "Te aventuraste en el mundo del aprendizaje basado en historias." },
+    "quizMaster": { "name": "Maestro de Pruebas", "description": "Desafiaste tus conocimientos con pruebas interactivas." }
   },
   "mustLearn": {
     "blockchainBasics": {

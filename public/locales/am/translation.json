@@ -145,7 +145,7 @@
   },
   "bottomNav": {
     "home": "መነሻ",
-    "chat": "ውይይት",
+    "chat": "ተማር",
     "badges": "ምልክቶች",
     "profile": "መገለጫ"
   },
@@ -171,6 +171,97 @@
     "disclaimer": "ይህ ስኬትዎን የሚወክል በመተግበሪያው ውስጥ ያለ ዲጂታል ስብስብ ነው። የሰንሰለት ኤንኤፍቲ አይደለም... ገና! የወደፊት ዝመናዎች ማተምን ሊያነቁ ይችላሉ።",
     "confirmButton": "የይገባኛል ጥያቄን አረጋግጥ",
     "closeButton": "ዝጋ"
+  },
+  "diagnosticQuiz": {
+    "introductionText": "ከመጀመራችን በፊት፣ ለእርስዎ ትክክለኛውን የመማሪያ ሞዴል ለመስራት ስለ ብሎክቼን ምን ያህል እንደሚያውቁ እንገምግም።",
+    "title.blockchainBasics": "ፈጣን ጥያቄ: የብሎክቼን መሰረታዊ ነገሮች",
+    "title.polkadotAdvanced": "ፈጣን ጥያቄ: ፖልካዶት የላቀ",
+    "nextQuestion": "ቀጣይ ጥያቄ",
+    "finishQuiz": "ፈተና ጨርስ",
+    "questionProgress": "ጥያቄ {{current}} ከ {{total}}",
+    "blockchainBasics": {
+      "q1": {
+        "question": "የብሎክቼን ዋና ባህርይ ምንድን ነው?",
+        "optA": "በአንድ አካል ማዕከላዊ ቁጥጥር",
+        "optB": "መረጃ በማንም ሰው በቀላሉ ሊቀየር ይችላል",
+        "optC": "የተከፋፈለ እና ብዙውን ጊዜ የማይለወጥ መዝገብ",
+        "optD": "የበይነመረብ ግንኙነት አይፈልግም"
+      },
+      "q2": {
+        "question": "በቢትኮይን አውድ ውስጥ \"ማዕድን\" ምን ማለት ነው?",
+        "optA": "ውድ ማዕድናትን በአካል ማውጣት",
+        "optB": "አዲስ ቢትኮይኖችን መፍጠር እና ግብይቶችን ማረጋገጥ",
+        "optC": "አዲስ የብሎክቼን ሶፍትዌር መንደፍ",
+        "optD": "በኦንላይን መደብሮች ቢትኮይኖችን ማውጣት"
+      },
+      "q3": {
+        "question": "\"ብልጥ ውል\" ምንድን ነው?",
+        "optA": "በጠበቃዎች የተገመገመ ህጋዊ ሰነድ",
+        "optB": "ስምምነቶችን በራስ-ሰር የሚያስፈጽም የኮምፒውተር ፕሮግራም",
+        "optC": "ለክሪፕቶ ምንዛሬዎች ደህንነቱ የተጠበቀ የሃርድዌር ቦርሳ",
+        "optD": "በሁለት ኩባንያዎች መካከል የግብይት ስምምነት"
+      }
+    },
+    "polkadotAdvanced": {
+      "q1": {
+        "question": "የፖልካዶት ሪሌይ ቼይን ዋና ሚና ምንድን ነው?",
+        "optA": "ሁሉንም የተጠቃሚ ውሂብ ከፓራቼይኖች ማከማቸት",
+        "optB": "ደህንነትን መስጠት እና ፓራቼይኖችን ማስተባበር",
+        "optC": "ለዲአፕስ ብልጥ ውሎችን በቀጥታ ማስፈጸም",
+        "optD": "አዲስ የDOT ቶከኖችን ማውጣት"
+      },
+      "q2": {
+        "question": "በፖልካዶት ሥነ-ምህዳር ውስጥ \"ፓራቼይን\" ምንድን ነው?",
+        "optA": "የክሪፕቶ ምንዛሬ ቦርሳ ዓይነት",
+        "optB": "ከሪሌይ ቼይን ጋር የሚገናኝ ገለልተኛ ብሎክቼን",
+        "optC": "የአስተዳደር ሀሳብ",
+        "optD": "ለሪሌይ ቼይን የመጠባበቂያ ስርዓት"
+      },
+      "q3": {
+        "question": "ሰብስትሬት ምንድን ነው?",
+        "optA": "የፖልካዶት ተወላጅ ክሪፕቶ ምንዛሬ",
+        "optB": "ለፖልካዶት ፕሮጀክቶች የግብይት መድረክ",
+        "optC": "ብጁ ብሎክቼይኖችን ለመገንባት ማዕቀፍ",
+        "optD": "በሰንሰለቶች መካከል የመልዕክት ፕሮቶኮል"
+      }
+    }
+  },
+  "learningModeModal": {
+    "title": "ዛሬ እንዴት መማር ይፈልጋሉ?",
+    "chatButton": "የውይይት ሁነታ",
+    "chatDescription": "ጥያቄዎችን ይጠይቁ እና በAI የተጎላበቱ ማብራሪያዎችን ያግኙ።",
+    "storyButton": "የታሪክ ሁነታ",
+    "storyDescription": "አሳታፊ በሆኑ ታሪኮች እና ምሳሌዎች ይማሩ።",
+    "quizButton": "የፈተና ሁነታ",
+    "quizDescription": "እውቀትዎን በይነተገናኝ በሆኑ ፈተናዎች ይፈትሹ።"
+  },
+  "storyMode": {
+    "defaultTitle": "የታሪክ ጊዜ!",
+    "slideImageAlt": "ምሳሌ ለ፡ {{idea}}",
+    "previousButton": "የቀድሞው",
+    "nextButton": "ቀጣይ",
+    "loadingStory": "ለእርስዎ ድንቅ ታሪክ እየተዘጋጀ ነው...",
+    "loadingImage": "የድመት አስማት በመፍጠር ላይ...",
+    "imageError": "ውይ! ይህችን የድመት ምስል ማግኘት አልተቻለም።",
+    "endOfStory": "የዚህን ድመት-አስደናቂ ታሪክ መጨረሻ ላይ ደርሰዋል!",
+    "startNewStory": "ለአዲስ ታሪክ ሌላ ርዕስ ይምረጡ።",
+    "noTopicSelectedTitle": "ምንም የታሪክ ርዕስ አልተመረጠም",
+    "selectTopicPrompt": "ታሪክ ለመጀመር እባክዎ ከጎን ፓነል ርዕስ ይምረጡ።",
+    "noStoryAvailable": "ለዚህ ርዕስ ምንም የታሪክ ይዘት ገና የለም።",
+    "generatingCatMagic": "የድመት አስማት በመፍጠር ላይ..."
+  },
+  "quizMode": {
+    "title": "የፈተና ጊዜ",
+    "noTopicSelectedTitle": "ምንም የፈተና ርዕስ አልተመረጠም",
+    "selectTopicPrompt": "ፈተና ለመጀመር እባክዎ ከጎን ፓነል ርዕስ ይምረጡ።",
+    "submitAnswer": "መልስ አስገባ",
+    "nextQuestion": "ቀጣይ ጥያቄ",
+    "loadingQuiz": "ጥያቄዎችዎ እየተዘጋጁ ነው...",
+    "correct": "ትክክል!",
+    "wrong": "ሙሉ በሙሉ ትክክል አይደለም!",
+    "selectAnswerPrompt": "እባክዎ መልስ ይምረጡ።",
+    "noQuizForTopic": "ለዚህ ርዕስ ምንም ፈተና ገና የለም።",
+    "startNewQuiz": "ለአዲስ ፈተና ሌላ ርዕስ ይምረጡ።"
   },
   "loadingSpinner": {
     "aiThinking": "AI እያሰበ ነው..."
@@ -199,7 +290,11 @@
     "pathMaster": { "name": "የመንገድ ማስተር", "description": "በመማሪያ መንገድ ውስጥ ያሉትን ሁሉንም ዋና ርዕሶች አጠናቀዋል።" },
     "walletConnector": { "name": "የኪስ ቦርሳ አገናኝ", "description": "የፖልካዶት የኪስ ቦርሳ ከመተግበሪያው ጋር አገናኝተዋል።" },
     "photoFanatic": { "name": "የፎቶ አድናቂ", "description": "የመገለጫ ሥዕል ሰቅለዋል።" },
-    "badgePioneer": { "name": "የባጅ አቅኚ", "description": "የመጀመሪያዎን ዲጂታል ባጅ ጠይቀዋል!" }
+    "badgePioneer": { "name": "የባጅ አቅኚ", "description": "የመጀመሪያዎን ዲጂታል ባጅ ጠይቀዋል!" },
+    "quizCompleterBasics": { "name": "የመሰረታዊ ነገሮች ፈታኝ", "description": "የብሎክቼን መሰረታዊ ነገሮች የምርመራ ፈተና አጠናቀዋል።" },
+    "quizCompleterAdvanced": { "name": "የላቀ ፈታኝ", "description": "የፖልካዶት የላቀ የምርመራ ፈተና አጠናቀዋል።" },
+    "storyExplorer": { "name": "የታሪክ አሳሽ", "description": "በታሪክ ላይ የተመሠረተ የመማር ዓለም ውስጥ ገብተዋል።" },
+    "quizMaster": { "name": "የፈተና ማስተር", "description": "እውቀትዎን በይነተገናኝ ፈተናዎች ተፈትነዋል።" }
   },
   "mustLearn": {
     "blockchainBasics": {
@@ -211,7 +306,7 @@
       "smartContractsExplained": { "title": "ብልህ ኮንትራቶች ተብራርተዋል", "description": "ቅድመ-የተገለጹ ሕጎች ያላቸው እራሳቸውን የሚያስፈጽሙ ኮንትራቶችን ያግኙ።" },
       "useCasesBlockchain": { "title": "የብሎክቼይን የአጠቃቀም ጉዳዮች", "description": "ከክሪፕቶ ምንዛሬዎች ባሻገር ያሉ እውነተኛ የዓለም መተግበሪያዎች።" },
       "getInvolvedBlockchain": { "title": "በብሎክቼይን ውስጥ እንዴት መሳተፍ እችላለሁ?", "description": "በብሎክቼይን ቦታ ላይ ለመሳተፍ መንገዶችን ያስሱ፣ ለእርስዎ በተዘጋጁ ምሳሌዎች።" },
-      "whatIsTrading": { "title": "ግብይት ምንድን ነው እና እንዴት ነው የሚሰራው?", "description": "የግብይት አይነቶችን፣ ክሪፕቶ ከባህላዊ እና መሰረታዊ የአሰራር ዘዴዎችን ያስሱ።" },
+      "whatIsTrading": { "title": "ግብይት ምንድን ነው እና እንዴት ነው የሚሰራው?", "description": "የግብይት አይነቶችን، ክሪፕቶ ከባህላዊ እና መሰረታዊ የአሰራር ዘዴዎችን ያስሱ።" },
       "withdrawCryptoCash": { "title": "ክሪፕቶን ወደ ጥሬ ገንዘብ ማውጣት", "description": "P2P እና ሌሎች ዘዴዎችን ይማሩ፣ ከፕላትፎርም ምክሮች ጋር።" }
     },
     "polkadotAdvanced": {

@@ -45,7 +45,7 @@
     "pathTitleBasics": "Parcours Bases de la Blockchain",
     "pathTitlePolkadot": "Parcours Polkadot Avancé",
     "noPathSelectedTitle": "Aucun Parcours d'Apprentissage Sélectionné",
-    "noPathSelectedMessage": "Veuillez aller à l'onglet <i class=\"fas fa-home mx-1\"></i><strong>Accueil</strong> pour choisir un parcours d'apprentissage et commencer votre session de chat.",
+    "noPathSelectedMessage": "Veuillez aller à l'onglet <i class=\"fas fa-home mx-1\"></i><strong>Accueil</strong> pour choisir un parcours d'apprentissage et commencer votre session.",
     "goToHomeButton": "Aller à l'Accueil",
     "inputPlaceholderListening": "Écoute en cours...",
     "inputPlaceholderTypeMessage": "Tapez votre message...",
@@ -145,7 +145,7 @@
   },
   "bottomNav": {
     "home": "Accueil",
-    "chat": "Chat",
+    "chat": "Apprendre",
     "badges": "Badges (FR)",
     "profile": "Profil"
   },
@@ -171,6 +171,97 @@
     "disclaimer": "Ceci est un collectible numérique au sein de l'application représentant votre réussite. Ce n'est pas encore un NFT sur la chaîne ! De futures mises à jour pourraient permettre le minting. (FR)",
     "confirmButton": "Confirmer la Réclamation (FR)",
     "closeButton": "Fermer (FR)"
+  },
+  "diagnosticQuiz": {
+    "introductionText": "Avant de commencer, évaluons vos connaissances sur la blockchain pour créer le modèle d'apprentissage parfait pour vous.",
+    "title.blockchainBasics": "Quiz Rapide : Bases de la Blockchain",
+    "title.polkadotAdvanced": "Quiz Rapide : Polkadot Avancé",
+    "nextQuestion": "Question Suivante",
+    "finishQuiz": "Terminer le Quiz",
+    "questionProgress": "Question {{current}} sur {{total}}",
+    "blockchainBasics": {
+      "q1": {
+        "question": "Quelle est une caractéristique principale d'une blockchain ?",
+        "optA": "Contrôle centralisé par une seule entité",
+        "optB": "Les données sont facilement modifiables par n'importe qui",
+        "optC": "Registre distribué et souvent immuable",
+        "optD": "Ne nécessite aucune connexion Internet"
+      },
+      "q2": {
+        "question": "À quoi se réfère le \"minage\" dans le contexte du Bitcoin ?",
+        "optA": "Extraire physiquement des minéraux précieux",
+        "optB": "Créer de nouveaux bitcoins et valider les transactions",
+        "optC": "Concevoir de nouveaux logiciels de blockchain",
+        "optD": "Dépenser des bitcoins dans les magasins en ligne"
+      },
+      "q3": {
+        "question": "Qu'est-ce qu'un \"contrat intelligent\" ?",
+        "optA": "Un document juridique examiné par des avocats",
+        "optB": "Un programme informatique qui exécute automatiquement des accords",
+        "optC": "Un portefeuille matériel sécurisé pour les cryptomonnaies",
+        "optD": "Un accord marketing entre deux entreprises"
+      }
+    },
+    "polkadotAdvanced": {
+      "q1": {
+        "question": "Quel est le rôle principal de la Relay Chain de Polkadot ?",
+        "optA": "Stocker toutes les données utilisateur des parachains",
+        "optB": "Fournir la sécurité et coordonner les parachains",
+        "optC": "Exécuter directement des contrats intelligents pour les DApps",
+        "optD": "Miner de nouveaux jetons DOT"
+      },
+      "q2": {
+        "question": "Qu'est-ce qu'une \"parachain\" dans l'écosystème Polkadot ?",
+        "optA": "Un type de portefeuille de cryptomonnaies",
+        "optB": "Une blockchain indépendante qui se connecte à la Relay Chain",
+        "optC": "Une proposition de gouvernance",
+        "optD": "Un système de sauvegarde pour la Relay Chain"
+      },
+      "q3": {
+        "question": "Qu'est-ce que Substrate ?",
+        "optA": "La cryptomonnaie native de Polkadot",
+        "optB": "Une plateforme marketing pour les projets Polkadot",
+        "optC": "Un framework pour construire des blockchains personnalisées",
+        "optD": "Un protocole de messagerie inter-chaînes"
+      }
+    }
+  },
+  "learningModeModal": {
+    "title": "Comment souhaitez-vous apprendre aujourd'hui ?",
+    "chatButton": "Mode Chat",
+    "chatDescription": "Posez des questions et obtenez des explications basées sur l'IA.",
+    "storyButton": "Mode Histoire",
+    "storyDescription": "Apprenez à travers des histoires et des illustrations captivantes.",
+    "quizButton": "Mode Quiz",
+    "quizDescription": "Testez vos connaissances avec des quiz interactifs."
+  },
+  "storyMode": {
+    "defaultTitle": "L'heure du conte !",
+    "slideImageAlt": "Illustration pour : {{idea}}",
+    "previousButton": "Précédent",
+    "nextButton": "Suivant",
+    "loadingStory": "Préparation d'une histoire féline pour vous...",
+    "loadingImage": "Génération de magie féline...",
+    "imageError": "Oups ! Impossible de récupérer cette image de chaton.",
+    "endOfStory": "Vous avez atteint la fin de ce conte chat-tastique !",
+    "startNewStory": "Sélectionnez un autre sujet pour une nouvelle histoire.",
+    "noTopicSelectedTitle": "Aucun Sujet d'Histoire Sélectionné",
+    "selectTopicPrompt": "Veuillez sélectionner un sujet dans le panneau latéral pour commencer une histoire.",
+    "noStoryAvailable": "Aucun contenu d'histoire disponible pour ce sujet pour le moment.",
+    "generatingCatMagic": "Génération de magie féline..."
+  },
+  "quizMode": {
+    "title": "Mode Quiz",
+    "noTopicSelectedTitle": "Aucun Sujet de Quiz Sélectionné",
+    "selectTopicPrompt": "Veuillez sélectionner un sujet dans le panneau latéral pour commencer un quiz.",
+    "submitAnswer": "Soumettre la Réponse",
+    "nextQuestion": "Question Suivante",
+    "loadingQuiz": "Préparation de vos questions...",
+    "correct": "Correct !",
+    "wrong": "Pas tout à fait !",
+    "selectAnswerPrompt": "Veuillez sélectionner une réponse.",
+    "noQuizForTopic": "Aucun quiz disponible pour ce sujet pour le moment.",
+    "startNewQuiz": "Sélectionnez un autre sujet pour un nouveau quiz."
   },
   "loadingSpinner": {
     "aiThinking": "L'IA réfléchit..."
@@ -199,7 +290,11 @@
     "pathMaster": { "name": "Maître du Parcours", "description": "A complété tous les sujets principaux d'un parcours d'apprentissage. (FR)" },
     "walletConnector": { "name": "Connecteur de Portefeuille (FR)", "description": "A connecté un portefeuille Polkadot à l'application. (FR)" },
     "photoFanatic": { "name": "Fan de Photos (FR)", "description": "A téléchargé une photo de profil. (FR)" },
-    "badgePioneer": { "name": "Pionnier des Badges (FR)", "description": "Vous avez réclamé votre tout premier badge numérique ! (FR)" }
+    "badgePioneer": { "name": "Pionnier des Badges (FR)", "description": "Vous avez réclamé votre tout premier badge numérique ! (FR)" },
+    "quizCompleterBasics": { "name": "Quizzer des Bases", "description": "A complété le quiz de diagnostic des Bases de la Blockchain." },
+    "quizCompleterAdvanced": { "name": "Quizzer Avancé", "description": "A complété le quiz de diagnostic de Polkadot Avancé." },
+    "storyExplorer": { "name": "Explorateur d'Histoires", "description": "S'est aventuré dans le monde de l'apprentissage basé sur les histoires." },
+    "quizMaster": { "name": "Maître des Quiz", "description": "A défié vos connaissances avec des quiz interactifs." }
   },
   "mustLearn": {
     "blockchainBasics": {
