@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
-import ReactDOM from 'react-dom'; 
+import ReactDOM from 'react-dom';
 import { useTranslation } from 'react-i18next';
 import { ChatMessage, Sender, MustLearnTopic, PolkadotAccount, ClaimedBadgeDetail, LearningPathName, QuizCompletionStatus, LearningMode } from './types';
 import { ChatInterface } from './components/ChatInterface';
@@ -15,17 +15,17 @@ import { OnboardingFlow } from './components/OnboardingFlow';
 import { SidePanel } from './components/SidePanel';
 import { LanguageSwitcher } from './components/LanguageSwitcher';
 import { PolkadotAccountSelectorModal } from './components/PolkadotAccountSelectorModal';
-import { NftBadgesScreen } from './components/NftBadgesScreen'; 
-import { ClaimBadgeModal } from './components/ClaimBadgeModal'; 
+import { NftBadgesScreen } from './components/NftBadgesScreen';
+import { ClaimBadgeModal } from './components/ClaimBadgeModal';
 import { ComingSoonModal } from './components/ComingSoonModal';
 import { DiagnosticQuizModal } from './components/DiagnosticQuizModal';
 import { LearningModeModal } from './components/LearningModeModal'; // New
 import { StoryMode } from './components/StoryMode'; // New
 import { QuizMode } from './components/QuizMode'; // New
 import * as Constants from './constants';
-import { web3Accounts, web3Enable } from '@polkadot/extension-dapp'; 
+import { web3Accounts, web3Enable } from '@polkadot/extension-dapp';
 import { encodeAddress } from '@polkadot/util-crypto';
-
+import { Analytics } from "@vercel/analytics/next"
 
 type AppLearningPath = LearningPathName | null;
 type OnboardingStatus = 'pending_intro' | 'intro_skipped' | 'completed';
@@ -47,7 +47,7 @@ interface ResourceListItem {
 const resourceList: ResourceListItem[] = [
   { id: 'games', iconClass: 'fas fa-gamepad', translationKey: 'home.resources.games' },
   { id: 'wallets', iconClass: 'fas fa-wallet', translationKey: 'home.resources.wallets' },
-  { id: 'dapps', iconClass: 'fas fa-th-large', translationKey: 'home.resources.dapps' }, 
+  { id: 'dapps', iconClass: 'fas fa-th-large', translationKey: 'home.resources.dapps' },
   { id: 'gov', iconClass: 'fas fa-landmark', translationKey: 'home.resources.gov' },
   { id: 'bounties', iconClass: 'fas fa-trophy', translationKey: 'home.resources.bounties' },
   { id: 'discord', iconClass: 'fab fa-discord', translationKey: 'home.resources.discord' },
@@ -68,12 +68,12 @@ const App: React.FC = () => {
 
   const [learningPath, setLearningPath] = useState<AppLearningPath>(null);
   const [activeTab, setActiveTab] = useState<ActiveTab>('home');
-  
+
   const [userNickname, setUserNickname] = useState<string>(t('profile.defaultNickname'));
   const [achievements, setAchievements] = useState<string[]>([]);
 
   const [userExpertise, setUserExpertise] = useState<string>('');
-  const [onboardingStep, setOnboardingStep] = useState<number>(0); 
+  const [onboardingStep, setOnboardingStep] = useState<number>(0);
 
   const [isSidePanelOpen, setIsSidePanelOpen] = useState<boolean>(false);
   const [currentMustLearnTopics, setCurrentMustLearnTopics] = useState<MustLearnTopic[]>([]);
@@ -96,7 +96,7 @@ const App: React.FC = () => {
   const [showDiagnosticQuizModal, setShowDiagnosticQuizModal] = useState<boolean>(false);
   const [currentQuizPath, setCurrentQuizPath] = useState<LearningPathName | null>(null);
   const [quizCompletionStatus, setQuizCompletionStatus] = useState<QuizCompletionStatus>({});
-  
+
   // Learning Mode State
   const [showLearningModeModal, setShowLearningModeModal] = useState<boolean>(false);
   const [selectedLearningMode, setSelectedLearningMode] = useState<LearningMode | null>(null);
@@ -127,7 +127,7 @@ const App: React.FC = () => {
   useEffect(() => {
     const storedOnboardingStatus = localStorage.getItem('onboardingStatus') as OnboardingStatus | null;
     const storedQuizCompletion = localStorage.getItem('quizCompletionStatus');
-    
+
     if (storedQuizCompletion) setQuizCompletionStatus(JSON.parse(storedQuizCompletion));
 
     if (storedOnboardingStatus === 'completed') setOnboardingStep(0);
@@ -149,11 +149,11 @@ const App: React.FC = () => {
 
     const storedPolkadotAccount = localStorage.getItem('polkadotAccount');
     if (storedPolkadotAccount) setPolkadotAccount(JSON.parse(storedPolkadotAccount));
-    
+
     const storedClaimedBadges = localStorage.getItem('claimedBadges');
     if (storedClaimedBadges) setClaimedBadges(JSON.parse(storedClaimedBadges));
 
-  }, [t]); 
+  }, [t]);
 
   useEffect(() => { localStorage.setItem('userAchievements', JSON.stringify(achievements)); }, [achievements]);
   useEffect(() => { localStorage.setItem('userNickname', userNickname); }, [userNickname]);
@@ -164,7 +164,7 @@ const App: React.FC = () => {
   useEffect(() => {
     if (polkadotAccount) {
       localStorage.setItem('polkadotAccount', JSON.stringify(polkadotAccount));
-       if (!achievements.includes(Constants.ACHIEVEMENT_KEYS.WALLET_CONNECTOR)) {
+      if (!achievements.includes(Constants.ACHIEVEMENT_KEYS.WALLET_CONNECTOR)) {
         setAchievements(prev => [...prev, Constants.ACHIEVEMENT_KEYS.WALLET_CONNECTOR]);
       }
     } else {
@@ -177,26 +177,26 @@ const App: React.FC = () => {
 
   useEffect(() => {
     if (!learningPath && activeTab === 'chat') { // 'chat' tab is now the generic learning area
-        setChatMessages([]);
-        setCurrentMustLearnTopics([]);
-        setCompletedMustLearnTopics({});
-        setIsSidePanelOpen(false); 
-        setSelectedLearningMode(null); // Reset learning mode
-        setActiveStoryOrQuizTopic(null);
+      setChatMessages([]);
+      setCurrentMustLearnTopics([]);
+      setCompletedMustLearnTopics({});
+      setIsSidePanelOpen(false);
+      setSelectedLearningMode(null); // Reset learning mode
+      setActiveStoryOrQuizTopic(null);
     } else if (learningPath) {
-        const topics = learningPath === 'blockchainBasics' 
-            ? Constants.MUST_LEARN_BLOCKCHAIN_BASICS 
-            : Constants.MUST_LEARN_POLKADOT_ADVANCED;
-        setCurrentMustLearnTopics(topics as MustLearnTopic[]);
+      const topics = learningPath === 'blockchainBasics'
+        ? Constants.MUST_LEARN_BLOCKCHAIN_BASICS
+        : Constants.MUST_LEARN_POLKADOT_ADVANCED;
+      setCurrentMustLearnTopics(topics as MustLearnTopic[]);
 
-        const storedCompletions = localStorage.getItem(`completedTopics_${learningPath}`);
-        if (storedCompletions) setCompletedMustLearnTopics(JSON.parse(storedCompletions));
-        else setCompletedMustLearnTopics({});
-        
-        // If not chat mode, set the first topic for story/quiz mode
-        if (selectedLearningMode && selectedLearningMode !== 'chat' && topics.length > 0) {
-           setActiveStoryOrQuizTopic(topics[0]);
-        }
+      const storedCompletions = localStorage.getItem(`completedTopics_${learningPath}`);
+      if (storedCompletions) setCompletedMustLearnTopics(JSON.parse(storedCompletions));
+      else setCompletedMustLearnTopics({});
+
+      // If not chat mode, set the first topic for story/quiz mode
+      if (selectedLearningMode && selectedLearningMode !== 'chat' && topics.length > 0) {
+        setActiveStoryOrQuizTopic(topics[0]);
+      }
     }
   }, [learningPath, activeTab, selectedLearningMode]);
 
@@ -208,34 +208,34 @@ const App: React.FC = () => {
   useEffect(() => { if (speechError) setError(t('errors.speechRecognitionError', { message: speechError })); }, [speechError, t]);
 
   const handleNextOnboardingStep = () => {
-    if (onboardingStep === 4) { 
+    if (onboardingStep === 4) {
       localStorage.setItem('onboardingStatus', 'intro_skipped');
-      setOnboardingStep(5); 
+      setOnboardingStep(5);
     } else if (onboardingStep < 5 && onboardingStep > 0) {
       setOnboardingStep(prev => prev + 1);
     }
   };
-  
+
   const handleSkipIntroToPersonalization = () => {
     localStorage.setItem('onboardingStatus', 'intro_skipped');
-    setOnboardingStep(5); 
+    setOnboardingStep(5);
   };
-  
+
   const handlePersonalizationSubmit = (expertise: string) => {
     setUserExpertise(expertise);
     localStorage.setItem('userExpertise', expertise);
     localStorage.setItem('onboardingStatus', 'completed');
-    localStorage.setItem('hasCompletedOnboarding', 'true'); 
-    setOnboardingStep(0); 
+    localStorage.setItem('hasCompletedOnboarding', 'true');
+    setOnboardingStep(0);
     if (expertise.trim() && !achievements.includes(Constants.ACHIEVEMENT_KEYS.PERSONALIZED_LEARNER)) {
-        setAchievements(prev => [...prev, Constants.ACHIEVEMENT_KEYS.PERSONALIZED_LEARNER]);
+      setAchievements(prev => [...prev, Constants.ACHIEVEMENT_KEYS.PERSONALIZED_LEARNER]);
     }
   };
-  
+
   const handlePersonalizationSkip = () => {
     localStorage.setItem('onboardingStatus', 'completed');
     localStorage.setItem('hasCompletedOnboarding', 'true');
-    setOnboardingStep(0); 
+    setOnboardingStep(0);
   };
 
   const handleUserExpertiseChange = (newExpertise: string) => {
@@ -250,28 +250,28 @@ const App: React.FC = () => {
   const markTopicAsCompletedByQuery = useCallback((queryText: string) => {
     if (!learningPath) return;
 
-    const matchedTopic = currentMustLearnTopics.find(topic => 
-        topic.canonicalTitle.trim().toLowerCase() === queryText.trim().toLowerCase()
+    const matchedTopic = currentMustLearnTopics.find(topic =>
+      topic.canonicalTitle.trim().toLowerCase() === queryText.trim().toLowerCase()
     );
 
     if (matchedTopic && !completedMustLearnTopics[matchedTopic.id]) {
-        setCompletedMustLearnTopics(prev => {
-            const newCompletions = { ...prev, [matchedTopic.id]: true };
-            if (!achievements.includes(Constants.ACHIEVEMENT_KEYS.FIRST_TOPIC_CONQUERED) && Object.keys(newCompletions).length === 1) {
-                setAchievements(prevAch => [...prevAch, Constants.ACHIEVEMENT_KEYS.FIRST_TOPIC_CONQUERED]);
-            }
-            const allTopicsForCurrentPathCompleted = currentMustLearnTopics.every(topic => newCompletions[topic.id]);
-            if (allTopicsForCurrentPathCompleted && !achievements.includes(Constants.ACHIEVEMENT_KEYS.PATH_MASTER)) {
-                 setAchievements(prevAch => [...prevAch, Constants.ACHIEVEMENT_KEYS.PATH_MASTER]);
-            }
-            return newCompletions;
-        });
+      setCompletedMustLearnTopics(prev => {
+        const newCompletions = { ...prev, [matchedTopic.id]: true };
+        if (!achievements.includes(Constants.ACHIEVEMENT_KEYS.FIRST_TOPIC_CONQUERED) && Object.keys(newCompletions).length === 1) {
+          setAchievements(prevAch => [...prevAch, Constants.ACHIEVEMENT_KEYS.FIRST_TOPIC_CONQUERED]);
+        }
+        const allTopicsForCurrentPathCompleted = currentMustLearnTopics.every(topic => newCompletions[topic.id]);
+        if (allTopicsForCurrentPathCompleted && !achievements.includes(Constants.ACHIEVEMENT_KEYS.PATH_MASTER)) {
+          setAchievements(prevAch => [...prevAch, Constants.ACHIEVEMENT_KEYS.PATH_MASTER]);
+        }
+        return newCompletions;
+      });
     }
   }, [currentMustLearnTopics, completedMustLearnTopics, learningPath, achievements]);
 
 
   const handleSendChatMessage = useCallback(async (
-    messageText: string, 
+    messageText: string,
     isAutomatedFirstMessage = false,
     pathToUseOverride?: LearningPathName, // This is AppLearningPath (LearningPathName | null)
     canonicalQueryForCompletion?: string
@@ -279,35 +279,35 @@ const App: React.FC = () => {
     const activeLearningPath = pathToUseOverride || learningPath;
 
     if (!messageText.trim() || !activeLearningPath) {
-        console.warn("handleSendChatMessage: No message text or active learning path.");
-        return;
+      console.warn("handleSendChatMessage: No message text or active learning path.");
+      return;
     }
 
-    const userMessageQueryTextForCompletion = canonicalQueryForCompletion || messageText; 
+    const userMessageQueryTextForCompletion = canonicalQueryForCompletion || messageText;
 
     if (!isAutomatedFirstMessage) {
-        const newUserMessage: ChatMessage = {
-          id: Date.now().toString() + '-user',
-          text: messageText, 
-          sender: Sender.User,
-          timestamp: Date.now(),
-        };
-        setChatMessages(prev => [...prev, newUserMessage]);
+      const newUserMessage: ChatMessage = {
+        id: Date.now().toString() + '-user',
+        text: messageText,
+        sender: Sender.User,
+        timestamp: Date.now(),
+      };
+      setChatMessages(prev => [...prev, newUserMessage]);
     }
-    
+
     setIsLoading(true);
     setError(null);
 
     try {
       const currentContextMessages = isAutomatedFirstMessage ? [] : chatMessages;
       const { text: aiResponseText, visualHint, suggestedTopics, groundingChunks } = await sendMessageToGeminiChat(
-        messageText, 
-        currentContextMessages, 
+        messageText,
+        currentContextMessages,
         activeLearningPath,
         userExpertise,
         t(Constants.USER_EXPERTISE_NO_EXPERTISE_FALLBACK_KEY)
       );
-      
+
       const newAiMessage: ChatMessage = {
         id: Date.now().toString() + '-ai',
         text: aiResponseText,
@@ -320,8 +320,8 @@ const App: React.FC = () => {
 
       if (visualHint) setCurrentVisualKeyword(visualHint);
       if (isAutoSpeakEnabled && browserSupportsSpeechSynthesis) speak(aiResponseText, i18n.language);
-      markTopicAsCompletedByQuery(userMessageQueryTextForCompletion); 
-      
+      markTopicAsCompletedByQuery(userMessageQueryTextForCompletion);
+
       if (chatMessages.length > 5 && !achievements.includes(Constants.ACHIEVEMENT_KEYS.CURIOUS_CHATTERBOX)) {
         setAchievements(prev => [...prev, Constants.ACHIEVEMENT_KEYS.CURIOUS_CHATTERBOX]);
       }
@@ -346,7 +346,7 @@ const App: React.FC = () => {
       setIsLoading(false);
     }
   }, [
-    chatMessages, speak, isAutoSpeakEnabled, browserSupportsSpeechSynthesis, 
+    chatMessages, speak, isAutoSpeakEnabled, browserSupportsSpeechSynthesis,
     learningPath, achievements, userExpertise, markTopicAsCompletedByQuery,
     t, i18n.language
   ]);
@@ -384,28 +384,28 @@ const App: React.FC = () => {
       setShowLearningModeModal(true);
     }
   };
-  
+
   const handleDiagnosticQuizSubmit = (path: LearningPathName, answers: Record<string, string>, score: number) => {
     setQuizCompletionStatus(prev => ({ ...prev, [path]: true }));
     setShowDiagnosticQuizModal(false);
     setCurrentQuizPath(null);
 
-    const achievementKey = path === 'blockchainBasics' 
-        ? Constants.ACHIEVEMENT_KEYS.QUIZ_COMPLETER_BASICS 
-        : Constants.ACHIEVEMENT_KEYS.QUIZ_COMPLETER_ADVANCED;
+    const achievementKey = path === 'blockchainBasics'
+      ? Constants.ACHIEVEMENT_KEYS.QUIZ_COMPLETER_BASICS
+      : Constants.ACHIEVEMENT_KEYS.QUIZ_COMPLETER_ADVANCED;
     if (!achievements.includes(achievementKey)) setAchievements(prev => [...prev, achievementKey]);
     if (!achievements.includes(Constants.ACHIEVEMENT_KEYS.INITIATED_LEARNER)) setAchievements(prev => [...prev, Constants.ACHIEVEMENT_KEYS.INITIATED_LEARNER]);
 
     // Now show the learning mode modal
     if (pendingPathForModeSelection === path) {
-        setShowLearningModeModal(true);
+      setShowLearningModeModal(true);
     }
   };
 
   const handleCloseDiagnosticQuizModal = () => {
     setShowDiagnosticQuizModal(false);
     setCurrentQuizPath(null);
-    setPendingPathForModeSelection(null); 
+    setPendingPathForModeSelection(null);
   };
 
 
@@ -422,33 +422,33 @@ const App: React.FC = () => {
 
 
     const currentPathTopics = pendingPathForModeSelection === 'blockchainBasics'
-        ? Constants.MUST_LEARN_BLOCKCHAIN_BASICS
-        : Constants.MUST_LEARN_POLKADOT_ADVANCED;
-    
+      ? Constants.MUST_LEARN_BLOCKCHAIN_BASICS
+      : Constants.MUST_LEARN_POLKADOT_ADVANCED;
+
     if (currentPathTopics.length > 0) {
-        setActiveStoryOrQuizTopic(currentPathTopics[0]); // Set first topic for story/quiz modes
+      setActiveStoryOrQuizTopic(currentPathTopics[0]); // Set first topic for story/quiz modes
     }
 
 
     if (mode === 'chat') {
       startChatModeForPath(pendingPathForModeSelection);
     } else if (mode === 'story') {
-        if (!achievements.includes(Constants.ACHIEVEMENT_KEYS.STORY_EXPLORER)) {
-            setAchievements(prev => [...prev, Constants.ACHIEVEMENT_KEYS.STORY_EXPLORER]);
-        }
-        // StoryMode component will pick up activeStoryOrQuizTopic
+      if (!achievements.includes(Constants.ACHIEVEMENT_KEYS.STORY_EXPLORER)) {
+        setAchievements(prev => [...prev, Constants.ACHIEVEMENT_KEYS.STORY_EXPLORER]);
+      }
+      // StoryMode component will pick up activeStoryOrQuizTopic
     } else if (mode === 'quiz') {
-         if (!achievements.includes(Constants.ACHIEVEMENT_KEYS.QUIZ_MASTER)) {
-            setAchievements(prev => [...prev, Constants.ACHIEVEMENT_KEYS.QUIZ_MASTER]);
-        }
-        // QuizMode component will pick up activeStoryOrQuizTopic
+      if (!achievements.includes(Constants.ACHIEVEMENT_KEYS.QUIZ_MASTER)) {
+        setAchievements(prev => [...prev, Constants.ACHIEVEMENT_KEYS.QUIZ_MASTER]);
+      }
+      // QuizMode component will pick up activeStoryOrQuizTopic
     }
-    
+
     const achievementKey = pendingPathForModeSelection === 'blockchainBasics'
       ? Constants.ACHIEVEMENT_KEYS.BLOCKCHAIN_BASICS_STARTED
       : Constants.ACHIEVEMENT_KEYS.POLKADOT_ADVANCED_STARTED;
     if (!achievements.includes(achievementKey)) setAchievements(prev => [...prev, achievementKey]);
-    
+
     setPendingPathForModeSelection(null); // Clear the pending path
   };
 
@@ -461,7 +461,7 @@ const App: React.FC = () => {
 
   const handleTopicSelectionFromSidePanel = (topic: MustLearnTopic) => {
     if (!learningPath) return;
-    
+
     if (selectedLearningMode === 'chat') {
       const translatedTopicTitle = t(topic.titleKey);
       handleSendChatMessage(translatedTopicTitle, false, learningPath, topic.canonicalTitle);
@@ -476,7 +476,7 @@ const App: React.FC = () => {
   const handleProfilePictureChange = (dataUrl: string) => {
     setProfilePictureUrl(dataUrl);
     if (!achievements.includes(Constants.ACHIEVEMENT_KEYS.PHOTO_FANATIC)) {
-        setAchievements(prev => [...prev, Constants.ACHIEVEMENT_KEYS.PHOTO_FANATIC]);
+      setAchievements(prev => [...prev, Constants.ACHIEVEMENT_KEYS.PHOTO_FANATIC]);
     }
   };
 
@@ -489,11 +489,11 @@ const App: React.FC = () => {
       if (allAccounts.length === 0) { setWalletError(t('profile.noAccountsFound')); return; }
 
       const formattedAccounts: PolkadotAccount[] = allAccounts.map((acc: LocalInjectedAccountWithMeta) => ({
-        address: encodeAddress(acc.address, 0), 
+        address: encodeAddress(acc.address, 0),
         name: acc.meta.name,
         source: acc.meta.source,
       }));
-      
+
       setAvailablePolkadotAccounts(formattedAccounts);
       if (formattedAccounts.length === 1) { setPolkadotAccount(formattedAccounts[0]); setShowAccountSelector(false); }
       else if (formattedAccounts.length > 1) setShowAccountSelector(true);
@@ -512,7 +512,7 @@ const App: React.FC = () => {
   const handleSelectPolkadotAccount = (account: PolkadotAccount) => {
     setPolkadotAccount(account);
     setShowAccountSelector(false);
-    setAvailablePolkadotAccounts([]); 
+    setAvailablePolkadotAccounts([]);
   };
   const handleCloseAccountSelector = () => { setShowAccountSelector(false); setAvailablePolkadotAccounts([]); };
   const handleDisconnectWallet = () => { setPolkadotAccount(null); setWalletError(null); };
@@ -523,7 +523,7 @@ const App: React.FC = () => {
   const handleConfirmClaimBadge = (achievementKey: string) => {
     if (polkadotAccount) {
       setClaimedBadges(prev => ({ ...prev, [achievementKey]: { achievementKey, address: polkadotAccount.address, source: polkadotAccount.source, claimedAt: Date.now() } }));
-      if (!achievements.includes(Constants.ACHIEVEMENT_KEYS.BADGE_PIONEER) && Object.keys(claimedBadges).length === 0) { 
+      if (!achievements.includes(Constants.ACHIEVEMENT_KEYS.BADGE_PIONEER) && Object.keys(claimedBadges).length === 0) {
         setAchievements(prevAch => [...prevAch, Constants.ACHIEVEMENT_KEYS.BADGE_PIONEER]);
       }
       handleCloseClaimBadgeModal();
@@ -541,6 +541,7 @@ const App: React.FC = () => {
       case 'home':
         return (
           <div className="flex flex-col items-center px-4 md:px-8 py-6 md:py-10 text-white text-center">
+            <Analytics />
             <i className="fas fa-project-diagram pt-10 text-5xl md:text-6xl text-purple-400 mb-6"></i>
             <h1 className="text-2xl md:text-4xl font-bold mb-4">{t('home.title')}</h1>
             <p className="mb-8 text-gray-300 max-w-md">{t('onboarding.welcome.subtitle', { appName: t('appTitle') })}</p>
@@ -579,25 +580,25 @@ const App: React.FC = () => {
           );
         }
         return (
-          <div className="h-full flex flex-col relative"> 
+          <div className="h-full flex flex-col relative">
             {selectedLearningMode === 'chat' && (
-                <ChatInterface messages={chatMessages} onSendMessage={(msg) => handleSendChatMessage(msg, false, undefined, msg)} isLoading={isLoading} error={error} onClearError={() => setError(null)} transcript={transcript} interimTranscript={interimTranscript} isListening={isListening} micNotSupported={!browserSupportsSpeechRecognition} browserSupportsSpeechRecognition={browserSupportsSpeechRecognition} currentPath={learningPath} onSuggestedTopicClick={(topic) => handleSendChatMessage(topic, false, undefined, topic)} startListening={startListening} stopListening={stopListening} cancelSpeaking={cancelSpeaking} />
+              <ChatInterface messages={chatMessages} onSendMessage={(msg) => handleSendChatMessage(msg, false, undefined, msg)} isLoading={isLoading} error={error} onClearError={() => setError(null)} transcript={transcript} interimTranscript={interimTranscript} isListening={isListening} micNotSupported={!browserSupportsSpeechRecognition} browserSupportsSpeechRecognition={browserSupportsSpeechRecognition} currentPath={learningPath} onSuggestedTopicClick={(topic) => handleSendChatMessage(topic, false, undefined, topic)} startListening={startListening} stopListening={stopListening} cancelSpeaking={cancelSpeaking} />
             )}
             {selectedLearningMode === 'story' && learningPath && (
-                <StoryMode learningPath={learningPath} activeTopic={activeStoryOrQuizTopic} userExpertise={userExpertise} onMarkTopicComplete={markTopicAsCompletedByQuery} />
+              <StoryMode learningPath={learningPath} activeTopic={activeStoryOrQuizTopic} userExpertise={userExpertise} onMarkTopicComplete={markTopicAsCompletedByQuery} />
             )}
             {selectedLearningMode === 'quiz' && learningPath && (
-                <QuizMode learningPath={learningPath} activeTopic={activeStoryOrQuizTopic} userExpertise={userExpertise} onMarkTopicComplete={markTopicAsCompletedByQuery} />
+              <QuizMode learningPath={learningPath} activeTopic={activeStoryOrQuizTopic} userExpertise={userExpertise} onMarkTopicComplete={markTopicAsCompletedByQuery} />
             )}
             <div className={`absolute top-2 md:top-4 z-20 flex space-x-2 ${isRtl ? 'left-2 md:left-4 space-x-reverse' : 'right-2 md:right-4'}`}>
-                {selectedLearningMode === 'chat' && browserSupportsSpeechSynthesis && (
-                   <IconButton iconClass={isAutoSpeakEnabled ? "fas fa-volume-up" : "fas fa-volume-mute"} onClick={toggleAutoSpeak} tooltip={isAutoSpeakEnabled ? t('tooltips.disableAiSpeech') : t('tooltips.enableAiSpeech')} className={`p-2 w-10 h-10 md:w-12 md:h-12 rounded-full text-white transition-colors duration-200 shadow-md ${isAutoSpeakEnabled ? 'bg-green-500 hover:bg-green-600' : 'bg-yellow-500 hover:bg-yellow-600'}`} aria-pressed={isAutoSpeakEnabled}/>
-                )}
-                <IconButton iconClass="fas fa-list-alt" onClick={toggleSidePanel} tooltip={t('tooltips.openTopics')} className="p-2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-purple-500 hover:bg-purple-600 text-white transition-colors duration-200 shadow-md" />
+              {selectedLearningMode === 'chat' && browserSupportsSpeechSynthesis && (
+                <IconButton iconClass={isAutoSpeakEnabled ? "fas fa-volume-up" : "fas fa-volume-mute"} onClick={toggleAutoSpeak} tooltip={isAutoSpeakEnabled ? t('tooltips.disableAiSpeech') : t('tooltips.enableAiSpeech')} className={`p-2 w-10 h-10 md:w-12 md:h-12 rounded-full text-white transition-colors duration-200 shadow-md ${isAutoSpeakEnabled ? 'bg-green-500 hover:bg-green-600' : 'bg-yellow-500 hover:bg-yellow-600'}`} aria-pressed={isAutoSpeakEnabled} />
+              )}
+              <IconButton iconClass="fas fa-list-alt" onClick={toggleSidePanel} tooltip={t('tooltips.openTopics')} className="p-2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-purple-500 hover:bg-purple-600 text-white transition-colors duration-200 shadow-md" />
             </div>
           </div>
         );
-      case 'badges': 
+      case 'badges':
         return <NftBadgesScreen achievements={achievements} claimedBadges={claimedBadges} polkadotAccount={polkadotAccount} onClaimBadgeClick={handleOpenClaimBadgeModal} onConnectWalletClick={() => setActiveTab('profile')} />;
       case 'profile':
         return <ProfileScreen nickname={userNickname} onNicknameChange={setUserNickname} achievements={achievements} expertise={userExpertise} onExpertiseChange={handleUserExpertiseChange} profilePictureUrl={profilePictureUrl} onProfilePictureChange={handleProfilePictureChange} polkadotAccount={polkadotAccount} onConnectWallet={handleConnectWallet} onDisconnectWallet={handleDisconnectWallet} walletError={walletError} onClearWalletError={handleClearWalletError} />;
@@ -608,12 +609,12 @@ const App: React.FC = () => {
 
   return (
     <div className="h-screen w-screen flex flex-col bg-gray-900 text-white overflow-hidden">
-       <VisualBackground keyword={currentVisualKeyword} />
+      <VisualBackground keyword={currentVisualKeyword} />
       <header className={`absolute top-0 left-0 right-0 p-3 md:p-4 bg-gray-900 bg-opacity-30 backdrop-blur-sm z-20 flex items-center justify-between ${isRtl ? 'flex-row-reverse' : ''}`}>
         <h1 className="text-lg md:text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">{t('appTitle')}</h1>
         <div className={`flex items-center ${isRtl ? 'flex-row-reverse space-x-reverse space-x-3 md:space-x-4' : 'space-x-3 md:space-x-4'}`}>
-            <LanguageSwitcher />
-            {polkadotAccount && (<div className={`flex items-center ${isRtl ? 'flex-row-reverse space-x-reverse space-x-2' : 'space-x-2'}`}> {profilePictureUrl && (<img src={profilePictureUrl} alt={t('profile.userProfilePictureAlt')} className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-purple-400 object-cover" onError={(e) => (e.currentTarget.style.display = 'none')} />)} <span className="text-xs md:text-sm text-gray-300 hidden sm:block">{polkadotAccount.name || `${polkadotAccount.address.substring(0,6)}...${polkadotAccount.address.substring(polkadotAccount.address.length - 4)}`}</span></div>)}
+          <LanguageSwitcher />
+          {polkadotAccount && (<div className={`flex items-center ${isRtl ? 'flex-row-reverse space-x-reverse space-x-2' : 'space-x-2'}`}> {profilePictureUrl && (<img src={profilePictureUrl} alt={t('profile.userProfilePictureAlt')} className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-purple-400 object-cover" onError={(e) => (e.currentTarget.style.display = 'none')} />)} <span className="text-xs md:text-sm text-gray-300 hidden sm:block">{polkadotAccount.name || `${polkadotAccount.address.substring(0, 6)}...${polkadotAccount.address.substring(polkadotAccount.address.length - 4)}`}</span></div>)}
         </div>
       </header>
 
@@ -622,15 +623,15 @@ const App: React.FC = () => {
       </main>
 
       {onboardingStep === 0 && !showDiagnosticQuizModal && !showLearningModeModal && <BottomNavigation activeTab={activeTab} onTabChange={setActiveTab} />}
-      
+
       <PolkadotAccountSelectorModal isOpen={showAccountSelector} accounts={availablePolkadotAccounts} onSelectAccount={handleSelectPolkadotAccount} onClose={handleCloseAccountSelector} />
-      
-      {showClaimBadgeModal && selectedBadgeToClaim && (<ClaimBadgeModal isOpen={showClaimBadgeModal} achievementKey={selectedBadgeToClaim} polkadotAccount={polkadotAccount} claimedBadgeDetail={claimedBadges[selectedBadgeToClaim]} onClose={handleCloseClaimBadgeModal} onConfirmClaim={handleConfirmClaimBadge} /> )}
+
+      {showClaimBadgeModal && selectedBadgeToClaim && (<ClaimBadgeModal isOpen={showClaimBadgeModal} achievementKey={selectedBadgeToClaim} polkadotAccount={polkadotAccount} claimedBadgeDetail={claimedBadges[selectedBadgeToClaim]} onClose={handleCloseClaimBadgeModal} onConfirmClaim={handleConfirmClaimBadge} />)}
       <ComingSoonModal isOpen={showComingSoonModal} resourceName={comingSoonResourceTitle} onClose={() => setShowComingSoonModal(false)} />
       <DiagnosticQuizModal isOpen={showDiagnosticQuizModal} quizPath={currentQuizPath} onClose={handleCloseDiagnosticQuizModal} onSubmitQuiz={handleDiagnosticQuizSubmit} introTextKey="diagnosticQuiz.introductionText" />
       <LearningModeModal isOpen={showLearningModeModal} onSelectMode={handleLearningModeSelect} onClose={handleCloseLearningModeModal} />
 
-      {activeTab === 'chat' && learningPath && ( <SidePanel isOpen={isSidePanelOpen} topics={currentMustLearnTopics} completedTopics={completedMustLearnTopics} onSelectTopic={handleTopicSelectionFromSidePanel} onClose={toggleSidePanel} learningPath={learningPath} /> )}
+      {activeTab === 'chat' && learningPath && (<SidePanel isOpen={isSidePanelOpen} topics={currentMustLearnTopics} completedTopics={completedMustLearnTopics} onSelectTopic={handleTopicSelectionFromSidePanel} onClose={toggleSidePanel} learningPath={learningPath} />)}
     </div>
   );
 };
