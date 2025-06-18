@@ -1,3 +1,4 @@
+
 import { QuizQuestion, LearningPathName } from './types';
 
 export const GEMINI_MODEL_TEXT = 'gemini-2.5-flash-preview-04-17';
@@ -20,7 +21,7 @@ When the user asks something:
 1.  First, explain it in a super simple way.
 2.  Then, give a "magic word" (like "Magic Blocks", "Rainbow Chain", "Talking Computers") that we can use for a picture. Say it like this: VISUAL_HINT: [Your Magic Word]. For example, if you talk about computers working together, you could say: VISUAL_HINT: Teamwork Computers.
 3.  After that, suggest 2 or 3 fun new questions or ideas they might like next. Say it like this: NEXT_TOPICS: [Fun Question 1, Fun Idea 2, Another Fun Question 3]. Example: NEXT_TOPICS: [What are digital coins like?, How do computers keep secrets safe?, Can we build a game with this?].
-
+Keep your explanations clear and to the point. While being thorough enough to explain the concept, aim for reasonably concise responses. If an explanation is becoming long, try to break it down with bullet points or shorter sentences for better readability.
 
 If you use a word or phrase that might be new or tricky for someone learning about blockchain (like 'DeFi', 'hard fork', 'nominator', 'parachain auction', 'slashing', 'cryptographic hash', 'consensus mechanism', 'smart contract', 'tokenomics', etc.), please quickly explain what it means in simple terms right after you use it. For example, '...this uses a cryptographic hash, which is like turning data into a unique secret code that's hard to guess back...'. Or, you can say something like, 'I just mentioned "DeFi". Would you like me to explain what that means in a simple way?' This helps make sure everyone understands and keeps learning fun!
 
@@ -53,15 +54,28 @@ ILLUSTRATION_IDEA::: A group of cute, minimal-style cats sitting in a circle, wi
 
 export const SYSTEM_INSTRUCTION_QUIZ_TEMPLATE = `You are an expert quiz creator for an educational app about blockchain and Polkadot.
 The user is learning about '{TOPIC_NAME}' in the context of '{LEARNING_PATH_NAME}'. Their stated expertise is '{USER_EXPERTISE_PLACEHOLDER}', or '{USER_EXPERTISE_NO_EXPERTISE_FALLBACK}' if not provided.
+
 Your task is to generate ONE multiple-choice quiz question related to '{TOPIC_NAME}'.
 The question should be relevant to the topic and help assess understanding.
+
 Provide:
 1. The question text.
-2. Four distinct answer options (A, B, C, D).
-3. Clearly indicate which option is the correct answer.
+2. Four distinct answer options (A, B, C, D). Each option MUST be a JSON object with an "id" (string) and a "text" (string) field.
+3. Clearly indicate which option is the correct answer by its "id".
 4. A brief, simple explanation for why the correct answer is correct. This explanation will be shown to the user after they answer.
 
-Return the output strictly as a JSON object with the following structure:
+Return the output STRICTLY as a JSON object with the following structure. Pay EXTREMELY CLOSE attention to commas, curly braces {}, and square brackets [].
+Each item in the "options" array MUST be a complete JSON object like: { "id": "A", "text": "Option A text content" }.
+
+Example of a correctly formatted "options" array with multiple items:
+"options": [
+  { "id": "A", "text": "This is the first answer choice." },
+  { "id": "B", "text": "This is the second answer choice." },
+  { "id": "C", "text": "This is the third answer choice." },
+  { "id": "D", "text": "This is the fourth answer choice." }
+]
+
+Full JSON structure required:
 {
   "question": "string (The quiz question)",
   "options": [
@@ -73,7 +87,14 @@ Return the output strictly as a JSON object with the following structure:
   "correctAnswerId": "string (e.g., 'C' - the ID of the correct option)",
   "explanation": "string (The brief explanation for the correct answer)"
 }
-Do not include any other text, comments, or markdown (like \`\`\`json) before or after the JSON object. Just the raw JSON.`;
+
+CRITICAL FINAL INSTRUCTIONS:
+- Your ENTIRE response MUST be ONLY the JSON object.
+- Do NOT include ANY text, comments, notes, apologies, self-corrections, or conversational phrases before, after, or within the JSON object.
+- The output MUST start with '{' and end with '}' and contain only valid JSON syntax.
+- Ensure there are NO TRAILING COMMAS after the last element in an array or the last property in an object.
+- Double-check your response for any extraneous characters, typos, or formatting errors (especially within the 'options' array objects) before outputting the JSON. The structure must be PERFECT.
+`;
 
 
 export const MAX_CHAT_HISTORY_FOR_CONTEXT = 10;

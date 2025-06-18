@@ -1,3 +1,4 @@
+
 import { GoogleGenAI, GenerateContentResponse, Part, Content, Tool } from "@google/genai";
 import { 
     ChatMessage, 
@@ -216,6 +217,43 @@ export const generateImageForStory = async (illustrationIdea: string): Promise<s
     }
 };
 
+const cleanQuizJsonString = (rawJson: string): string => {
+    let cleaned = rawJson;
+
+    // Remove markdown code fences if present
+    const fenceRegex = /^```(\w*)?\s*\n?(.*?)\n?\s*```$/s;
+    const fenceMatch = cleaned.match(fenceRegex);
+    if (fenceMatch && fenceMatch[2]) {
+      cleaned = fenceMatch[2].trim();
+    }
+
+    // Attempt to remove specific conversational/note patterns observed
+    // This looks for "text": "Some text." Some unwanted phrase until the next comma or closing brace
+    cleaned = cleaned.replace(/("text":\s*"[^"]*?")(\s*[^,{}\]]+)(?=[,}])/g, '$1');
+    
+    // Simpler removal of specific known interjections if they are on their own line or clearly separable
+    // For example, removing lines starting with "Tapiwa Nyamakope..." or "inhaled_note:"
+    cleaned = cleaned.split('\n').filter(line => 
+        !line.trim().startsWith('Tapiwa Nyamakope') && 
+        !line.trim().startsWith('inhaled_note":') &&
+        !line.trim().startsWith('I am sorry, but I cannot include anything') &&
+        !line.trim().startsWith('I will stop here.')
+    ).join('\n');
+
+    // General attempt to strip text that might be outside legitimate JSON string values
+    // This is more complex and might need refinement based on observed errors.
+    // One approach: if a line within an "options" array doesn't look like a valid JSON part
+    // (e.g., doesn't start with "{" or "id": or "text":), it might be an interjection.
+    // However, this regex-based cleaning is heuristic and might not cover all cases or could be too aggressive.
+    // A simpler step for now: ensure no text *after* the final closing brace of the JSON.
+    const lastBraceIndex = cleaned.lastIndexOf('}');
+    if (lastBraceIndex !== -1 && lastBraceIndex < cleaned.length -1) {
+        cleaned = cleaned.substring(0, lastBraceIndex + 1);
+    }
+    
+    return cleaned.trim();
+};
+
 
 export const generateQuizItem = async (
     topicName: string,
@@ -226,6 +264,7 @@ export const generateQuizItem = async (
     if (!API_KEY) {
          return { text: "AI Service not configured (Quiz Mode)." };
     }
+    let rawResponseText = ""; 
     try {
         const expertiseToUse = userExpertise && userExpertise.trim() ? userExpertise.trim() : userExpertiseNoneProvidedText;
         const systemInstruction = SYSTEM_INSTRUCTION_QUIZ_TEMPLATE
@@ -243,23 +282,20 @@ export const generateQuizItem = async (
             }
         });
 
-        const responseText = response.text;
-        if (!responseText) {
+        rawResponseText = response.text; 
+        if (!rawResponseText) {
             throw new Error("Received no text response from AI for quiz generation.");
         }
-
-        let jsonStr = responseText.trim();
-        const fenceRegex = /^```(\w*)?\s*\n?(.*?)\n?\s*```$/s;
-        const match = jsonStr.match(fenceRegex);
-        if (match && match[2]) {
-          jsonStr = match[2].trim();
-        }
         
-        const parsedData = JSON.parse(jsonStr) as QuizItem; // Assuming direct parsing works
+        const cleanedJsonString = cleanQuizJsonString(rawResponseText);
+        
+        const parsedData = JSON.parse(cleanedJsonString) as QuizItem; 
         return { text: "Quiz item generated", quizItem: { ...parsedData, id: Date.now().toString()} };
 
     } catch (error) {
-        console.error('Gemini API quiz generation error:', error, 'Raw response text:', (error as any).responseText);
-        throw new Error(`AI service error (Quiz Mode): ${error instanceof Error ? error.message : String(error)}`);
+        console.error('Gemini API quiz generation error:', error, 'Attempted to parse (after cleaning):', cleanQuizJsonString(rawResponseText));
+        const errorMessage = error instanceof Error ? error.message : String(error);
+        const truncatedJson = rawResponseText.length > 500 ? rawResponseText.substring(0, 497) + "..." : rawResponseText;
+        throw new Error(`AI service error (Quiz Mode): ${errorMessage}. Problematic RAW JSON string (or part of it): [${truncatedJson}]`);
     }
 };
