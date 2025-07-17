@@ -1,6 +1,6 @@
 
 {
-  "appTitle": "مستكشف البلوك تشين والبولkadot (AR)",
+  "appTitle": "مستكشف البلوك تشين والبولkadot",
   "common": {
     "save": "حفظ",
     "edit": "تعديل",
@@ -92,4 +92,233 @@
     "walletSource": "امتداد المحفظة",
     "walletSourceLabel": "المصدر",
     "selectAccountTitle": "اختر حساب بولkadot",
-    "noWalletsDetected": "لم يتم الكشف عن أي امتدادات لمحفظة بولkadot. يرجى تثبيت
+    "noWalletsDetected": "لم يتم الكشف عن أي امتدادات لمحفظة بولkadot. يرجى تثبيت واحدة (مثل Nova Wallet, Talisman, Polkadot.js) والمحاولة مرة أخرى.",
+    "walletsPermissionDenied": "تم رفض الإذن بالوصول إلى امتدادات Polkadot. يرجى تمكين الأذونات في إعدادات امتداد المتصفح الخاص بك.",
+    "walletsGenericError": "تعذر الاتصال بمحافظ Polkadot. يرجى التأكد من أن الامتداد الخاص بك غير مقفل والمحاولة مرة أخرى.",
+    "noAccountsFound": "لم يتم العثور على حسابات في امتداد محفظة Polkadot الخاص بك. يرجى إنشاء حساب أو استيراده.",
+    "noAccountsFoundInExtension": "لم يتم العثور على حسابات في الامتداد المحدد.",
+    "expertiseTitle": "خلفيتك/خبرتك",
+    "editExpertiseAriaLabel": "تعديل خبرتك",
+    "expertisePlaceholder": "مثال: 'مطور واجهات أمامية'، 'محترف تسويق'",
+    "saveExpertiseButton": "حفظ الخبرة",
+    "saveExpertiseButtonAriaLabel": "حفظ الخبرة",
+    "cancelEditingExpertiseAriaLabel": "إلغاء تعديل الخبرة",
+    "expertiseNotSpecified": "لم يتم التحديد بعد. أضف خلفيتك للمساعدة في تخصيص الأمثلة!",
+    "editExpertiseButtonAriaLabel": "تعديل الخبرة",
+    "achievementsTitle": "الإنجازات",
+    "noAchievements": "لم يتم فتح أي إنجازات بعد. استمر في التعلم والاستكشاف!"
+  },
+  "onboarding": {
+    "welcome": {
+      "title": "أهلاً بك!",
+      "subtitle": "دليلك الودي لفهم البلوك تشين وبولkadot، بدعم من {{appName}}."
+    },
+    "interactive": {
+      "title": "تعلم بشكل تفاعلي",
+      "line1": "شارك في محادثات لاستكشاف مواضيع معقدة.",
+      "line2": "تساعد المرئيات الديناميكية على إضفاء الحيوية على المفاهيم المجردة."
+    },
+    "aiFeatures": {
+      "title": "ذكي وسهل الوصول",
+      "line1": "احصل على مساعدة مدعومة بالذكاء الاصطناعي مصممة خصيصًا لأسئلتك.",
+      "line2": "استخدم الأوامر الصوتية لتجربة تعلم بدون استخدام اليدين.",
+      "voiceNoteNoSupport": "متصفحك لا يدعم الأوامر الصوتية بالكامل، لكن الدردشة بالذكاء الاصطناعي هنا من أجلك!",
+      "note": "الذكاء الاصطناعي يتعلم باستمرار، ولكن تحقق دائمًا من المعلومات الهامة."
+    },
+    "language": {
+      "title": "اختر لغتك"
+    },
+    "personalize": {
+      "title": "دعنا نخصص تعلمك!",
+      "description1": "أخبرنا قليلاً عن خلفيتك، أو دورك الحالي، أو مجال خبرتك (على سبيل المثال، \"مطور برامج\"، \"طالب في المالية\"، \"مدير تسويق\"، \"مهتم بالويب 3\").",
+      "description2": "سيساعدنا هذا في تكييف الأمثلة والشروحات مع ما تعرفه بالفعل، مما يجعل المواضيع المعقدة أسهل في الفهم.",
+      "textAreaPlaceholder": "مثال: 'مطور واجهات أمامية بخبرة 3 سنوات'، 'محترف تسويق جديد في مجال التكنولوجيا'، 'طالب اقتصاد'",
+      "textAreaAriaLabel": "صف خبرتك أو تخصصك",
+      "skipButton": "تخطى الآن",
+      "skipButtonAriaLabel": "تخطي تقديم الخبرة الآن",
+      "submitButton": "إرسال وبدء التعلم",
+      "submitButtonAriaLabel": "إرسال الخبرة وبدء التعلم"
+    },
+    "nextButton": "التالي",
+    "skipIntroButton": "تخطي المقدمة",
+    "getStartedButton": "ابدأ"
+  },
+  "bottomNav": {
+    "home": "الرئيسية",
+    "chat": "تعلم",
+    "badges": "الشارات",
+    "profile": "الملف الشخصي"
+  },
+  "badgesScreen": {
+    "title": "شاراتك الرقمية",
+    "connectWalletPrompt": "اربط محفظة بولkadot الخاصة بك في علامة تبويب الملف الشخصي للمطالبة بشارات إنجازك!",
+    "goToProfileButton": "اذهب إلى الملف الشخصي",
+    "noAchievements": "لم تحقق أي إنجازات بعد. ابدأ التعلم لجمع الشارات!",
+    "claimButton": "المطالبة بالشارة الرقمية",
+    "viewClaimButton": "عرض تفاصيل المطالبة",
+    "claimedStatus": "تمت المطالبة"
+  },
+  "claimModal": {
+    "titleClaim": "طالب بشارتك الرقمية",
+    "titleView": "تفاصيل الشارة الرقمية",
+    "badgeNameLabel": "الشارة:",
+    "achievementLabel": "الإنجاز:",
+    "associatedWallet": "سيتم ربطها بالمحفظة:",
+    "claimedWithWallet": "تمت المطالبة بها بالمحفظة:",
+    "walletAddressLabel": "العنوان:",
+    "walletSourceLabel": "المصدر:",
+    "claimDate": "تاريخ المطالبة:",
+    "disclaimer": "هذا عنصر رقمي قابل للتحصيل داخل التطبيق يمثل إنجازك. إنه ليس NFT على السلسلة... بعد! قد تتيح التحديثات المستقبلية إمكانية السك.",
+    "confirmButton": "تأكيد المطالبة",
+    "closeButton": "إغلاق"
+  },
+  "diagnosticQuiz": {
+    "introductionText": "قبل أن نبدأ، دعنا نقيم مدى معرفتك بالبلوك تشين لإنشاء نموذج التعلم المثالي لك.",
+    "title.blockchainBasics": "اختبار سريع: أساسيات البلوك تشين",
+    "title.polkadotAdvanced": "اختبار سريع: بولkadot المتقدم",
+    "nextQuestion": "السؤال التالي",
+    "finishQuiz": "إنهاء الاختبار",
+    "questionProgress": "سؤال {{current}} من {{total}}",
+    "blockchainBasics": {
+      "q1": {
+        "question": "ما هي السمة الأساسية للبلوك تشين؟",
+        "optA": "التحكم المركزي من قبل كيان واحد",
+        "optB": "البيانات قابلة للتعديل بسهولة من قبل أي شخص",
+        "optC": "دفتر أستاذ موزع وغير قابل للتغيير غالبًا",
+        "optD": "لا يتطلب اتصال بالإنترنت"
+      },
+      "q2": {
+        "question": "ماذا يعني \"التعدين\" في سياق البيتكوين؟",
+        "optA": "استخراج المعادن الثمينة ماديًا",
+        "optB": "إنشاء عملات بيتكوين جديدة والتحقق من صحة المعاملات",
+        "optC": "تصميم برامج بلوك تشين جديدة",
+        "optD": "إنفاق عملات البيتكوين في المتاجر عبر الإنترنت"
+      },
+      "q3": {
+        "question": "ما هو \"العقد الذكي\"؟",
+        "optA": "وثيقة قانونية يراجعها المحامون",
+        "optB": "برنامج كمبيوتر ينفذ الاتفاقيات تلقائيًا",
+        "optC": "محفظة أجهزة آمنة للعملات المشفرة",
+        "optD": "اتفاقية تسويق بين شركتين"
+      }
+    },
+    "polkadotAdvanced": {
+      "q1": {
+        "question": "ما هو الدور الرئيسي لسلسلة الترحيل (Relay Chain) في بولkadot؟",
+        "optA": "تخزين جميع بيانات المستخدم من السلاسل الجانبية (parachains)",
+        "optB": "توفير الأمن وتنسيق السلاسل الجانبية",
+        "optC": "تنفيذ العقود الذكية مباشرة للتطبيقات اللامركزية",
+        "optD": "تعدين رموز DOT جديدة"
+      },
+      "q2": {
+        "question": "ما هي \"السلسلة الجانبية\" (parachain) في نظام بولkadot البيئي؟",
+        "optA": "نوع من محفظة العملات المشفرة",
+        "optB": "بلوك تشين مستقل يتصل بسلسلة الترحيل",
+        "optC": "اقتراح حوكمة",
+        "optD": "نظام نسخ احتياطي لسلسلة الترحيل"
+      },
+      "q3": {
+        "question": "ما هو Substrate؟",
+        "optA": "العملة المشفرة الأصلية لبولkadot",
+        "optB": "منصة تسويق لمشاريع بولkadot",
+        "optC": "إطار عمل لبناء بلوك تشين مخصصة",
+        "optD": "بروتوكول رسائل عبر السلاسل"
+      }
+    }
+  },
+  "learningModeModal": {
+    "title": "كيف تود أن تتعلم اليوم؟",
+    "chatButton": "وضع الدردشة",
+    "chatDescription": "اطرح أسئلة واحصل على شروحات مدعومة بالذكاء الاصطناعي.",
+    "storyButton": "وضع القصة",
+    "storyDescription": "تعلم من خلال قصص ورسوم توضيحية جذابة.",
+    "quizButton": "وضع الاختبار",
+    "quizDescription": "اختبر معلوماتك باختبارات تفاعلية."
+  },
+  "storyMode": {
+    "defaultTitle": "وقت القصة!",
+    "slideImageAlt": "توضيح لـ: {{idea}}",
+    "previousButton": "السابق",
+    "nextButton": "التالي",
+    "loadingStory": "نحضر لك قصة رائعة...",
+    "loadingImage": "جاري إنشاء سحر القطط...",
+    "imageError": "عفوًا! لم نتمكن من جلب صورة هذه القطة.",
+    "endOfStory": "لقد وصلت إلى نهاية هذه الحكاية الرائعة!",
+    "startNewStory": "اختر موضوعًا آخر لقصة جديدة.",
+    "noTopicSelectedTitle": "لم يتم تحديد موضوع للقصة",
+    "selectTopicPrompt": "يرجى تحديد موضوع من اللوحة الجانبية لبدء قصة.",
+    "noStoryAvailable": "لا يوجد محتوى قصة متاح لهذا الموضوع بعد.",
+    "generatingCatMagic": "جاري إنشاء سحر القطط..."
+  },
+  "quizMode": {
+    "title": "وقت الاختبار",
+    "noTopicSelectedTitle": "لم يتم تحديد موضوع للاختبار",
+    "selectTopicPrompt": "يرجى تحديد موضوع من اللوحة الجانبية لبدء اختبار.",
+    "submitAnswer": "إرسال الإجابة",
+    "nextQuestion": "السؤال التالي",
+    "loadingQuiz": "نحضر أسئلتك...",
+    "correct": "صحيح!",
+    "wrong": "ليس تمامًا!",
+    "selectAnswerPrompt": "يرجى تحديد إجابة.",
+    "noQuizForTopic": "لا يوجد اختبار متاح لهذا الموضوع بعد.",
+    "startNewQuiz": "اختر موضوعًا آخر لاختبار جديد."
+  },
+  "loadingSpinner": {
+    "aiThinking": "الذكاء الاصطناعي يفكر..."
+  },
+  "errors": {
+    "speechRecognitionError": "خطأ في التعرف على الكلام: {{message}}",
+    "unknownAiError": "حدث خطأ غير معروف مع خدمة الذكاء الاصطناعي.",
+    "aiErrorPrefix": "خطأ: {{message}}"
+  },
+  "initialPrompts": {
+    "basics": "أنا جديد في عالم البلوك تشين. هل يمكنك أن تعطيني مقدمة بسيطة عن أساسيات البلوك تشين لأبدأ؟",
+    "polkadot": "لدي بعض المعرفة بالبلوك تشين. يرجى تقديم نظرة عامة على بولkadot، مع التركيز على ميزاتها الرئيسية وهيكلها للمستخدمين المتقدمين. حاول استخدام المعلومات من ويكي بولkadot."
+  },
+  "userExpertise": {
+    "noneProvided": "لم يتم توفيره"
+  },
+  "achievements": {
+    "initiatedLearner": { "name": "متعلم مبتدئ", "description": "أهلاً بك! لقد بدأت رحلتك التعليمية." },
+    "blockchainBasicsStarted": { "name": "بدء أساسيات البلوك تشين", "description": "بدأت في طريق فهم أساسيات البلوك تشين." },
+    "polkadotAdvancedStarted": { "name": "بدء بولkadot المتقدم", "description": "الغوص عميقًا في نظام بولkadot البيئي." },
+    "curiousChatterbox": { "name": "ثرثار فضولي", "description": "شاركت في محادثات متعددة مع الذكاء الاصطناعي." },
+    "explorerGuide": { "name": "دليل المستكشف", "description": "اتبعت مواضيع مقترحة من الذكاء الاصطناعي لتعميق المعرفة." },
+    "personalizedLearner": { "name": "متعلم مخصص", "description": "شاركت خبرتك لتخصيص تجربة التعلم." },
+    "sourceSeeker": { "name": "باحث عن المصادر", "description": "استكشفت مصادر خارجية مقدمة من الذكاء الاصطناعي." },
+    "firstTopicConquered": { "name": "تم التغلب على أول موضوع", "description": "تعلمت بنجاح عن أحد المواضيع الأساسية." },
+    "pathMaster": { "name": "سيد المسار", "description": "أكملت جميع المواضيع الأساسية في مسار تعليمي." },
+    "walletConnector": { "name": "رابط المحفظة", "description": "ربطت محفظة بولkadot بالتطبيق." },
+    "photoFanatic": { "name": "مهووس بالصور", "description": "قمت بتحميل صورة للملف الشخصي." },
+    "badgePioneer": { "name": "رائد الشارات", "description": "طالبت بأول شارة رقمية لك!" },
+    "quizCompleterBasics": { "name": "مكمل اختبار الأساسيات", "description": "أكملت اختبار تشخيص أساسيات البلوك تشين." },
+    "quizCompleterAdvanced": { "name": "مكمل الاختبار المتقدم", "description": "أكملت اختبار تشخيص بولkadot المتقدم." },
+    "storyExplorer": { "name": "مستكشف القصص", "description": "غامرت في عالم التعلم القائم على القصص." },
+    "quizMaster": { "name": "سيد الاختبارات", "description": "تحديت معرفتك باختبارات تفاعلية." }
+  },
+  "mustLearn": {
+    "blockchainBasics": {
+      "whatIsBlockchain": { "title": "ما هو البلوك تشين؟", "description": "فهم المفهوم الأساسي لدفتر الأستاذ الموزع." },
+      "howBlockchainWorks": { "title": "كيف يعمل البلوك تشين؟", "description": "تعلم عن الكتل والسلاسل والتجزئة المشفرة." },
+      "decentralizationImmutability": { "title": "اللامركزية وعدم القابلية للتغيير", "description": "الخصائص الرئيسية لتقنية البلوك تشين." },
+      "typesOfBlockchains": { "title": "أنواع البلوك تشين", "description": "استكشف البلوك تشين العامة والخاصة والاتحادية." },
+      "whatAreCryptocurrencies": { "title": "ما هي العملات المشفرة؟", "description": "مقدمة في العملات الرقمية مثل البيتكوين والإيثر." },
+      "smartContractsExplained": { "title": "شرح العقود الذكية", "description": "اكتشف العقود ذاتية التنفيذ بقواعد محددة مسبقًا." },
+      "useCasesBlockchain": { "title": "حالات استخدام البلوك تشين", "description": "تطبيقات العالم الحقيقي خارج نطاق العملات المشفرة." },
+      "getInvolvedBlockchain": { "title": "كيف يمكنني المشاركة في البلوك تشين؟", "description": "استكشف طرق المشاركة في مجال البلوك تشين، مع أمثلة مخصصة لك." },
+      "whatIsTrading": { "title": "ما هو التداول وكيف يعمل؟", "description": "استكشف أنواع التداول، مقارنة بين العملات المشفرة والتقليدية، والآليات الأساسية." },
+      "withdrawCryptoCash": { "title": "سحب العملات المشفرة نقدًا", "description": "تعلم طرق الند للند وغيرها، مع توصيات للمنصات." }
+    },
+    "polkadotAdvanced": {
+      "polkadotArchitecture": { "title": "هيكلية بولkadot", "description": "سلسلة الترحيل، السلاسل الجانبية، السلاسل الخيطية، والجسور." },
+      "sharedSecurityModel": { "title": "نموذج الأمن المشترك", "description": "كيف يؤمن بولkadot شبكته من السلاسل الجانبية." },
+      "crossChainCommunication": { "title": "الاتصال عبر السلاسل (XCMP)", "description": "تمكين التشغيل البيني بين سلاسل البلوك تشين المختلفة." },
+      "polkadotGovernance": { "title": "حوكمة بولkadot", "description": "الخزانة على السلسلة، المجلس، واللجنة الفنية." },
+      "substrateFramework": { "title": "إطار عمل Substrate", "description": "إطار عمل معياري لبناء بلوك تشين مخصصة." },
+      "stakingNominationPolkadot": { "title": "التخزين والترشيح (NPoS)", "description": "شارك في أمن الشبكة واكسب مكافآت." },
+      "kusamaCanaryNetwork": { "title": "Kusama: شبكة الكناري لبولkadot", "description": "شبكة بولkadot التجريبية للنشرات المبكرة." },
+      "whatIsJam": { "title": "ما هو JAM (Join-Accumulate Machine)؟", "description": "فهم اقتراح بروتوكول JAM لبولkadot." },
+      "polkadotCareerFuture": { "title": "المسار الوظيفي والمستقبل مع بولkadot", "description": "اكتشف المسارات الوظيفية وفرص المشاركة والفوائد داخل نظام بولkadot البيئي." }
+    }
+  }
+}
