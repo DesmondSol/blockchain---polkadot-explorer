@@ -32,6 +32,7 @@
       "wallets": "Portefeuilles",
       "dapps": "DApps",
       "gov": "Gouvernance",
+      "community": "Communauté",
       "bounties": "Primes",
       "discord": "Discord",
       "videos": "Vidéos",
@@ -66,6 +67,10 @@
       "portal": { "title": "Gouvernance de Polkadot", "description": "Le hub officiel pour participer à la gouvernance de Polkadot, des référendums aux élections du conseil et aux propositions de trésorerie." },
       "treasury": { "title": "Trésorerie de Polkadot", "description": "Découvrez la trésorerie on-chain financée par les frais de réseau, qui peut être dépensée pour des projets qui profitent à l'écosystème." },
       "opengov": { "title": "OpenGov", "description": "Explorez le modèle de gouvernance de nouvelle génération de Polkadot (Gov2), conçu pour être plus décentralisé et agile." }
+    },
+    "community": {
+      "polkadotAfrica": { "title": "Polkadot Afrique", "description": "Le hub central pour la communauté Polkadot à travers l'Afrique. Rejoignez-nous pour les actualités, les événements et les connexions." },
+      "polkadotEthiopia": { "title": "Polkadot Éthiopie", "description": "Connectez-vous avec la communauté locale de Polkadot en Éthiopie. Rejoignez la conversation sur Telegram." }
     }
   },
   "chat": {
@@ -158,7 +163,7 @@
     "personalize": {
       "title": "Personnalisons Votre Apprentissage ! (FR)",
       "description1": "Parlez-nous un peu de votre parcours, de votre rôle actuel ou de votre domaine d'expertise (par ex. \"Développeur de logiciels\", \"Étudiant en finance\", \"Responsable marketing\", \"Curieux du Web3\"). (FR)",
-      "description2": "Cela nous aidera à adapter les exemples et les explications à ce que vous savez déjà, facilitant la compréhension des sujets complexes. (FR)",
+      "description2": "Cela nous aidera à adapter les exemples et les explications à ce que vous savez déjà, facilitant la comprensión des sujets complexes. (FR)",
       "textAreaPlaceholder": "Ex : 'Développeur frontend avec 3 ans d'expérience', 'Professionnel du marketing novice en technologie', 'Étudiant en économie' (FR)",
       "textAreaAriaLabel": "Décrivez votre expérience ou expertise (FR)",
       "skipButton": "Passer pour l'Instant (FR)",
@@ -307,7 +312,7 @@
   },
   "achievements": {
     "initiatedLearner": { "name": "Apprenant Initié", "description": "Bienvenue ! Vous avez commencé votre parcours d'apprentissage. (FR)" },
-    "blockchainBasicsStarted": { "name": "Bases de la Blockchain Commencées", "description": "Vous vous êtes engagé sur la voie de la compréhension des fondamentaux de la blockchain. (FR)" },
+    "blockchainBasicsStarted": { "name": "Bases de la Blockchain Commencées", "description": "Vous vous êtes engagé sur la voie de la comprensión des fondamentaux de la blockchain. (FR)" },
     "polkadotAdvancedStarted": { "name": "Polkadot Avancé Commencé", "description": "Plongée profonde dans l'écosystème Polkadot. (FR)" },
     "curiousChatterbox": { "name": "Bavard Curieux", "description": "Engagé dans de multiples conversations avec l'IA. (FR)" },
     "explorerGuide": { "name": "Guide Explorateur", "description": "A suivi les sujets suggérés par l'IA pour approfondir ses connaissances. (FR)" },

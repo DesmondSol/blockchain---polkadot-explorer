@@ -32,6 +32,7 @@
       "wallets": "محافظ",
       "dapps": "تطبيقات لامركزية",
       "gov": "الحوكمة",
+      "community": "مجتمع",
       "bounties": "مكافآت",
       "discord": "ديسكورد",
       "videos": "فيديوهات",
@@ -66,6 +67,10 @@
       "portal": { "title": "Polkadot Governance", "description": "المركز الرسمي للمشاركة في حوكمة Polkadot، من الاستفتاءات إلى انتخابات المجلس ومقترحات الخزانة." },
       "treasury": { "title": "Polkadot Treasury", "description": "تعرف على الخزانة الموجودة على السلسلة والممولة من رسوم الشبكة، والتي يمكن إنفاقها على المشاريع التي تفيد النظام البيئي." },
       "opengov": { "title": "OpenGov", "description": "استكشف نموذج حوكمة الجيل التالي من Polkadot (Gov2)، المصمم ليكون أكثر لامركزية ومرونة." }
+    },
+    "community": {
+      "polkadotAfrica": { "title": "بولkadot أفريقيا", "description": "المركز الرئيسي لمجتمع بولkadot في جميع أنحاء أفريقيا. انضم للأخبار والفعاليات والتواصل." },
+      "polkadotEthiopia": { "title": "بولkadot إثيوبيا", "description": "تواصل مع مجتمع بولkadot المحلي في إثيوبيا. انضم إلى المحادثة على Telegram." }
     }
   },
   "chat": {

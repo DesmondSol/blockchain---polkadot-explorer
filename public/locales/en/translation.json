@@ -32,6 +32,7 @@
       "wallets": "Wallets",
       "dapps": "DApps",
       "gov": "Governance",
+      "community": "Community",
       "bounties": "Bounties",
       "discord": "Discord",
       "videos": "Videos",
@@ -66,6 +67,10 @@
       "portal": { "title": "Polkadot Governance", "description": "The official hub for participating in Polkadot's governance, from referenda to council elections and treasury proposals." },
       "treasury": { "title": "Polkadot Treasury", "description": "Learn about the on-chain treasury funded by network fees, which can be spent on projects that benefit the ecosystem." },
       "opengov": { "title": "OpenGov", "description": "Explore Polkadot's next-generation governance model (Gov2), designed to be more decentralized and agile." }
+    },
+    "community": {
+      "polkadotAfrica": { "title": "Polkadot Africa", "description": "The central hub for the Polkadot community across Africa. Join for news, events, and connections." },
+      "polkadotEthiopia": { "title": "Polkadot Ethiopia", "description": "Connect with the local Polkadot community in Ethiopia. Join the conversation on Telegram." }
     }
   },
   "chat": {

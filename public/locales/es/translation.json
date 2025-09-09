@@ -32,6 +32,7 @@
       "wallets": "Billeteras",
       "dapps": "DApps",
       "gov": "Gobernanza",
+      "community": "Comunidad",
       "bounties": "Recompensas",
       "discord": "Discord",
       "videos": "Videos",
@@ -66,6 +67,10 @@
       "portal": { "title": "Gobernanza de Polkadot", "description": "El centro oficial para participar en la gobernanza de Polkadot, desde referendos hasta elecciones del consejo y propuestas del tesoro." },
       "treasury": { "title": "Tesoro de Polkadot", "description": "Aprende sobre el tesoro en cadena financiado por las tarifas de la red, que se puede gastar en proyectos que benefician al ecosistema." },
       "opengov": { "title": "OpenGov", "description": "Explora el modelo de gobernanza de próxima generación de Polkadot (Gov2), diseñado para ser más descentralizado y ágil." }
+    },
+    "community": {
+      "polkadotAfrica": { "title": "Polkadot África", "description": "El centro neurálgico para la comunidad de Polkadot en toda África. Únete para noticias, eventos y conexiones." },
+      "polkadotEthiopia": { "title": "Polkadot Etiopía", "description": "Conecta con la comunidad local de Polkadot en Etiopía. Únete a la conversación en Telegram." }
     }
   },
   "chat": {

@@ -32,6 +32,7 @@
       "wallets": "የኪስ ቦርሳዎች",
       "dapps": "ያልተማከለ መተግበሪያዎች",
       "gov": "አስተዳደር",
+      "community": "ማህበረሰብ",
       "bounties": "ሽልማቶች",
       "discord": "ዲስኮርድ",
       "videos": "ቪዲዮዎች",
@@ -66,6 +67,10 @@
       "portal": { "title": "Polkadot Governance", "description": "በፖልካዶት አስተዳደር ውስጥ ለመሳተፍ ይፋዊ ማዕከል፣ ከህዝበ ውሳኔ እስከ የምክር ቤት ምርጫ እና የግምጃ ቤት ሀሳቦች።" },
       "treasury": { "title": "Polkadot Treasury", "description": "ሥነ-ምህዳሩን በሚጠቅሙ ፕሮጀክቶች ላይ ሊወጣ የሚችል፣ በአውታረ መረብ ክፍያዎች ስለሚደገፈው በሰንሰለት-ላይ ስላለው ግምጃ ቤት ይወቁ።" },
       "opengov": { "title": "OpenGov", "description": "የፖልካዶትን የቀጣይ-ትውልድ የአስተዳደር ሞዴል (Gov2) ያስሱ፣ የበለጠ ያልተማከለ እና ቀልጣፋ እንዲሆን የተነደፈ።" }
+    },
+    "community": {
+      "polkadotAfrica": { "title": "ፖልካዶት አፍሪካ", "description": "በአፍሪካ ዙሪያ ላሉ የፖልካዶት ማህበረሰብ ማዕከላዊ ማዕከል። ለዜናዎች፣ ዝግጅቶች እና ግንኙነቶች ይቀላቀሉ።" },
+      "polkadotEthiopia": { "title": "ፖልካዶት ኢትዮጵያ", "description": "በኢትዮጵያ ካለው የአካባቢው የፖልካዶት ማህበረሰብ ጋር ይገናኙ። በቴሌግራም ውይይቱን ይቀላቀሉ።" }
     }
   },
   "chat": {
@@ -337,7 +342,7 @@
       "withdrawCryptoCash": { "title": "ክሪፕቶን ወደ ጥሬ ገንዘብ ማውጣት", "description": "P2P እና ሌሎች ዘዴዎችን ይማሩ፣ ከፕላትፎርም ምክሮች ጋር።" }
     },
     "polkadotAdvanced": {
-      "polkadotArchitecture": { "title": "የፖልካዶት አርክቴክቸር", "description": "ሪሌይ ቼይን، ፓራቼይንስ، ፓራተሬድስ እና ብሪጅስ።" },
+      "polkadotArchitecture": { "title": "የፖልካዶት አርክቴክቸር", "description": "ሪሌይ ቼይን، ፓራቼይንስ፣ ፓራተሬድስ እና ብሪጅስ።" },
       "sharedSecurityModel": { "title": "የተጋራ የደህንነት ሞዴል", "description": "ፖልካዶት የፓራቼይኖቹን አውታረመረብ እንዴት እንደሚጠብቅ።" },
       "crossChainCommunication": { "title": "ክሮስ-ቼይን ግንኙነት (XCMP)", "description": "በተለያዩ ብሎክቼይኖች መካከል መስተጋብርን ማንቃት።" },
       "polkadotGovernance": { "title": "የፖልካዶት አስተዳደር", "description": "በሰንሰለት ላይ ያለ ግምጃ ቤት، ምክር ቤት እና የቴክኒክ ኮሚቴ።" },

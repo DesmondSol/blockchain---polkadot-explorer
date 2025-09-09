@@ -32,6 +32,7 @@
       "wallets": "Pochi",
       "dapps": "DApps",
       "gov": "Utawala",
+      "community": "Jumuiya",
       "bounties": "Zawadi",
       "discord": "Discord",
       "videos": "Video",
@@ -66,6 +67,10 @@
       "portal": { "title": "Polkadot Governance", "description": "Kitovu rasmi cha kushiriki katika utawala wa Polkadot, kutoka kwa referenda hadi uchaguzi wa baraza na mapendekezo ya hazina." },
       "treasury": { "title": "Polkadot Treasury", "description": "Jifunze kuhusu hazina ya mtandaoni inayofadhiliwa na ada za mtandao, ambayo inaweza kutumika kwa miradi inayofaidi mfumo ikolojia." },
       "opengov": { "title": "OpenGov", "description": "Gundua mtindo wa utawala wa kizazi kijacho wa Polkadot (Gov2), ulioundwa kuwa na ugatuzi zaidi na wepesi." }
+    },
+    "community": {
+      "polkadotAfrica": { "title": "Polkadot Afrika", "description": "Kitovu kikuu cha jumuiya ya Polkadot barani Afrika. Jiunge kwa habari, matukio, na mawasiliano." },
+      "polkadotEthiopia": { "title": "Polkadot Ethiopia", "description": "Ungana na jumuiya ya Polkadot nchini Ethiopia. Jiunge na mazungumzo kwenye Telegram." }
     }
   },
   "chat": {
@@ -341,6 +346,7 @@
       "sharedSecurityModel": { "title": "Mfumo wa Usalama Ulioshirikiwa", "description": "Jinsi Polkadot inavyolinda mtandao wake wa parachains." },
       "crossChainCommunication": { "title": "Mawasiliano ya Minyororo Mbalimbali (XCMP)", "description": "Kuwezesha ushirikiano kati ya blockchain tofauti." },
       "polkadotGovernance": { "title": "Utawala wa Polkadot", "description": "Hazina ya ndani ya mnyororo, Baraza, na Kamati ya Kiufundi." },
+      "substrateFramework": { "title": "Mfumo wa Substrate (SW)", "description": "Mfumo wa moduli wa kuunda blockchains maalum." },
       "stakingNominationPolkadot": { "title": "Kuweka Rehani na Uteuzi (NPoS)", "description": "Shiriki katika usalama wa mtandao na upate zawadi." },
       "kusamaCanaryNetwork": { "title": "Kusama: Mtandao wa Kanari wa Polkadot", "description": "Mtandao wa majaribio wa Polkadot kwa utumiaji wa mapema." },
       "whatIsJam": { "title": "JAM (Join-Accumulate Machine) ni Nini?", "description": "Elewa pendekezo la itifaki ya JAM ya Polkadot." },

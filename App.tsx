@@ -97,6 +97,15 @@ const resourceList: ResourceListItem[] = [
       { iconClass: 'fas fa-lightbulb', titleKey: 'resourcesContent.gov.opengov.title', descriptionKey: 'resourcesContent.gov.opengov.description', link: 'https://wiki.polkadot.network/docs/learn-gov2' },
     ]
   },
+  {
+    id: 'community',
+    iconClass: 'fas fa-users',
+    translationKey: 'home.resources.community',
+    content: [
+      { iconClass: 'fas fa-globe-africa', titleKey: 'resourcesContent.community.polkadotAfrica.title', descriptionKey: 'resourcesContent.community.polkadotAfrica.description', link: 'https://linktr.ee/PolkadotAfrica' },
+      { iconClass: 'fab fa-telegram-plane', titleKey: 'resourcesContent.community.polkadotEthiopia.title', descriptionKey: 'resourcesContent.community.polkadotEthiopia.description', link: 'https://t.me/polkadot_et' }
+    ]
+  },
   { id: 'bounties', iconClass: 'fas fa-trophy', translationKey: 'home.resources.bounties', url: 'https://polkadot.network/bounties/' },
   { id: 'discord', iconClass: 'fab fa-discord', translationKey: 'home.resources.discord', url: 'https://discord.gg/polkadot' },
   { id: 'videos', iconClass: 'fas fa-video', translationKey: 'home.resources.videos' },
