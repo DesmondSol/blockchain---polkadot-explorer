@@ -27,6 +27,7 @@
     "polkadotAdvancedButton": "Polkadot Avançado",
     "resourcesTitle": "Explorar Mais Recursos",
     "resources": {
+      "campusLead": "Juntar-se ao Líder do Campus",
       "games": "Jogos",
       "wallets": "Carteiras",
       "dapps": "DApps",
@@ -39,6 +40,32 @@
       "market": "Mercado",
       "others": "Outros",
       "comingSoonMessage": "Em breve!"
+    }
+  },
+    "resourcesContent": {
+    "games": {
+      "exiledRacers": { "title": "Exiled Racers", "description": "Um jogo de corrida futurista 'drive-to-earn' com uma comunidade vibrante e pilotos personalizáveis no ecossistema Polkadot." },
+      "ajuna": { "title": "Ajuna Network", "description": "Uma plataforma de jogos descentralizada que permite aos programadores criar e integrar jogos baseados em blockchain com Unreal e Unity." },
+      "bitCountry": { "title": "Bit.Country", "description": "Uma plataforma para metaversos criados por utilizadores, espaços sociais e economias digitais, capacitando criadores com NFTs e imóveis virtuais." },
+      "astar": { "title": "Astar Network", "description": "Uma parachain líder que suporta tanto EVM como WASM, fomentando um rico ecossistema de jogos e DApps com a sua funcionalidade de dApp staking." }
+    },
+    "wallets": {
+      "nova": { "title": "Nova Wallet", "description": "Uma carteira de nova geração, focada no telemóvel, para o ecossistema Polkadot & Kusama, oferecendo funcionalidades avançadas como staking e governança." },
+      "talisman": { "title": "Talisman", "description": "Uma carteira de extensão de navegador de fácil utilização que simplifica a interação com o ecossistema Polkadot e as suas parachains." },
+      "polkadotjs": { "title": "Extensão Polkadot.js", "description": "O cofre original baseado em navegador para gerir as suas contas Polkadot e interagir com a rede." },
+      "subwallet": { "title": "SubWallet", "description": "Uma solução de carteira abrangente para os ecossistemas Polkadot, Substrate e Ethereum, disponível como extensão de navegador e aplicação móvel." }
+    },
+    "dapps": {
+      "acala": { "title": "Acala Network", "description": "Um hub de finanças descentralizadas (DeFi) que oferece um conjunto de aplicações financeiras, incluindo uma stablecoin, staking e um AMM DEX." },
+      "moonbeam": { "title": "Moonbeam", "description": "Uma parachain de contratos inteligentes compatível com Ethereum que facilita a construção ou reimplantação de projetos Solidity num ambiente baseado em Substrate." },
+      "hydradx": { "title": "HydraDX", "description": "Um protocolo de liquidez entre cadeias construído em Substrate, projetado para trazer um oceano de liquidez para a Polkadot." },
+      "bifrost": { "title": "Bifrost Finance", "description": "Uma parachain projetada para liquidez de staking. Permite que os utilizadores façam stake de criptomoedas e recebam vTokens líquidos em troca." }
+    },
+    "gov": {
+      "polkassembly": { "title": "Polkassembly", "description": "Uma plataforma para discutir e votar propostas de governação nos ecossistemas Polkadot e Kusama." },
+      "portal": { "title": "Governança Polkadot", "description": "O hub oficial para participar na governação da Polkadot, desde referendos a eleições do conselho e propostas de tesouraria." },
+      "treasury": { "title": "Tesouraria Polkadot", "description": "Saiba mais sobre a tesouraria on-chain financiada por taxas de rede, que pode ser gasta em projetos que beneficiam o ecossistema." },
+      "opengov": { "title": "OpenGov", "description": "Explore o modelo de governação de próxima geração da Polkadot (Gov2), projetado para ser mais descentralizado e ágil." }
     }
   },
   "chat": {

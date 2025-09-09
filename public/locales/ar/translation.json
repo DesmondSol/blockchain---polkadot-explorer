@@ -27,6 +27,7 @@
     "polkadotAdvancedButton": "بولkadot المتقدم",
     "resourcesTitle": "استكشف المزيد من الموارد",
     "resources": {
+      "campusLead": "انضم إلى قائد الحرم الجامعي",
       "games": "ألعاب",
       "wallets": "محافظ",
       "dapps": "تطبيقات لامركزية",
@@ -39,6 +40,32 @@
       "market": "سوق",
       "others": "أخرى",
       "comingSoonMessage": "قريبا!"
+    }
+  },
+    "resourcesContent": {
+    "games": {
+      "exiledRacers": { "title": "Exiled Racers", "description": "لعبة سباق مستقبلية بنظام 'القيادة للكسب' مع مجتمع نابض بالحياة ومتسابقين قابلين للتخصيص في نظام Polkadot البيئي." },
+      "ajuna": { "title": "Ajuna Network", "description": "منصة ألعاب لامركزية تسمح للمطورين بإنشاء ودمج الألعاب القائمة على البلوك تشين مع Unreal و Unity." },
+      "bitCountry": { "title": "Bit.Country", "description": "منصة للميتافيرس التي ينشئها المستخدمون، والمساحات الاجتماعية، والاقتصادات الرقمية، وتمكين المبدعين باستخدام NFTs والعقارات الافتراضية." },
+      "astar": { "title": "Astar Network", "description": "سلسلة parachain رائدة تدعم كلاً من EVM و WASM، وتعزز نظامًا بيئيًا غنيًا من الألعاب والتطبيقات اللامركزية مع ميزة dApp staking." }
+    },
+    "wallets": {
+      "nova": { "title": "Nova Wallet", "description": "محفظة من الجيل التالي، مصممة للهواتف المحمولة لنظام Polkadot و Kusama البيئي، وتقدم ميزات متقدمة مثل التحصيص (staking) والحوكمة." },
+      "talisman": { "title": "Talisman", "description": "امتداد متصفح سهل الاستخدام يعمل كمحفظة ويبسط التفاعل مع نظام Polkadot البيئي وسلاسل parachains الخاصة به." },
+      "polkadotjs": { "title": "Polkadot.js Extension", "description": "الخزنة الأصلية المستندة إلى المتصفح لإدارة حسابات Polkadot الخاصة بك والتفاعل مع الشبكة." },
+      "subwallet": { "title": "SubWallet", "description": "حل محفظة شامل لأنظمة Polkadot و Substrate و Ethereum البيئية، متاح كامتداد للمتصفح وتطبيق للهاتف المحمول." }
+    },
+    "dapps": {
+      "acala": { "title": "Acala Network", "description": "مركز للتمويل اللامركزي (DeFi) يقدم مجموعة من التطبيقات المالية، بما في ذلك عملة مستقرة، والتحصيص (staking)، وبورصة لامركزية (AMM DEX)." },
+      "moonbeam": { "title": "Moonbeam", "description": "سلسلة parachain للعقود الذكية متوافقة مع Ethereum تجعل من السهل بناء أو إعادة نشر مشاريع Solidity في بيئة قائمة على Substrate." },
+      "hydradx": { "title": "HydraDX", "description": "بروتوكول سيولة عبر السلاسل مبني على Substrate، مصمم لجلب محيط من السيولة إلى Polkadot." },
+      "bifrost": { "title": "Bifrost Finance", "description": "سلسلة parachain مصممة لسيولة التحصيص (staking). تتيح للمستخدمين تحصيص العملات المشفرة وتلقي vTokens سائلة في المقابل." }
+    },
+    "gov": {
+      "polkassembly": { "title": "Polkassembly", "description": "منصة لمناقشة مقترحات الحوكمة والتصويت عليها عبر أنظمة Polkadot و Kusama البيئية." },
+      "portal": { "title": "Polkadot Governance", "description": "المركز الرسمي للمشاركة في حوكمة Polkadot، من الاستفتاءات إلى انتخابات المجلس ومقترحات الخزانة." },
+      "treasury": { "title": "Polkadot Treasury", "description": "تعرف على الخزانة الموجودة على السلسلة والممولة من رسوم الشبكة، والتي يمكن إنفاقها على المشاريع التي تفيد النظام البيئي." },
+      "opengov": { "title": "OpenGov", "description": "استكشف نموذج حوكمة الجيل التالي من Polkadot (Gov2)، المصمم ليكون أكثر لامركزية ومرونة." }
     }
   },
   "chat": {

@@ -108,3 +108,11 @@ export interface GeminiStoryResponse extends GeminiResponse {
 export interface GeminiQuizItemResponse extends GeminiResponse {
     quizItem?: QuizItem;
 }
+
+// --- NEW Resource Modal Types ---
+export interface ResourceCardItem {
+  iconClass: string;
+  titleKey: string;
+  descriptionKey: string;
+  link: string;
+}

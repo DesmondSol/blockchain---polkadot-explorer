@@ -27,6 +27,7 @@
     "polkadotAdvancedButton": "Polkadot ya Juu",
     "resourcesTitle": "Gundua Rasilimali Zaidi",
     "resources": {
+      "campusLead": "Jiunge na Kiongozi wa Kampasi",
       "games": "Michezo",
       "wallets": "Pochi",
       "dapps": "DApps",
@@ -39,6 +40,32 @@
       "market": "Soko",
       "others": "Nyingine",
       "comingSoonMessage": "Inakuja hivi karibuni!"
+    }
+  },
+    "resourcesContent": {
+    "games": {
+      "exiledRacers": { "title": "Exiled Racers", "description": "Mchezo wa mbio za magari wa siku zijazo wa 'endesha-ili-upate' wenye jumuiya hai na magari ya mbio yanayoweza kubinafsishwa katika mfumo ikolojia wa Polkadot." },
+      "ajuna": { "title": "Ajuna Network", "description": "Jukwaa la michezo la ugatuzi linalowaruhusu wasanidi programu kuunda na kuunganisha michezo inayotegemea blockchain na Unreal na Unity." },
+      "bitCountry": { "title": "Bit.Country", "description": "Jukwaa la metaversi zilizoundwa na watumiaji, nafasi za kijamii, na uchumi wa kidijitali, linalowapa uwezo waundaji na NFTs na mali isiyohamishika ya mtandaoni." },
+      "astar": { "title": "Astar Network", "description": "Parachain inayoongoza inayosaidia EVM na WASM, ikikuza mfumo ikolojia tajiri wa michezo na DApps na kipengele chake cha dApp staking." }
+    },
+    "wallets": {
+      "nova": { "title": "Nova Wallet", "description": "Pochi ya kizazi kijacho, ya kwanza kwa simu kwa mfumo ikolojia wa Polkadot & Kusama, inayotoa vipengele vya hali ya juu kama vile staking na utawala." },
+      "talisman": { "title": "Talisman", "description": "Pochi ya kiendelezi cha kivinjari rahisi kutumia inayorahisisha mwingiliano na mfumo ikolojia wa Polkadot na parachain zake." },
+      "polkadotjs": { "title": "Polkadot.js Extension", "description": "Vault ya asili inayotegemea kivinjari kwa ajili ya kudhibiti akaunti zako za Polkadot na kuingiliana na mtandao." },
+      "subwallet": { "title": "SubWallet", "description": "Suluhisho kamili la pochi kwa mifumo ikolojia ya Polkadot, Substrate, na Ethereum, linalopatikana kama kiendelezi cha kivinjari na programu ya simu." }
+    },
+    "dapps": {
+      "acala": { "title": "Acala Network", "description": "Kitovu cha fedha cha ugatuzi (DeFi) kinachotoa mfululizo wa programu za kifedha, ikiwa ni pamoja na stablecoin, staking, na AMM DEX." },
+      "moonbeam": { "title": "Moonbeam", "description": "Parachain ya mikataba mahiri inayooana na Ethereum ambayo hurahisisha kujenga au kupeleka upya miradi ya Solidity katika mazingira yanayotegemea Substrate." },
+      "hydradx": { "title": "HydraDX", "description": "Itifaki ya ukwasi wa minyororo mbalimbali iliyojengwa juu ya Substrate, iliyoundwa kuleta bahari ya ukwasi kwa Polkadot." },
+      "bifrost": { "title": "Bifrost Finance", "description": "Parachain iliyoundwa kwa ajili ya ukwasi wa staking. Inawaruhusu watumiaji kuweka rehani fedha za crypto na kupokea vTokens za kioevu kama malipo." }
+    },
+    "gov": {
+      "polkassembly": { "title": "Polkassembly", "description": "Jukwaa la kujadili na kupiga kura kuhusu mapendekezo ya utawala katika mifumo ikolojia ya Polkadot na Kusama." },
+      "portal": { "title": "Polkadot Governance", "description": "Kitovu rasmi cha kushiriki katika utawala wa Polkadot, kutoka kwa referenda hadi uchaguzi wa baraza na mapendekezo ya hazina." },
+      "treasury": { "title": "Polkadot Treasury", "description": "Jifunze kuhusu hazina ya mtandaoni inayofadhiliwa na ada za mtandao, ambayo inaweza kutumika kwa miradi inayofaidi mfumo ikolojia." },
+      "opengov": { "title": "OpenGov", "description": "Gundua mtindo wa utawala wa kizazi kijacho wa Polkadot (Gov2), ulioundwa kuwa na ugatuzi zaidi na wepesi." }
     }
   },
   "chat": {
@@ -314,7 +341,6 @@
       "sharedSecurityModel": { "title": "Mfumo wa Usalama Ulioshirikiwa", "description": "Jinsi Polkadot inavyolinda mtandao wake wa parachains." },
       "crossChainCommunication": { "title": "Mawasiliano ya Minyororo Mbalimbali (XCMP)", "description": "Kuwezesha ushirikiano kati ya blockchain tofauti." },
       "polkadotGovernance": { "title": "Utawala wa Polkadot", "description": "Hazina ya ndani ya mnyororo, Baraza, na Kamati ya Kiufundi." },
-      "substrateFramework": { "title": "Mfumo wa Substrate", "description": "Mfumo wa msimu wa kuunda blockchain maalum." },
       "stakingNominationPolkadot": { "title": "Kuweka Rehani na Uteuzi (NPoS)", "description": "Shiriki katika usalama wa mtandao na upate zawadi." },
       "kusamaCanaryNetwork": { "title": "Kusama: Mtandao wa Kanari wa Polkadot", "description": "Mtandao wa majaribio wa Polkadot kwa utumiaji wa mapema." },
       "whatIsJam": { "title": "JAM (Join-Accumulate Machine) ni Nini?", "description": "Elewa pendekezo la itifaki ya JAM ya Polkadot." },

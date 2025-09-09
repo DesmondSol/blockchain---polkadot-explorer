@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import ReactDOM from 'react-dom'; 
 import { useTranslation } from 'react-i18next';
-import { ChatMessage, Sender, MustLearnTopic, PolkadotAccount, ClaimedBadgeDetail, LearningPathName, QuizCompletionStatus, LearningMode } from './types';
+import { ChatMessage, Sender, MustLearnTopic, PolkadotAccount, ClaimedBadgeDetail, LearningPathName, QuizCompletionStatus, LearningMode, ResourceCardItem } from './types';
 import { ChatInterface } from './components/ChatInterface';
 import { VisualBackground } from './components/VisualBackground';
 import { sendMessageToGeminiChat } from './services/geminiService';
@@ -19,9 +19,11 @@ import { NftBadgesScreen } from './components/NftBadgesScreen';
 import { ClaimBadgeModal } from './components/ClaimBadgeModal'; 
 import { ComingSoonModal } from './components/ComingSoonModal';
 import { DiagnosticQuizModal } from './components/DiagnosticQuizModal';
-import { LearningModeModal } from './components/LearningModeModal'; // New
-import { StoryMode } from './components/StoryMode'; // New
-import { QuizMode } from './components/QuizMode'; // New
+import { LearningModeModal } from './components/LearningModeModal';
+import { StoryMode } from './components/StoryMode';
+import { QuizMode } from './components/QuizMode';
+import { CampusLeadModal } from './components/CampusLeadModal';
+import { ResourceModal } from './components/ResourceModal'; // Import the new modal
 import * as Constants from './constants';
 import { web3Accounts, web3Enable } from '@polkadot/extension-dapp'; 
 import { encodeAddress } from '@polkadot/util-crypto';
@@ -38,19 +40,65 @@ interface LocalInjectedAccountWithMeta {
   };
 }
 
+// Updated ResourceListItem to be more flexible
 interface ResourceListItem {
   id: string;
   iconClass: string;
-  translationKey: string;
+  translationKey?: string;
+  label?: string; // For hardcoded labels
+  url?: string; // For direct external links
+  content?: ResourceCardItem[]; // For opening the resource modal
 }
 
+const campusLeadResource: ResourceListItem = { id: 'campusLead', iconClass: 'fas fa-graduation-cap', label: 'Join Campus Lead' };
+
 const resourceList: ResourceListItem[] = [
-  { id: 'games', iconClass: 'fas fa-gamepad', translationKey: 'home.resources.games' },
-  { id: 'wallets', iconClass: 'fas fa-wallet', translationKey: 'home.resources.wallets' },
-  { id: 'dapps', iconClass: 'fas fa-th-large', translationKey: 'home.resources.dapps' }, 
-  { id: 'gov', iconClass: 'fas fa-landmark', translationKey: 'home.resources.gov' },
-  { id: 'bounties', iconClass: 'fas fa-trophy', translationKey: 'home.resources.bounties' },
-  { id: 'discord', iconClass: 'fab fa-discord', translationKey: 'home.resources.discord' },
+  { 
+    id: 'games', 
+    iconClass: 'fas fa-gamepad', 
+    translationKey: 'home.resources.games',
+    content: [
+      { iconClass: 'fas fa-rocket', titleKey: 'resourcesContent.games.exiledRacers.title', descriptionKey: 'resourcesContent.games.exiledRacers.description', link: 'https://exiledracers.com/' },
+      { iconClass: 'fas fa-chess', titleKey: 'resourcesContent.games.ajuna.title', descriptionKey: 'resourcesContent.games.ajuna.description', link: 'https://ajuna.io/' },
+      { iconClass: 'fas fa-globe', titleKey: 'resourcesContent.games.bitCountry.title', descriptionKey: 'resourcesContent.games.bitCountry.description', link: 'https://bit.country/' },
+      { iconClass: 'fas fa-star', titleKey: 'resourcesContent.games.astar.title', descriptionKey: 'resourcesContent.games.astar.description', link: 'https://astar.network/astar2' },
+    ]
+  },
+  { 
+    id: 'wallets', 
+    iconClass: 'fas fa-wallet', 
+    translationKey: 'home.resources.wallets',
+    content: [
+      { iconClass: 'fas fa-mobile-alt', titleKey: 'resourcesContent.wallets.nova.title', descriptionKey: 'resourcesContent.wallets.nova.description', link: 'https://novawallet.io/' },
+      { iconClass: 'fas fa-magic', titleKey: 'resourcesContent.wallets.talisman.title', descriptionKey: 'resourcesContent.wallets.talisman.description', link: 'https://www.talisman.xyz/' },
+      { iconClass: 'fas fa-puzzle-piece', titleKey: 'resourcesContent.wallets.polkadotjs.title', descriptionKey: 'resourcesContent.wallets.polkadotjs.description', link: 'https://polkadot.js.org/extension/' },
+      { iconClass: 'fas fa-shield-alt', titleKey: 'resourcesContent.wallets.subwallet.title', descriptionKey: 'resourcesContent.wallets.subwallet.description', link: 'https://subwallet.app/' },
+    ]
+  },
+  { 
+    id: 'dapps', 
+    iconClass: 'fas fa-th-large', 
+    translationKey: 'home.resources.dapps',
+    content: [
+      { iconClass: 'fas fa-coins', titleKey: 'resourcesContent.dapps.acala.title', descriptionKey: 'resourcesContent.dapps.acala.description', link: 'https://acala.network/' },
+      { iconClass: 'fas fa-moon', titleKey: 'resourcesContent.dapps.moonbeam.title', descriptionKey: 'resourcesContent.dapps.moonbeam.description', link: 'https://moonbeam.network/' },
+      { iconClass: 'fas fa-water', titleKey: 'resourcesContent.dapps.hydradx.title', descriptionKey: 'resourcesContent.dapps.hydradx.description', link: 'https://hydradx.io/' },
+      { iconClass: 'fas fa-rainbow', titleKey: 'resourcesContent.dapps.bifrost.title', descriptionKey: 'resourcesContent.dapps.bifrost.description', link: 'https://bifrost.finance/' },
+    ]
+  }, 
+  { 
+    id: 'gov', 
+    iconClass: 'fas fa-landmark', 
+    translationKey: 'home.resources.gov',
+    content: [
+      { iconClass: 'fas fa-comments-dollar', titleKey: 'resourcesContent.gov.polkassembly.title', descriptionKey: 'resourcesContent.gov.polkassembly.description', link: 'https://polkadot.polkassembly.io/' },
+      { iconClass: 'fas fa-vote-yea', titleKey: 'resourcesContent.gov.portal.title', descriptionKey: 'resourcesContent.gov.portal.description', link: 'https://polkadot.network/governance/' },
+      { iconClass: 'fas fa-archive', titleKey: 'resourcesContent.gov.treasury.title', descriptionKey: 'resourcesContent.gov.treasury.description', link: 'https://polkadot.network/development/treasury/' },
+      { iconClass: 'fas fa-lightbulb', titleKey: 'resourcesContent.gov.opengov.title', descriptionKey: 'resourcesContent.gov.opengov.description', link: 'https://wiki.polkadot.network/docs/learn-gov2' },
+    ]
+  },
+  { id: 'bounties', iconClass: 'fas fa-trophy', translationKey: 'home.resources.bounties', url: 'https://polkadot.network/bounties/' },
+  { id: 'discord', iconClass: 'fab fa-discord', translationKey: 'home.resources.discord', url: 'https://discord.gg/polkadot' },
   { id: 'videos', iconClass: 'fas fa-video', translationKey: 'home.resources.videos' },
   { id: 'socials', iconClass: 'fas fa-users', translationKey: 'home.resources.socials' },
   { id: 'news', iconClass: 'fas fa-newspaper', translationKey: 'home.resources.news' },
@@ -91,6 +139,11 @@ const App: React.FC = () => {
 
   const [showComingSoonModal, setShowComingSoonModal] = useState<boolean>(false);
   const [comingSoonResourceTitle, setComingSoonResourceTitle] = useState<string>('');
+  const [showCampusLeadModal, setShowCampusLeadModal] = useState<boolean>(false);
+  
+  // New state for the generic Resource Modal
+  const [showResourceModal, setShowResourceModal] = useState<boolean>(false);
+  const [resourceModalContent, setResourceModalContent] = useState<{ title: string; items: ResourceCardItem[] } | null>(null);
 
   // Diagnostic Quiz State
   const [showDiagnosticQuizModal, setShowDiagnosticQuizModal] = useState<boolean>(false);
@@ -530,7 +583,22 @@ const App: React.FC = () => {
     }
   };
 
-  const handleResourceClick = (resourceKey: string) => { setComingSoonResourceTitle(t(resourceKey)); setShowComingSoonModal(true); };
+  const handleResourceClick = (resource: ResourceListItem) => {
+    const title = resource.label || (resource.translationKey ? t(resource.translationKey) : resource.id);
+
+    if (resource.id === 'campusLead') {
+      setShowCampusLeadModal(true);
+    } else if (resource.url) {
+      window.open(resource.url, '_blank', 'noopener,noreferrer');
+    } else if (resource.content) {
+      setResourceModalContent({ title: title, items: resource.content });
+      setShowResourceModal(true);
+    } else {
+      setComingSoonResourceTitle(title);
+      setShowComingSoonModal(true);
+    }
+  };
+
 
   const renderContent = () => {
     if (onboardingStep > 0 && onboardingStep <= 5) {
@@ -555,13 +623,28 @@ const App: React.FC = () => {
             <div className="w-full max-w-xl px-6 pb-4 lg:max-w-2xl mx-auto">
               <h2 className="text-xl md:text-2xl font-semibold text-purple-300 mb-4 text-center">{t('home.resourcesTitle')}</h2>
               <div className="bg-gray-800 bg-opacity-60 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-lg">
-                <div className="grid grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
-                  {resourceList.map(resource => (
-                    <button key={resource.id} onClick={() => handleResourceClick(resource.translationKey)} className="flex flex-col items-center justify-center p-3 bg-gray-700 hover:bg-purple-600 rounded-lg transition-all duration-200 transform hover:scale-105 group focus:outline-none focus:ring-2 focus:ring-purple-400" aria-label={t(resource.translationKey)}>
-                      <i className={`${resource.iconClass} text-3xl md:text-4xl text-purple-400 group-hover:text-white mb-2 transition-colors`}></i>
-                      <span className="text-xs md:text-sm text-gray-200 group-hover:text-white text-center transition-colors">{t(resource.translationKey)}</span>
-                    </button>
-                  ))}
+                <div className="flex flex-col gap-4">
+                  <button
+                    key={campusLeadResource.id}
+                    onClick={() => handleResourceClick(campusLeadResource)}
+                    className={`flex items-center justify-center w-full p-4 bg-purple-600 hover:bg-purple-700 rounded-lg transition-all duration-200 transform hover:scale-105 group focus:outline-none focus:ring-2 focus:ring-purple-400 ${isRtl ? 'flex-row-reverse' : ''}`}
+                    aria-label={campusLeadResource.label}
+                  >
+                    <i className={`${campusLeadResource.iconClass} text-2xl text-white ${isRtl ? 'ml-3' : 'mr-3'} transition-colors`}></i>
+                    <span className="text-base font-semibold text-white text-center transition-colors">
+                      {campusLeadResource.label}
+                    </span>
+                  </button>
+                  <div className="grid grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+                    {resourceList.map(resource => (
+                      <button key={resource.id} onClick={() => handleResourceClick(resource)} className="flex flex-col items-center justify-center p-3 bg-gray-700 hover:bg-purple-600 rounded-lg transition-all duration-200 transform hover:scale-105 group focus:outline-none focus:ring-2 focus:ring-purple-400" aria-label={resource.label || (resource.translationKey ? t(resource.translationKey) : resource.id)}>
+                        <i className={`${resource.iconClass} text-3xl md:text-4xl text-purple-400 group-hover:text-white mb-2 transition-colors`}></i>
+                        <span className="text-xs md:text-sm text-gray-200 group-hover:text-white text-center transition-colors">
+                          {resource.label || (resource.translationKey ? t(resource.translationKey) : '')}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -627,8 +710,18 @@ const App: React.FC = () => {
       
       {showClaimBadgeModal && selectedBadgeToClaim && (<ClaimBadgeModal isOpen={showClaimBadgeModal} achievementKey={selectedBadgeToClaim} polkadotAccount={polkadotAccount} claimedBadgeDetail={claimedBadges[selectedBadgeToClaim]} onClose={handleCloseClaimBadgeModal} onConfirmClaim={handleConfirmClaimBadge} /> )}
       <ComingSoonModal isOpen={showComingSoonModal} resourceName={comingSoonResourceTitle} onClose={() => setShowComingSoonModal(false)} />
+      <CampusLeadModal isOpen={showCampusLeadModal} onClose={() => setShowCampusLeadModal(false)} />
       <DiagnosticQuizModal isOpen={showDiagnosticQuizModal} quizPath={currentQuizPath} onClose={handleCloseDiagnosticQuizModal} onSubmitQuiz={handleDiagnosticQuizSubmit} introTextKey="diagnosticQuiz.introductionText" />
       <LearningModeModal isOpen={showLearningModeModal} onSelectMode={handleLearningModeSelect} onClose={handleCloseLearningModeModal} />
+      
+      {resourceModalContent && (
+        <ResourceModal
+          isOpen={showResourceModal}
+          onClose={() => setShowResourceModal(false)}
+          title={resourceModalContent.title}
+          items={resourceModalContent.items}
+        />
+      )}
 
       {activeTab === 'chat' && learningPath && ( <SidePanel isOpen={isSidePanelOpen} topics={currentMustLearnTopics} completedTopics={completedMustLearnTopics} onSelectTopic={handleTopicSelectionFromSidePanel} onClose={toggleSidePanel} learningPath={learningPath} /> )}
     </div>

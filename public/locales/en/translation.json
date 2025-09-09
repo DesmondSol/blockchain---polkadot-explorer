@@ -27,6 +27,7 @@
     "polkadotAdvancedButton": "Polkadot Advanced",
     "resourcesTitle": "Explore More Resources",
     "resources": {
+      "campusLead": "Join Campus Lead",
       "games": "Games",
       "wallets": "Wallets",
       "dapps": "DApps",
@@ -39,6 +40,32 @@
       "market": "Market",
       "others": "Others",
       "comingSoonMessage": "Coming soon!"
+    }
+  },
+  "resourcesContent": {
+    "games": {
+      "exiledRacers": { "title": "Exiled Racers", "description": "A futuristic 'drive-to-earn' racing game with a vibrant community and customizable racers in the Polkadot ecosystem." },
+      "ajuna": { "title": "Ajuna Network", "description": "A decentralized gaming platform that allows developers to create and integrate blockchain-based games with Unreal and Unity." },
+      "bitCountry": { "title": "Bit.Country", "description": "A platform for user-created metaverses, social spaces, and digital economies, empowering creators with NFTs and virtual real estate." },
+      "astar": { "title": "Astar Network", "description": "A leading parachain supporting both EVM and WASM, fostering a rich ecosystem of games and DApps with its dApp staking feature." }
+    },
+    "wallets": {
+      "nova": { "title": "Nova Wallet", "description": "A next-gen, mobile-first wallet for the Polkadot & Kusama ecosystem, offering advanced features like staking and governance." },
+      "talisman": { "title": "Talisman", "description": "A user-friendly browser extension wallet that simplifies interacting with the Polkadot ecosystem and its parachains." },
+      "polkadotjs": { "title": "Polkadot.js Extension", "description": "The original browser-based vault for managing your Polkadot accounts and interacting with the network." },
+      "subwallet": { "title": "SubWallet", "description": "A comprehensive wallet solution for Polkadot, Substrate, and Ethereum ecosystems, available as a browser extension and mobile app." }
+    },
+    "dapps": {
+      "acala": { "title": "Acala Network", "description": "A decentralized finance (DeFi) hub offering a suite of financial applications, including a stablecoin, staking, and an AMM DEX." },
+      "moonbeam": { "title": "Moonbeam", "description": "An Ethereum-compatible smart contract parachain that makes it easy to build or redeploy Solidity projects in a Substrate-based environment." },
+      "hydradx": { "title": "HydraDX", "description": "A cross-chain liquidity protocol built on Substrate, designed to bring an ocean of liquidity to Polkadot." },
+      "bifrost": { "title": "Bifrost Finance", "description": "A parachain designed for staking liquidity. It allows users to stake cryptocurrencies and receive liquid vTokens in return." }
+    },
+    "gov": {
+      "polkassembly": { "title": "Polkassembly", "description": "A platform for discussing and voting on governance proposals across the Polkadot and Kusama ecosystems." },
+      "portal": { "title": "Polkadot Governance", "description": "The official hub for participating in Polkadot's governance, from referenda to council elections and treasury proposals." },
+      "treasury": { "title": "Polkadot Treasury", "description": "Learn about the on-chain treasury funded by network fees, which can be spent on projects that benefit the ecosystem." },
+      "opengov": { "title": "OpenGov", "description": "Explore Polkadot's next-generation governance model (Gov2), designed to be more decentralized and agile." }
     }
   },
   "chat": {
