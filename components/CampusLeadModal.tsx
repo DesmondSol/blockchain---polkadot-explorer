@@ -11,25 +11,25 @@ const polkadotMagentaHover = '#c40068'; // A slightly darker magenta for hover
 
 // --- NAVIGATION ---
 const navItems: { id: ActivePage; label: string }[] = [
-  { id: 'home', label: 'Home' },
-  { id: 'about', label: 'About Us' },
-  { id: 'events', label: 'Events' },
-  { id: 'opportunity', label: 'Opportunity' },
-  { id: 'showcase', label: 'Showcase' },
-  { id: 'contact', label: 'Contact Us' },
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'About Us' },
+    { id: 'events', label: 'Events' },
+    { id: 'opportunity', label: 'Opportunity' },
+    { id: 'showcase', label: 'Showcase' },
+    { id: 'contact', label: 'Contact Us' },
 ];
 
 // --- REUSABLE UI COMPONENTS ---
 
 const Section: React.FC<{ title: string; children: React.ReactNode; className?: string, titleClassName?: string, containerClassName?: string }> = ({ title, children, className = '', titleClassName = '', containerClassName = '' }) => (
-  <section className={`py-12 md:py-16 px-6 md:px-12 text-center ${className}`}>
-    <div className={`max-w-4xl mx-auto ${containerClassName}`}>
-      <h2 className={`text-3xl md:text-4xl font-bold mb-8 ${titleClassName}`} style={{ color: polkadotMagenta }}>{title}</h2>
-      <div className="text-lg text-gray-300 text-left md:text-center">
-        {children}
-      </div>
-    </div>
-  </section>
+    <section className={`py-12 md:py-16 px-6 md:px-12 text-center ${className}`}>
+        <div className={`max-w-4xl mx-auto ${containerClassName}`}>
+            <h2 className={`text-3xl md:text-4xl font-bold mb-8 ${titleClassName}`} style={{ color: polkadotMagenta }}>{title}</h2>
+            <div className="text-lg text-gray-300 text-left md:text-center">
+                {children}
+            </div>
+        </div>
+    </section>
 );
 
 const StatCard: React.FC<{ icon: string; value: string; label: string }> = ({ icon, value, label }) => (
@@ -79,7 +79,7 @@ const HomepageContent: React.FC = () => (
             </p>
         </Section>
 
-        <Section title="Our Impact at a Glance" className="bg-gray-800/50">
+        <Section title="Our Goals of Impact" className="bg-gray-800/50">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
                 <StatCard icon="🎓" value="10,000+" label="Students Reached" />
                 <StatCard icon="🏫" value="50+" label="Campuses with Clubs" />
@@ -137,7 +137,7 @@ const AboutUsContent: React.FC = () => (
                 <p className="mb-4">Our vision is to build a thriving, self-sustaining Web3 ecosystem in Africa, where innovation flourishes and every talented individual has a clear pathway to contribute to the global decentralized landscape.</p>
                 <p>Our mission is to serve as the foundational pillar for this growth. Through the Polkadot Campus Lead Program (PCLP), we empower university students to become pioneers in their communities by providing the resources, mentorship, and skills needed to transform local passion into global impact.</p>
             </div>
-            
+
             <div className="p-8 bg-gray-800 rounded-lg shadow-lg">
                 <h2 className="text-3xl font-bold mb-4 text-purple-300">Our Guiding Principles</h2>
                 <ul className="space-y-4 list-disc list-inside">
@@ -223,13 +223,13 @@ const OpportunityContent: React.FC = () => (
             <div className="mt-16 p-8 bg-gray-800 rounded-lg shadow-2xl text-center">
                 <h2 className="text-3xl font-bold text-white mb-4">Start Your Application</h2>
                 <p className="text-gray-400 mb-6">Ready to join the movement? Click the button below to begin your application process.</p>
-                <a 
+                <a
                     href="#" // Placeholder for Google Forms link
-                    target="_blank" 
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block px-10 py-4 text-xl font-bold text-white rounded-lg transition-transform transform hover:scale-105"
-                    style={{ backgroundColor: polkadotMagenta }} 
-                    onMouseOver={e => e.currentTarget.style.backgroundColor = polkadotMagentaHover} 
+                    style={{ backgroundColor: polkadotMagenta }}
+                    onMouseOver={e => e.currentTarget.style.backgroundColor = polkadotMagentaHover}
                     onMouseOut={e => e.currentTarget.style.backgroundColor = polkadotMagenta}
                 >
                     Apply Now
@@ -240,18 +240,18 @@ const OpportunityContent: React.FC = () => (
 );
 
 const sampleEvents = [
-  { id: 1, title: 'Intro to Substrate Framework', date: '2024-08-15T14:00:00Z', location: 'University of Lagos', lead: 'Adaeze Okoro', description: 'A deep dive into Substrate, the framework for building custom blockchains.' },
-  { id: 2, title: 'Polkadot Governance Workshop', date: '2024-08-22T11:00:00Z', location: 'University of Nairobi', lead: 'Jomo Kenyatta', description: 'Learn how to participate in Polkadot\'s on-chain governance.' },
-  { id: 3, title: 'Web3 Career Fair & Networking', date: '2024-09-05T16:00:00Z', location: 'University of Cape Town', lead: 'Nia Botha', description: 'Connect with Polkadot ecosystem partners and explore career opportunities.' },
-  { id: 4, title: 'Beginner\'s Guide to Rust for Blockchain', date: '2024-09-12T13:00:00Z', location: 'University of Ghana', lead: 'Kwame Nkrumah', description: 'A hands-on session covering the basics of Rust programming.' },
+    { id: 1, title: 'Intro to Substrate Framework', date: '2024-08-15T14:00:00Z', location: 'University of Lagos', lead: 'Adaeze Okoro', description: 'A deep dive into Substrate, the framework for building custom blockchains.' },
+    { id: 2, title: 'Polkadot Governance Workshop', date: '2024-08-22T11:00:00Z', location: 'University of Nairobi', lead: 'Jomo Kenyatta', description: 'Learn how to participate in Polkadot\'s on-chain governance.' },
+    { id: 3, title: 'Web3 Career Fair & Networking', date: '2024-09-05T16:00:00Z', location: 'University of Cape Town', lead: 'Nia Botha', description: 'Connect with Polkadot ecosystem partners and explore career opportunities.' },
+    { id: 4, title: 'Beginner\'s Guide to Rust for Blockchain', date: '2024-09-12T13:00:00Z', location: 'University of Ghana', lead: 'Kwame Nkrumah', description: 'A hands-on session covering the basics of Rust programming.' },
 ];
 
 const sampleLeads = [
-  { id: 1, name: 'Adaeze Okoro', campus: 'University of Lagos', photoUrl: 'https://i.pravatar.cc/150?u=adaeze', social: { linkedin: '#', twitter: '#' } },
-  { id: 2, name: 'Jomo Kenyatta', campus: 'University of Nairobi', photoUrl: 'https://i.pravatar.cc/150?u=jomo', social: { linkedin: '#', twitter: '#' } },
-  { id: 3, name: 'Nia Botha', campus: 'University of Cape Town', photoUrl: 'https://i.pravatar.cc/150?u=nia', social: { linkedin: '#', twitter: '#' } },
-  { id: 4, name: 'Kwame Nkrumah', campus: 'University of Ghana', photoUrl: 'https://i.pravatar.cc/150?u=kwame', social: { linkedin: '#', twitter: '#' } },
-  { id: 5, name: 'Fatima Al-Fassi', campus: 'University of Ibadan', photoUrl: 'https://i.pravatar.cc/150?u=fatima', social: { linkedin: '#', twitter: '#' } },
+    { id: 1, name: 'Adaeze Okoro', campus: 'University of Lagos', photoUrl: 'https://i.pravatar.cc/150?u=adaeze', social: { linkedin: '#', twitter: '#' } },
+    { id: 2, name: 'Jomo Kenyatta', campus: 'University of Nairobi', photoUrl: 'https://i.pravatar.cc/150?u=jomo', social: { linkedin: '#', twitter: '#' } },
+    { id: 3, name: 'Nia Botha', campus: 'University of Cape Town', photoUrl: 'https://i.pravatar.cc/150?u=nia', social: { linkedin: '#', twitter: '#' } },
+    { id: 4, name: 'Kwame Nkrumah', campus: 'University of Ghana', photoUrl: 'https://i.pravatar.cc/150?u=kwame', social: { linkedin: '#', twitter: '#' } },
+    { id: 5, name: 'Fatima Al-Fassi', campus: 'University of Ibadan', photoUrl: 'https://i.pravatar.cc/150?u=fatima', social: { linkedin: '#', twitter: '#' } },
 ];
 
 
@@ -267,9 +267,9 @@ const EventsContent: React.FC = () => {
             const dateB = new Date(b.date).getTime();
             return dateSort === 'upcoming' ? dateA - dateB : dateB - dateA;
         });
-    
-    const filteredLeads = sampleLeads.filter(lead => 
-        lead.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+
+    const filteredLeads = sampleLeads.filter(lead =>
+        lead.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         lead.campus.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
@@ -278,18 +278,18 @@ const EventsContent: React.FC = () => {
     return (
         <div className="py-12 md:py-16 px-6 md:px-12 text-gray-300">
             <div className="max-w-6xl mx-auto space-y-16">
-                
+
                 {/* Upcoming Events Section */}
                 <section>
                     <header className="text-center mb-10">
                         <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: polkadotMagenta }}>Upcoming Events</h1>
                         <p className="text-xl text-gray-400">Find and join official PCLP events happening across Africa.</p>
                     </header>
-                    
+
                     {/* Filters */}
                     <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center">
-                        <select 
-                            value={locationFilter} 
+                        <select
+                            value={locationFilter}
                             onChange={e => setLocationFilter(e.target.value)}
                             className="bg-gray-700 text-white rounded-md p-2 focus:ring-2 focus:ring-purple-500 focus:outline-none"
                             aria-label="Filter events by location"
@@ -298,7 +298,7 @@ const EventsContent: React.FC = () => {
                                 <option key={loc} value={loc}>{loc === 'all' ? 'All Locations' : loc}</option>
                             ))}
                         </select>
-                        <select 
+                        <select
                             value={dateSort}
                             onChange={e => setDateSort(e.target.value)}
                             className="bg-gray-700 text-white rounded-md p-2 focus:ring-2 focus:ring-purple-500 focus:outline-none"
@@ -335,7 +335,7 @@ const EventsContent: React.FC = () => {
 
                     {/* Search Bar */}
                     <div className="mb-8 max-w-lg mx-auto">
-                        <input 
+                        <input
                             type="text"
                             placeholder="Search by name or university..."
                             value={searchQuery}
@@ -344,7 +344,7 @@ const EventsContent: React.FC = () => {
                             aria-label="Search for campus leads"
                         />
                     </div>
-                    
+
                     {/* Leads Grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                         {filteredLeads.map(lead => (
@@ -383,7 +383,7 @@ const sampleGalleryImages = [
 ];
 
 const ShowcaseContent: React.FC = () => {
-    const [selectedImg, setSelectedImg] = useState<{src: string; caption: string} | null>(null);
+    const [selectedImg, setSelectedImg] = useState<{ src: string; caption: string } | null>(null);
 
     return (
         <div className="py-12 md:py-16 px-6 md:px-12 text-gray-300">
@@ -395,7 +395,7 @@ const ShowcaseContent: React.FC = () => {
                         <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: polkadotMagenta }}>Innovators & Builders</h1>
                         <p className="text-xl text-gray-400">Celebrating the impactful projects developed by our student leaders.</p>
                     </header>
-                    
+
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                         {/* Project Cards */}
                         <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -410,7 +410,7 @@ const ShowcaseContent: React.FC = () => {
                                     </div>
                                 </div>
                             ))}
-                             <div className="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 flex flex-col items-center justify-center text-center">
+                            <div className="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 flex flex-col items-center justify-center text-center">
                                 <h3 className="text-2xl font-bold text-purple-300 mb-2">Your Project Here?</h3>
                                 <p className="text-gray-400 mb-4 flex-grow">Join the program and get the support to build the next big thing in Web3.</p>
                                 <button className="mt-auto px-6 py-2 font-semibold text-white rounded-lg transition-colors" style={{ backgroundColor: polkadotMagenta }} onMouseOver={e => e.currentTarget.style.backgroundColor = polkadotMagentaHover} onMouseOut={e => e.currentTarget.style.backgroundColor = polkadotMagenta}>
@@ -473,12 +473,12 @@ const ShowcaseContent: React.FC = () => {
 };
 
 const socialLinks = [
-  { name: 'X (Twitter)', icon: 'fab fa-twitter', link: '#', description: 'Follow us for the latest news and announcements.' },
-  { name: 'LinkedIn', icon: 'fab fa-linkedin', link: '#', description: 'Connect with our professional network.' },
-  { name: 'Telegram', icon: 'fab fa-telegram-plane', link: '#', description: 'Join our community for live discussions.' },
-  { name: 'Discord', icon: 'fab fa-discord', link: '#', description: 'Engage with developers and other leads.' },
-  { name: 'WhatsApp', icon: 'fab fa-whatsapp', link: '#', description: 'Get in touch for direct support.' },
-  { name: 'Email', icon: 'fas fa-envelope', link: 'mailto:#', description: 'For partnerships and official inquiries.' },
+    { name: 'X (Twitter)', icon: 'fab fa-twitter', link: '#', description: 'Follow us for the latest news and announcements.' },
+    { name: 'LinkedIn', icon: 'fab fa-linkedin', link: '#', description: 'Connect with our professional network.' },
+    { name: 'Telegram', icon: 'fab fa-telegram-plane', link: '#', description: 'Join our community for live discussions.' },
+    { name: 'Discord', icon: 'fab fa-discord', link: '#', description: 'Engage with developers and other leads.' },
+    { name: 'WhatsApp', icon: 'fab fa-whatsapp', link: '#', description: 'Get in touch for direct support.' },
+    { name: 'Email', icon: 'fas fa-envelope', link: 'mailto:#', description: 'For partnerships and official inquiries.' },
 ];
 
 const ContactUsContent: React.FC = () => (
@@ -495,21 +495,21 @@ const ContactUsContent: React.FC = () => (
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {socialLinks.map(social => (
-                    <a 
+                    <a
                         key={social.name}
-                        href={social.link} 
-                        target="_blank" 
+                        href={social.link}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 flex flex-col items-center text-center group transform hover:-translate-y-2 transition-transform duration-300"
                     >
                         <i className={`${social.icon} text-5xl mb-4 transition-colors duration-300`} style={{ color: polkadotMagenta }}></i>
                         <h3 className="text-2xl font-bold text-white mb-2">{social.name}</h3>
                         <p className="text-gray-400 mb-4 flex-grow">{social.description}</p>
-                        <span 
+                        <span
                             className="mt-auto inline-block px-6 py-2 text-md font-semibold text-white rounded-lg transition-colors duration-300 group-hover:text-white"
                             style={{ backgroundColor: polkadotMagenta, boxShadow: `0 0 15px ${polkadotMagenta}33` }}
                         >
-                           Connect <i className="fas fa-arrow-right ml-1 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            Connect <i className="fas fa-arrow-right ml-1 opacity-0 group-hover:opacity-100 transition-opacity"></i>
                         </span>
                     </a>
                 ))}
@@ -522,94 +522,94 @@ const ContactUsContent: React.FC = () => (
 // --- MAIN MODAL COMPONENT ---
 
 interface CampusLeadModalProps {
-  isOpen: boolean;
-  onClose: () => void;
+    isOpen: boolean;
+    onClose: () => void;
 }
 
 export const CampusLeadModal: React.FC<CampusLeadModalProps> = ({ isOpen, onClose }) => {
-  const [activePage, setActivePage] = useState<ActivePage>('home');
-  const contentRef = useRef<HTMLDivElement>(null);
+    const [activePage, setActivePage] = useState<ActivePage>('home');
+    const contentRef = useRef<HTMLDivElement>(null);
 
-  const handleNavClick = (page: ActivePage) => {
-    setActivePage(page);
-    if (contentRef.current) {
-      contentRef.current.scrollTop = 0;
-    }
-  };
+    const handleNavClick = (page: ActivePage) => {
+        setActivePage(page);
+        if (contentRef.current) {
+            contentRef.current.scrollTop = 0;
+        }
+    };
 
-  if (!isOpen) return null;
-  const modalRoot = document.getElementById('modal-root');
-  if (!modalRoot) return null;
+    if (!isOpen) return null;
+    const modalRoot = document.getElementById('modal-root');
+    if (!modalRoot) return null;
 
-  const renderContent = () => {
-    switch (activePage) {
-      case 'home': return <HomepageContent />;
-      case 'about': return <AboutUsContent />;
-      case 'opportunity': return <OpportunityContent />;
-      case 'events': return <EventsContent />;
-      case 'showcase': return <ShowcaseContent />;
-      case 'contact': return <ContactUsContent />;
-      case 'apply': return <OpportunityContent />;
-      default: return <HomepageContent />;
-    }
-  };
+    const renderContent = () => {
+        switch (activePage) {
+            case 'home': return <HomepageContent />;
+            case 'about': return <AboutUsContent />;
+            case 'opportunity': return <OpportunityContent />;
+            case 'events': return <EventsContent />;
+            case 'showcase': return <ShowcaseContent />;
+            case 'contact': return <ContactUsContent />;
+            case 'apply': return <OpportunityContent />;
+            default: return <HomepageContent />;
+        }
+    };
 
-  return ReactDOM.createPortal(
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 backdrop-blur-sm">
-      <div className="bg-gray-900 text-white w-full h-full flex flex-col animate-modalFadeInScale">
-        
-        {/* Top Bar with Title and Close Button */}
-        <div className="flex-shrink-0 bg-gray-900/80 backdrop-blur-sm p-3 md:p-4 flex justify-between items-center border-b border-gray-700">
-          <h2 className="text-lg md:text-xl font-bold text-purple-300">
-            Polkadot Campus Lead Program
-          </h2>
-          <IconButton
-            iconClass="fas fa-times text-xl md:text-2xl"
-            onClick={onClose}
-            className="text-gray-400 hover:text-white p-1"
-            aria-label="Close"
-          />
-        </div>
+    return ReactDOM.createPortal(
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 backdrop-blur-sm">
+            <div className="bg-gray-900 text-white w-full h-full flex flex-col animate-modalFadeInScale">
 
-        {/* Sticky Navigation */}
-        <nav className="sticky top-0 bg-gray-800/90 backdrop-blur-sm z-10 flex-shrink-0 shadow-md">
-          <div className="px-2 md:px-4 overflow-x-auto custom-scrollbar">
-            <div className="flex items-center h-14 space-x-1 md:space-x-2">
-              {navItems.map(item => (
-                <button 
-                    key={item.id} 
-                    onClick={() => handleNavClick(item.id)} 
-                    className={`px-3 md:px-4 py-2 text-sm font-medium rounded-md transition-colors whitespace-nowrap ${activePage === item.id ? 'bg-gray-900 text-white shadow-inner' : 'text-gray-300 hover:bg-gray-700/50 hover:text-white'}`}
-                    aria-current={activePage === item.id ? 'page' : undefined}
-                >
-                  {item.label}
-                </button>
-              ))}
-              <div className="!ml-auto flex-shrink-0 pl-2">
-                 <button 
-                    onClick={() => handleNavClick('apply')} 
-                    className="px-5 py-2 text-sm font-bold text-white rounded-full transition-colors whitespace-nowrap"
-                    style={{ backgroundColor: polkadotMagenta }} 
-                    onMouseOver={e => e.currentTarget.style.backgroundColor = polkadotMagentaHover} 
-                    onMouseOut={e => e.currentTarget.style.backgroundColor = polkadotMagenta}
-                 >
-                    Apply
-                 </button>
-              </div>
+                {/* Top Bar with Title and Close Button */}
+                <div className="flex-shrink-0 bg-gray-900/80 backdrop-blur-sm p-3 md:p-4 flex justify-between items-center border-b border-gray-700">
+                    <h2 className="text-lg md:text-xl font-bold text-purple-300">
+                        Polkadot Campus Lead Program
+                    </h2>
+                    <IconButton
+                        iconClass="fas fa-times text-xl md:text-2xl"
+                        onClick={onClose}
+                        className="text-gray-400 hover:text-white p-1"
+                        aria-label="Close"
+                    />
+                </div>
+
+                {/* Sticky Navigation */}
+                <nav className="sticky top-0 bg-gray-800/90 backdrop-blur-sm z-10 flex-shrink-0 shadow-md">
+                    <div className="px-2 md:px-4 overflow-x-auto custom-scrollbar">
+                        <div className="flex items-center h-14 space-x-1 md:space-x-2">
+                            {navItems.map(item => (
+                                <button
+                                    key={item.id}
+                                    onClick={() => handleNavClick(item.id)}
+                                    className={`px-3 md:px-4 py-2 text-sm font-medium rounded-md transition-colors whitespace-nowrap ${activePage === item.id ? 'bg-gray-900 text-white shadow-inner' : 'text-gray-300 hover:bg-gray-700/50 hover:text-white'}`}
+                                    aria-current={activePage === item.id ? 'page' : undefined}
+                                >
+                                    {item.label}
+                                </button>
+                            ))}
+                            <div className="!ml-auto flex-shrink-0 pl-2">
+                                <button
+                                    onClick={() => handleNavClick('apply')}
+                                    className="px-5 py-2 text-sm font-bold text-white rounded-full transition-colors whitespace-nowrap"
+                                    style={{ backgroundColor: polkadotMagenta }}
+                                    onMouseOver={e => e.currentTarget.style.backgroundColor = polkadotMagentaHover}
+                                    onMouseOut={e => e.currentTarget.style.backgroundColor = polkadotMagenta}
+                                >
+                                    Apply
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+
+                {/* Scrollable Content */}
+                <main ref={contentRef} className="flex-grow overflow-y-auto custom-scrollbar bg-gray-900">
+                    {renderContent()}
+                    {/* Footer */}
+                    <footer className="py-8 px-6 text-center text-gray-500 bg-gray-800/50">
+                        <p>&copy; {new Date().getFullYear()} Polkadot Campus Lead Program. All Rights Reserved.</p>
+                    </footer>
+                </main>
             </div>
-          </div>
-        </nav>
-        
-        {/* Scrollable Content */}
-        <main ref={contentRef} className="flex-grow overflow-y-auto custom-scrollbar bg-gray-900">
-          {renderContent()}
-           {/* Footer */}
-           <footer className="py-8 px-6 text-center text-gray-500 bg-gray-800/50">
-                <p>&copy; {new Date().getFullYear()} Polkadot Campus Lead Program. All Rights Reserved.</p>
-            </footer>
-        </main>
-      </div>
-    </div>,
-    modalRoot
-  );
+        </div>,
+        modalRoot
+    );
 };
