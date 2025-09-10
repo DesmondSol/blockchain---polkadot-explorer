@@ -3,33 +3,137 @@ import ReactDOM from 'react-dom';
 import { IconButton } from './IconButton';
 
 // --- TYPE DEFINITIONS ---
-type ActivePage = 'home' | 'about' | 'events' | 'opportunity' | 'showcase' | 'contact' | 'apply';
+type ActivePage = 'home' | 'about' | 'events' | 'opportunity' | 'showcase' | 'contact';
+
+interface Lead {
+  id: number;
+  name: string;
+  campus: string;
+  photoUrl: string;
+  social: {
+    linkedin: string;
+    twitter: string;
+  };
+}
+
+interface Event {
+    id: number;
+    title: string;
+    date: string; // ISO format string
+    location: string;
+    leadId: number;
+    description: string;
+    registrationLink?: string;
+}
+
+interface Project {
+    title: string;
+    description: string;
+    skills: string[];
+    leadId: number;
+    appLink: string;
+}
+
+
+// --- MOCK DATA ---
+const leads: Lead[] = [
+  { id: 1, name: 'Tapiwa Nyamakope', campus: 'University of Zimbabwe', photoUrl: 'https://api.dicebear.com/8.x/pixel-art/svg?seed=TapiwaNyamakope', social: { linkedin: '#', twitter: '#' } },
+  { id: 2, name: 'Adanna Adebayo', campus: 'University of Lagos', photoUrl: 'https://api.dicebear.com/8.x/pixel-art/svg?seed=AdannaAdebayo', social: { linkedin: '#', twitter: '#' } },
+  { id: 3, name: 'Kwesi Mensah', campus: 'University of Ghana', photoUrl: 'https://api.dicebear.com/8.x/pixel-art/svg?seed=KwesiMensah', social: { linkedin: '#', twitter: '#' } },
+  { id: 4, name: 'Fatou Sow', campus: 'Cheikh Anta Diop University', photoUrl: 'https://api.dicebear.com/8.x/pixel-art/svg?seed=FatouSow', social: { linkedin: '#', twitter: '#' } },
+  { id: 5, name: 'Solomon Tigabu', campus: 'Addis Ababa University', photoUrl: 'https://api.dicebear.com/8.x/pixel-art/svg?seed=SolomonTigabu', social: { linkedin: 'https://www.linkedin.com/in/sol-tig/', twitter: 'https://x.com/solomon_t0' } },
+];
+
+const events: Event[] = [
+  { id: 1, title: 'Intro to Substrate', date: '2024-09-15T14:00:00Z', location: 'Online', leadId: 1, description: 'A beginner-friendly workshop on the Substrate framework for building custom blockchains.' },
+  { id: 2, title: 'Polkadot Governance 101', date: '2024-08-20T10:00:00Z', location: 'Lagos, Nigeria', leadId: 2, description: 'Learn how to participate in Polkadot\'s on-chain governance.' },
+  { id: 3, title: 'Hackathon Kick-off', date: '2024-09-01T09:00:00Z', location: 'Accra, Ghana', leadId: 3, description: 'Join us to kick off a month-long hackathon focused on building with Polkadot.' },
+  { id: 4, title: 'Building your first Parachain', date: '2024-07-25T11:00:00Z', location: 'Online', leadId: 1, description: 'A hands-on session guiding you through the steps of launching a parachain on a testnet.' },
+  { id: 5, title: 'Web3 Career Fair', date: '2025-08-05T13:00:00Z', location: 'Dakar, Senegal', leadId: 4, description: 'Connect with companies building in the Polkadot ecosystem and explore career opportunities.' },
+  { id: 6, title: 'DeFi on Polkadot', date: '2024-06-30T16:00:00Z', location: 'Online', leadId: 2, description: 'An overview of the DeFi landscape on Polkadot, featuring projects like Acala and Bifrost.' },
+  { 
+      id: 7, 
+      title: 'Addis Ababa Polkadot Hackathon', 
+      date: '2025-10-04T09:00:00Z', 
+      location: 'Addis Ababa, Ethiopia', 
+      leadId: 5, 
+      description: 'Kick-off for our month-long hackathon. Build innovative projects on Polkadot and compete for prizes. Open to all skill levels.', 
+      registrationLink: 'https://forms.gle/NQ19kDZWUpkjM7To8' 
+  },
+  { 
+      id: 8, 
+      title: 'In-Person Workshop: Polkadot Fundamentals', 
+      date: '2025-10-12T10:00:00Z', 
+      location: 'Addis Ababa, Ethiopia', 
+      leadId: 5, 
+      description: 'Join us for a hands-on workshop covering the basics of the Polkadot ecosystem, parachains, and governance.', 
+      registrationLink: 'https://forms.gle/NQ19kDZWUpkjM7To8' 
+  },
+  { 
+      id: 9, 
+      title: 'In-Person Workshop: Substrate Deep Dive', 
+      date: '2025-10-26T10:00:00Z', 
+      location: 'Addis Ababa, Ethiopia', 
+      leadId: 5, 
+      description: 'A technical deep dive into the Substrate framework. Pre-requisites: Basic blockchain knowledge.', 
+      registrationLink: 'https://forms.gle/NQ19kDZWUpkjM7To8' 
+  },
+];
+
+const sampleProjects: Project[] = [
+    { title: 'Dirsha', description: 'An innovative marketplace for agriculture, leveraging blockchain technology for transparent smart contracts and bonds. It enables buyers to secure future produce with upfront payments, while farmers gain financial stability and guaranteed prices.', skills: ['Blockchain', 'Smart Contracts', 'Agriculture', 'Marketplace'], leadId: 5, appLink: 'https://www.dirshaa.vercel.app' },
+    { title: 'AfriChain', description: 'A decentralized supply chain solution for agricultural products in West Africa, built on Substrate.', skills: ['Rust', 'Substrate', 'Supply Chain'], leadId: 2, appLink: '#' },
+    { title: 'EthioVote', description: 'A secure and transparent e-voting platform designed to ensure election integrity in Ethiopia.', skills: ['Smart Contracts', 'Cryptography', 'Governance'], leadId: 5, appLink: '#' },
+    { title: 'Kente-Fi', description: 'A DeFi lending protocol inspired by traditional Ghanaian savings groups, providing micro-loans.', skills: ['DeFi', 'Financial Inclusion'], leadId: 3, appLink: '#' },
+];
+
+const sampleGalleryImages = [
+    { src: 'https://images.unsplash.com/photo-1573497491208-6b1acb260507?q=80&w=2070&auto=format&fit=crop', caption: 'Addis Ababa Hackathon' },
+    { src: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2232&auto=format&fit=crop', caption: 'Nairobi Substrate Workshop' },
+    { src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop', caption: 'Cape Town Polkadot 101 Meetup' },
+    { src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop', caption: 'Lagos Blockchain Conference' },
+    { src: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop', caption: 'Accra DeFi Seminar' },
+    { src: 'https://images.unsplash.com/photo-1600880292210-85938a069596?q=80&w=2070&auto=format&fit=crop', caption: 'Johannesburg Web3 Pitch Day' },
+    { src: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070&auto=format&fit=crop', caption: 'Kigali Tech Meetup' },
+    { src: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=2070&auto=format&fit=crop', caption: 'Campus Leads Annual Summit' },
+];
+
+const socialLinks = [
+    { name: 'X (Twitter)', icon: 'fab fa-twitter', link: 'https://x.com/solomon_t0', description: 'Follow us for the latest news and announcements.' },
+    { name: 'LinkedIn', icon: 'fab fa-linkedin', link: 'https://www.linkedin.com/in/sol-tig/', description: 'Connect with our professional network.' },
+    { name: 'Telegram', icon: 'fab fa-telegram-plane', link: 'https://t.me/polkadot_et', description: 'Join our community for live discussions.' },
+    { name: 'Discord', icon: 'fab fa-discord', link: 'https://discord.gg/hK8XwBGdYA', description: 'Engage with developers and other leads.' },
+    { name: 'WhatsApp', icon: 'fab fa-whatsapp', link: 'https://wa.me/message/7KBK6RQSDNJ5I1', description: 'Get in touch for direct support.' },
+    { name: 'Email', icon: 'fas fa-envelope', link: 'mailto:soltig66@gmail.com', description: 'For partnerships and official inquiries.' },
+];
+
 
 // --- STYLE CONSTANTS ---
 const polkadotMagenta = '#E6007A';
-const polkadotMagentaHover = '#c40068'; // A slightly darker magenta for hover
+const polkadotMagentaHover = '#c40068';
+const applicationLink = 'https://forms.gle/oda83MGFVG1hH7Wj9';
 
 // --- NAVIGATION ---
 const navItems: { id: ActivePage; label: string }[] = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About Us' },
-    { id: 'events', label: 'Events' },
-    { id: 'opportunity', label: 'Opportunity' },
-    { id: 'showcase', label: 'Showcase' },
-    { id: 'contact', label: 'Contact Us' },
+  { id: 'home', label: 'Home' },
+  { id: 'about', label: 'About Us' },
+  { id: 'events', label: 'Events' },
+  { id: 'opportunity', label: 'Opportunity' },
+  { id: 'showcase', label: 'Showcase' },
+  { id: 'contact', label: 'Contact Us' },
 ];
 
 // --- REUSABLE UI COMPONENTS ---
 
 const Section: React.FC<{ title: string; children: React.ReactNode; className?: string, titleClassName?: string, containerClassName?: string }> = ({ title, children, className = '', titleClassName = '', containerClassName = '' }) => (
-    <section className={`py-12 md:py-16 px-6 md:px-12 text-center ${className}`}>
-        <div className={`max-w-4xl mx-auto ${containerClassName}`}>
-            <h2 className={`text-3xl md:text-4xl font-bold mb-8 ${titleClassName}`} style={{ color: polkadotMagenta }}>{title}</h2>
-            <div className="text-lg text-gray-300 text-left md:text-center">
-                {children}
-            </div>
-        </div>
-    </section>
+  <section className={`py-12 md:py-16 px-6 md:px-12 text-center ${className}`}>
+    <div className={`max-w-6xl mx-auto ${containerClassName}`}>
+      <h2 className={`text-3xl md:text-4xl font-bold mb-8 ${titleClassName}`} style={{ color: polkadotMagenta }}>{title}</h2>
+      <div className="text-lg text-gray-300 text-left md:text-center">
+        {children}
+      </div>
+    </div>
+  </section>
 );
 
 const StatCard: React.FC<{ icon: string; value: string; label: string }> = ({ icon, value, label }) => (
@@ -54,11 +158,54 @@ const BenefitCard: React.FC<{ icon: string; title: string; children: React.React
     </div>
 );
 
+
+// --- LEAD DETAIL POPUP COMPONENT ---
+const LeadDetailPopup: React.FC<{ lead: Lead; allEvents: Event[]; onClose: () => void }> = ({ lead, allEvents, onClose }) => {
+    const pastEvents = allEvents
+        .filter(event => event.leadId === lead.id && new Date(event.date) < new Date())
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+    const modalRoot = document.getElementById('modal-root');
+    if (!modalRoot) return null;
+
+    return ReactDOM.createPortal(
+        <div className="fixed inset-0 z-[150] flex items-center justify-center bg-black bg-opacity-80 backdrop-blur-sm" onClick={onClose}>
+            <div className="bg-gray-800 text-white w-full max-w-md m-4 rounded-xl shadow-2xl flex flex-col animate-modalFadeInScale relative" onClick={e => e.stopPropagation()}>
+                <IconButton iconClass="fas fa-times" onClick={onClose} className="absolute top-3 right-3 text-gray-400 hover:text-white p-2 z-10" />
+                <div className="p-6 text-center border-b border-gray-700">
+                    <img src={lead.photoUrl} alt={lead.name} className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-purple-500 bg-gray-700" />
+                    <h3 className="text-2xl font-bold text-white">{lead.name}</h3>
+                    <p className="text-purple-300">{lead.campus}</p>
+                    <div className="flex justify-center space-x-4 mt-4">
+                        <a href={lead.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-purple-400"><i className="fab fa-linkedin text-2xl"></i></a>
+                        <a href={lead.social.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-purple-400"><i className="fab fa-twitter text-2xl"></i></a>
+                    </div>
+                </div>
+                <div className="p-6 flex-grow overflow-y-auto custom-scrollbar" style={{maxHeight: '40vh'}}>
+                    <h4 className="text-lg font-semibold text-purple-300 mb-3 text-center">Past Events Hosted</h4>
+                    {pastEvents.length > 0 ? (
+                        <ul className="space-y-3">
+                            {pastEvents.map(event => (
+                                <li key={event.id} className="bg-gray-700 p-3 rounded-lg">
+                                    <p className="font-semibold text-white">{event.title}</p>
+                                    <p className="text-xs text-gray-400">{new Date(event.date).toLocaleDateString()}</p>
+                                </li>
+                            ))}
+                        </ul>
+                    ) : (
+                        <p className="text-center text-gray-500 italic">No past events found.</p>
+                    )}
+                </div>
+            </div>
+        </div>,
+        modalRoot
+    );
+};
+
 // --- PAGE CONTENT COMPONENTS ---
 
 const HomepageContent: React.FC = () => (
     <>
-        {/* Hero Section */}
         <div className="h-[90vh] min-h-[600px] flex items-center justify-center text-center p-6 bg-cover bg-center bg-gray-900">
             <div className="bg-black bg-opacity-60 p-8 rounded-lg max-w-3xl animate-modalFadeInScale">
                 <h1 className="text-4xl md:text-6xl font-extrabold" style={{ color: polkadotMagenta }}>
@@ -67,15 +214,15 @@ const HomepageContent: React.FC = () => (
                 <p className="mt-4 text-lg md:text-xl text-gray-200">
                     The Polkadot Campus Lead Program empowers student leaders to build the future of decentralized technology across the continent.
                 </p>
-                <button className="mt-8 px-8 py-3 text-lg font-bold text-white rounded-lg transition-colors" style={{ backgroundColor: polkadotMagenta }} onMouseOver={e => e.currentTarget.style.backgroundColor = polkadotMagentaHover} onMouseOut={e => e.currentTarget.style.backgroundColor = polkadotMagenta}>
+                <a href={applicationLink} target="_blank" rel="noopener noreferrer" className="mt-8 inline-block px-8 py-3 text-lg font-bold text-white rounded-lg transition-colors" style={{ backgroundColor: polkadotMagenta }} onMouseOver={e => e.currentTarget.style.backgroundColor = polkadotMagentaHover} onMouseOut={e => e.currentTarget.style.backgroundColor = polkadotMagenta}>
                     Apply to be a Campus Lead
-                </button>
+                </a>
             </div>
         </div>
 
         <Section title="A Vision for a Decentralized Future">
             <p>
-                A concise, powerful paragraph explaining our vision of building a <strong>grassroots network</strong> of technically skilled and community-minded individuals. We'll emphasize that we are not just teaching, but <strong>cultivating</strong> the next generation of developers, entrepreneurs, and leaders who will build on the Polkadot chain in the future.
+                Our vision is to build a <strong>grassroots network</strong> of technically skilled and community-minded individuals. We are not just teaching; we are <strong>cultivating</strong> the next generation of developers, entrepreneurs, and leaders who will build on the Polkadot chain.
             </p>
         </Section>
 
@@ -87,17 +234,7 @@ const HomepageContent: React.FC = () => (
                 <StatCard icon="💡" value="30+" label="Projects Incubated" />
             </div>
         </Section>
-
-        <Section title="Our Model: A Community-Driven Approach">
-            <div className="flex flex-col md:flex-row items-center justify-center gap-8">
-                <div className="p-6 bg-gray-800 rounded-lg"><strong>Campus Clubs:</strong> The grassroots engines of engagement.</div>
-                <div className="text-2xl text-purple-400">→</div>
-                <div className="p-6 bg-gray-800 rounded-lg"><strong>City Leads:</strong> Mentors and coordinators for local success.</div>
-                <div className="text-2xl text-purple-400">→</div>
-                <div className="p-6 bg-gray-800 rounded-lg"><strong>PCLP HQ:</strong> Provides resources and strategic guidance.</div>
-            </div>
-        </Section>
-
+        
         <Section title="Unlock Your Potential" className="bg-gray-800/50">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <BenefitCard icon="fas fa-code" title="Skill Development">Learn Rust, Substrate, and blockchain fundamentals.</BenefitCard>
@@ -107,24 +244,16 @@ const HomepageContent: React.FC = () => (
             </div>
         </Section>
 
-        <Section title="Projects That Are Changing the World">
-            <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-                <h3 className="text-xl font-bold text-white mb-2">Project Decentralized Identity</h3>
-                <p className="text-gray-400 mb-4">A one-sentence description of this amazing project that gives users control over their data.</p>
-                <a href="#" className="text-purple-400 hover:underline">View All Projects & Talent →</a>
-            </div>
-        </Section>
-
-        <Section title="Ready to Lead?" className="bg-gray-800/50">
+        <Section title="Ready to Lead?" className="bg-gray-900">
             <p className="mb-6">Join the Polkadot Campus Lead Program and become a pioneer in Africa’s decentralized future.</p>
-            <button className="px-8 py-3 text-lg font-bold text-white rounded-lg transition-colors" style={{ backgroundColor: polkadotMagenta }} onMouseOver={e => e.currentTarget.style.backgroundColor = polkadotMagentaHover} onMouseOut={e => e.currentTarget.style.backgroundColor = polkadotMagenta}>
+            <a href={applicationLink} target="_blank" rel="noopener noreferrer" className="inline-block px-8 py-3 text-lg font-bold text-white rounded-lg transition-colors" style={{ backgroundColor: polkadotMagenta }} onMouseOver={e => e.currentTarget.style.backgroundColor = polkadotMagentaHover} onMouseOut={e => e.currentTarget.style.backgroundColor = polkadotMagenta}>
                 Start Your Application
-            </button>
+            </a>
         </Section>
     </>
 );
 
-const AboutUsContent: React.FC = () => (
+const AboutContent: React.FC = () => (
     <div className="py-12 md:py-16 px-6 md:px-12 text-gray-300">
         <div className="max-w-4xl mx-auto space-y-12">
             <header className="text-center">
@@ -147,14 +276,115 @@ const AboutUsContent: React.FC = () => (
                     <li><strong>Passion & Persistence:</strong> We are committed to showing up for our community every day with passion and unwavering support.</li>
                 </ul>
             </div>
-
-            <div className="p-8 bg-gray-800 rounded-lg shadow-lg">
-                <h2 className="text-3xl font-bold mb-4 text-purple-300">Meet Our Leaders</h2>
-                <p>The PCLP is powered by a dedicated team of professionals with deep expertise in blockchain technology, community organizing, and educational program design. Our backgrounds range from senior engineering roles in Web3 to years of experience in youth development programs across Africa. While our individual stories vary, our collective purpose is the same: to champion the next generation of African innovators.</p>
-            </div>
         </div>
     </div>
 );
+
+
+const EventsContent: React.FC<{ leads: Lead[], events: Event[], onSelectLead: (lead: Lead) => void }> = ({ leads, events, onSelectLead }) => {
+    const [timeFilter, setTimeFilter] = useState<'upcoming' | 'past'>('upcoming');
+    const [locationFilter, setLocationFilter] = useState('all');
+    const [searchQuery, setSearchQuery] = useState('');
+
+    const uniqueLocations = ['all', ...Array.from(new Set(events.map(e => e.location)))];
+    const now = new Date().getTime();
+
+    const filteredAndSortedEvents = events
+        .filter(event => { // Filter by time (upcoming/past)
+            const eventDate = new Date(event.date).getTime();
+            return timeFilter === 'upcoming' ? eventDate >= now : eventDate < now;
+        })
+        .filter(event => { // Filter by location
+            return locationFilter === 'all' || event.location === locationFilter;
+        })
+        .filter(event => { // Filter by search query
+            const lead = leads.find(l => l.id === event.leadId);
+            const searchTerm = searchQuery.toLowerCase();
+            return (
+                event.title.toLowerCase().includes(searchTerm) ||
+                event.description.toLowerCase().includes(searchTerm) ||
+                (lead && lead.name.toLowerCase().includes(searchTerm))
+            );
+        })
+        .sort((a, b) => { // Sort by date
+            const dateA = new Date(a.date).getTime();
+            const dateB = new Date(b.date).getTime();
+            return timeFilter === 'upcoming' ? dateA - dateB : dateB - dateA;
+        });
+
+    return (
+        <Section title="Our Events" containerClassName="max-w-6xl">
+            <p className="text-lg text-gray-400 -mt-4 mb-10 max-w-3xl mx-auto">
+              Find and join official Polkadot events happening across Africa.
+            </p>
+
+            {/* Filters */}
+            <div className="flex flex-col md:flex-row gap-4 mb-8 justify-center items-center p-4 bg-gray-800/50 rounded-lg sticky top-0 z-10 backdrop-blur-sm">
+                <div className="flex-shrink-0">
+                    <button onClick={() => setTimeFilter('upcoming')} className={`px-4 py-2 rounded-l-full font-semibold transition-colors text-sm ${timeFilter === 'upcoming' ? 'bg-purple-600 text-white' : 'bg-gray-700 text-gray-300 hover:bg-gray-600'}`}>Upcoming</button>
+                    <button onClick={() => setTimeFilter('past')} className={`px-4 py-2 rounded-r-full font-semibold transition-colors text-sm ${timeFilter === 'past' ? 'bg-purple-600 text-white' : 'bg-gray-700 text-gray-300 hover:bg-gray-600'}`}>Past</button>
+                </div>
+                <select
+                    value={locationFilter}
+                    onChange={e => setLocationFilter(e.target.value)}
+                    className="bg-gray-700 text-white rounded-md p-2 focus:ring-2 focus:ring-purple-500 focus:outline-none w-full md:w-auto"
+                    aria-label="Filter events by location"
+                >
+                    {uniqueLocations.map(loc => (
+                        <option key={loc} value={loc}>{loc === 'all' ? 'All Locations' : loc}</option>
+                    ))}
+                </select>
+                <input
+                    type="text"
+                    placeholder="Search events..."
+                    value={searchQuery}
+                    onChange={e => setSearchQuery(e.target.value)}
+                    className="w-full md:w-64 p-2 bg-gray-700 text-white rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none"
+                    aria-label="Search for events"
+                />
+            </div>
+            
+            {filteredAndSortedEvents.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+                    {filteredAndSortedEvents.map(event => {
+                        const lead = leads.find(l => l.id === event.leadId);
+                        return (
+                            <div key={event.id} className="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col">
+                                <h3 className="text-xl font-bold text-white mb-2">{event.title}</h3>
+                                <p className="text-purple-300 font-semibold mb-2">{new Date(event.date).toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                                <p className="text-gray-400 flex-grow mb-4 text-sm">{event.description}</p>
+                                
+                                {event.registrationLink && timeFilter === 'upcoming' && (
+                                    <a 
+                                        href={event.registrationLink} 
+                                        target="_blank" 
+                                        rel="noopener noreferrer" 
+                                        className="block text-center w-full mt-auto mb-4 px-4 py-2 font-semibold text-white rounded-lg transition-colors" 
+                                        style={{ backgroundColor: polkadotMagenta }} onMouseOver={e => e.currentTarget.style.backgroundColor = polkadotMagentaHover} onMouseOut={e => e.currentTarget.style.backgroundColor = polkadotMagenta}>
+                                        Register Now
+                                    </a>
+                                )}
+
+                                <div className="mt-auto pt-4 border-t border-gray-700 flex items-center justify-between">
+                                    {lead && (
+                                        <button onClick={() => onSelectLead(lead)} className="flex items-center space-x-2 group text-left focus:outline-none">
+                                            <img src={lead.photoUrl} alt={lead.name} className="w-8 h-8 rounded-full border-2 border-gray-600 group-hover:border-purple-400 transition-colors bg-gray-700" />
+                                            <span className="text-sm text-gray-300 group-hover:text-purple-300 transition-colors">{lead.name}</span>
+                                        </button>
+                                    )}
+                                    <span className="text-xs text-gray-500 font-mono bg-gray-700 px-2 py-1 rounded">{event.location}</span>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+            ) : (
+                <p className="text-center text-gray-500 italic mt-8">No events match your current filters.</p>
+            )}
+        </Section>
+    );
+};
+
 
 const OpportunityContent: React.FC = () => (
     <div className="py-12 md:py-16 px-6 md:px-12 text-gray-300">
@@ -168,9 +398,7 @@ const OpportunityContent: React.FC = () => (
                 </p>
             </header>
 
-            {/* Roles Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {/* Campus Lead Card */}
                 <div className="bg-gray-800 p-8 rounded-lg shadow-lg border border-gray-700 flex flex-col">
                     <div className="text-center mb-6">
                         <i className="fas fa-university text-5xl mb-3" style={{ color: polkadotMagenta }}></i>
@@ -187,14 +415,9 @@ const OpportunityContent: React.FC = () => (
                                 <li>Report on club activities and progress to your City Lead.</li>
                             </ul>
                         </div>
-                        <div>
-                            <h3 className="text-lg font-semibold text-purple-300 mb-2">What You'll Gain:</h3>
-                            <p>A monthly stipend, direct mentorship, access to exclusive learning resources, and a direct line to the global Polkadot network.</p>
-                        </div>
                     </div>
                 </div>
 
-                {/* City Lead Card */}
                 <div className="bg-gray-800 p-8 rounded-lg shadow-lg border border-gray-700 flex flex-col">
                     <div className="text-center mb-6">
                         <i className="fas fa-city text-5xl mb-3" style={{ color: polkadotMagenta }}></i>
@@ -211,27 +434,14 @@ const OpportunityContent: React.FC = () => (
                                 <li>Consolidate and submit regional reports to PCLP HQ.</li>
                             </ul>
                         </div>
-                        <div>
-                            <h3 className="text-lg font-semibold text-purple-300 mb-2">What You'll Gain:</h3>
-                            <p>A significant stipend, high-level leadership experience, and a close connection to the core PCLP team and its strategy.</p>
-                        </div>
                     </div>
                 </div>
             </div>
 
-            {/* Final CTA */}
             <div className="mt-16 p-8 bg-gray-800 rounded-lg shadow-2xl text-center">
                 <h2 className="text-3xl font-bold text-white mb-4">Start Your Application</h2>
-                <p className="text-gray-400 mb-6">Ready to join the movement? Click the button below to begin your application process.</p>
-                <a
-                    href="#" // Placeholder for Google Forms link
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block px-10 py-4 text-xl font-bold text-white rounded-lg transition-transform transform hover:scale-105"
-                    style={{ backgroundColor: polkadotMagenta }}
-                    onMouseOver={e => e.currentTarget.style.backgroundColor = polkadotMagentaHover}
-                    onMouseOut={e => e.currentTarget.style.backgroundColor = polkadotMagenta}
-                >
+                <p className="text-gray-400 mb-6">Ready to join the movement? Click the button below to begin your application process for both Campus and City Lead roles.</p>
+                <a href={applicationLink} target="_blank" rel="noopener noreferrer" className="inline-block px-10 py-4 text-xl font-bold text-white rounded-lg transition-transform transform hover:scale-105" style={{ backgroundColor: polkadotMagenta }} onMouseOver={e => e.currentTarget.style.backgroundColor = polkadotMagentaHover} onMouseOut={e => e.currentTarget.style.backgroundColor = polkadotMagenta}>
                     Apply Now
                 </a>
             </div>
@@ -239,204 +449,101 @@ const OpportunityContent: React.FC = () => (
     </div>
 );
 
-const sampleEvents = [
-    { id: 1, title: 'Intro to Substrate Framework', date: '2024-08-15T14:00:00Z', location: 'University of Lagos', lead: 'Adaeze Okoro', description: 'A deep dive into Substrate, the framework for building custom blockchains.' },
-    { id: 2, title: 'Polkadot Governance Workshop', date: '2024-08-22T11:00:00Z', location: 'University of Nairobi', lead: 'Jomo Kenyatta', description: 'Learn how to participate in Polkadot\'s on-chain governance.' },
-    { id: 3, title: 'Web3 Career Fair & Networking', date: '2024-09-05T16:00:00Z', location: 'University of Cape Town', lead: 'Nia Botha', description: 'Connect with Polkadot ecosystem partners and explore career opportunities.' },
-    { id: 4, title: 'Beginner\'s Guide to Rust for Blockchain', date: '2024-09-12T13:00:00Z', location: 'University of Ghana', lead: 'Kwame Nkrumah', description: 'A hands-on session covering the basics of Rust programming.' },
-];
-
-const sampleLeads = [
-    { id: 1, name: 'Adaeze Okoro', campus: 'University of Lagos', photoUrl: 'https://i.pravatar.cc/150?u=adaeze', social: { linkedin: '#', twitter: '#' } },
-    { id: 2, name: 'Jomo Kenyatta', campus: 'University of Nairobi', photoUrl: 'https://i.pravatar.cc/150?u=jomo', social: { linkedin: '#', twitter: '#' } },
-    { id: 3, name: 'Nia Botha', campus: 'University of Cape Town', photoUrl: 'https://i.pravatar.cc/150?u=nia', social: { linkedin: '#', twitter: '#' } },
-    { id: 4, name: 'Kwame Nkrumah', campus: 'University of Ghana', photoUrl: 'https://i.pravatar.cc/150?u=kwame', social: { linkedin: '#', twitter: '#' } },
-    { id: 5, name: 'Fatima Al-Fassi', campus: 'University of Ibadan', photoUrl: 'https://i.pravatar.cc/150?u=fatima', social: { linkedin: '#', twitter: '#' } },
-];
-
-
-const EventsContent: React.FC = () => {
-    const [locationFilter, setLocationFilter] = useState('all');
-    const [dateSort, setDateSort] = useState('upcoming');
-    const [searchQuery, setSearchQuery] = useState('');
-
-    const filteredAndSortedEvents = sampleEvents
-        .filter(event => locationFilter === 'all' || event.location === locationFilter)
-        .sort((a, b) => {
-            const dateA = new Date(a.date).getTime();
-            const dateB = new Date(b.date).getTime();
-            return dateSort === 'upcoming' ? dateA - dateB : dateB - dateA;
-        });
-
-    const filteredLeads = sampleLeads.filter(lead =>
-        lead.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        lead.campus.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-
-    const uniqueLocations = ['all', ...Array.from(new Set(sampleEvents.map(e => e.location)))];
-
-    return (
-        <div className="py-12 md:py-16 px-6 md:px-12 text-gray-300">
-            <div className="max-w-6xl mx-auto space-y-16">
-
-                {/* Upcoming Events Section */}
-                <section>
-                    <header className="text-center mb-10">
-                        <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: polkadotMagenta }}>Upcoming Events</h1>
-                        <p className="text-xl text-gray-400">Find and join official PCLP events happening across Africa.</p>
-                    </header>
-
-                    {/* Filters */}
-                    <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center">
-                        <select
-                            value={locationFilter}
-                            onChange={e => setLocationFilter(e.target.value)}
-                            className="bg-gray-700 text-white rounded-md p-2 focus:ring-2 focus:ring-purple-500 focus:outline-none"
-                            aria-label="Filter events by location"
-                        >
-                            {uniqueLocations.map(loc => (
-                                <option key={loc} value={loc}>{loc === 'all' ? 'All Locations' : loc}</option>
-                            ))}
-                        </select>
-                        <select
-                            value={dateSort}
-                            onChange={e => setDateSort(e.target.value)}
-                            className="bg-gray-700 text-white rounded-md p-2 focus:ring-2 focus:ring-purple-500 focus:outline-none"
-                            aria-label="Sort events by date"
-                        >
-                            <option value="upcoming">Sort by Date (Upcoming)</option>
-                            <option value="recent">Sort by Date (Most Recent)</option>
-                        </select>
-                    </div>
-
-                    {/* Events Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {filteredAndSortedEvents.map(event => (
-                            <div key={event.id} className="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 flex flex-col">
-                                <h3 className="text-xl font-bold text-purple-300 mb-2">{event.title}</h3>
-                                <p className="text-sm text-gray-400 mb-1"><i className="fas fa-calendar-alt mr-2"></i>{new Date(event.date).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' })}</p>
-                                <p className="text-sm text-gray-400 mb-1"><i className="fas fa-map-marker-alt mr-2"></i>{event.location}</p>
-                                <p className="text-sm text-gray-400 mb-4"><i className="fas fa-user mr-2"></i>Lead: {event.lead}</p>
-                                <p className="text-gray-300 text-base mb-6 flex-grow">{event.description}</p>
-                                <a href="#" className="mt-auto text-center block w-full px-4 py-2 font-semibold text-white rounded-lg transition-colors" style={{ backgroundColor: polkadotMagenta }} onMouseOver={e => e.currentTarget.style.backgroundColor = polkadotMagentaHover} onMouseOut={e => e.currentTarget.style.backgroundColor = polkadotMagenta}>
-                                    Learn More & Register
-                                </a>
-                            </div>
-                        ))}
-                    </div>
-                </section>
-
-                {/* Meet Our Campus Leads Section */}
-                <section>
-                    <header className="text-center mb-10">
-                        <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: polkadotMagenta }}>Meet Our Campus Leads</h1>
-                        <p className="text-xl text-gray-400">Connect with the Polkadot champions in your area.</p>
-                    </header>
-
-                    {/* Search Bar */}
-                    <div className="mb-8 max-w-lg mx-auto">
-                        <input
-                            type="text"
-                            placeholder="Search by name or university..."
-                            value={searchQuery}
-                            onChange={e => setSearchQuery(e.target.value)}
-                            className="w-full p-3 bg-gray-700 text-white rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none"
-                            aria-label="Search for campus leads"
-                        />
-                    </div>
-
-                    {/* Leads Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                        {filteredLeads.map(lead => (
-                            <div key={lead.id} className="bg-gray-800 p-6 rounded-lg shadow-lg text-center transform hover:-translate-y-2 transition-transform duration-300">
-                                <img src={lead.photoUrl} alt={lead.name} className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-purple-400 object-cover" />
-                                <h3 className="text-lg font-bold text-white">{lead.name}</h3>
-                                <p className="text-sm text-purple-300 mb-3">{lead.campus}</p>
-                                <div className="flex justify-center space-x-4 text-xl text-gray-400">
-                                    <a href={lead.social.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-white" aria-label={`LinkedIn profile for ${lead.name}`}><i className="fab fa-linkedin"></i></a>
-                                    <a href={lead.social.twitter} target="_blank" rel="noopener noreferrer" className="hover:text-white" aria-label={`Twitter profile for ${lead.name}`}><i className="fab fa-twitter"></i></a>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </section>
-            </div>
-        </div>
-    );
-};
-
-const sampleProjects = [
-    { title: 'AfriChain', description: 'A decentralized supply chain solution for agricultural products in West Africa, built on Substrate.', skills: ['Rust', 'Substrate', 'Supply Chain'] },
-    { title: 'EthioVote', description: 'A secure and transparent e-voting platform designed to ensure election integrity in Ethiopia.', skills: ['Smart Contracts', 'Cryptography', 'Governance'] },
-    { title: 'Kente-Fi', description: 'A DeFi lending protocol inspired by traditional Ghanaian savings groups, providing micro-loans.', skills: ['DeFi', 'Solidity', 'Financial Inclusion'] },
-];
-
-const sampleGalleryImages = [
-    { src: 'https://images.unsplash.com/photo-1573497491208-6b1acb260507?q=80&w=2070&auto=format&fit=crop', caption: 'Addis Ababa Hackathon' },
-    { src: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2232&auto=format&fit=crop', caption: 'Nairobi Substrate Workshop' },
-    { src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop', caption: 'Cape Town Polkadot 101 Meetup' },
-    { src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop', caption: 'Lagos Blockchain Conference' },
-    { src: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop', caption: 'Accra DeFi Seminar' },
-    { src: 'https://images.unsplash.com/photo-1600880292210-85938a069596?q=80&w=2070&auto=format&fit=crop', caption: 'Johannesburg Web3 Pitch Day' },
-    { src: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070&auto=format&fit=crop', caption: 'Kigali Tech Meetup' },
-    { src: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=2070&auto=format&fit=crop', caption: 'Campus Leads Annual Summit' },
-];
-
-const ShowcaseContent: React.FC = () => {
+const ShowcaseContent: React.FC<{ leads: Lead[]; onSelectLead: (lead: Lead) => void; onNavigate: (page: ActivePage) => void }> = ({ leads, onSelectLead, onNavigate }) => {
     const [selectedImg, setSelectedImg] = useState<{ src: string; caption: string } | null>(null);
 
     return (
         <div className="py-12 md:py-16 px-6 md:px-12 text-gray-300">
             <div className="max-w-6xl mx-auto space-y-16">
 
-                {/* Innovators & Builders Section */}
-                <section>
+                 <section>
                     <header className="text-center mb-10">
                         <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: polkadotMagenta }}>Innovators & Builders</h1>
                         <p className="text-xl text-gray-400">Celebrating the impactful projects developed by our student leaders.</p>
                     </header>
-
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                        {/* Project Cards */}
-                        <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
-                            {sampleProjects.map(project => (
-                                <div key={project.title} className="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 flex flex-col">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {sampleProjects.map(project => {
+                             const builder = leads.find(l => l.id === project.leadId);
+                             return(
+                                <div key={project.title} className="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 flex flex-col text-left">
                                     <h3 className="text-2xl font-bold text-purple-300 mb-2">{project.title}</h3>
                                     <p className="text-gray-400 mb-4 flex-grow">{project.description}</p>
-                                    <div className="flex flex-wrap gap-2">
+                                    <div className="flex flex-wrap gap-2 mb-4">
                                         {project.skills.map(skill => (
                                             <span key={skill} className="bg-gray-700 text-purple-300 text-xs font-semibold px-2.5 py-1 rounded-full">{skill}</span>
                                         ))}
                                     </div>
+                                    <div className="mt-auto pt-4 border-t border-gray-700 flex items-center justify-between">
+                                        {builder && (
+                                            <button onClick={() => onSelectLead(builder)} className="flex items-center space-x-2 group focus:outline-none">
+                                                <img src={builder.photoUrl} alt={builder.name} className="w-8 h-8 rounded-full border-2 border-gray-600 group-hover:border-purple-400 transition-colors bg-gray-700" />
+                                                <div className="text-sm">
+                                                    <span className="text-gray-500">Built by</span>
+                                                    <p className="text-gray-300 group-hover:text-purple-300 transition-colors">{builder.name}</p>
+                                                </div>
+                                            </button>
+                                        )}
+                                        <a href={project.appLink} target="_blank" rel="noopener noreferrer" className="px-3 py-1 text-sm font-semibold text-white rounded-md transition-colors" style={{ backgroundColor: polkadotMagenta }} onMouseOver={e => e.currentTarget.style.backgroundColor = polkadotMagentaHover} onMouseOut={e => e.currentTarget.style.backgroundColor = polkadotMagenta}>
+                                           Open App <i className="fas fa-external-link-alt ml-1"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                            ))}
-                            <div className="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 flex flex-col items-center justify-center text-center">
-                                <h3 className="text-2xl font-bold text-purple-300 mb-2">Your Project Here?</h3>
-                                <p className="text-gray-400 mb-4 flex-grow">Join the program and get the support to build the next big thing in Web3.</p>
-                                <button className="mt-auto px-6 py-2 font-semibold text-white rounded-lg transition-colors" style={{ backgroundColor: polkadotMagenta }} onMouseOver={e => e.currentTarget.style.backgroundColor = polkadotMagentaHover} onMouseOut={e => e.currentTarget.style.backgroundColor = polkadotMagenta}>
-                                    Apply Now
-                                </button>
-                            </div>
-                        </div>
-
-                        {/* Talent Pool Sidebar */}
-                        <div className="lg:col-span-1 bg-gray-800 p-6 rounded-lg shadow-lg border border-purple-500/30">
-                            <h3 className="text-2xl font-bold text-white mb-4">Connect with Our Talent</h3>
-                            <p className="text-gray-400 mb-6">Our program cultivates top-tier talent ready to innovate. Connect with our skilled developers, project managers, and community builders.</p>
-                            <ul className="space-y-2 text-gray-300">
-                                <li className="flex items-center"><i className="fas fa-check-circle text-green-400 mr-2"></i>Rust & Substrate Developers</li>
-                                <li className="flex items-center"><i className="fas fa-check-circle text-green-400 mr-2"></i>DeFi Protocol Designers</li>
-                                <li className="flex items-center"><i className="fas fa-check-circle text-green-400 mr-2"></i>Smart Contract Engineers</li>
-                                <li className="flex items-center"><i className="fas fa-check-circle text-green-400 mr-2"></i>Technical Community Managers</li>
-                            </ul>
-                            <button className="mt-6 w-full px-4 py-2 font-semibold text-white rounded-lg transition-colors" style={{ backgroundColor: polkadotMagenta }} onMouseOver={e => e.currentTarget.style.backgroundColor = polkadotMagentaHover} onMouseOut={e => e.currentTarget.style.backgroundColor = polkadotMagenta}>
-                                Hire Our Talent
-                            </button>
-                        </div>
+                            );
+                        })}
+                    </div>
+                    <div className="mt-12 p-8 bg-gray-800 rounded-lg shadow-2xl text-center border border-purple-500/50">
+                        <h3 className="text-3xl font-bold text-white mb-4">Have a Project to Share?</h3>
+                        <p className="text-gray-400 mb-6 max-w-xl mx-auto">
+                            If you're a part of our program and have built something amazing with Polkadot, we want to feature you! Submit your project for a chance to be showcased to the entire community.
+                        </p>
+                        <a 
+                            href={applicationLink}
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="inline-block px-8 py-3 text-lg font-bold text-white rounded-lg transition-transform transform hover:scale-105"
+                            style={{ backgroundColor: polkadotMagenta }} onMouseOver={e => e.currentTarget.style.backgroundColor = polkadotMagentaHover} onMouseOut={e => e.currentTarget.style.backgroundColor = polkadotMagenta}
+                        >
+                            Submit Your Project
+                        </a>
                     </div>
                 </section>
 
-                {/* Event Gallery Section */}
+                <section>
+                    <header className="text-center mb-10">
+                        <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: polkadotMagenta }}>Find Top Web3 Talent</h1>
+                        <p className="text-xl text-gray-400">Our program cultivates the next generation of Web3 builders in Africa.</p>
+                    </header>
+                    <div className="p-8 bg-gray-800 rounded-lg shadow-2xl text-center border border-purple-500/50">
+                        <h3 className="text-3xl font-bold text-white mb-4">Connect with Our Innovators</h3>
+                        <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
+                            Looking to hire skilled developers, project managers, or community leaders with hands-on blockchain experience? Our talent pool is ready to build the future. Get in touch to discuss partnership opportunities.
+                        </p>
+                        <button
+                            onClick={() => onNavigate('contact')}
+                            className="inline-block px-8 py-3 text-lg font-bold text-white rounded-lg transition-transform transform hover:scale-105"
+                            style={{ backgroundColor: polkadotMagenta }} onMouseOver={e => e.currentTarget.style.backgroundColor = polkadotMagentaHover} onMouseOut={e => e.currentTarget.style.backgroundColor = polkadotMagenta}
+                        >
+                            Contact Us
+                        </button>
+                    </div>
+                </section>
+
+                <section>
+                    <header className="text-center mb-10">
+                        <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: polkadotMagenta }}>Meet Our Campus Leads</h1>
+                        <p className="text-xl text-gray-400">The faces of Web3 innovation on campuses across Africa.</p>
+                    </header>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                        {leads.map(lead => (
+                            <button key={lead.id} onClick={() => onSelectLead(lead)} className="bg-gray-800 p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-purple-400">
+                                <img src={lead.photoUrl} alt={lead.name} className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-purple-500 bg-gray-700" />
+                                <h3 className="text-xl font-bold text-white">{lead.name}</h3>
+                                <p className="text-purple-300">{lead.campus}</p>
+                            </button>
+                        ))}
+                    </div>
+                </section>
+
                 <section>
                     <header className="text-center mb-10">
                         <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: polkadotMagenta }}>Our Journey in Pictures</h1>
@@ -455,7 +562,7 @@ const ShowcaseContent: React.FC = () => {
                 </section>
             </div>
             {selectedImg && (
-                <div className="fixed inset-0 z-[101] bg-black bg-opacity-90 flex items-center justify-center p-4 animate-modalFadeInScale" onClick={() => setSelectedImg(null)}>
+                <div className="fixed inset-0 z-[151] bg-black bg-opacity-90 flex items-center justify-center p-4 animate-modalFadeInScale" onClick={() => setSelectedImg(null)}>
                     <div className="relative max-w-4xl max-h-[90vh] flex flex-col items-center">
                         <img src={selectedImg.src} alt={selectedImg.caption} className="max-w-full max-h-full object-contain rounded-lg" />
                         <p className="mt-4 text-white text-lg">{selectedImg.caption}</p>
@@ -472,45 +579,21 @@ const ShowcaseContent: React.FC = () => {
     );
 };
 
-const socialLinks = [
-    { name: 'X (Twitter)', icon: 'fab fa-twitter', link: '#', description: 'Follow us for the latest news and announcements.' },
-    { name: 'LinkedIn', icon: 'fab fa-linkedin', link: '#', description: 'Connect with our professional network.' },
-    { name: 'Telegram', icon: 'fab fa-telegram-plane', link: '#', description: 'Join our community for live discussions.' },
-    { name: 'Discord', icon: 'fab fa-discord', link: '#', description: 'Engage with developers and other leads.' },
-    { name: 'WhatsApp', icon: 'fab fa-whatsapp', link: '#', description: 'Get in touch for direct support.' },
-    { name: 'Email', icon: 'fas fa-envelope', link: 'mailto:#', description: 'For partnerships and official inquiries.' },
-];
-
-const ContactUsContent: React.FC = () => (
+const ContactContent: React.FC = () => (
     <div className="py-12 md:py-16 px-6 md:px-12 text-gray-300">
         <div className="max-w-4xl mx-auto">
             <header className="text-center mb-12">
-                <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: polkadotMagenta }}>
-                    Get in Touch
-                </h1>
+                <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: polkadotMagenta }}>Get in Touch</h1>
                 <p className="text-xl text-gray-400 max-w-2xl mx-auto">
                     We'd love to hear from you! Whether you have questions, want to partner with us, or wish to support our mission, here’s how you can reach out.
                 </p>
             </header>
-
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {socialLinks.map(social => (
-                    <a
-                        key={social.name}
-                        href={social.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 flex flex-col items-center text-center group transform hover:-translate-y-2 transition-transform duration-300"
-                    >
+                    <a key={social.name} href={social.link} target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 flex flex-col items-center text-center group transform hover:-translate-y-2 transition-transform duration-300">
                         <i className={`${social.icon} text-5xl mb-4 transition-colors duration-300`} style={{ color: polkadotMagenta }}></i>
                         <h3 className="text-2xl font-bold text-white mb-2">{social.name}</h3>
                         <p className="text-gray-400 mb-4 flex-grow">{social.description}</p>
-                        <span
-                            className="mt-auto inline-block px-6 py-2 text-md font-semibold text-white rounded-lg transition-colors duration-300 group-hover:text-white"
-                            style={{ backgroundColor: polkadotMagenta, boxShadow: `0 0 15px ${polkadotMagenta}33` }}
-                        >
-                            Connect <i className="fas fa-arrow-right ml-1 opacity-0 group-hover:opacity-100 transition-opacity"></i>
-                        </span>
                     </a>
                 ))}
             </div>
@@ -520,96 +603,91 @@ const ContactUsContent: React.FC = () => (
 
 
 // --- MAIN MODAL COMPONENT ---
-
 interface CampusLeadModalProps {
-    isOpen: boolean;
-    onClose: () => void;
+  isOpen: boolean;
+  onClose: () => void;
 }
 
 export const CampusLeadModal: React.FC<CampusLeadModalProps> = ({ isOpen, onClose }) => {
-    const [activePage, setActivePage] = useState<ActivePage>('home');
-    const contentRef = useRef<HTMLDivElement>(null);
+  const [activePage, setActivePage] = useState<ActivePage>('home');
+  const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
-    const handleNavClick = (page: ActivePage) => {
-        setActivePage(page);
-        if (contentRef.current) {
-            contentRef.current.scrollTop = 0;
-        }
-    };
+  if (!isOpen) return null;
+  const modalRoot = document.getElementById('modal-root');
+  if (!modalRoot) return null;
 
-    if (!isOpen) return null;
-    const modalRoot = document.getElementById('modal-root');
-    if (!modalRoot) return null;
+  const handleNavClick = (page: ActivePage) => {
+    setActivePage(page);
+    contentRef.current?.scrollTo(0, 0); // Scroll to top on page change
+  };
+  
+  const handleSelectLead = (lead: Lead) => setSelectedLead(lead);
+  const handleClosePopup = () => setSelectedLead(null);
 
-    const renderContent = () => {
-        switch (activePage) {
-            case 'home': return <HomepageContent />;
-            case 'about': return <AboutUsContent />;
-            case 'opportunity': return <OpportunityContent />;
-            case 'events': return <EventsContent />;
-            case 'showcase': return <ShowcaseContent />;
-            case 'contact': return <ContactUsContent />;
-            case 'apply': return <OpportunityContent />;
-            default: return <HomepageContent />;
-        }
-    };
 
-    return ReactDOM.createPortal(
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 backdrop-blur-sm">
-            <div className="bg-gray-900 text-white w-full h-full flex flex-col animate-modalFadeInScale">
+  const renderContent = () => {
+    switch (activePage) {
+      case 'home': return <HomepageContent />;
+      case 'about': return <AboutContent />;
+      case 'events': return <EventsContent leads={leads} events={events} onSelectLead={handleSelectLead} />;
+      case 'opportunity': return <OpportunityContent />;
+      case 'showcase': return <ShowcaseContent leads={leads} onSelectLead={handleSelectLead} onNavigate={handleNavClick} />;
+      case 'contact': return <ContactContent />;
+      default: return <HomepageContent />;
+    }
+  };
 
-                {/* Top Bar with Title and Close Button */}
-                <div className="flex-shrink-0 bg-gray-900/80 backdrop-blur-sm p-3 md:p-4 flex justify-between items-center border-b border-gray-700">
-                    <h2 className="text-lg md:text-xl font-bold text-purple-300">
-                        Polkadot Campus Lead Program
-                    </h2>
-                    <IconButton
-                        iconClass="fas fa-times text-xl md:text-2xl"
-                        onClick={onClose}
-                        className="text-gray-400 hover:text-white p-1"
-                        aria-label="Close"
-                    />
-                </div>
+  return ReactDOM.createPortal(
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 backdrop-blur-sm">
+      <div className="bg-gray-900 text-white w-full h-full flex flex-col animate-modalFadeInScale">
+        
+        <header className="flex-shrink-0 bg-gray-900/80 backdrop-blur-sm p-3 md:p-4 flex justify-between items-center border-b border-gray-700">
+          <h2 className="text-lg md:text-xl font-bold" style={{ color: polkadotMagenta }}>
+            Campus Lead Program
+          </h2>
+          <nav className="hidden md:flex items-center space-x-6">
+            {navItems.map(item => (
+              <button
+                key={item.id}
+                onClick={() => handleNavClick(item.id)}
+                className={`font-semibold transition-colors ${activePage === item.id ? 'text-purple-400' : 'text-gray-300 hover:text-purple-300'}`}
+              >
+                {item.label}
+              </button>
+            ))}
+          </nav>
+          <IconButton
+            iconClass="fas fa-times text-xl md:text-2xl"
+            onClick={onClose}
+            className="text-gray-400 hover:text-white p-1"
+          />
+        </header>
+        
+        <main ref={contentRef} className="flex-grow overflow-y-auto custom-scrollbar">
+          {renderContent()}
+           <footer className="py-8 px-6 text-center text-gray-500 bg-gray-800/50">
+              <p>&copy; {new Date().getFullYear()} Polkadot Campus Lead Program. All Rights Reserved.</p>
+          </footer>
+        </main>
 
-                {/* Sticky Navigation */}
-                <nav className="sticky top-0 bg-gray-800/90 backdrop-blur-sm z-10 flex-shrink-0 shadow-md">
-                    <div className="px-2 md:px-4 overflow-x-auto custom-scrollbar">
-                        <div className="flex items-center h-14 space-x-1 md:space-x-2">
-                            {navItems.map(item => (
-                                <button
-                                    key={item.id}
-                                    onClick={() => handleNavClick(item.id)}
-                                    className={`px-3 md:px-4 py-2 text-sm font-medium rounded-md transition-colors whitespace-nowrap ${activePage === item.id ? 'bg-gray-900 text-white shadow-inner' : 'text-gray-300 hover:bg-gray-700/50 hover:text-white'}`}
-                                    aria-current={activePage === item.id ? 'page' : undefined}
-                                >
-                                    {item.label}
-                                </button>
-                            ))}
-                            <div className="!ml-auto flex-shrink-0 pl-2">
-                                <button
-                                    onClick={() => handleNavClick('apply')}
-                                    className="px-5 py-2 text-sm font-bold text-white rounded-full transition-colors whitespace-nowrap"
-                                    style={{ backgroundColor: polkadotMagenta }}
-                                    onMouseOver={e => e.currentTarget.style.backgroundColor = polkadotMagentaHover}
-                                    onMouseOut={e => e.currentTarget.style.backgroundColor = polkadotMagenta}
-                                >
-                                    Apply
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
+        <footer className="md:hidden flex-shrink-0 bg-gray-800/90 backdrop-blur-sm shadow-top p-2 flex justify-around items-center">
+            {navItems.map(item => (
+                 <button
+                    key={item.id}
+                    onClick={() => handleNavClick(item.id)}
+                    className={`text-xs p-1 rounded-md ${activePage === item.id ? 'text-purple-400' : 'text-gray-400'}`}
+                 >
+                     {item.label}
+                 </button>
+            ))}
+        </footer>
 
-                {/* Scrollable Content */}
-                <main ref={contentRef} className="flex-grow overflow-y-auto custom-scrollbar bg-gray-900">
-                    {renderContent()}
-                    {/* Footer */}
-                    <footer className="py-8 px-6 text-center text-gray-500 bg-gray-800/50">
-                        <p>&copy; {new Date().getFullYear()} Polkadot Campus Lead Program. All Rights Reserved.</p>
-                    </footer>
-                </main>
-            </div>
-        </div>,
-        modalRoot
-    );
+        {selectedLead && (
+            <LeadDetailPopup lead={selectedLead} allEvents={events} onClose={handleClosePopup} />
+        )}
+      </div>
+    </div>,
+    modalRoot
+  );
 };
