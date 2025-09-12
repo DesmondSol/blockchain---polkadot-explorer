@@ -23,6 +23,7 @@ import { LearningModeModal } from './components/LearningModeModal';
 import { StoryMode } from './components/StoryMode';
 import { QuizMode } from './components/QuizMode';
 import { CampusLeadModal } from './components/CampusLeadModal';
+import { BountiesModal } from './components/BountiesModal';
 import { ResourceModal } from './components/ResourceModal'; // Import the new modal
 import * as Constants from './constants';
 import { web3Accounts, web3Enable } from '@polkadot/extension-dapp'; 
@@ -60,7 +61,6 @@ const resourceList: ResourceListItem[] = [
     content: [
       { iconClass: 'fas fa-rocket', titleKey: 'resourcesContent.games.exiledRacers.title', descriptionKey: 'resourcesContent.games.exiledRacers.description', link: 'https://exiledracers.com/' },
       { iconClass: 'fas fa-chess', titleKey: 'resourcesContent.games.ajuna.title', descriptionKey: 'resourcesContent.games.ajuna.description', link: 'https://ajuna.io/' },
-      { iconClass: 'fas fa-globe', titleKey: 'resourcesContent.games.bitCountry.title', descriptionKey: 'resourcesContent.games.bitCountry.description', link: 'https://bit.country/' },
       { iconClass: 'fas fa-star', titleKey: 'resourcesContent.games.astar.title', descriptionKey: 'resourcesContent.games.astar.description', link: 'https://astar.network/astar2' },
     ]
   },
@@ -80,10 +80,10 @@ const resourceList: ResourceListItem[] = [
     iconClass: 'fas fa-th-large', 
     translationKey: 'home.resources.dapps',
     content: [
-      { iconClass: 'fas fa-coins', titleKey: 'resourcesContent.dapps.acala.title', descriptionKey: 'resourcesContent.dapps.acala.description', link: 'https://acala.network/' },
-      { iconClass: 'fas fa-moon', titleKey: 'resourcesContent.dapps.moonbeam.title', descriptionKey: 'resourcesContent.dapps.moonbeam.description', link: 'https://moonbeam.network/' },
-      { iconClass: 'fas fa-water', titleKey: 'resourcesContent.dapps.hydradx.title', descriptionKey: 'resourcesContent.dapps.hydradx.description', link: 'https://hydradx.io/' },
+      { iconClass: 'fas fa-water', titleKey: 'resourcesContent.dapps.hydration.title', descriptionKey: 'resourcesContent.dapps.hydration.description', link: 'https://hydration.net/' },
       { iconClass: 'fas fa-rainbow', titleKey: 'resourcesContent.dapps.bifrost.title', descriptionKey: 'resourcesContent.dapps.bifrost.description', link: 'https://bifrost.finance/' },
+      { iconClass: 'fas fa-moon', titleKey: 'resourcesContent.dapps.moonbeam.title', descriptionKey: 'resourcesContent.dapps.moonbeam.description', link: 'https://moonbeam.network/' },
+      { iconClass: 'fas fa-route', titleKey: 'resourcesContent.dapps.hyperbridge.title', descriptionKey: 'resourcesContent.dapps.hyperbridge.description', link: 'https://app.hyperbridge.network/' },
     ]
   }, 
   { 
@@ -106,7 +106,7 @@ const resourceList: ResourceListItem[] = [
       { iconClass: 'fab fa-telegram-plane', titleKey: 'resourcesContent.community.polkadotEthiopia.title', descriptionKey: 'resourcesContent.community.polkadotEthiopia.description', link: 'https://t.me/polkadot_et' }
     ]
   },
-  { id: 'bounties', iconClass: 'fas fa-trophy', translationKey: 'home.resources.bounties', url: 'https://polkadot.network/bounties/' },
+  { id: 'bounties', iconClass: 'fas fa-trophy', translationKey: 'home.resources.bounties' },
   { id: 'discord', iconClass: 'fab fa-discord', translationKey: 'home.resources.discord', url: 'https://discord.gg/polkadot' },
   { id: 'videos', iconClass: 'fas fa-video', translationKey: 'home.resources.videos' },
   { id: 'socials', iconClass: 'fas fa-users', translationKey: 'home.resources.socials' },
@@ -149,6 +149,7 @@ const App: React.FC = () => {
   const [showComingSoonModal, setShowComingSoonModal] = useState<boolean>(false);
   const [comingSoonResourceTitle, setComingSoonResourceTitle] = useState<string>('');
   const [showCampusLeadModal, setShowCampusLeadModal] = useState<boolean>(false);
+  const [showBountiesModal, setShowBountiesModal] = useState<boolean>(false);
   
   // New state for the generic Resource Modal
   const [showResourceModal, setShowResourceModal] = useState<boolean>(false);
@@ -597,6 +598,8 @@ const App: React.FC = () => {
 
     if (resource.id === 'campusLead') {
       setShowCampusLeadModal(true);
+    } else if (resource.id === 'bounties') {
+      setShowBountiesModal(true);
     } else if (resource.url) {
       window.open(resource.url, '_blank', 'noopener,noreferrer');
     } else if (resource.content) {
@@ -720,6 +723,7 @@ const App: React.FC = () => {
       {showClaimBadgeModal && selectedBadgeToClaim && (<ClaimBadgeModal isOpen={showClaimBadgeModal} achievementKey={selectedBadgeToClaim} polkadotAccount={polkadotAccount} claimedBadgeDetail={claimedBadges[selectedBadgeToClaim]} onClose={handleCloseClaimBadgeModal} onConfirmClaim={handleConfirmClaimBadge} /> )}
       <ComingSoonModal isOpen={showComingSoonModal} resourceName={comingSoonResourceTitle} onClose={() => setShowComingSoonModal(false)} />
       <CampusLeadModal isOpen={showCampusLeadModal} onClose={() => setShowCampusLeadModal(false)} />
+      <BountiesModal isOpen={showBountiesModal} onClose={() => setShowBountiesModal(false)} />
       <DiagnosticQuizModal isOpen={showDiagnosticQuizModal} quizPath={currentQuizPath} onClose={handleCloseDiagnosticQuizModal} onSubmitQuiz={handleDiagnosticQuizSubmit} introTextKey="diagnosticQuiz.introductionText" />
       <LearningModeModal isOpen={showLearningModeModal} onSelectMode={handleLearningModeSelect} onClose={handleCloseLearningModeModal} />
       

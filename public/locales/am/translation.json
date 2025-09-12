@@ -43,11 +43,17 @@
       "comingSoonMessage": "በቅርቡ ይመጣል!"
     }
   },
-    "resourcesContent": {
+  "bountiesModal": {
+    "title": "ሽልማቶች እና ሀካቶኖች",
+    "subtitle": "ዕድሎችን ያስሱ",
+    "description": "ይሳተፉ፣ ለሥነ-ምህዳሩ አስተዋፅዖ ያድርጉ እና ሽልማቶችን ያግኙ።",
+    "cardTitle": "የፖልካዶት አፍሪካ ሀካቶኖች",
+    "cardDescription": "በፖልካዶት አፍሪካ የሚስተናገዱ የቅርብ ጊዜ ሀካቶኖችን እና ውድድሮችን ያግኙ።"
+  },
+  "resourcesContent": {
     "games": {
       "exiledRacers": { "title": "Exiled Racers", "description": "በፖልካዶት ሥነ-ምህዳር ውስጥ ንቁ ማህበረሰብ እና ሊበጁ የሚችሉ እሽቅድድም ተሽከርካሪዎች ያለው የወደፊት 'ለመንዳት-ለማግኘት' የእሽቅድድም ጨዋታ።" },
       "ajuna": { "title": "Ajuna Network", "description": "ገንቢዎች በብሎክቼይን ላይ የተመሰረቱ ጨዋታዎችን ከ Unreal እና Unity ጋር እንዲፈጥሩ እና እንዲያዋህዱ የሚያስችል ያልተማከለ የጨዋታ መድረክ።" },
-      "bitCountry": { "title": "Bit.Country", "description": "ለተጠቃሚ-የተፈጠሩ ሜታቨርሶች፣ ማህበራዊ ቦታዎች እና ዲጂታል ኢኮኖሚዎች መድረክ፣ ፈጣሪዎችን በ NFTs እና በምናባዊ ሪል እስቴት የሚያበረታታ።" },
       "astar": { "title": "Astar Network", "description": "ሁለቱንም EVM እና WASM የሚደግፍ ግንባር ቀደም ፓራቼይን፣ በ dApp staking ባህሪው የበለጸገ የጨዋታዎች እና የ DApps ሥነ-ምህዳርን የሚያጎለብት።" }
     },
     "wallets": {
@@ -57,10 +63,10 @@
       "subwallet": { "title": "SubWallet", "description": "ለፖልካዶት፣ ለ Substrate እና ለ Ethereum ሥነ-ምህዳሮች አጠቃላይ የኪስ ቦርሳ መፍትሄ፣ እንደ አሳሽ ቅጥያ እና የሞባይል መተግበሪያ ይገኛል።" }
     },
     "dapps": {
-      "acala": { "title": "Acala Network", "description": "ያልተማከለ የፋይናንስ (DeFi) ማዕከል፣ የተረጋጋ ሳንቲም፣ ስቴኪንግ እና AMM DEXን ጨምሮ የፋይናንስ መተግበሪያዎችን ስብስብ ያቀርባል።" },
+      "hydration": { "title": "ሀይድሬሽን", "description": "በ Substrate ላይ የተገነባ የፈሳሽነት ፕሮቶኮል፣ ለፖልካዶት የፈሳሽነት ውቅያኖስን ለማምጣት የተነደፈ።" },
+      "bifrost": { "title": "Bifrost Finance", "description": "ለስቴኪንግ ፈሳሽነት የተነደፈ ፓራቼይን። ተጠቃሚዎች ክሪፕቶ ምንዛሬዎችን ስቴክ እንዲያደርጉ እና በምላሹ ፈሳሽ vTokens እንዲቀበሉ ያስችላቸዋል።" },
       "moonbeam": { "title": "Moonbeam", "description": "ከ Ethereum ጋር ተኳሃኝ የሆነ የስማርት ኮንትራት ፓራቼይን፣ በ Substrate-በተመሰረተ አካባቢ የ Solidity ፕሮጀክቶችን ለመገንባት ወይም እንደገና ለማሰማራት ቀላል ያደርገዋል።" },
-      "hydradx": { "title": "HydraDX", "description": "በ Substrate ላይ የተገነባ የፈሳሽነት ፕሮቶኮል፣ ለፖልካዶት የፈሳሽነት ውቅያኖስን ለማምጣት የተነደፈ።" },
-      "bifrost": { "title": "Bifrost Finance", "description": "ለስቴኪንግ ፈሳሽነት የተነደፈ ፓራቼይን። ተጠቃሚዎች ክሪፕቶ ምንዛሬዎችን ስቴክ እንዲያደርጉ እና በምላሹ ፈሳሽ vTokens እንዲቀበሉ ያስችላቸዋል።" }
+      "hyperbridge": { "title": "HyperBridge", "description": "ፖልካዶትን ከሌሎች ሥነ-ምህዳሮች ጋር የሚያገናኝ የማይታመን፣ እርስ በርስ የሚሰራ ድልድይ።" }
     },
     "gov": {
       "polkassembly": { "title": "Polkassembly", "description": "በፖልካዶት እና በኩሳማ ሥነ-ምህዳሮች ላይ በአስተዳደር ሀሳቦች ላይ ለመወያየት እና ድምጽ ለመስጠት መድረክ።" },

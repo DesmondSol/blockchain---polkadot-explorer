@@ -43,11 +43,17 @@
       "comingSoonMessage": "Inakuja hivi karibuni!"
     }
   },
-    "resourcesContent": {
+  "bountiesModal": {
+    "title": "Zawadi na Hackathons",
+    "subtitle": "Gundua Fursa",
+    "description": "Shiriki, changia mfumo wa ikolojia, na upate thawabu.",
+    "cardTitle": "Hackathons za Polkadot Africa",
+    "cardDescription": "Pata hackathons na mashindano ya hivi karibuni yaliyoandaliwa na Polkadot Africa."
+  },
+  "resourcesContent": {
     "games": {
       "exiledRacers": { "title": "Exiled Racers", "description": "Mchezo wa mbio za magari wa siku zijazo wa 'endesha-ili-upate' wenye jumuiya hai na magari ya mbio yanayoweza kubinafsishwa katika mfumo ikolojia wa Polkadot." },
       "ajuna": { "title": "Ajuna Network", "description": "Jukwaa la michezo la ugatuzi linalowaruhusu wasanidi programu kuunda na kuunganisha michezo inayotegemea blockchain na Unreal na Unity." },
-      "bitCountry": { "title": "Bit.Country", "description": "Jukwaa la metaversi zilizoundwa na watumiaji, nafasi za kijamii, na uchumi wa kidijitali, linalowapa uwezo waundaji na NFTs na mali isiyohamishika ya mtandaoni." },
       "astar": { "title": "Astar Network", "description": "Parachain inayoongoza inayosaidia EVM na WASM, ikikuza mfumo ikolojia tajiri wa michezo na DApps na kipengele chake cha dApp staking." }
     },
     "wallets": {
@@ -57,10 +63,10 @@
       "subwallet": { "title": "SubWallet", "description": "Suluhisho kamili la pochi kwa mifumo ikolojia ya Polkadot, Substrate, na Ethereum, linalopatikana kama kiendelezi cha kivinjari na programu ya simu." }
     },
     "dapps": {
-      "acala": { "title": "Acala Network", "description": "Kitovu cha fedha cha ugatuzi (DeFi) kinachotoa mfululizo wa programu za kifedha, ikiwa ni pamoja na stablecoin, staking, na AMM DEX." },
+      "hydration": { "title": "Hydration", "description": "Itifaki ya ukwasi wa minyororo mbalimbali iliyojengwa juu ya Substrate, iliyoundwa kuleta bahari ya ukwasi kwa Polkadot." },
+      "bifrost": { "title": "Bifrost Finance", "description": "Parachain iliyoundwa kwa ajili ya ukwasi wa staking. Inawaruhusu watumiaji kuweka rehani fedha za crypto na kupokea vTokens za kioevu kama malipo." },
       "moonbeam": { "title": "Moonbeam", "description": "Parachain ya mikataba mahiri inayooana na Ethereum ambayo hurahisisha kujenga au kupeleka upya miradi ya Solidity katika mazingira yanayotegemea Substrate." },
-      "hydradx": { "title": "HydraDX", "description": "Itifaki ya ukwasi wa minyororo mbalimbali iliyojengwa juu ya Substrate, iliyoundwa kuleta bahari ya ukwasi kwa Polkadot." },
-      "bifrost": { "title": "Bifrost Finance", "description": "Parachain iliyoundwa kwa ajili ya ukwasi wa staking. Inawaruhusu watumiaji kuweka rehani fedha za crypto na kupokea vTokens za kioevu kama malipo." }
+      "hyperbridge": { "title": "HyperBridge", "description": "Daraja lisiloaminika, linaloweza kushirikiana linalounganisha Polkadot na mifumo mingine ya ikolojia." }
     },
     "gov": {
       "polkassembly": { "title": "Polkassembly", "description": "Jukwaa la kujadili na kupiga kura kuhusu mapendekezo ya utawala katika mifumo ikolojia ya Polkadot na Kusama." },

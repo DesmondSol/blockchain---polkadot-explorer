@@ -1,4 +1,3 @@
-
 {
   "appTitle": "مستكشف البلوك تشين والبولkadot",
   "common": {
@@ -6,7 +5,7 @@
     "edit": "تعديل",
     "cancel": "إلغاء",
     "submit": "إرسال",
-    "skip": "تخطى",
+    "skip": "تخط",
     "close": "إغلاق",
     "confirm": "تأكيد",
     "okButton": "موافق"
@@ -43,11 +42,17 @@
       "comingSoonMessage": "قريبا!"
     }
   },
-    "resourcesContent": {
+  "bountiesModal": {
+    "title": "المكافآت والهاكاثونات",
+    "subtitle": "استكشاف الفرص",
+    "description": "شارك، وساهم في النظام البيئي، واكسب المكافآت.",
+    "cardTitle": "هاكاثونات بولkadot أفريقيا",
+    "cardDescription": "ابحث عن أحدث الهاكاثونات والمسابقات التي تستضيفها بولkadot أفريقيا."
+  },
+  "resourcesContent": {
     "games": {
       "exiledRacers": { "title": "Exiled Racers", "description": "لعبة سباق مستقبلية بنظام 'القيادة للكسب' مع مجتمع نابض بالحياة ومتسابقين قابلين للتخصيص في نظام Polkadot البيئي." },
       "ajuna": { "title": "Ajuna Network", "description": "منصة ألعاب لامركزية تسمح للمطورين بإنشاء ودمج الألعاب القائمة على البلوك تشين مع Unreal و Unity." },
-      "bitCountry": { "title": "Bit.Country", "description": "منصة للميتافيرس التي ينشئها المستخدمون، والمساحات الاجتماعية، والاقتصادات الرقمية، وتمكين المبدعين باستخدام NFTs والعقارات الافتراضية." },
       "astar": { "title": "Astar Network", "description": "سلسلة parachain رائدة تدعم كلاً من EVM و WASM، وتعزز نظامًا بيئيًا غنيًا من الألعاب والتطبيقات اللامركزية مع ميزة dApp staking." }
     },
     "wallets": {
@@ -57,10 +62,10 @@
       "subwallet": { "title": "SubWallet", "description": "حل محفظة شامل لأنظمة Polkadot و Substrate و Ethereum البيئية، متاح كامتداد للمتصفح وتطبيق للهاتف المحمول." }
     },
     "dapps": {
-      "acala": { "title": "Acala Network", "description": "مركز للتمويل اللامركزي (DeFi) يقدم مجموعة من التطبيقات المالية، بما في ذلك عملة مستقرة، والتحصيص (staking)، وبورصة لامركزية (AMM DEX)." },
+      "hydration": { "title": "هايدريشن", "description": "بروتوكول سيولة عبر السلاسل مبني على Substrate، مصمم لجلب محيط من السيولة إلى Polkadot." },
+      "bifrost": { "title": "Bifrost Finance", "description": "سلسلة parachain مصممة لسيولة التحصيص (staking). تتيح للمستخدمين تحصيص العملات المشفرة وتلقي vTokens سائلة في المقابل." },
       "moonbeam": { "title": "Moonbeam", "description": "سلسلة parachain للعقود الذكية متوافقة مع Ethereum تجعل من السهل بناء أو إعادة نشر مشاريع Solidity في بيئة قائمة على Substrate." },
-      "hydradx": { "title": "HydraDX", "description": "بروتوكول سيولة عبر السلاسل مبني على Substrate، مصمم لجلب محيط من السيولة إلى Polkadot." },
-      "bifrost": { "title": "Bifrost Finance", "description": "سلسلة parachain مصممة لسيولة التحصيص (staking). تتيح للمستخدمين تحصيص العملات المشفرة وتلقي vTokens سائلة في المقابل." }
+      "hyperbridge": { "title": "هايبربريدج", "description": "جسر قابل للتشغيل البيني وغير موثوق يربط Polkadot بالأنظمة البيئية الأخرى." }
     },
     "gov": {
       "polkassembly": { "title": "Polkassembly", "description": "منصة لمناقشة مقترحات الحوكمة والتصويت عليها عبر أنظمة Polkadot و Kusama البيئية." },
@@ -79,7 +84,7 @@
     "noPathSelectedTitle": "لم يتم تحديد مسار تعلم",
     "noPathSelectedMessage": "يرجى الانتقال إلى علامة التبويب <i class=\"fas fa-home mx-1\"></i><strong>الرئيسية</strong> لاختيار مسار تعلم لبدء جلسة الدردشة الخاصة بك.",
     "goToHomeButton": "اذهب إلى الرئيسية",
-    "inputPlaceholderListening": "يستمع...",
+    "inputPlaceholderListening": "أستمع...",
     "inputPlaceholderTypeMessage": "اكتب رسالتك...",
     "inputPlaceholderSelectPath": "اختر مسار تعلم أولاً",
     "inputPlaceholderTypeOrMic": "اكتب أو استخدم الميكروفون...",
@@ -114,10 +119,10 @@
     "changePictureTooltip": "تغيير الصورة",
     "polkadotWalletTitle": "محفظة بولkadot",
     "connectWalletButton": "ربط محفظة بولkadot",
-    "connectWalletButtonAriaLabel": "ربط محفظتك الرقمية لبولkadot",
+    "connectWalletButtonAriaLabel": "ربط محفظة بولkadot الخاصة بك",
     "connectWalletDescription": "اربط محفظتك الرقمية لبولkadot (مثل نوفا، تاليسمان، Polkadot.js) لعرض حسابك.",
     "disconnectWalletButton": "فصل المحفظة",
-    "disconnectWalletButtonAriaLabel": "فصل محفظتك الرقمية لبولkadot",
+    "disconnectWalletButtonAriaLabel": "فصل محفظة بولkadot الخاصة بك",
     "walletName": "اسم الحساب",
     "walletNameUnnamed": "حساب بدون اسم",
     "walletAddress": "العنوان",
@@ -166,7 +171,7 @@
       "description2": "سيساعدنا هذا في تكييف الأمثلة والشروحات مع ما تعرفه بالفعل، مما يجعل المواضيع المعقدة أسهل في الفهم.",
       "textAreaPlaceholder": "مثال: 'مطور واجهات أمامية بخبرة 3 سنوات'، 'محترف تسويق جديد في مجال التكنولوجيا'، 'طالب اقتصاد'",
       "textAreaAriaLabel": "صف خبرتك أو تخصصك",
-      "skipButton": "تخطى الآن",
+      "skipButton": "تخط الآن",
       "skipButtonAriaLabel": "تخطي تقديم الخبرة الآن",
       "submitButton": "إرسال وبدء التعلم",
       "submitButtonAriaLabel": "إرسال الخبرة وبدء التعلم"
@@ -216,20 +221,20 @@
         "question": "ما هي السمة الأساسية للبلوك تشين؟",
         "optA": "التحكم المركزي من قبل كيان واحد",
         "optB": "البيانات قابلة للتعديل بسهولة من قبل أي شخص",
-        "optC": "دفتر أستاذ موزع وغير قابل للتغيير غالبًا",
+        "optC": "سجل موزع وغالباً ما يكون غير قابل للتغيير",
         "optD": "لا يتطلب اتصال بالإنترنت"
       },
       "q2": {
         "question": "ماذا يعني \"التعدين\" في سياق البيتكوين؟",
-        "optA": "استخراج المعادن الثمينة ماديًا",
+        "optA": "استخراج المعادن الثمينة مادياً",
         "optB": "إنشاء عملات بيتكوين جديدة والتحقق من صحة المعاملات",
         "optC": "تصميم برامج بلوك تشين جديدة",
         "optD": "إنفاق عملات البيتكوين في المتاجر عبر الإنترنت"
       },
       "q3": {
         "question": "ما هو \"العقد الذكي\"؟",
-        "optA": "وثيقة قانونية يراجعها المحامون",
-        "optB": "برنامج كمبيوتر ينفذ الاتفاقيات تلقائيًا",
+        "optA": "مستند قانوني يراجعه المحامون",
+        "optB": "برنامج كمبيوتر ينفذ الاتفاقيات تلقائياً",
         "optC": "محفظة أجهزة آمنة للعملات المشفرة",
         "optD": "اتفاقية تسويق بين شركتين"
       }
@@ -237,14 +242,14 @@
     "polkadotAdvanced": {
       "q1": {
         "question": "ما هو الدور الرئيسي لسلسلة الترحيل (Relay Chain) في بولkadot؟",
-        "optA": "تخزين جميع بيانات المستخدم من السلاسل الجانبية (parachains)",
-        "optB": "توفير الأمن وتنسيق السلاسل الجانبية",
+        "optA": "تخزين جميع بيانات المستخدمين من السلاسل الجانبية (parachains)",
+        "optB": "توفير الأمان وتنسيق السلاسل الجانبية",
         "optC": "تنفيذ العقود الذكية مباشرة للتطبيقات اللامركزية",
         "optD": "تعدين رموز DOT جديدة"
       },
       "q2": {
         "question": "ما هي \"السلسلة الجانبية\" (parachain) في نظام بولkadot البيئي؟",
-        "optA": "نوع من محفظة العملات المشفرة",
+        "optA": "نوع من محافظ العملات المشفرة",
         "optB": "بلوك تشين مستقل يتصل بسلسلة الترحيل",
         "optC": "اقتراح حوكمة",
         "optD": "نظام نسخ احتياطي لسلسلة الترحيل"
@@ -269,18 +274,18 @@
   },
   "storyMode": {
     "defaultTitle": "وقت القصة!",
-    "slideImageAlt": "توضيح لـ: {{idea}}",
+    "slideImageAlt": "رسم توضيحي لـ: {{idea}}",
     "previousButton": "السابق",
     "nextButton": "التالي",
     "loadingStory": "نحضر لك قصة رائعة...",
-    "loadingImage": "جاري إنشاء سحر القطط...",
-    "imageError": "عفوًا! لم نتمكن من جلب صورة هذه القطة.",
+    "loadingImage": "نولد سحر القطط...",
+    "imageError": "عفوًا! تعذر جلب صورة القطة هذه.",
     "endOfStory": "لقد وصلت إلى نهاية هذه الحكاية الرائعة!",
     "startNewStory": "اختر موضوعًا آخر لقصة جديدة.",
     "noTopicSelectedTitle": "لم يتم تحديد موضوع للقصة",
     "selectTopicPrompt": "يرجى تحديد موضوع من اللوحة الجانبية لبدء قصة.",
     "noStoryAvailable": "لا يوجد محتوى قصة متاح لهذا الموضوع بعد.",
-    "generatingCatMagic": "جاري إنشاء سحر القطط..."
+    "generatingCatMagic": "نولد سحر القطط..."
   },
   "quizMode": {
     "title": "وقت الاختبار",
@@ -288,7 +293,7 @@
     "selectTopicPrompt": "يرجى تحديد موضوع من اللوحة الجانبية لبدء اختبار.",
     "submitAnswer": "إرسال الإجابة",
     "nextQuestion": "السؤال التالي",
-    "loadingQuiz": "نحضر أسئلتك...",
+    "loadingQuiz": "نجهز أسئلتك...",
     "correct": "صحيح!",
     "wrong": "ليس تمامًا!",
     "selectAnswerPrompt": "يرجى تحديد إجابة.",
@@ -304,53 +309,53 @@
     "aiErrorPrefix": "خطأ: {{message}}"
   },
   "initialPrompts": {
-    "basics": "أنا جديد في عالم البلوك تشين. هل يمكنك أن تعطيني مقدمة بسيطة عن أساسيات البلوك تشين لأبدأ؟",
+    "basics": "أنا جديد في عالم البلوك تشين. هل يمكنك أن تعطيني مقدمة بسيطة عن أساسيات البلوك تشين للبدء؟",
     "polkadot": "لدي بعض المعرفة بالبلوك تشين. يرجى تقديم نظرة عامة على بولkadot، مع التركيز على ميزاتها الرئيسية وهيكلها للمستخدمين المتقدمين. حاول استخدام المعلومات من ويكي بولkadot."
   },
   "userExpertise": {
-    "noneProvided": "لم يتم توفيره"
+    "noneProvided": "لم يتم تقديم أي شيء"
   },
   "achievements": {
     "initiatedLearner": { "name": "متعلم مبتدئ", "description": "أهلاً بك! لقد بدأت رحلتك التعليمية." },
-    "blockchainBasicsStarted": { "name": "بدء أساسيات البلوك تشين", "description": "بدأت في طريق فهم أساسيات البلوك تشين." },
-    "polkadotAdvancedStarted": { "name": "بدء بولkadot المتقدم", "description": "الغوص عميقًا في نظام بولkadot البيئي." },
+    "blockchainBasicsStarted": { "name": "بدأت أساسيات البلوك تشين", "description": "شرعت في طريق فهم أساسيات البلوك تشين." },
+    "polkadotAdvancedStarted": { "name": "بدأ بولkadot المتقدم", "description": "تغوص بعمق في نظام بولkadot البيئي." },
     "curiousChatterbox": { "name": "ثرثار فضولي", "description": "شاركت في محادثات متعددة مع الذكاء الاصطناعي." },
-    "explorerGuide": { "name": "دليل المستكشف", "description": "اتبعت مواضيع مقترحة من الذكاء الاصطناعي لتعميق المعرفة." },
+    "explorerGuide": { "name": "دليل المستكشف", "description": "اتبعت المواضيع المقترحة من الذكاء الاصطناعي لتعميق المعرفة." },
     "personalizedLearner": { "name": "متعلم مخصص", "description": "شاركت خبرتك لتخصيص تجربة التعلم." },
-    "sourceSeeker": { "name": "باحث عن المصادر", "description": "استكشفت مصادر خارجية مقدمة من الذكاء الاصطناعي." },
-    "firstTopicConquered": { "name": "تم التغلب على أول موضوع", "description": "تعلمت بنجاح عن أحد المواضيع الأساسية." },
-    "pathMaster": { "name": "سيد المسار", "description": "أكملت جميع المواضيع الأساسية في مسار تعليمي." },
+    "sourceSeeker": { "name": "باحث عن المصادر", "description": "استكشفت مصادر خارجية قدمها الذكاء الاصطناعي." },
+    "firstTopicConquered": { "name": "تم التغلب على الموضوع الأول", "description": "تعلمت بنجاح عن أحد المواضيع الأساسية." },
+    "pathMaster": { "name": "سيد المسار", "description": "أكملت جميع المواضيع الأساسية في مسار التعلم." },
     "walletConnector": { "name": "رابط المحفظة", "description": "ربطت محفظة بولkadot بالتطبيق." },
     "photoFanatic": { "name": "مهووس بالصور", "description": "قمت بتحميل صورة للملف الشخصي." },
     "badgePioneer": { "name": "رائد الشارات", "description": "طالبت بأول شارة رقمية لك!" },
-    "quizCompleterBasics": { "name": "مكمل اختبار الأساسيات", "description": "أكملت اختبار تشخيص أساسيات البلوك تشين." },
-    "quizCompleterAdvanced": { "name": "مكمل الاختبار المتقدم", "description": "أكملت اختبار تشخيص بولkadot المتقدم." },
+    "quizCompleterBasics": { "name": "مُختَبِر الأساسيات", "description": "أكملت الاختبار التشخيصي لأساسيات البلوك تشين." },
+    "quizCompleterAdvanced": { "name": "مُختَبِر متقدم", "description": "أكملت الاختبار التشخيصي لبولkadot المتقدم." },
     "storyExplorer": { "name": "مستكشف القصص", "description": "غامرت في عالم التعلم القائم على القصص." },
     "quizMaster": { "name": "سيد الاختبارات", "description": "تحديت معرفتك باختبارات تفاعلية." }
   },
   "mustLearn": {
     "blockchainBasics": {
-      "whatIsBlockchain": { "title": "ما هو البلوك تشين؟", "description": "فهم المفهوم الأساسي لدفتر الأستاذ الموزع." },
-      "howBlockchainWorks": { "title": "كيف يعمل البلوك تشين؟", "description": "تعلم عن الكتل والسلاسل والتجزئة المشفرة." },
-      "decentralizationImmutability": { "title": "اللامركزية وعدم القابلية للتغيير", "description": "الخصائص الرئيسية لتقنية البلوك تشين." },
+      "whatIsBlockchain": { "title": "ما هو البلوك تشين؟", "description": "فهم المفهوم الأساسي للسجل الموزع." },
+      "howBlockchainWorks": { "title": "كيف يعمل البلوك تشين؟", "description": "تعرف على الكتل والسلاسل والتجزئة المشفرة." },
+      "decentralizationImmutability": { "title": "اللامركزية والثبات", "description": "الخصائص الرئيسية لتقنية البلوك تشين." },
       "typesOfBlockchains": { "title": "أنواع البلوك تشين", "description": "استكشف البلوك تشين العامة والخاصة والاتحادية." },
       "whatAreCryptocurrencies": { "title": "ما هي العملات المشفرة؟", "description": "مقدمة في العملات الرقمية مثل البيتكوين والإيثر." },
       "smartContractsExplained": { "title": "شرح العقود الذكية", "description": "اكتشف العقود ذاتية التنفيذ بقواعد محددة مسبقًا." },
-      "useCasesBlockchain": { "title": "حالات استخدام البلوك تشين", "description": "تطبيقات العالم الحقيقي خارج نطاق العملات المشفرة." },
+      "useCasesBlockchain": { "title": "حالات استخدام البلوك تشين", "description": "تطبيقات واقعية تتجاوز العملات المشفرة." },
       "getInvolvedBlockchain": { "title": "كيف يمكنني المشاركة في البلوك تشين؟", "description": "استكشف طرق المشاركة في مجال البلوك تشين، مع أمثلة مخصصة لك." },
       "whatIsTrading": { "title": "ما هو التداول وكيف يعمل؟", "description": "استكشف أنواع التداول، مقارنة بين العملات المشفرة والتقليدية، والآليات الأساسية." },
-      "withdrawCryptoCash": { "title": "سحب العملات المشفرة نقدًا", "description": "تعلم طرق الند للند وغيرها، مع توصيات للمنصات." }
+      "withdrawCryptoCash": { "title": "سحب العملات المشفرة إلى نقد", "description": "تعلم طرق الند للند (P2P) وغيرها، مع توصيات للمنصات." }
     },
     "polkadotAdvanced": {
-      "polkadotArchitecture": { "title": "هيكلية بولkadot", "description": "سلسلة الترحيل، السلاسل الجانبية، السلاسل الخيطية، والجسور." },
-      "sharedSecurityModel": { "title": "نموذج الأمن المشترك", "description": "كيف يؤمن بولkadot شبكته من السلاسل الجانبية." },
-      "crossChainCommunication": { "title": "الاتصال عبر السلاسل (XCMP)", "description": "تمكين التشغيل البيني بين سلاسل البلوك تشين المختلفة." },
+      "polkadotArchitecture": { "title": "هيكلية بولkadot", "description": "سلسلة الترحيل، السلاسل الجانبية، السلاسل الجانبية المؤقتة، والجسور." },
+      "sharedSecurityModel": { "title": "نموذج الأمان المشترك", "description": "كيف يؤمن بولkadot شبكته من السلاسل الجانبية." },
+      "crossChainCommunication": { "title": "الاتصال عبر السلاسل (XCMP)", "description": "تمكين قابلية التشغيل البيني بين سلاسل البلوك تشين المختلفة." },
       "polkadotGovernance": { "title": "حوكمة بولkadot", "description": "الخزانة على السلسلة، المجلس، واللجنة الفنية." },
       "substrateFramework": { "title": "إطار عمل Substrate", "description": "إطار عمل معياري لبناء بلوك تشين مخصصة." },
-      "stakingNominationPolkadot": { "title": "التخزين والترشيح (NPoS)", "description": "شارك في أمن الشبكة واكسب مكافآت." },
-      "kusamaCanaryNetwork": { "title": "Kusama: شبكة الكناري لبولkadot", "description": "شبكة بولkadot التجريبية للنشرات المبكرة." },
-      "whatIsJam": { "title": "ما هو JAM (Join-Accumulate Machine)؟", "description": "فهم اقتراح بروتوكول JAM لبولkadot." },
-      "polkadotCareerFuture": { "title": "المسار الوظيفي والمستقبل مع بولkadot", "description": "اكتشف المسارات الوظيفية وفرص المشاركة والفوائد داخل نظام بولkadot البيئي." }
+      "stakingNominationPolkadot": { "title": "التحصيص والترشيح (NPoS)", "description": "شارك في أمان الشبكة واكسب المكافآت." },
+      "kusamaCanaryNetwork": { "title": "كوساما: شبكة كناري لبولkadot", "description": "شبكة بولkadot التجريبية للنشرات المبكرة." },
+      "whatIsJam": { "title": "ما هو JAM (Join-Accumulate Machine)؟", "description": "فهم اقتراح بروتوكول JAM الخاص ببولkadot." },
+      "polkadotCareerFuture": { "title": "المسار المهني والمستقبل في بولkadot", "description": "اكتشف المسارات المهنية وفرص المشاركة والفوائد داخل نظام بولkadot البيئي." }
     }
   }
 }

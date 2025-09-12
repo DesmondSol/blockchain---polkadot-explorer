@@ -43,11 +43,17 @@
       "comingSoonMessage": "Coming soon!"
     }
   },
+  "bountiesModal": {
+    "title": "Bounties & Hackathons",
+    "subtitle": "Explore Opportunities",
+    "description": "Get involved, contribute to the ecosystem, and earn rewards.",
+    "cardTitle": "Polkadot Africa Hackathons",
+    "cardDescription": "Find the latest hackathons and competitions hosted by Polkadot Africa."
+  },
   "resourcesContent": {
     "games": {
       "exiledRacers": { "title": "Exiled Racers", "description": "A futuristic 'drive-to-earn' racing game with a vibrant community and customizable racers in the Polkadot ecosystem." },
       "ajuna": { "title": "Ajuna Network", "description": "A decentralized gaming platform that allows developers to create and integrate blockchain-based games with Unreal and Unity." },
-      "bitCountry": { "title": "Bit.Country", "description": "A platform for user-created metaverses, social spaces, and digital economies, empowering creators with NFTs and virtual real estate." },
       "astar": { "title": "Astar Network", "description": "A leading parachain supporting both EVM and WASM, fostering a rich ecosystem of games and DApps with its dApp staking feature." }
     },
     "wallets": {
@@ -57,10 +63,10 @@
       "subwallet": { "title": "SubWallet", "description": "A comprehensive wallet solution for Polkadot, Substrate, and Ethereum ecosystems, available as a browser extension and mobile app." }
     },
     "dapps": {
-      "acala": { "title": "Acala Network", "description": "A decentralized finance (DeFi) hub offering a suite of financial applications, including a stablecoin, staking, and an AMM DEX." },
+      "hydration": { "title": "Hydration", "description": "A cross-chain liquidity protocol built on Substrate, designed to bring an ocean of liquidity to Polkadot." },
+      "bifrost": { "title": "Bifrost Finance", "description": "A parachain designed for staking liquidity. It allows users to stake cryptocurrencies and receive liquid vTokens in return." },
       "moonbeam": { "title": "Moonbeam", "description": "An Ethereum-compatible smart contract parachain that makes it easy to build or redeploy Solidity projects in a Substrate-based environment." },
-      "hydradx": { "title": "HydraDX", "description": "A cross-chain liquidity protocol built on Substrate, designed to bring an ocean of liquidity to Polkadot." },
-      "bifrost": { "title": "Bifrost Finance", "description": "A parachain designed for staking liquidity. It allows users to stake cryptocurrencies and receive liquid vTokens in return." }
+      "hyperbridge": { "title": "HyperBridge", "description": "A trustless, interoperable bridge connecting Polkadot with other ecosystems." }
     },
     "gov": {
       "polkassembly": { "title": "Polkassembly", "description": "A platform for discussing and voting on governance proposals across the Polkadot and Kusama ecosystems." },
