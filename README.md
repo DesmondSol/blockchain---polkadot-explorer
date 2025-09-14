@@ -381,6 +381,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Built with ❤️ for the Polkadot ecosystem**
 
-[🌐 Live Demo](https://xpolka.vercel.app) | [📧 Contact](mailto:your-email@example.com) | [🐦 Twitter](https://twitter.com/your-handle) | [💬 Discord](https://discord.gg/polkadot)
+[🌐 Live Demo](https://xpolka.vercel.app) | [📧 Contact](mailto:soltig66@gmail.com) | [🐦 Twitter](https://x.com/solomon_t0) | [💬 Discord](https://discord.gg/polkadot)
 
 </div>
